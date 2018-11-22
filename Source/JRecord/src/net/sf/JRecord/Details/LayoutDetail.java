@@ -1183,7 +1183,8 @@ public class LayoutDetail implements IBasicFileSchema, ILayoutDetails4gen {
 		}
 		throw new RecordException("No Field Found: " + b);
 	}
-//	
+
+//
 //	private IFieldDetail checkFld(IFieldDetail fld, IFieldDetail newFld, String fldName) {
 //		if ( fld == null) {
 //			return newFld;

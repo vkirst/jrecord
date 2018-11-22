@@ -1,22 +1,19 @@
 package net.sf.JRecord.zExamples.recordEditorXml.manipulate;
 
-import java.io.ByteArrayInputStream;
-import java.io.FileOutputStream;
-
 import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.CsvParser.ParserManager;
-import net.sf.JRecord.External.CobolCopybookLoader;
-import net.sf.JRecord.External.CopybookLoader;
-import net.sf.JRecord.External.CopybookWriter;
-import net.sf.JRecord.External.CopybookWriterManager;
-import net.sf.JRecord.External.ExternalRecord;
+import net.sf.JRecord.External.*;
 import net.sf.JRecord.External.Def.ExternalField;
+import net.sf.JRecord.External.base.CopybookWriter;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
 import net.sf.JRecord.zTest.Common.TstConstants;
+
+import java.io.ByteArrayInputStream;
+import java.io.FileOutputStream;
 
 
 /**

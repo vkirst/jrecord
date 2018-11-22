@@ -47,6 +47,7 @@ import java.util.List;
 
 import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Common.FieldDetail;
+import net.sf.JRecord.CsvParser.ICsvCharLineParser;
 import net.sf.JRecord.CsvParser.ICsvLineParser;
 import net.sf.JRecord.CsvParser.CsvDefinition;
 import net.sf.JRecord.CsvParser.ParserManager;
@@ -169,9 +170,11 @@ public class ZOldTextLineReader extends AbstractLineReader {
 	    		structure = ts;
 	    	}
 
-	    	delim     = getLayout().getDelimiter();
+//	    	delim     = getLayout().getDelimiter();
+	    	delim     = "";
 	        rec = getLayout().getRecord(0);
-	        quote     = rec.getQuote();
+//	        quote     = rec.getQuote();
+	        quote     = "";
 	        parser    = rec.getRecordStyle();
 
 	        fieldType = Type.ftChar;
@@ -234,7 +237,7 @@ public class ZOldTextLineReader extends AbstractLineReader {
         FieldDetail fldDetail;
 
         if (line != null) {
-        	ICsvLineParser parser = ParserManager.getInstance().get(style);
+        	ICsvCharLineParser parser = ParserManager.getInstance().get(style);
         	List<String> colNames = parser.getColumnNames(line, new CsvDefinition(delimiter, quote));
 
 

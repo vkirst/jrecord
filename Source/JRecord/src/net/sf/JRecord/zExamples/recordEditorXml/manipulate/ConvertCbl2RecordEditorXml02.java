@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.External.CobolCopybookLoader;
 import net.sf.JRecord.External.CopybookLoader;
-import net.sf.JRecord.External.CopybookWriter;
+import net.sf.JRecord.External.base.CopybookWriter;
 import net.sf.JRecord.External.CopybookWriterManager;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.External.Def.ExternalField;
