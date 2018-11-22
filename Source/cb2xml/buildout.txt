@@ -1,0 +1,8 @@
+
+Data_Copy:
+
+compile:
+    [javac] /home/ritt/cobol/jrecord_build/jrecord_fork/Source/cb2xml/build.xml:46: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+
+build:
+      [jar] Building jar: /home/ritt/cobol/jrecord_build/jrecord_fork/Source/cb2xml/lib/cb2xml.jar

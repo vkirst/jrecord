@@ -42,11 +42,6 @@
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
         </dependency>
-        <dependency>
-            <groupId>net.sf</groupId>
-            <artifactId>cb2xml_src</artifactId>
-            <version>0.95.4</version>
-        </dependency>
     </dependencies>
 
     <modules>
@@ -55,6 +50,7 @@
         <module>JRecord_CodeGen</module>
         <module>JRecord_IO_Builder_Examples</module>
         <module>JRecord_Cbl2Xml</module>
+        <module>cb2xml</module>
     </modules>
 
 </project>

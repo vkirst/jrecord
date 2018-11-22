@@ -13,4 +13,12 @@
         <sourceDirectory>src</sourceDirectory>
     </build>
 
+    <dependencies>
+        <dependency>
+            <groupId>net.sf</groupId>
+            <artifactId>cb2xml_src</artifactId>
+            <version>0.95.8</version>
+        </dependency>
+    </dependencies>
+
 </project>
