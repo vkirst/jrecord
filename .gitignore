@@ -1,0 +1,23 @@
+### Gradle ###
+.gradle
+!gradle/wrapper/gradle-wrapper.jar
+gradlew
+gradlew.bat
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*/out
+*.class
+
+### Maven ###
+*/target
+
+### Ant ###
+*/buildout.txt
+*/javadoc.xml
+*/lib
+*/build
+*/buildExample
