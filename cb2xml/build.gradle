@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_10
+targetCompatibility = JavaVersion.VERSION_1_10
+
+ext.versionStr = '0.95.8'
+
+jar() {
+    manifest {
+        attributes 'Implementation-Title': 'cobol to xml lib',
+                'Implementation-Version': versionStr
+    }
+}

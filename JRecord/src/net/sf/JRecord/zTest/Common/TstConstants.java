@@ -73,6 +73,7 @@ public final class TstConstants {
     static {
     	String thisClass = "TstConstants.class";
     	String file = TstConstants.class.getResource( thisClass).getFile();
+		file = file.replace("/target/classes/", "/src/");
     	RE_DIRECTORY = file.substring(0, file.length() - thisClass.length());
 		
 		//
