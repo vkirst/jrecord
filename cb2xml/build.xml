@@ -70,7 +70,7 @@
 	</target>
 
 	<target name="clean" description="clean">
-		<delete dir="${src.dir}/net/sf/cb2xml/sablecc" />
+		<delete dir="/cb2xml/src/main/java/net/sf/cb2xml/sablecc" />
 		<delete file="${cb2xml.jar}" />
 		<delete dir="${build.dir}" />
 		<delete dir="${lib.dir}" />
