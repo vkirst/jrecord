@@ -2,3 +2,4 @@ rootProject.name = 'jrecord'
 
 include 'cb2xml'
 include 'JRecord_Common'
+include 'JRecord'
