@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_10
+targetCompatibility = JavaVersion.VERSION_1_10
+
+dependencies {
+    compile project(':cb2xml')
+}
+
+ext.versionStr = '0.85.1'
+
+jar() {
+    manifest {
+        attributes 'Implementation-Title': 'JRecord common module',
+                'Implementation-Version': versionStr
+    }
+}
