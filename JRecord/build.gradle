@@ -18,18 +18,10 @@ dependencies {
 
 ext.versionStr = '0.85.1'
 
-task fatJar(type: Jar) {
-    manifest {
-        attributes 'Implementation-Title': 'JRecord base module',
-                'Implementation-Version': versionStr
-    }
-    from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
-}
-
 jar() {
     manifest {
         attributes 'Implementation-Title': 'JRecord base module',
                 'Implementation-Version': versionStr
     }
+    from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
 }
