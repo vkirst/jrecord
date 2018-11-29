@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.copy;
+package copy;
 
 import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.External.base.ExternalConversion;

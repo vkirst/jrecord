@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.copy;
+package copy;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -60,16 +60,16 @@ import junit.framework.TestCase;
 public class TstCopy extends TestCase {
 
 	static LineIOProvider ioProvider = LineIOProvider.getInstance();
-	
-	private static final String DTAR020_DATA_FILE_NAME = TestCobol2Csv_1.class.getResource("DTAR020.bin").getFile();  
-	private static final String DTAR020_COPBOOK_FILE_NAME = TestCobol2Csv_1.class.getResource("DTAR020.cbl").getFile();  
-	private static final String DTAR021_COPBOOK_FILE_NAME = TstCopy.class.getResource("DTAR021.cbl").getFile();  
-	private static final String DTAR022_COPBOOK_FILE_NAME = TstCopy.class.getResource("DTAR022.cbl").getFile();  
+
+	private static final ClassLoader classLoader = TstCopy.class.getClassLoader();
+	private static final String DTAR020_DATA_FILE_NAME = classLoader.getResource("DTAR020.bin").getFile();
+	private static final String DTAR020_COPBOOK_FILE_NAME = classLoader.getResource("DTAR020.cbl").getFile();
+	private static final String DTAR021_COPBOOK_FILE_NAME = classLoader.getResource("DTAR021.cbl").getFile();
+	private static final String DTAR022_COPBOOK_FILE_NAME = classLoader.getResource("DTAR022.cbl").getFile();
 	
 	private static final byte[] DTAR020_DATA = loadFile(DTAR020_DATA_FILE_NAME);
-	
-	
-	
+
+
 	public void testCopyFileByMatchingFieldNames1() throws Exception, RecordException {
 	
 		LayoutDetail outSchema = SchemaLoader.loadSchema(

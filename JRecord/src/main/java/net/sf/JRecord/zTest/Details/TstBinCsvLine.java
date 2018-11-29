@@ -35,7 +35,6 @@ import net.sf.JRecord.Details.Line;
 import net.sf.JRecord.External.RecordEditorXmlLoader;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.zTest.Common.TstConstants;
-import net.sf.JRecord.zTest.copy.TstCopy;
 
 /**
  * This class Tests assigning values to a Binary CSV line
