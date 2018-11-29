@@ -32,17 +32,17 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.ByteIO;
-
-import java.io.IOException;
-import java.util.Arrays;
+package ByteIO;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.ByteIO.AbstractByteReader;
-import net.sf.JRecord.ByteIO.VbDumpByteReader;
+import net.sf.JRecord.ByteIO.VbByteReader;
 import net.sf.JRecord.zTest.Common.IO;
 import net.sf.JRecord.zTest.Common.TstConstants;
 import net.sf.JRecord.zTest.Common.TstData;
+
+import java.io.IOException;
+import java.util.Arrays;
 
 /**
  *
@@ -50,19 +50,13 @@ import net.sf.JRecord.zTest.Common.TstData;
  * @author Bruce Martin
  *
  */
-public class TstRecordVbDumpIOReader extends TestCase {
+public class TstRecordVbIOReader extends TestCase {
 
-
-	//private CopybookLoader copybookInt = new CobolCopybookLoader();
 
     private static final String TMP_DIRECTORY = TstConstants.TEMP_DIRECTORY;
-    //private boolean writeFiles = true;
+ 
 
-
-	//private boolean dbUpdated = false;
-
-
-    /**
+	/**
      * @see TestCase#setUp()
      */
     protected void setUp() throws Exception {
@@ -117,15 +111,6 @@ public class TstRecordVbDumpIOReader extends TestCase {
     	testAfile(dtar107FileName, dtar107Lines);
     }
 
-    public void testBinReadFutjisu() throws Exception {
-
-        String copybookName = "xxxx";
-        String dtar107FileName = TMP_DIRECTORY + copybookName + ".tmp";
- 
-    	testAfile(dtar107FileName, TstData.FUTJISU_LINES);
-    }
-
-
     public void testAfile(String fileName, byte[][] lines) throws IOException {
 
         int i, j;
@@ -146,7 +131,7 @@ public class TstRecordVbDumpIOReader extends TestCase {
 
     private void binReadCheck(String id,  String fileName, byte[][] lines2Test)
     throws IOException {
-        AbstractByteReader tReader = new VbDumpByteReader();
+        AbstractByteReader tReader = new VbByteReader();
         byte[] line;
         int i = 0;
         boolean b;
@@ -188,7 +173,7 @@ public class TstRecordVbDumpIOReader extends TestCase {
      */
     private void writeAFile(String name, byte[][] bytes)
     throws IOException  {
-        IO.writeVbDumpFile(name, bytes);
+        IO.writeVbFile(name, bytes);
     }
 
 }

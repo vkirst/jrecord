@@ -32,18 +32,10 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.ByteIO;
+package ByteIO;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.ByteIO.ByteIOProvider;
-import net.sf.JRecord.ByteIO.FixedLengthByteReader;
-import net.sf.JRecord.ByteIO.FixedLengthByteWriter;
-import net.sf.JRecord.ByteIO.FujitsuVbByteReader;
-import net.sf.JRecord.ByteIO.FujitsuVbByteWriter;
-import net.sf.JRecord.ByteIO.VbByteReader;
-import net.sf.JRecord.ByteIO.VbByteWriter;
-import net.sf.JRecord.ByteIO.VbDumpByteReader;
-import net.sf.JRecord.ByteIO.VbDumpByteWriter;
+import net.sf.JRecord.ByteIO.*;
 import net.sf.JRecord.Common.BasicFileSchema;
 import net.sf.JRecord.Common.Constants;
 

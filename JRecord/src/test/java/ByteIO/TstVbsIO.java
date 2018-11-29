@@ -26,15 +26,15 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.ByteIO;
+package ByteIO;
+
+import junit.framework.TestCase;
+import net.sf.JRecord.ByteIO.VbsByteReader;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import net.sf.JRecord.ByteIO.VbsByteReader;
-import junit.framework.TestCase;
 
 /**
  * Testing the Vbs (Variable blocked scanned) byte-reader class

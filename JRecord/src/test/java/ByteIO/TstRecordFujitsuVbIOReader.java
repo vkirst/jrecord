@@ -32,17 +32,17 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.ByteIO;
-
-import java.io.IOException;
-import java.util.Arrays;
+package ByteIO;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.ByteIO.AbstractByteReader;
-import net.sf.JRecord.ByteIO.VbByteReader;
+import net.sf.JRecord.ByteIO.FujitsuVbByteReader;
 import net.sf.JRecord.zTest.Common.IO;
 import net.sf.JRecord.zTest.Common.TstConstants;
 import net.sf.JRecord.zTest.Common.TstData;
+
+import java.io.IOException;
+import java.util.Arrays;
 
 /**
  *
@@ -50,13 +50,19 @@ import net.sf.JRecord.zTest.Common.TstData;
  * @author Bruce Martin
  *
  */
-public class TstRecordVbIOReader extends TestCase {
+public class TstRecordFujitsuVbIOReader extends TestCase {
 
+
+	//private CopybookLoader copybookInt = new CobolCopybookLoader();
 
     private static final String TMP_DIRECTORY = TstConstants.TEMP_DIRECTORY;
- 
+    //private boolean writeFiles = true;
 
-	/**
+
+	//private boolean dbUpdated = false;
+
+
+    /**
      * @see TestCase#setUp()
      */
     protected void setUp() throws Exception {
@@ -94,22 +100,32 @@ public class TstRecordVbIOReader extends TestCase {
 
     public void testBinReadCombined() throws Exception {
 
-        String dtar107CopybookName = "xxxx";
-        String dtar107FileName = TMP_DIRECTORY + dtar107CopybookName + ".tmp";
-    	byte[][] dtar107Lines = new byte[TstData.DTAR020_LINES.length
+        String copybookName = "xxxx";
+        String dtar107FileName = TMP_DIRECTORY + copybookName + ".tmp";
+    	byte[][] lines = new byte[TstData.DTAR020_LINES.length
     	                               + TstData.DTAR107_LINES.length][];
     	int i, j;
 
     	j = 0;
     	for (i = 0; i < TstData.DTAR020_LINES.length; i++) {
-    	    dtar107Lines[j++] = TstData.DTAR020_LINES[i];
+    	    lines[j++] = TstData.DTAR020_LINES[i];
     	}
     	for (i = 0; i < TstData.DTAR107_LINES.length; i++) {
-    	    dtar107Lines[j++] = TstData.DTAR107_LINES[i];
+    	    lines[j++] = TstData.DTAR107_LINES[i];
     	}
 
-    	testAfile(dtar107FileName, dtar107Lines);
+    	testAfile(dtar107FileName, lines);
     }
+
+    public void testBinReadFutjisu() throws Exception {
+
+        String copybookName = "xxxx";
+        String dtar107FileName = TMP_DIRECTORY + copybookName + ".tmp";
+ 
+  
+    	testAfile(dtar107FileName, TstData.FUTJISU_LINES);
+    }
+
 
     public void testAfile(String fileName, byte[][] lines) throws IOException {
 
@@ -131,7 +147,7 @@ public class TstRecordVbIOReader extends TestCase {
 
     private void binReadCheck(String id,  String fileName, byte[][] lines2Test)
     throws IOException {
-        AbstractByteReader tReader = new VbByteReader();
+        AbstractByteReader tReader = new FujitsuVbByteReader();
         byte[] line;
         int i = 0;
         boolean b;
@@ -173,7 +189,7 @@ public class TstRecordVbIOReader extends TestCase {
      */
     private void writeAFile(String name, byte[][] bytes)
     throws IOException  {
-        IO.writeVbFile(name, bytes);
+        IO.writeFujitsuVbFile(name, bytes);
     }
 
 }

@@ -26,14 +26,14 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.ByteIO;
-
-import java.io.IOException;
+package ByteIO;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.ByteIO.FujitsuVbByteReader;
 import net.sf.JRecord.ByteIO.FujitsuVbByteWriter;
 import net.sf.JRecord.zTest.Common.TstConstants;
+
+import java.io.IOException;
 
 
 public class TstFjIO extends TestCase {

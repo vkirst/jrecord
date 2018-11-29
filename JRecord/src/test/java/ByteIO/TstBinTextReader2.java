@@ -26,14 +26,13 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.ByteIO;
+package ByteIO;
+
+import junit.framework.TestCase;
+import net.sf.JRecord.ByteIO.ByteTextReader;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-
-import net.sf.JRecord.ByteIO.ByteTextReader;
-
-import junit.framework.TestCase;
 
 public class TstBinTextReader2 extends TestCase {
 	String[] testData = {

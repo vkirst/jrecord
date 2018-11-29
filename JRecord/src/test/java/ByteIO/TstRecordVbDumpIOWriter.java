@@ -32,10 +32,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.ByteIO;
-
-import java.io.IOException;
-import java.util.Arrays;
+package ByteIO;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.ByteIO.VbDumpByteReader;
@@ -47,6 +44,9 @@ import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.zTest.Common.IO;
 import net.sf.JRecord.zTest.Common.TstConstants;
 import net.sf.JRecord.zTest.Common.TstData;
+
+import java.io.IOException;
+import java.util.Arrays;
 
 /**
  *
@@ -64,8 +64,9 @@ public class TstRecordVbDumpIOWriter extends TestCase {
 
     private static LayoutDetail copyBook = null;
 
-    private final String dtar107CopybookName = "DTAR107";
-    private final String dtar020CopybookName = "DTAR020";
+    private final ClassLoader classLoader = TstRecordVbDumpIOWriter.class.getClassLoader();
+    private final String dtar107CopybookName = "DTAR107.cbl";
+    private final String dtar020CopybookName = "DTAR020.cbl";
     private final String fileName = TMP_DIRECTORY + "VbTestFile.tmp";
 	private final byte[][] dtar020Lines = {
 	        { -10,  -7, -10,  -7, -12, -15, -11,  -8,   2,  12,   0,  64,  17,-116
@@ -99,8 +100,7 @@ public class TstRecordVbDumpIOWriter extends TestCase {
 
     public void testBinWrite1() throws Exception {
         copyBook = 
-                copybookInt.loadCopyBook(
-                        TstConstants.COBOL_DIRECTORY + dtar020CopybookName + ".cbl",
+                copybookInt.loadCopyBook(classLoader.getResource(dtar020CopybookName).getFile(),
                         CopybookLoader.SPLIT_NONE, 0, "cp037",
                         ICopybookDialects.FMT_MAINFRAME, 0, null
                 ).asLayoutDetail();
@@ -111,8 +111,7 @@ public class TstRecordVbDumpIOWriter extends TestCase {
 
     public void testBinWrite2() throws Exception {
         copyBook = 
-                copybookInt.loadCopyBook(
-                        TstConstants.COBOL_DIRECTORY + dtar107CopybookName + ".cbl",
+                copybookInt.loadCopyBook(classLoader.getResource(dtar107CopybookName).getFile(),
                         CopybookLoader.SPLIT_NONE, 0, "cp037",
                         ICopybookDialects.FMT_MAINFRAME, 0, null
                 ).asLayoutDetail();

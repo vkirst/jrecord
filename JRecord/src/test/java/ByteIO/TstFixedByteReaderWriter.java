@@ -26,15 +26,15 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.ByteIO;
+package ByteIO;
+
+import junit.framework.TestCase;
+import net.sf.JRecord.ByteIO.FixedLengthByteReader;
+import net.sf.JRecord.ByteIO.FixedLengthByteWriter;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-
-import net.sf.JRecord.ByteIO.FixedLengthByteReader;
-import net.sf.JRecord.ByteIO.FixedLengthByteWriter;
-import junit.framework.TestCase;
 
 public class TstFixedByteReaderWriter extends TestCase {
 	private static final int WRITE_COUNT = 65;
