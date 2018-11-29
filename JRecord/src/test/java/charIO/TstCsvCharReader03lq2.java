@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.charIO;
+package charIO;
 
 import java.io.IOException;
 
@@ -41,7 +41,7 @@ import junit.framework.TestCase;
  * @author Bruce Martin
  *
  */
-public class TstCsvCharReader03 extends TestCase {
+public class TstCsvCharReader03lq2 extends TestCase {
 
 
 	private static final String[] EOLS = {"\n", "\r", "\r\n"};
@@ -53,29 +53,29 @@ public class TstCsvCharReader03 extends TestCase {
 
 
 	String[][] files01 = {
-			{	"1,2,3",			"4,5,6"},
-			{	"'\\x1',2,3",		"4,5,6"},
-			{	"1,'\\x2',3",		"4,5,6"},
-			{	"1,2,'\\x3'",		"4,5,6"},
-			{	"1,2,'3\\x'",		"4,5,6"},
-			{	"1,'2\\x',3",		"4,5,6"},
-			{	"',\\x1',2,3",		"4,5,6"},
-			{	"1,',\\x2',3",		"4,5,6"},
-			{	"1,2,',\\x3'",		"4,5,6"},
+			{	"1,2,3",				"4,5,6"},
+			{	"'`'`\\x1'`'`,2,3",		"4,5,6"},
+			{	"1,'`'`\\x2'`'`,3",		"4,5,6"},
+			{	"1,2,'`'`\\x3'`'`",		"4,5,6"},
+			{	"1,2,'`'`3\\x'`'`",		"4,5,6"},
+			{	"1,'`'`2\\x'`'`,3",		"4,5,6"},
+			{	"'`'`,\\x1'`'`,2,3",	"4,5,6"},
+			{	"1,'`'`,\\x2'`'`,3",	"4,5,6"},
+			{	"1,2,'`'`,\\x3'`'`",	"4,5,6"},
 	};
 
 	String[][] files02 = {
-			{	"'''\\x1',2,3",		"4,5,6"},
-			{	"1,'''\\x2',3",		"4,5,6"},
-			{	"'''''\\x1',2,3",	"4,5,6"},
-			{	"1,'''''\\x2',3",	"4,5,6"},
-			{	"1,'2''\\x',3",		"4,5,6"},
-			{	"1,''',\\x2',3",	"4,5,6"},
-			{	"1,2,''',\\x3'",	"4,5,6"},
-			{	"',''\\x1',2,3",	"4,5,6"},
-			{	"',\\x1',2,3",		"4,5,6"},
-			{	"1,',''\\x2',3",	"4,5,6"},
-			{	"1,2,',''\\x3'",	"4,5,6"},
+			{	"'`'`'`'`'`'`\\x1'`'`,2,3",		"4,5,6"},
+			{	"1,'`'`'`'`'`'`\\x2'`'`,3",		"4,5,6"},
+			{	"'`'`'`'`'`'`'`'`'`'`\\x1'`'`,2,3",	"4,5,6"},
+			{	"1,'`'`'`'`'`'`'`'`'`'`\\x2'`'`,3",	"4,5,6"},
+			{	"1,'`'`2'`'`'`'`\\x'`'`,3",		"4,5,6"},
+			{	"1,'`'`'`'`'`'`,\\x2'`'`,3",	"4,5,6"},
+			{	"1,2,'`'`'`'`'`'`,\\x3'`'`",	"4,5,6"},
+			{	"'`'`,'`'`'`'`\\x1'`'`,2,3",	"4,5,6"},
+			{	"'`'`,\\x1'`'`,2,3",			"4,5,6"},
+			{	"1,'`'`,'`'`'`'`\\x2'`'`,3",	"4,5,6"},
+			{	"1,2,'`'`,'`'`'`'`\\x3'`'`",	"4,5,6"},
 	};
 
 	public void test01() throws IOException {
@@ -86,10 +86,10 @@ public class TstCsvCharReader03 extends TestCase {
 					for (int l = 0; l < files01.length; l++) {
 						String rest = i + ", " + j + ", " + CHARSETS[k] + ", " + l;
 						tstFile("01a " + rest,
-								new CsvCharReader(",", "'", null, false),
+								new CsvCharReader(",", "'`'`", null, false),
 								EOLS[i], EOLS[j], CHARSETS[k], files01[l]);
 						tstFile("01b " + rest,
-								new CsvCharReader(",", "'", "''", false),
+								new CsvCharReader(",", "'`'`", "'`'`'`'`", false),
 								EOLS[i], EOLS[j], CHARSETS[k], files01[l]);
 					}
 				}
@@ -109,7 +109,7 @@ public class TstCsvCharReader03 extends TestCase {
 							System.out.println();
 							System.out.println("  ---------------------------- ");
 							tstFile("02) " + rest,
-									new CsvCharReader(",", "'", "''", false),
+									new CsvCharReader(",", "'`'`", "'`'`'`'`", false),
 									EOLS[i], EOLS[j], CHARSETS[k], files02[l]);
 						}
 					}
@@ -129,10 +129,10 @@ public class TstCsvCharReader03 extends TestCase {
 					.toString();
 		}
 		ff[f.length] = "88,99,11";
-		ff[f.length + 1] = "'" + eol1 + "88',99,11";
-		ff[f.length + 2] = "'00" + eol1 + "',99,11";
-		ff[f.length + 3] = "'" + eol2 + "88a',99,11";
-		ff[f.length + 4] = "'00a" + eol2 + "',99,11";
+		ff[f.length + 1] = "'`'`" + eol1 + "88'`'`,99,11";
+		ff[f.length + 2] = "'`'`00" + eol1 + "'`'`,99,11";
+		ff[f.length + 3] = "'`'`" + eol2 + "88a'`'`,99,11";
+		ff[f.length + 4] = "'`'`00a" + eol2 + "'`'`,99,11";
 
 		r.open(TestCommonCode.arrayToStream(ff, eol2, charset), charset);
 

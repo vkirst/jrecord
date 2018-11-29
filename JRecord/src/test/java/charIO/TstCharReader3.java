@@ -29,7 +29,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.charIO;
+package charIO;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
