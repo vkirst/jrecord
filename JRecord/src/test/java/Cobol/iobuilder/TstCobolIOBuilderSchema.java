@@ -197,7 +197,7 @@ public class TstCobolIOBuilderSchema extends TestCase {
 	}
 	
 	private void tstFileBldrLongLine(TstData data) throws RecordException, IOException {
-		String copybookFileName = this.getClass().getResource("BldrTstLongLine.cbl").getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource("BldrTstLongLine.cbl").getFile();
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance().newIOBuilder(copybookFileName, data.dialect);
 		tstFileBldrLongLine(data, ioBuilder);
 		
@@ -222,7 +222,7 @@ public class TstCobolIOBuilderSchema extends TestCase {
 		data.copybookFileFormat = hold;
 	}
 	private void tstFileBldr(TstData data) throws RecordException, IOException {
-		String copybookFileName = this.getClass().getResource("BldrTst.cbl").getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource("BldrTst.cbl").getFile();
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance().newIOBuilder(copybookFileName, data.dialect);
 		tstBldr(ioBuilder, data);
 		
@@ -231,7 +231,7 @@ public class TstCobolIOBuilderSchema extends TestCase {
 	}
 
 	private void tstFileBldrStream(TstData data) throws RecordException, IOException {
-		String copybookFileName = this.getClass().getResource("BldrTst.cbl").getFile(); 
+		String copybookFileName = this.getClass().getClassLoader().getResource("BldrTst.cbl").getFile();
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance().newIOBuilder(new FileInputStream(copybookFileName), "BldrTst", data.dialect);
 		tstBldr(ioBuilder, data);
 		

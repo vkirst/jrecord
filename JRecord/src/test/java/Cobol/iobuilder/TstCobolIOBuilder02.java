@@ -50,8 +50,8 @@ public class TstCobolIOBuilder02 extends TestCase {
 
  //   private static final String[] JAVA_TYPE_NAME = new String[Type.LAST_SYSTEM_TYPE];
 
-    private static final String COPYBOOK_NAME = TstConstants.COBOL_DIRECTORY + "Numeric.cbl";
-    private static final String RIGHTJUST_COPYBOOK = TstConstants.COBOL_DIRECTORY + "RightJust.cbl";
+    private static final String COPYBOOK_NAME = "Numeric.cbl";
+    private static final String RIGHTJUST_COPYBOOK = "RightJust.cbl";
 
     
 	private static final String[] FONTS = {
@@ -133,7 +133,8 @@ public class TstCobolIOBuilder02 extends TestCase {
 
 	public void testRightJustified() throws IOException {
 		CommonCodeFields.check(	
-				JRecordInterface1.COBOL.newIOBuilder(RIGHTJUST_COPYBOOK),
+				JRecordInterface1.COBOL.newIOBuilder(
+						TstCobolIOBuilder02.class.getClassLoader().getResource(RIGHTJUST_COPYBOOK).getFile()),
 				new CommonCodeFields.CblBldrOptions(ICopybookDialects.FMT_MAINFRAME, Constants.IO_FIXED_LENGTH, false, ""),
 				RIGHT_JUST_FIELDS,
 				"Right-Just"
@@ -257,12 +258,14 @@ public class TstCobolIOBuilder02 extends TestCase {
 	}
 	
 	private static ICobolIOBuilder getFileIOBuilder() {
-		return JRecordInterface1.COBOL.newIOBuilder(COPYBOOK_NAME);
+		return JRecordInterface1.COBOL.newIOBuilder(TstCobolIOBuilder02.class.getClassLoader().getResource(COPYBOOK_NAME).getFile());
 	}
 	
 	private static ICobolIOBuilder getStreamIOBuilder() throws FileNotFoundException {
 		if (streamIoBuilder == null) {
-			streamIoBuilder = JRecordInterface1.COBOL.newIOBuilder(new FileInputStream(COPYBOOK_NAME), Conversion.getCopyBookId(COPYBOOK_NAME));
+			streamIoBuilder = JRecordInterface1.COBOL.newIOBuilder(
+					new FileInputStream(TstCobolIOBuilder02.class.getClassLoader().getResource(COPYBOOK_NAME).getFile()),
+					Conversion.getCopyBookId(COPYBOOK_NAME));
 		}
 		return streamIoBuilder;
 	}
@@ -270,7 +273,9 @@ public class TstCobolIOBuilder02 extends TestCase {
 
 	private static ICobolIOBuilder getReaderIOBuilder() throws FileNotFoundException {
 		if (readerIoBuilder == null) {
-			readerIoBuilder = JRecordInterface1.COBOL.newIOBuilder(new FileReader(COPYBOOK_NAME), Conversion.getCopyBookId(COPYBOOK_NAME));
+			readerIoBuilder = JRecordInterface1.COBOL.newIOBuilder(
+					new FileReader(TstCobolIOBuilder02.class.getClassLoader().getResource(COPYBOOK_NAME).getFile()),
+					Conversion.getCopyBookId(COPYBOOK_NAME));
 		}
 		return readerIoBuilder;
 	}

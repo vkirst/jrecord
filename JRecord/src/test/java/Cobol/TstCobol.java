@@ -129,8 +129,8 @@ public class TstCobol extends TestCase {
 	private void checkFile(int structure, String dir, String copybook, String fileName, int binFormat, boolean positive, int st) throws Exception {
 //		String fname = TstConstants.COBOL_TEST_DIR + dir + fileName;
 //		String lname = TstConstants.COBOL_COPBOOK_DIR + dir + copybook;
-		String fname = TstConstants.COBOL_TEST_DIR + fileName;
-		String lname = TstConstants.COBOL_DIRECTORY2 + copybook;
+		String fname = this.getClass().getClassLoader().getResource(fileName).getFile();
+		String lname = this.getClass().getClassLoader().getResource(copybook).getFile();
 		
 
 		BigDecimal refVal, cmp;

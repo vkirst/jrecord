@@ -107,7 +107,7 @@ public class TstSetStartingPosition extends TestCase {
 	 * @throws IOException
 	 */
 	private void checkFileIOBuilder(int pos) throws IOException {
-		String filename1 = TstSetStartingPosition.class.getResource(RECORD_A_CBL).getFile();
+		String filename1 = TstSetStartingPosition.class.getClassLoader().getResource(RECORD_A_CBL).getFile();
 		ICobolMultiCopybookIOBuilder iob = JRecordInterface1.COBOL
 				.newMultiCopybookIOBuilder("MultiCopybook")
 					.setDialect(ICopybookDialects.FMT_MAINFRAME)
@@ -177,8 +177,8 @@ public class TstSetStartingPosition extends TestCase {
 	 * @throws IOException
 	 */
 	public void testFieldBuildUsingFile() throws IOException {
-		String filename1 = TstSetStartingPosition.class.getResource(VARIABLE_SECTION_CBL).getFile();
-		String filename2 = TstSetStartingPosition.class.getResource(RECORD_A_CBL).getFile();
+		String filename1 = TstSetStartingPosition.class.getClassLoader().getResource(VARIABLE_SECTION_CBL).getFile();
+		String filename2 = TstSetStartingPosition.class.getClassLoader().getResource(RECORD_A_CBL).getFile();
 		ICobolMultiCopybookIOBuilder iob = JRecordInterface1.COBOL
 				.newMultiCopybookIOBuilder("MultiCopybook")
 					.setDialect(ICopybookDialects.FMT_MAINFRAME)

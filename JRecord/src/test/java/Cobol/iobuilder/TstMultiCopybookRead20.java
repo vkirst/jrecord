@@ -90,7 +90,7 @@ public class TstMultiCopybookRead20 extends TestCase {
      */
     private ICobolIOBuilder loadRecordDefinition() throws Exception{
     	
-    	String copyFileName2 = this.getClass().getResource("MultiRecordTest10.cbl").getFile();
+    	String copyFileName2 = this.getClass().getClassLoader().getResource("MultiRecordTest10.cbl").getFile();
  
     	ICobolMultiCopybookIOBuilder IOBldr = JRecordInterface1.COBOL
     				.newMultiCopybookIOBuilder("MultiRecordTest")
@@ -105,7 +105,7 @@ public class TstMultiCopybookRead20 extends TestCase {
      */
     private ICobolIOBuilder loadRecordDefinition2() throws Exception{
     	
-    	String copyFileName2 = this.getClass().getResource("MultiRecordTest10.cbl").getFile();
+    	String copyFileName2 = this.getClass().getClassLoader().getResource("MultiRecordTest10.cbl").getFile();
  
     	ICobolIOBuilder IOBldr = JRecordInterface1.COBOL
     			.newMultiCopybookIOBuilder("MultiRecordTest")

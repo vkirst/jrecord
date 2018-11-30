@@ -209,7 +209,7 @@ public class TstCobolIoBuilderIO extends TestCase {
 										.newIOBuilder(new ByteArrayInputStream(COPBOOK_BYTES), "DTAR020")
 											.setFileOrganization(Constants.IO_FIXED_LENGTH)
 											.setFont("CP037");
-		String dataFile = this.getClass().getResource("DTAR020_tst1.bin").getFile();
+		String dataFile = this.getClass().getClassLoader().getResource("DTAR020_tst1.bin").getFile();
 		tstReader(ioBuilder.newReader(dataFile));
 		tstReader(ioBuilder.newReader(new FileInputStream(dataFile)));
 	}
@@ -223,7 +223,7 @@ public class TstCobolIoBuilderIO extends TestCase {
 										.newIOBuilder(new ByteArrayInputStream(COPBOOK_BYTES), "DTAR020")
 											.setFileOrganization(Constants.IO_FIXED_LENGTH)
 											.setFont("CP037");
-		String dataFile = this.getClass().getResource("DTAR020_tst1.bin").getFile();
+		String dataFile = this.getClass().getClassLoader().getResource("DTAR020_tst1.bin").getFile();
 		tstReader(ioBuilder.newReader(dataFile));
 		tstReader(ioBuilder.newReader(new FileInputStream(dataFile)));
 	}

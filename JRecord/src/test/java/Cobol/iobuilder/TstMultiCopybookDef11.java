@@ -83,7 +83,7 @@ public class TstMultiCopybookDef11 extends TestCase  {
     private ICobolIOBuilder loadRecordDefinition1() throws Exception{
     	
 //    	String copyFileName1 = this.getClass().getResource(RECORD_A_CBL).getFile();
-    	String copyFileName2 = this.getClass().getResource(MULTI_RECORD_TEST_CBL).getFile();
+    	String copyFileName2 = this.getClass().getClassLoader().getResource(MULTI_RECORD_TEST_CBL).getFile();
  //   	String copyFileName3 = this.getClass().getResource(RECORD_B_CBL).getFile();
  
     	ICobolIOBuilder IOBldr = JRecordInterface1.COBOL
@@ -139,7 +139,7 @@ public class TstMultiCopybookDef11 extends TestCase  {
     private static byte[] getBytes(String filename) {
     	
     	try {
-        	String filename1 = TstMultiCopybookRead03.class.getResource(filename).getFile();
+        	String filename1 = TstMultiCopybookRead03.class.getClassLoader().getResource(filename).getFile();
 			FileInputStream inStream = new FileInputStream(filename1);
 			ByteArrayOutputStream os = new ByteArrayOutputStream(0x8000);
 			byte[] buf = new byte[0x8000];

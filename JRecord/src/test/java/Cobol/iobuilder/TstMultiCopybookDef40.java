@@ -91,10 +91,10 @@ public class TstMultiCopybookDef40 extends TestCase  {
      */
     private ICobolMultiCopybookIOBuilder loadRecordDefinition1() throws Exception{
     	
-    	String copyFileName1 = this.getClass().getResource(RECORD_A_CBL).getFile();
-    	String copyFileName2 = this.getClass().getResource(MULTI_RECORD_TEST_CBL).getFile();
-    	String copyFileName3 = this.getClass().getResource(RECORD_B_CBL).getFile();
-       	String copyFileName5 = this.getClass().getResource(MULTI_RECORD_TEST_05_CBL).getFile();
+    	String copyFileName1 = this.getClass().getClassLoader().getResource(RECORD_A_CBL).getFile();
+    	String copyFileName2 = this.getClass().getClassLoader().getResource(MULTI_RECORD_TEST_CBL).getFile();
+    	String copyFileName3 = this.getClass().getClassLoader().getResource(RECORD_B_CBL).getFile();
+       	String copyFileName5 = this.getClass().getClassLoader().getResource(MULTI_RECORD_TEST_05_CBL).getFile();
  
     	ICobolMultiCopybookIOBuilder IOBldr = JRecordInterface1.COBOL
     				.newMultiCopybookIOBuilder("MultiRecordTest")
@@ -134,7 +134,7 @@ public class TstMultiCopybookDef40 extends TestCase  {
      * @throws Exception
      */
     private ICobolIOBuilder loadRecordDefinition2() throws Exception{
-       	String copyFileName4 = this.getClass().getResource(MULTI_RECORD_TEST_04_CBL).getFile();
+       	String copyFileName4 = this.getClass().getClassLoader().getResource(MULTI_RECORD_TEST_04_CBL).getFile();
 
        	ICobolMultiCopybookIOBuilder IOBldr = JRecordInterface1.COBOL
 				.newMultiCopybookIOBuilder("MultiRecordTest")
@@ -179,7 +179,7 @@ public class TstMultiCopybookDef40 extends TestCase  {
     private static byte[] getBytes(String filename) {
     	
     	try {
-        	String filename1 = TstMultiCopybookRead03.class.getResource(filename).getFile();
+        	String filename1 = TstMultiCopybookRead03.class.getClassLoader().getResource(filename).getFile();
 			FileInputStream inStream = new FileInputStream(filename1);
 			ByteArrayOutputStream os = new ByteArrayOutputStream(0x8000);
 			byte[] buf = new byte[0x8000];

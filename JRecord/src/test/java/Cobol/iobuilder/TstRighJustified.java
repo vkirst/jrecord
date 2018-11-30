@@ -15,11 +15,12 @@ import junit.framework.TestCase;
  *
  */
 public class TstRighJustified extends TestCase {
-    private static final String RIGHTJUST_COPYBOOK = TstConstants.COBOL_DIRECTORY + "RightJust.cbl";
+    private static final String RIGHTJUST_COPYBOOK = "RightJust.cbl";
 
     public void testRightJustified() throws IOException {
     	String str = "abcdefghij";
-    	ICobolIOBuilder iob = JRecordInterface1.COBOL.newIOBuilder(RIGHTJUST_COPYBOOK);
+    	ICobolIOBuilder iob = JRecordInterface1.COBOL.newIOBuilder(
+    			this.getClass().getClassLoader().getResource(RIGHTJUST_COPYBOOK).getFile());
     	AbstractLine line = iob.newLine();
     	
     	for (int i = 0; i <= str.length(); i++) {

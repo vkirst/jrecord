@@ -57,7 +57,6 @@ import org.junit.experimental.categories.Category;
  *
  */
 
-@Category(SlowTests.class)
 public class TstOD03 {
 
 	private static final int IOBUILDER_COUNT = 5;

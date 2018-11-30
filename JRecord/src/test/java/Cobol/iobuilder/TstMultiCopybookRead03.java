@@ -113,7 +113,7 @@ public class TstMultiCopybookRead03 extends TestCase {
     private static byte[] getBytes(String filename) {
     	
     	try {
-        	String filename1 = TstMultiCopybookRead03.class.getResource(filename).getFile();
+        	String filename1 = TstMultiCopybookRead03.class.getClassLoader().getResource(filename).getFile();
 			FileInputStream inStream = new FileInputStream(filename1);
 			ByteArrayOutputStream os = new ByteArrayOutputStream(0x8000);
 			byte[] buf = new byte[0x8000];
