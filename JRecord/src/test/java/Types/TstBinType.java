@@ -7,24 +7,24 @@
 /*  -------------------------------------------------------------------------
  *
  *                Project: JRecord
- *    
- *    Sub-Project purpose: Provide support for reading Cobol-Data files 
+ *
+ *    Sub-Project purpose: Provide support for reading Cobol-Data files
  *                        using a Cobol Copybook in Java.
  *                         Support for reading Fixed Width / Binary / Csv files
  *                        using a Xml schema.
  *                         General Fixed Width / Csv file processing in Java.
- *    
+ *
  *                 Author: Bruce Martin
- *    
+ *
  *                License: LGPL 2.1 or latter
- *                
+ *
  *    Copyright (c) 2016, Bruce Martin, All Rights Reserved.
- *   
+ *
  *    This library is free software; you can redistribute it and/or
  *    modify it under the terms of the GNU Lesser General Public
  *    License as published by the Free Software Foundation; either
  *    version 2.1 of the License, or (at your option) any later version.
- *   
+ *
  *    This library is distributed in the hope that it will be useful,
  *    but WITHOUT ANY WARRANTY; without even the implied warranty of
  *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -32,7 +32,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.Types;
+package Types;
 
 
 import junit.framework.TestCase;
@@ -43,30 +43,27 @@ import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
 
 /**
- *
- *
  * @author Bruce Martin
- *
  */
 public class TstBinType extends TestCase {
 
 
-    private  byte[] rec1 =
-		    { 97, 115, 100, 102, 32, 32, 32, 32, 32, 32, 32
-		    	, 32, 32, 32, 113, 119, 101, 114, 116, 121, 0, 0
-		    	, 0, 1, 35, 2, 43, -121, 22, -39, 78, 94, 64
-		    	, -49, 87, 104, 67, 51, 52, 53, 54, 32, 32, 32
-		    	, 32, 32, 32, 32, 32, 32, 49, 50, 51, 48, 48
-		    	, 48, 48, 48, 52, 53, 54, 21, 3, 0, 0, 48
-		    	, 48, 48, 49, 50, 51, 52, 53, 48, 48, 32, 32
-		    	, 32, 32, 32, 50, 51, 46, 54, 55, 0, 0, 0
-		    	, 69, 103, 57, 48, 0, 0, 50, 51, 52, 46, 53
-		    	, 54, 0, 0, 1, 65, 23, -41, -124, 0, 127, 24
-		    	, 121, 0, -54, -102, 59, 0, 0, -118, 93, 120, 69
-		    	, 99, 1, 121, 24, 1, 99, 69, 120, 93, -118, 0
-		    	, 0, 1, 35, 79, 1, 35, 15, 49, 75, 48, 48
-		    	, 49, 75, -128, -127, -125, 0, 0};
-    	
+    private byte[] rec1 =
+            {97, 115, 100, 102, 32, 32, 32, 32, 32, 32, 32
+                    , 32, 32, 32, 113, 119, 101, 114, 116, 121, 0, 0
+                    , 0, 1, 35, 2, 43, -121, 22, -39, 78, 94, 64
+                    , -49, 87, 104, 67, 51, 52, 53, 54, 32, 32, 32
+                    , 32, 32, 32, 32, 32, 32, 49, 50, 51, 48, 48
+                    , 48, 48, 48, 52, 53, 54, 21, 3, 0, 0, 48
+                    , 48, 48, 49, 50, 51, 52, 53, 48, 48, 32, 32
+                    , 32, 32, 32, 50, 51, 46, 54, 55, 0, 0, 0
+                    , 69, 103, 57, 48, 0, 0, 50, 51, 52, 46, 53
+                    , 54, 0, 0, 1, 65, 23, -41, -124, 0, 127, 24
+                    , 121, 0, -54, -102, 59, 0, 0, -118, 93, 120, 69
+                    , 99, 1, 121, 24, 1, 99, 69, 120, 93, -118, 0
+                    , 0, 1, 35, 79, 1, 35, 15, 49, 75, 48, 48
+                    , 49, 75, -128, -127, -125, 0, 0};
+
 //    		{  97, 115, 100, 102,  32,  32,  32,  32,  32,  32,  32
 //            ,  32,  32,  32, 113, 119, 101, 114, 116, 121,   0,   0
 //            ,   0,   1,  35,  64,  94,  78, -39,  22,-121,  43,   2
@@ -83,21 +80,21 @@ public class TstBinType extends TestCase {
 //            ,  49,  75,-128,-127,-125,   0,   0 };
 
     private static byte[] rec2 =
-	    	{ 97, 115, 100, 102, 32, 32, 32, 32, 32, 32, 32
-	    	, 32, 32, 32, 113, 119, 101, 114, 116, 121, 0, 0
-	    	, 0, 2, 51, 2, 43, -121, 22, -39, 78, 94, -64
-	    	, -49, 87, 104, -61, 45, 51, 52, 53, 54, 32, 32
-	    	, 32, 32, 32, 32, 32, 45, 49, 50, 51, 45, 48
-	    	, 48, 48, 48, 52, 53, 54, -110, -13, 1, 0, 45
-	    	, 48, 48, 49, 50, 51, 52, 53, 48, 48, 32, 32
-	    	, 32, 32, 45, 50, 51, 46, 54, 55, 1, 35, 69
-	    	, 103, 0, -103, 72, 35, 0, 45, 51, 52, 46, 53
-	    	, 54, -1, -1, 43, -49, -24, 40, 124, 0, -128, -24
-	    	, -122, 0, 54, 101, -60, 0, 0, 118, -94, -121, -70
-	    	, -100, -2, -122, -24, -2, -100, -70, -121, -94, 118, 0
-	    	, 0, 18, 52, 93, 18, 52, 13, 49, 50, 49, 50
-	    	, 49, 50, -64, -63, -125, 0, 0, 13, 10};    	
-    	
+            {97, 115, 100, 102, 32, 32, 32, 32, 32, 32, 32
+                    , 32, 32, 32, 113, 119, 101, 114, 116, 121, 0, 0
+                    , 0, 2, 51, 2, 43, -121, 22, -39, 78, 94, -64
+                    , -49, 87, 104, -61, 45, 51, 52, 53, 54, 32, 32
+                    , 32, 32, 32, 32, 32, 45, 49, 50, 51, 45, 48
+                    , 48, 48, 48, 52, 53, 54, -110, -13, 1, 0, 45
+                    , 48, 48, 49, 50, 51, 52, 53, 48, 48, 32, 32
+                    , 32, 32, 45, 50, 51, 46, 54, 55, 1, 35, 69
+                    , 103, 0, -103, 72, 35, 0, 45, 51, 52, 46, 53
+                    , 54, -1, -1, 43, -49, -24, 40, 124, 0, -128, -24
+                    , -122, 0, 54, 101, -60, 0, 0, 118, -94, -121, -70
+                    , -100, -2, -122, -24, -2, -100, -70, -121, -94, 118, 0
+                    , 0, 18, 52, 93, 18, 52, 13, 49, 50, 49, 50
+                    , 49, 50, -64, -63, -125, 0, 0, 13, 10};
+
 //    	{  97, 115, 100, 102,  32,  32,  32,  32,  32,  32,  32
 //        ,  32,  32,  32, 113, 119, 101, 114, 116, 121,   0,   0
 //        ,   0,   2,  51, -64,  94,  78, -39,  22,-121,  43,   2
@@ -117,9 +114,8 @@ public class TstBinType extends TestCase {
 
 
     private static byte[] recDtar020 =
-    { -10,  -7, -10,  -7, -12, -15, -11,  -8,   2,  12,   0,  64,  17,-116
-        ,  40,  12,   0,   0,   0,   0,  28,   0,   0,   0,   0,  80,  28 };
-
+            {-10, -7, -10, -7, -12, -15, -11, -8, 2, 12, 0, 64, 17, -116
+                    , 40, 12, 0, 0, 0, 0, 28, 0, 0, 0, 0, 80, 28};
 
 
     private TypeManager typeManager = new TypeManager();
@@ -140,34 +136,34 @@ public class TstBinType extends TestCase {
     protected void setUp() throws Exception {
         super.setUp();
 
-        fldChar				    = getType(1,   10, 0, 0);
-        fldCharRightJust		= getType(11,  10, 1, 0);
-        fldDecimal				= getType(21,  5, 11, 0);
-        fldDouble				= getType(26,  8, 18, 0);
-        fldFloat				= getType(34,  4, 17, 0);
-        fldNum					= getType(38,  8,  5, 0);
-        fldNumRightJust			= getType(46,  8,  6, 0);
-        fldNumZeroPadded		= getType(54,  8,  7, 0);
-        fldPostiveInt			= getType(62,  4, 16, 0);
-        fldAssummedDecimal		= getType(66,  10, 8, 4);
-        fldNum2decimal			= getType(76,  10, 6, 2);
-        fldDecimal2digits		= getType(86,  5, 11, 2);
-        fldPositiveInt2digit	= getType(91,  4, 16, 2);
-        fldNum2decimal1			= getType(95,  6,  5, 2);
-        fldMainframeInt			= getType(101, 4, 35, 0);
-        fldMainframeInt2decimal	= getType(105, 4, 35, 2);
-        fldByte					= getType(109, 1, 15, 0);
-        fldSmallInt				= getType(110, 2, 15, 0);
-        fldInt					= getType(112, 4, 15, 0);
-        fldLong					= getType(116, 8, 15, 0);
-        fldMainframeSmallInt	= getType(124, 2, 35, 0);
-        fldMainframeLong		= getType(126, 8, 35, 0);
-        fldMainframePackedDecimal	= getType(134, 3, 31, 0);
-        fldMainframePackedwithDecimal	= getType(137, 3, 31, 1);
-        fldZoned				= getType(140, 2, 32, 0);
-        fldZonedWithDecimal		= getType(142, 4, 32, 2);
-        fldBit1					= getType(146, 1, 21, 0);
-        fldBit2					= getType(147, 2, 21, 0);
+        fldChar = getType(1, 10, 0, 0);
+        fldCharRightJust = getType(11, 10, 1, 0);
+        fldDecimal = getType(21, 5, 11, 0);
+        fldDouble = getType(26, 8, 18, 0);
+        fldFloat = getType(34, 4, 17, 0);
+        fldNum = getType(38, 8, 5, 0);
+        fldNumRightJust = getType(46, 8, 6, 0);
+        fldNumZeroPadded = getType(54, 8, 7, 0);
+        fldPostiveInt = getType(62, 4, 16, 0);
+        fldAssummedDecimal = getType(66, 10, 8, 4);
+        fldNum2decimal = getType(76, 10, 6, 2);
+        fldDecimal2digits = getType(86, 5, 11, 2);
+        fldPositiveInt2digit = getType(91, 4, 16, 2);
+        fldNum2decimal1 = getType(95, 6, 5, 2);
+        fldMainframeInt = getType(101, 4, 35, 0);
+        fldMainframeInt2decimal = getType(105, 4, 35, 2);
+        fldByte = getType(109, 1, 15, 0);
+        fldSmallInt = getType(110, 2, 15, 0);
+        fldInt = getType(112, 4, 15, 0);
+        fldLong = getType(116, 8, 15, 0);
+        fldMainframeSmallInt = getType(124, 2, 35, 0);
+        fldMainframeLong = getType(126, 8, 35, 0);
+        fldMainframePackedDecimal = getType(134, 3, 31, 0);
+        fldMainframePackedwithDecimal = getType(137, 3, 31, 1);
+        fldZoned = getType(140, 2, 32, 0);
+        fldZonedWithDecimal = getType(142, 4, 32, 2);
+        fldBit1 = getType(146, 1, 21, 0);
+        fldBit2 = getType(147, 2, 21, 0);
 
         //    copyBook = copybookInt.getGroup(copyBookName);
 
@@ -194,7 +190,6 @@ public class TstBinType extends TestCase {
 
         return field;
     }
-
 
 
     private FieldDetail getTypeMainframe(int pos, int len, int type, int decimal) {
@@ -302,16 +297,13 @@ public class TstBinType extends TestCase {
 
     /**
      * Get field value
+     *
      * @param fld field definition
      * @return value of the field
      */
     private String getFldValue(FieldDetail fld) {
         return typeManager.getType(fld.getType()).getField(rec, fld.getPos(), fld).toString();
     }
-
-
-
-
 
 
     /**
@@ -321,35 +313,35 @@ public class TstBinType extends TestCase {
      */
     public void testSetField() throws RecordException {
 
-        checkAssignment(" 3 setField - Decimal Field ",   fldDecimal, "456");
-        checkAssignment(" 4 setField - Double Field ",    fldDouble, "989.878");
-        checkAssignment(" 5 setField - Float  Field ",    fldFloat, "898.343");
-        checkAssignmentText(" 6 setField - Num  Field ",      fldNum, "7475", "7475");
-        checkAssignmentText(" 7 setField - Num Right Just",   fldNumRightJust, "876", "     876");
+        checkAssignment(" 3 setField - Decimal Field ", fldDecimal, "456");
+        checkAssignment(" 4 setField - Double Field ", fldDouble, "989.878");
+        checkAssignment(" 5 setField - Float  Field ", fldFloat, "898.343");
+        checkAssignmentText(" 6 setField - Num  Field ", fldNum, "7475", "7475");
+        checkAssignmentText(" 7 setField - Num Right Just", fldNumRightJust, "876", "     876");
         checkAssignmentText(" 8 setField - Num Zero Padded Field ", fldNumZeroPadded,
                 "876", "00000876");
-        checkAssignmentHex(" 9 setField - Postive Int ",       fldPostiveInt, "987", "db030000");
-        checkAssignmentText("10 setField - Assumed Decimal ",  fldAssummedDecimal,
+        checkAssignmentHex(" 9 setField - Postive Int ", fldPostiveInt, "987", "db030000");
+        checkAssignmentText("10 setField - Assumed Decimal ", fldAssummedDecimal,
                 "767.4500", "0007674500");
         checkAssignmentText("10a setField - Assumed Decimal ", fldAssummedDecimal,
                 "0.0127", "0000000127");
-        checkAssignmentText1("11 setField - Num 2 Decimal ",  fldNum2decimal, "45.67", "45" + Conversion.getDecimalchar() + "67");
+        checkAssignmentText1("11 setField - Num 2 Decimal ", fldNum2decimal, "45.67", "45" + Conversion.getDecimalchar() + "67");
         checkAssignmentText1("11a setField - Num 2 Decimal ", fldNum2decimal, "0.67", "0" + Conversion.getDecimalchar() + "67");
-        
+
         // TODO Localisation !!!!!
         //checkAssignmentText("11b setField - Num 2 Decimal ",  fldNum2decimal, "45" + Conversion.decimalChar + "67", "45" + Conversion.decimalChar + "67");
         //checkAssignmentText("11c setField - Num 2 Decimal ", fldNum2decimal, "0" + Conversion.decimalChar + "67", "      0.67");
-        
-        
-        checkAssignmentHex("12 setField - Decimal ",        fldDecimal2digits,
+
+
+        checkAssignmentHex("12 setField - Decimal ", fldDecimal2digits,
                 "67.67", "0000006767");
-        checkAssignmentHex("12a setField - Decimal ",       fldDecimal2digits,
+        checkAssignmentHex("12a setField - Decimal ", fldDecimal2digits,
                 "0.67", "0000000067");
-        checkAssignmentHex("13 setField - Positive Int ",   fldPositiveInt2digit,
+        checkAssignmentHex("13 setField - Positive Int ", fldPositiveInt2digit,
                 "765.45", "012b0100");
-        checkAssignmentHex("13a setField - Positive Int ",  fldPositiveInt2digit,
+        checkAssignmentHex("13a setField - Positive Int ", fldPositiveInt2digit,
                 "0.45", "2d000000");
-        checkAssignmentHex("13 setField - Positive Int ",   fldPositiveInt2digit,
+        checkAssignmentHex("13 setField - Positive Int ", fldPositiveInt2digit,
                 "20000000.00", "00943577");
 
         checkAssignmentText("14 setField - Num 2 Decimal Digits ",
@@ -395,10 +387,10 @@ public class TstBinType extends TestCase {
         checkAssignmentHex("28a setField - Bit 2byte ", fldBit2, "100101010101", "0955");
 
 
-        checkAssignment(" 4n setField - Double Field ",    fldDouble, "-989.878");
-        checkAssignment(" 5n setField - Float  Field ",    fldFloat, "-898.343");
-        checkAssignmentText(" 6n setField - Num  Field ",      fldNum, "-7475", "-7475");
-        checkAssignmentText(" 7n setField - Num Right Just",   fldNumRightJust, "-876", "    -876");
+        checkAssignment(" 4n setField - Double Field ", fldDouble, "-989.878");
+        checkAssignment(" 5n setField - Float  Field ", fldFloat, "-898.343");
+        checkAssignmentText(" 6n setField - Num  Field ", fldNum, "-7475", "-7475");
+        checkAssignmentText(" 7n setField - Num Right Just", fldNumRightJust, "-876", "    -876");
         checkAssignmentText(" 8n setField - Num Zero Padded Field ",
                 fldNumZeroPadded, "-876", "-0000876");
 
@@ -435,10 +427,10 @@ public class TstBinType extends TestCase {
         checkAssignmentText("26n1 setField - Mainframe Zoned with decimal",
                 fldZonedWithDecimal, "-23.45", "234N");
 
-        checkAssignment(" 4n1 setField - Double Field ",    fldDouble, "-989.878");
-        checkAssignment(" 5n1 setField - Float  Field ",    fldFloat, "-898.343");
-        checkAssignment(" 6n1 setField - Num  Field ",      fldNum, "-7475");
-        checkAssignment(" 7n1 setField - Num Right Just",   fldNumRightJust, "-876");
+        checkAssignment(" 4n1 setField - Double Field ", fldDouble, "-989.878");
+        checkAssignment(" 5n1 setField - Float  Field ", fldFloat, "-898.343");
+        checkAssignment(" 6n1 setField - Num  Field ", fldNum, "-7475");
+        checkAssignment(" 7n1 setField - Num Right Just", fldNumRightJust, "-876");
         checkAssignment(" 8n1 setField - Num Zero Padded Field ", fldNumZeroPadded, "-876");
 
         checkAssignmentText("10n1 setField - Assumed Decimal ",
@@ -484,8 +476,8 @@ public class TstBinType extends TestCase {
         for (i = 0; i < 10; i++) {
             s = Integer.toString(num + i);
 
-            checkAssignment("Zoned Error on " + i, fldZoned,  s);
-            checkAssignment("Zoned Error on -" + i, fldZoned,  "-" + s);
+            checkAssignment("Zoned Error on " + i, fldZoned, s);
+            checkAssignment("Zoned Error on -" + i, fldZoned, "-" + s);
 
             setFldValue(fldZoned, "+" + s);
             t = getFldValue(fldZoned);
@@ -504,8 +496,8 @@ public class TstBinType extends TestCase {
         for (i = 0; i < 10; i++) {
             s = "1.2" + i;
 
-            checkAssignment("Zoned Error on " + i, fldZonedWithDecimal,  s);
-            checkAssignment("Zoned Error on -" + i, fldZonedWithDecimal,  "-" + s);
+            checkAssignment("Zoned Error on " + i, fldZonedWithDecimal, s);
+            checkAssignment("Zoned Error on -" + i, fldZonedWithDecimal, "-" + s);
 
             setFldValue(fldZonedWithDecimal, "+" + s);
             t = getFldValue(fldZonedWithDecimal);
@@ -521,11 +513,10 @@ public class TstBinType extends TestCase {
      * @param msg Error Message
      * @param fld Field Definition to assign a value to
      * @param val value to assign
-     *
      * @throws RecordException any conversion error
      */
-    private void checkAssignment(String msg, FieldDetail fld,  String val)
-    					throws RecordException {
+    private void checkAssignment(String msg, FieldDetail fld, String val)
+            throws RecordException {
 
         String s;
         setFldValue(fld, val);
@@ -537,15 +528,14 @@ public class TstBinType extends TestCase {
     /**
      * Checks assignment to a numeric field
      *
-     * @param msg Error Message
-     * @param fld Field to assign a value to
-     * @param val value to assign
+     * @param msg    Error Message
+     * @param fld    Field to assign a value to
+     * @param val    value to assign
      * @param hexVal expected hex value
-     *
      * @throws RecordException any conversion error
      */
-    private void checkAssignmentHex(String msg, FieldDetail fld,  String val, String hexVal)
-    					throws RecordException {
+    private void checkAssignmentHex(String msg, FieldDetail fld, String val, String hexVal)
+            throws RecordException {
 
         String s;
         setFldValue(fld, val);
@@ -563,9 +553,9 @@ public class TstBinType extends TestCase {
     }
 
 
-
     /**
      * Set Fields value
+     *
      * @param fld field definition
      * @param val value to assign
      * @throws RecordException any error that occurs
@@ -578,15 +568,14 @@ public class TstBinType extends TestCase {
     /**
      * Checks assignment to a fields
      *
-     * @param msg Error Message
-     * @param fld Field Definition to assign a value to
-     * @param val value to assign
+     * @param msg  Error Message
+     * @param fld  Field Definition to assign a value to
+     * @param val  value to assign
      * @param text expected hex value
-     *
      * @throws RecordException any conversion error
-       */
-    private void checkAssignmentText(String msg, FieldDetail fld,  String val, String text)
-	throws RecordException {
+     */
+    private void checkAssignmentText(String msg, FieldDetail fld, String val, String text)
+            throws RecordException {
 
         String s;
         setFldValue(fld, val);
@@ -596,31 +585,30 @@ public class TstBinType extends TestCase {
         //assertEquals(msg + " hex check " + s + " <> " + text, text, s);
         if (!s.equals(text)) {
             System.out.println("==> " + msg + " " + fldNum + " " + val
-                + " " + getFldValue(fld) + " >" + s + "< !" + text + "!");
-         }
+                    + " " + getFldValue(fld) + " >" + s + "< !" + text + "!");
+        }
 
         s = getFldValue(fld);
         assertEquals(msg + " " + s + " <> " + val, val, s);
     }
 
-    private void checkAssignmentText1(String msg, FieldDetail fld,  String val, String text)
-    		throws RecordException {
+    private void checkAssignmentText1(String msg, FieldDetail fld, String val, String text)
+            throws RecordException {
 
-    	        String s;
-    	        setFldValue(fld, val);
+        String s;
+        setFldValue(fld, val);
 
-    	        s = typeManager.getType(Type.ftChar).getField(rec, fld.getPos(), fld).toString();
+        s = typeManager.getType(Type.ftChar).getField(rec, fld.getPos(), fld).toString();
 
-    	        //assertEquals(msg + " hex check " + s + " <> " + text, text, s);
-    	        if (!s.equals(text)) {
-    	            System.out.println("==> " + msg + " " + fldNum + " " + val
-    	                + " " + getFldValue(fld) + " >" + s + "< !" + text + "!");
-    	         }
+        //assertEquals(msg + " hex check " + s + " <> " + text, text, s);
+        if (!s.equals(text)) {
+            System.out.println("==> " + msg + " " + fldNum + " " + val
+                    + " " + getFldValue(fld) + " >" + s + "< !" + text + "!");
+        }
 
-    	        s = getFldValue(fld);
-    	        assertEquals(msg + " " + s + " <> " + val, text, s);
-    	    }
-
+        s = getFldValue(fld);
+        assertEquals(msg + " " + s + " <> " + val, text, s);
+    }
 
 
     /**
@@ -628,25 +616,25 @@ public class TstBinType extends TestCase {
      */
     public void testSetFieldConversion() {
 
-        checkConversionError(" 2 setField - Decimal Field ",   fldDecimal);
-        checkConversionError(" 3 setField - Double Field ",    fldDouble);
-        checkConversionError(" 4 setField - Float  Field ",    fldFloat);
-        checkConversionError(" 5 setField - Num  Field ",      fldNum);
-        checkConversionError(" 5 setField - Num Right Just",   fldNumRightJust);
+        checkConversionError(" 2 setField - Decimal Field ", fldDecimal);
+        checkConversionError(" 3 setField - Double Field ", fldDouble);
+        checkConversionError(" 4 setField - Float  Field ", fldFloat);
+        checkConversionError(" 5 setField - Num  Field ", fldNum);
+        checkConversionError(" 5 setField - Num Right Just", fldNumRightJust);
         checkConversionError(" 7 setField - Num Zero Padded Field ", fldNumZeroPadded);
-        checkConversionError(" 8 setField - Postive Int ",     fldPostiveInt);
+        checkConversionError(" 8 setField - Postive Int ", fldPostiveInt);
         checkConversionError(" 9 setField - Assumed Decimal ", fldAssummedDecimal);
-        checkConversionError("10 setField - Num 2 Decimal ",   fldNum2decimal);
-        checkConversionError("11 setField - Decimal ",         fldDecimal2digits);
-        checkConversionError("12 setField - Positive Int ",    fldPositiveInt2digit);
+        checkConversionError("10 setField - Num 2 Decimal ", fldNum2decimal);
+        checkConversionError("11 setField - Decimal ", fldDecimal2digits);
+        checkConversionError("12 setField - Positive Int ", fldPositiveInt2digit);
         checkSizeError("12 setField - Positive Int ~ assign negative ",
                 fldPositiveInt2digit, "-5");
 
         checkConversionError("13 setField - Num 2 Decimal Digits ", fldNum2decimal);
-        checkConversionError("14 setField - Mainframe Binary ",     fldMainframeInt);
+        checkConversionError("14 setField - Mainframe Binary ", fldMainframeInt);
         checkConversionError("14 setField - Num 2 Decimal Digits ", fldNum2decimal);
         checkConversionError("14a setField - Num 2 Decimal Digits", fldNum2decimal);
-        checkConversionError("15 setField - Mainframe Binary ",     fldMainframeInt);
+        checkConversionError("15 setField - Mainframe Binary ", fldMainframeInt);
 
         checkConversionError("16 setField - Mainframe Binary with Decimal",
                 fldMainframeInt2decimal);
@@ -678,17 +666,17 @@ public class TstBinType extends TestCase {
      */
     public void testSetFieldSizeError() {
 
-        checkSizeError(" 2 setField - Decimal Field ",   fldDecimal, "12345678901");
-        checkSizeError(" 5 setField - Num  Field ",     fldNum			, "123456789");
-        checkSizeError(" 5 setField - Num Right Just",  fldNumRightJust		, "123456789");
+        checkSizeError(" 2 setField - Decimal Field ", fldDecimal, "12345678901");
+        checkSizeError(" 5 setField - Num  Field ", fldNum, "123456789");
+        checkSizeError(" 5 setField - Num Right Just", fldNumRightJust, "123456789");
         checkSizeError(" 7 setField - Num Zero Padded Field ",
-                fldNumZeroPadded	, "123456789");
-        checkSizeError(" 8 setField - Postive Int ",    fldPostiveInt		, "5000000000");
-        checkSizeError(" 9 setField - Assumed Decimal ", fldAssummedDecimal	, "7654321");
-        checkSizeError("10 setField - Num 2 Decimal ",  fldNum2decimal		, "987654321");
-        checkSizeError("11 setField - Decimal ",        fldDecimal2digits	, "987654321");
-        checkSizeError("12 setField - Positive Int ",   fldPositiveInt2digit	, "50000000");
-        checkSizeError("13 setField - Num 2 Decimal Digits ", fldNum2decimal1		, "54356");
+                fldNumZeroPadded, "123456789");
+        checkSizeError(" 8 setField - Postive Int ", fldPostiveInt, "5000000000");
+        checkSizeError(" 9 setField - Assumed Decimal ", fldAssummedDecimal, "7654321");
+        checkSizeError("10 setField - Num 2 Decimal ", fldNum2decimal, "987654321");
+        checkSizeError("11 setField - Decimal ", fldDecimal2digits, "987654321");
+        checkSizeError("12 setField - Positive Int ", fldPositiveInt2digit, "50000000");
+        checkSizeError("13 setField - Num 2 Decimal Digits ", fldNum2decimal1, "54356");
         checkSizeError("14 setField - Mainframe Binary ",
                 fldMainframeInt2decimal, "5000000000");
 
@@ -717,13 +705,12 @@ public class TstBinType extends TestCase {
     }
 
 
-
     /**
      * Test setting a field with a value that is to long
      *
-     * @param fld field definition to use
+     * @param fld   field definition to use
      * @param value value to assign to the supplied field
-     * @param msg error message to use if size error is not thrown
+     * @param msg   error message to use if size error is not thrown
      */
     private void checkSizeError(String msg, FieldDetail fld, String value) {
 
@@ -751,8 +738,8 @@ public class TstBinType extends TestCase {
     /**
      * Test setting a field to an invalid value
      *
-     * @param msg error message to use if size error is not thrown
-     * @param fld field definition to use
+     * @param msg   error message to use if size error is not thrown
+     * @param fld   field definition to use
      * @param value value to test
      */
     private void checkConversionError(String msg, FieldDetail fld, String value) {
@@ -766,10 +753,8 @@ public class TstBinType extends TestCase {
     }
 
 
-
     /**
      * Check retrieving Mainframe Field etc
-     *
      */
     public void testMainframe() {
         String expected = "69694158";
