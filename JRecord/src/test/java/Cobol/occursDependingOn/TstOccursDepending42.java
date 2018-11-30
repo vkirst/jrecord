@@ -93,7 +93,7 @@ public class TstOccursDepending42 extends TestCase {
 
 
 	private  void tstPositionStore1(String copybookFile)  throws IOException, RecordException {
-		String copybookFileName = WriteSampleFile.class.getResource(copybookFile).getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource(copybookFile).getFile();
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(copybookFileName, ICopybookDialects.FMT_MAINFRAME);
 		tstPositionStore(ioBuilder);
@@ -102,7 +102,7 @@ public class TstOccursDepending42 extends TestCase {
 
 
 	private  void tstPositionStore2(String copybookFile)  throws IOException, RecordException {
-		String copybookFileName = WriteSampleFile.class.getResource(copybookFile).getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource(copybookFile).getFile();
 		ICobolIOBuilder ioBuilder = JRecordInterface1.COBOL
 				.newIOBuilder(copybookFileName).setDialect(ICopybookDialects.FMT_MAINFRAME);
 		tstPositionStore(ioBuilder);
@@ -134,14 +134,14 @@ public class TstOccursDepending42 extends TestCase {
 	
 	
 	private  void tstPositionRegion1(String copybookFile)  throws IOException, RecordException {
-		String copybookFileName = WriteSampleFile.class.getResource(copybookFile).getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource(copybookFile).getFile();
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(copybookFileName, ICopybookDialects.FMT_MAINFRAME);
 		tstPositionRegion(ioBuilder);
 	}
 
 	private  void tstPositionRegion2(String copybookFile)  throws IOException, RecordException {
-		String copybookFileName = WriteSampleFile.class.getResource(copybookFile).getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource(copybookFile).getFile();
 		ICobolIOBuilder ioBuilder = JRecordInterface1.COBOL
 				.newIOBuilder(copybookFileName).setDialect(ICopybookDialects.FMT_MAINFRAME);
 		tstPositionRegion(ioBuilder);

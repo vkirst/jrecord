@@ -40,45 +40,54 @@ import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import junit.framework.TestCase;
+import org.junit.Test;
 
-public class TstReadingWriting extends TestCase {
-	
+public class TstReadingWriting {
+
+	@Test
 	public void test01()  throws IOException, RecordException {
 		tst("OccursDepending1.cbl", Constants.IO_STANDARD_TEXT_FILE);
 	}
 	
+	@Test
 	public void test02()  throws IOException, RecordException {
 		tst("OccursDepending1.cbl", Constants.IO_VB);
 	}
 	
+	@Test
 	public void test03()  throws IOException, RecordException {
 		tst("OccursDepending1.cbl", Constants.IO_STANDARD_UNICODE_TEXT_FILE);
 	}
 	
+	@Test
 	public void test04()  throws IOException, RecordException {
 		tst("OccursDepending2.cbl", Constants.IO_STANDARD_TEXT_FILE);
 	}
 	
+	@Test
 	public void test05()  throws IOException, RecordException {
 		tst("OccursDepending2.cbl", Constants.IO_VB_FUJITSU);
 	}
 	
+	@Test
 	public void test06()  throws IOException, RecordException {
 		tstSales("OccursDepending3.cbl", Constants.IO_VB, true);
 	}
 
 	
+	@Test
 	public void test07()  throws IOException, RecordException {
 		tstSales("OccursDepending4.cbl", Constants.IO_VB, true);
 	}
 	
 	
+	@Test
 	public void test08()  throws IOException, RecordException {
 		tstSales("OccursDepending5.cbl", Constants.IO_VB_GNU_COBOL, false);
 	}
 	
 	private void tst(String copybook, int fileOrg) throws IOException, RecordException {
-		String copybookFileName = WriteSampleFile.class.getResource(copybook).getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource(copybook).getFile();
 		
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(copybookFileName, ICopybookDialects.FMT_MAINFRAME)
@@ -106,7 +115,7 @@ public class TstReadingWriting extends TestCase {
 	
 	
 	private void tstSales(String copybook, int fileOrg, boolean hasValue) throws IOException, RecordException {
-		String copybookFileName = WriteSampleFile.class.getResource(copybook).getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource(copybook).getFile();
 		
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(copybookFileName, ICopybookDialects.FMT_MAINFRAME)

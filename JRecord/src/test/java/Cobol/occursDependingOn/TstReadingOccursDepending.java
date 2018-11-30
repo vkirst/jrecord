@@ -50,8 +50,8 @@ public class TstReadingOccursDepending extends TestCase {
 
 	
 	private void tst(int io) throws IOException, RecordException {
-		String copybookFileName = WriteSampleFile.class.getResource("OccursDepending1.cbl").getFile();
-		String fileName = WriteSampleFile.class.getResource("OccursDependingOn.txt").getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource("OccursDepending1.cbl").getFile();
+		String fileName = this.getClass().getClassLoader().getResource("OccursDependingOn.txt").getFile();
 		
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(copybookFileName, ICopybookDialects.FMT_MAINFRAME)

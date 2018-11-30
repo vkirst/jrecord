@@ -41,12 +41,18 @@ import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTests;
 
-public class TstOccursDepending28 extends TestCase {
+@Category(SlowTests.class)
+public class TstOccursDepending28 {
 
 	private static final String MONTHS = "months";
 	private static final String WEEK_NO = "week-no";
 
+	@Test
 	public void testPositionCalc1() throws Exception {
 		try {
 			tstPosition("OccursDependingOn28.cbl");
@@ -59,7 +65,7 @@ public class TstOccursDepending28 extends TestCase {
 
 	
 	private  void tstPosition(String copybookFile)  throws IOException, RecordException {
-		String copybookFileName = WriteSampleFile.class.getResource(copybookFile).getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource(copybookFile).getFile();
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(copybookFileName, ICopybookDialects.FMT_MAINFRAME)
 					.setFileOrganization(Constants.IO_STANDARD_TEXT_FILE);
@@ -169,7 +175,7 @@ public class TstOccursDepending28 extends TestCase {
 		int calculatedPosition = fld.calculateActualPosition(line);
 		if (pos != calculatedPosition) {
 			//calculatedPosition = fld.calculateActualPosition(line);
-			assertEquals(fld.getName(), pos, calculatedPosition);
+			Assert.assertEquals(fld.getName(), pos, calculatedPosition);
 		}
 		
 		return Code.check(fieldList, line, fld, calculatedPosition);
