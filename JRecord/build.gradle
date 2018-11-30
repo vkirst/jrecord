@@ -27,3 +27,16 @@ jar() {
     }
     from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
 }
+
+test {
+    useJUnit {
+        excludeCategories 'testCategories.SlowTests'
+    }
+}
+
+task slowTest(type: Test) {
+    group 'verification'
+    useJUnit {
+        includeCategories 'testCategories.SlowTests'
+    }
+}
