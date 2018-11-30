@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.detailsSelection;
+package detailsSelection;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

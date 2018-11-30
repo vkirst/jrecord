@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.detailsSelection;
+package detailsSelection;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.Common.FieldDetail;

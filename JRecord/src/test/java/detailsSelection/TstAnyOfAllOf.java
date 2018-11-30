@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.detailsSelection;
+package detailsSelection;
 
 import java.util.ArrayList;
 import java.util.List;
