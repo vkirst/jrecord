@@ -65,7 +65,7 @@ public class TstOccursDepending25 extends TestCase {
 
 	
 	private  void tstPosition(String copybookFile)  throws IOException, RecordException {
-		String copybookFileName = WriteSampleFile.class.getResource(copybookFile).getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource(copybookFile).getFile();
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(copybookFileName, ICopybookDialects.FMT_MAINFRAME)
 					.setFileOrganization(Constants.IO_STANDARD_TEXT_FILE);

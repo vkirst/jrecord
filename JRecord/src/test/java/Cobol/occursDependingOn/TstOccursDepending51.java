@@ -12,7 +12,7 @@ import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 public class TstOccursDepending51 extends TestCase {
 
 	public void test01() throws IOException {
-		String copybookFileName = WriteSampleFile.class.getResource("OccursDependingOn51.cbl").getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource("OccursDependingOn51.cbl").getFile();
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(copybookFileName, ICopybookDialects.FMT_MAINFRAME);
 		LayoutDetail l = ioBuilder.getLayout();
@@ -23,7 +23,7 @@ public class TstOccursDepending51 extends TestCase {
 	}
 	
 	public void test02() throws IOException {
-		String copybookFileName = WriteSampleFile.class.getResource("OccursDependingOn52.cbl").getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource("OccursDependingOn52.cbl").getFile();
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(copybookFileName, ICopybookDialects.FMT_MAINFRAME);
 		LayoutDetail l = ioBuilder.getLayout();

@@ -41,18 +41,23 @@ import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTests;
 
 /**
  * Test Occurs depending on with one nested occurs !!!
  * @author Bruce Martin
  *
  */
-public class TstOccursDepending23 extends TestCase {
+@Category(SlowTests.class)
+public class TstOccursDepending23 {
 
 //	private static final String MONTHS = "months";
 //	private static final String WEEK_NO = "week-no";
 	
-
+	@Test
 	public void testPositionCalc1() throws Exception {
 		try {
 			tstPosition("OccursDependingOn23.cbl");
@@ -65,7 +70,7 @@ public class TstOccursDepending23 extends TestCase {
 
 	
 	private  void tstPosition(String copybookFile)  throws IOException, RecordException {
-		String copybookFileName = WriteSampleFile.class.getResource(copybookFile).getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource(copybookFile).getFile();
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(copybookFileName, ICopybookDialects.FMT_MAINFRAME)
 					.setFileOrganization(Constants.IO_STANDARD_TEXT_FILE);
@@ -127,8 +132,8 @@ public class TstOccursDepending23 extends TestCase {
 				pos = check(l, line, layout.getFieldFromName("daily-value (" + i + ", " + w + ")"), pos);
 			}
 			for (int w = week; w < 5; w++) {
-				assertFalse(line.getFieldValue("daily-sales (" + i + ", " + w + ")").isFieldInRecord());
-				assertFalse(line.getFieldValue("daily-value (" + i + ", " + w + ")").isFieldInRecord());
+				Assert.assertFalse(line.getFieldValue("daily-sales (" + i + ", " + w + ")").isFieldInRecord());
+				Assert.assertFalse(line.getFieldValue("daily-value (" + i + ", " + w + ")").isFieldInRecord());
 			}
 			pos = check(l, line, countFld, pos);
 			pos = check(l, line, valueFld, pos);
@@ -136,8 +141,8 @@ public class TstOccursDepending23 extends TestCase {
 		
 		for (int i = salesCount; i< 12; i++) {
 			for (int w = 0; w < 5; w++) {
-				assertFalse(line.getFieldValue("daily-sales (" + i + ", " + w + ")").isFieldInRecord());
-				assertFalse(line.getFieldValue("daily-value (" + i + ", " + w + ")").isFieldInRecord());
+				Assert.assertFalse(line.getFieldValue("daily-sales (" + i + ", " + w + ")").isFieldInRecord());
+				Assert.assertFalse(line.getFieldValue("daily-value (" + i + ", " + w + ")").isFieldInRecord());
 			}
 		}
 
@@ -161,8 +166,8 @@ public class TstOccursDepending23 extends TestCase {
 		for (int i = purchaseCount; i < 52; i++) {
 			for (int w = 0; w < 5; w++) {
 				String id = purchaseCount + ": " + i +", " + w;
-				assertFalse(id, line.getFieldValue("daily-purch-count (" + i + ", " + w + ")").isFieldInRecord());
-				assertFalse(id, line.getFieldValue("daily-purch-value (" + i + ", " + w + ")").isFieldInRecord());
+				Assert.assertFalse(id, line.getFieldValue("daily-purch-count (" + i + ", " + w + ")").isFieldInRecord());
+				Assert.assertFalse(id, line.getFieldValue("daily-purch-value (" + i + ", " + w + ")").isFieldInRecord());
 			}
 		}
 
@@ -212,7 +217,7 @@ public class TstOccursDepending23 extends TestCase {
 		int calculatedPosition = fld.calculateActualPosition(line);
 		if (pos != calculatedPosition) {
 			//calculatedPosition = fld.calculateActualPosition(line);
-			assertEquals(fld.getName(), pos, calculatedPosition);
+			Assert.assertEquals(fld.getName(), pos, calculatedPosition);
 		}
 		
 		return Code.check(fieldList, line, fld, calculatedPosition);

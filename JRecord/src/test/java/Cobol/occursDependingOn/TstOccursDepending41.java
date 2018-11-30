@@ -41,6 +41,10 @@ import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTests;
 
 /**
  * Test Occurs depending in the shared header in a 
@@ -49,11 +53,12 @@ import junit.framework.TestCase;
  * @author Bruce Martin
  *
  */
-public class TstOccursDepending41 extends TestCase {
+public class TstOccursDepending41 {
 
 	private static final String MONTHS = "months";
 	private static final String WEEK_NO = "week-no";
 
+	@Test
 	public void testPositionCalc1() throws Exception {
 		try {
 			tstPosition("OccursDependingOn41.cbl");
@@ -66,7 +71,7 @@ public class TstOccursDepending41 extends TestCase {
 
 	
 	private  void tstPosition(String copybookFile)  throws IOException, RecordException {
-		String copybookFileName = WriteSampleFile.class.getResource(copybookFile).getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource(copybookFile).getFile();
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(copybookFileName, ICopybookDialects.FMT_MAINFRAME)
 					.setFileOrganization(Constants.IO_STANDARD_TEXT_FILE)
@@ -129,10 +134,10 @@ public class TstOccursDepending41 extends TestCase {
 		int calculatedPosition = fld.calculateActualPosition(line);
 		if (pos != calculatedPosition) {
 			calculatedPosition = fld.calculateActualPosition(line);
-			assertEquals(id, pos, calculatedPosition);
+			Assert.assertEquals(id, pos, calculatedPosition);
 		}
 		int end = pos + fld.getLen() - 1;
-		assertEquals(id, end, fld.calculateActualEnd(line));
+		Assert.assertEquals(id, end, fld.calculateActualEnd(line));
 		
 		if (WEEK_NO.equalsIgnoreCase(fld.getName()) || MONTHS.equalsIgnoreCase(fld.getName())) {
 			
@@ -150,12 +155,12 @@ public class TstOccursDepending41 extends TestCase {
 		fieldValue.set(value);
 		if (fieldValue.isNumeric()) {
 			if (fld.getDecimal() == 0) {
-				assertEquals(value, fieldValue.asInt());
+				Assert.assertEquals(value, fieldValue.asInt());
 			} else {
-				assertEquals(Integer.toString(value) + ".00", fieldValue.asString());
+				Assert.assertEquals(Integer.toString(value) + ".00", fieldValue.asString());
 			}
 		} else {
-			assertEquals(Integer.toString(value), fieldValue.asString());
+			Assert.assertEquals(Integer.toString(value), fieldValue.asString());
 		}
 	}
 

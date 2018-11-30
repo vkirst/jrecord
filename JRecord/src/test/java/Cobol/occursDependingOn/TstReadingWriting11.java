@@ -54,7 +54,7 @@ public class TstReadingWriting11 extends TestCase {
 	}
 	
 	private void tst(String copybook, int fileOrg, boolean sep) throws IOException, RecordException {
-		String copybookFileName = WriteSampleFile.class.getResource(copybook).getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource(copybook).getFile();
 		
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(copybookFileName, ICopybookDialects.FMT_MAINFRAME)

@@ -50,7 +50,7 @@ public class TstOccursDepending61 extends TestCase {
 	};
 	
 	public void testUpdate() throws IOException {
-		String copybookFileName = WriteOD61.class.getResource("OccursDependingOn61.cbl").getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource("OccursDependingOn61.cbl").getFile();
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(copybookFileName, ICopybookDialects.FMT_MAINFRAME);
 		AbstractLine line;
@@ -76,7 +76,7 @@ public class TstOccursDepending61 extends TestCase {
 	
 
 	public void testCheck() throws IOException {
-		String copybookFileName = WriteOD61.class.getResource("OccursDependingOn61.cbl").getFile();
+		String copybookFileName = this.getClass().getClassLoader().getResource("OccursDependingOn61.cbl").getFile();
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(copybookFileName, ICopybookDialects.FMT_MAINFRAME);
 		AbstractLine line;
