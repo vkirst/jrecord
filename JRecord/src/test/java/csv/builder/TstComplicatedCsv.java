@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.csv.iobuilder;
+package csv.builder;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

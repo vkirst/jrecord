@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.csv.iobuilder;
+package csv.builder;
 
 import net.sf.JRecord.JRecordInterface1;
 import net.sf.JRecord.External.ExternalRecord;

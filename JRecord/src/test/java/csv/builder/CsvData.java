@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.csv.iobuilder;
+package csv.builder;
 
 import net.sf.JRecord.Common.CommonBits;
 import net.sf.JRecord.Common.Conversion;
