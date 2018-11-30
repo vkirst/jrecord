@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.log;
+package log;
 
 import net.sf.JRecord.Log.AppendableLog;
 import junit.framework.TestCase;
