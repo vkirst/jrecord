@@ -53,6 +53,7 @@ public class TstOccursDepending21 extends TestCase {
 
 	private static final String MONTHS = "months";
 	private static final String WEEK_NO = "week-no";
+	private final ClassLoader classLoader = TstOccursDepending21.class.getClassLoader();
 
 	public void testPositionCalc1() throws Exception {
 		try {
@@ -75,7 +76,7 @@ public class TstOccursDepending21 extends TestCase {
 	
 	
 	private  void tstPosition1(String copybookFile)  throws IOException, RecordException {
-		String copybookFileName = WriteSampleFile.class.getResource(copybookFile).getFile();
+		String copybookFileName = classLoader.getResource(copybookFile).getFile();
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(copybookFileName, ICopybookDialects.FMT_MAINFRAME);
 		tstPosition(copybookFile, ioBuilder);
@@ -85,7 +86,7 @@ public class TstOccursDepending21 extends TestCase {
 
 	
 	private  void tstPosition2(String copybookFile)  throws IOException, RecordException {
-		String copybookFileName = WriteSampleFile.class.getResource(copybookFile).getFile();
+		String copybookFileName = classLoader.getResource(copybookFile).getFile();
 		ICobolIOBuilder ioBuilder = JRecordInterface1.COBOL
 				.newIOBuilder(copybookFileName).setDialect(ICopybookDialects.FMT_MAINFRAME);
 		tstPosition(copybookFile, ioBuilder);
