@@ -1,0 +1,8 @@
+ext.versionStr = '0.85.1'
+
+jar() {
+    manifest {
+        attributes 'Implementation-Title': 'JRecord cbl2csv module',
+                'Implementation-Version': versionStr
+    }
+}
