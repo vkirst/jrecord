@@ -54,8 +54,6 @@ import net.sf.JRecord.zTest.Common.CommonCodeFields;
 import net.sf.JRecord.zTest.Common.IO;
 import net.sf.JRecord.zTest.Common.TstConstants;
 import org.junit.After;
-import org.junit.Assert;
-import org.junit.Test;
 
 /**
  * Testing RecordEditorCSVReader/Writer classes
@@ -63,7 +61,7 @@ import org.junit.Test;
  * @author Bruce Martin
  *
  */
-public class TstRecordEditCsvParser {
+public class TstRecordEditCsvParser extends TestCase {
 
 //	private final String csvDdirectory = "/home/bm/Work/RecordEditor/CsvCopybooks/";
 //	private final String csvDirectory1 = "/home/bm/Work/RecordEditor/CsvCopybooks/Output/";
@@ -73,7 +71,7 @@ public class TstRecordEditCsvParser {
 	private final String poHeaderFileName = "poDtl_Header.Txt";
 	private final String    poSkuFileName = "poDtl_Sku.Txt";
 
-	private final String       poFileNameO = "poDtl.Txt";
+	private final String       poFileNameO= TstConstants.CSV_DIRECTORY_OUTPUT + "poDtl.Txt";
 
 	
 	private String eol    = "\n";
@@ -127,7 +125,6 @@ public class TstRecordEditCsvParser {
 			CommonCodeFields.createField("Product Name", 101, 50, 0, Type.ftChar),
 	};
 	
-	@Test
 	public void testLoadCopyBook1() throws Exception {
 		
 		System.out.println("Test 1");
@@ -142,7 +139,6 @@ public class TstRecordEditCsvParser {
 		CommonCodeFields.checkFields("Po_Dtl_Sku", "", SKU_FIELDS, copybook.asLayoutDetail().getRecord(0));
 	}
 
-	@Test
 	public void testLoadCopyBookVariations() throws Exception {
 		String[][] SkuLines = {
 			{
@@ -223,7 +219,6 @@ public class TstRecordEditCsvParser {
 	}
 	
 	
-	@Test
 	public void testLoadCopyBook2() throws Exception {
 	
 		System.out.println("Test 2");
@@ -238,7 +233,6 @@ public class TstRecordEditCsvParser {
 		checkSkuCopybook(copybook.getRecord(1));
 	}
 	
-	@Test
 	public void testLoadCopyBook3() throws Exception {
 		
 		System.out.println("Test 3");
@@ -258,7 +252,6 @@ public class TstRecordEditCsvParser {
 		checkSkuCopybook(copybook1.getRecord(1));
 	}
 
-	@Test
 	public void testLoadCopyBook4() throws Exception {
 		
 		System.out.println("Test 4");
@@ -281,30 +274,30 @@ public class TstRecordEditCsvParser {
 
 	
 	private void checkSkuCopybook(ExternalRecord copybook ) {
-		Assert.assertEquals("1.1 Check no Sub records", 0, copybook.getNumberOfRecords());
-		Assert.assertEquals("1.2 Check Fields = 9; actual=" + copybook.getNumberOfRecordFields(), 9, copybook.getNumberOfRecordFields());
-		Assert.assertEquals("1.3 Check File Structure=0; actual=" + copybook.getFileStructure(), 0, copybook.getFileStructure());
-		Assert.assertEquals("1.4 Check Record Type=1; actual=" + copybook.getRecordType(), 1, copybook.getRecordType());
-		Assert.assertEquals("1.5 Check Sep=<Tab>; actual=" + copybook.getDelimiter(), "<Tab>", copybook.getDelimiter());
-		Assert.assertEquals("1.6 Check Style=0; actual=" + copybook.getRecordStyle(), 0, copybook.getRecordStyle());
-		Assert.assertEquals("1.7 Check List=N; actual=" + copybook.getListChar(), "N", copybook.getListChar());
+		assertEquals("1.1 Check no Sub records", 0, copybook.getNumberOfRecords());
+		assertEquals("1.2 Check Fields = 9; actual=" + copybook.getNumberOfRecordFields(),9, copybook.getNumberOfRecordFields());
+		assertEquals("1.3 Check File Structure=0; actual=" + copybook.getFileStructure(), 0, copybook.getFileStructure());
+		assertEquals("1.4 Check Record Type=1; actual=" + copybook.getRecordType(), 1, copybook.getRecordType());
+		assertEquals("1.5 Check Sep=<Tab>; actual=" + copybook.getDelimiter(), "<Tab>", copybook.getDelimiter());
+		assertEquals("1.6 Check Style=0; actual=" + copybook.getRecordStyle(), 0, copybook.getRecordStyle());
+		assertEquals("1.7 Check List=N; actual=" + copybook.getListChar(), "N", copybook.getListChar());
 		
 		ExternalField f = copybook.getRecordField(1);
 		
-		Assert.assertEquals("1.8 Check Field Name = 'Pack Qty'; actual=" + f.getName(), "Pack Qty", f.getName());
-		Assert.assertEquals("1.9 Check Field Pos=3 actual=" + f.getPos(), 3, f.getPos());
-		Assert.assertEquals("1.A Check Field Type=8 actual=" + f.getType(), 8, f.getType());
+		assertEquals("1.8 Check Field Name = 'Pack Qty'; actual=" + f.getName(), "Pack Qty", f.getName());
+		assertEquals("1.9 Check Field Pos=3 actual=" + f.getPos(), 3 , f.getPos());
+		assertEquals("1.A Check Field Type=8 actual=" + f.getType(), 8, f.getType());
 	}
 	
 	private void checkCopybook(ExternalRecord copybook) {
 		
-		Assert.assertEquals("2.1 Check Sub records=2", 2, copybook.getNumberOfRecords());
-		Assert.assertEquals("2.2 Check Fields=0; actual=" + copybook.getNumberOfRecordFields(), 0, copybook.getNumberOfRecordFields());
-		Assert.assertEquals("2.3 Check File Structure=0; actual=" + copybook.getFileStructure(), 0, copybook.getFileStructure());
-		Assert.assertEquals("2.4 Check Record Type=9; actual=" + copybook.getRecordType(), 9, copybook.getRecordType());
-		Assert.assertEquals("2.5 Check Sep=<Tab>; actual=" + copybook.getDelimiter(), "<Tab>", copybook.getDelimiter());
-		Assert.assertEquals("2.6 Check Style=0; actual=" + copybook.getRecordStyle(), 0, copybook.getRecordStyle());
-		Assert.assertEquals("2.7 Check List=Y; actual=" + copybook.getListChar(), "Y", copybook.getListChar());
+		assertEquals("2.1 Check Sub records=2", 2, copybook.getNumberOfRecords());
+		assertEquals("2.2 Check Fields=0; actual=" + copybook.getNumberOfRecordFields(), 0, copybook.getNumberOfRecordFields());
+		assertEquals("2.3 Check File Structure=0; actual=" + copybook.getFileStructure(), 0, copybook.getFileStructure());
+		assertEquals("2.4 Check Record Type=9; actual=" + copybook.getRecordType(), 9, copybook.getRecordType());
+		assertEquals("2.5 Check Sep=<Tab>; actual=" + copybook.getDelimiter(), "<Tab>", copybook.getDelimiter());
+		assertEquals("2.6 Check Style=0; actual=" + copybook.getRecordStyle(), 0, copybook.getRecordStyle());
+		assertEquals("2.7 Check List=Y; actual=" + copybook.getListChar(), "Y", copybook.getListChar());
 	}
 	
 	
@@ -325,7 +318,7 @@ public class TstRecordEditCsvParser {
 				System.out.println("Error file: " + filename + " line: " + i);
 				System.out.println("   > " + lines[i]);
 				System.out.println("   - " + newLines[i]);
-				Assert.assertEquals("Error line " + i, lines[i], newLines[i]);
+				assertEquals("Error line " + i, lines[i], newLines[i]);
 			}
 		}
 	}
@@ -356,7 +349,6 @@ public class TstRecordEditCsvParser {
 		return ret;
 	//	InputS
 	}
-
 	@After
 	public void tearDown() throws IOException {
 		Files.deleteIfExists(Paths.get("poDtl.Txt"));
