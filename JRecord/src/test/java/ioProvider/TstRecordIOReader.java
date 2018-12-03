@@ -7,24 +7,24 @@
 /*  -------------------------------------------------------------------------
  *
  *                Project: JRecord
- *    
- *    Sub-Project purpose: Provide support for reading Cobol-Data files 
+ *
+ *    Sub-Project purpose: Provide support for reading Cobol-Data files
  *                        using a Cobol Copybook in Java.
  *                         Support for reading Fixed Width / Binary / Csv files
  *                        using a Xml schema.
  *                         General Fixed Width / Csv file processing in Java.
- *    
+ *
  *                 Author: Bruce Martin
- *    
+ *
  *                License: LGPL 2.1 or latter
- *                
+ *
  *    Copyright (c) 2016, Bruce Martin, All Rights Reserved.
- *   
+ *
  *    This library is free software; you can redistribute it and/or
  *    modify it under the terms of the GNU Lesser General Public
  *    License as published by the Free Software Foundation; either
  *    version 2.1 of the License, or (at your option) any later version.
- *   
+ *
  *    This library is distributed in the hope that it will be useful,
  *    but WITHOUT ANY WARRANTY; without even the implied warranty of
  *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -32,10 +32,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.ioProvider;
-
-import java.io.IOException;
-import java.util.Arrays;
+package ioProvider;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.Common.Constants;
@@ -52,16 +49,16 @@ import net.sf.JRecord.zTest.Common.IO;
 import net.sf.JRecord.zTest.Common.TstConstants;
 import net.sf.JRecord.zTest.Common.TstData;
 
+import java.io.IOException;
+import java.util.Arrays;
+
 /**
- *
- *
  * @author Bruce Martin
- *
  */
 public class TstRecordIOReader extends TestCase {
 
 
-	private CopybookLoader copybookInt = new CobolCopybookLoader();
+    private CopybookLoader copybookInt = new CobolCopybookLoader();
 
     private static final String TMP_DIRECTORY = TstConstants.TEMP_DIRECTORY;
 
@@ -72,7 +69,7 @@ public class TstRecordIOReader extends TestCase {
     protected void setUp() throws Exception {
         super.setUp();
 
-     }
+    }
 
 
     /**
@@ -86,36 +83,36 @@ public class TstRecordIOReader extends TestCase {
 
     public void testBinReadDtar020() throws Exception {
 
-        String dtar020CopybookName = "DTAR020";
+        String dtar020CopybookName = "DTAR020.cbl";
         String dtar020FileName = TMP_DIRECTORY + dtar020CopybookName + ".tmp";
-    	byte[][] dtar020Lines = /*(byte[][])*/ TstData.DTAR020_LINES.clone();
-    	LayoutDetail dtar020CopyBook = ToLayoutDetail.getInstance().getLayout(
+        byte[][] dtar020Lines = /*(byte[][])*/ TstData.DTAR020_LINES.clone();
+        LayoutDetail dtar020CopyBook = ToLayoutDetail.getInstance().getLayout(
                 copybookInt.loadCopyBook(
-                        TstConstants.COBOL_DIRECTORY + dtar020CopybookName + ".cbl",
+                        this.getClass().getClassLoader().getResource(dtar020CopybookName).getFile(),
                         CopybookLoader.SPLIT_NONE, 0, "cp037",
                         ICopybookDialects.FMT_MAINFRAME, 0, null
                 ));
 
-    	testAfile(dtar020FileName, dtar020CopyBook, dtar020Lines);
+        testAfile(dtar020FileName, dtar020CopyBook, dtar020Lines);
     }
 
     public void testBinReadDtar107() throws Exception {
 
-        String dtar107CopybookName = "DTAR107";
+        String dtar107CopybookName = "DTAR107.cbl";
         String dtar107FileName = TMP_DIRECTORY + dtar107CopybookName + ".tmp";
-    	byte[][] dtar107Lines = /* (byte[][]) */ TstData.DTAR107_LINES.clone();
-    	LayoutDetail dtar107CopyBook = ToLayoutDetail.getInstance().getLayout(
+        byte[][] dtar107Lines = /* (byte[][]) */ TstData.DTAR107_LINES.clone();
+        LayoutDetail dtar107CopyBook = ToLayoutDetail.getInstance().getLayout(
                 copybookInt.loadCopyBook(
-                        TstConstants.COBOL_DIRECTORY + dtar107CopybookName + ".cbl",
+                        this.getClass().getClassLoader().getResource(dtar107CopybookName).getFile(),
                         CopybookLoader.SPLIT_NONE, 0, "cp037",
                         ICopybookDialects.FMT_MAINFRAME, 0, null
                 ));
 
-    	testAfile(dtar107FileName, dtar107CopyBook, dtar107Lines);
+        testAfile(dtar107FileName, dtar107CopyBook, dtar107Lines);
     }
 
-    public void testAfile(String fileName, LayoutDetail copyBook, byte[][] lines) 
-    throws IOException, RecordException {
+    public void testAfile(String fileName, LayoutDetail copyBook, byte[][] lines)
+            throws IOException, RecordException {
 
         int i, j;
         int copies = 5000;
@@ -124,7 +121,7 @@ public class TstRecordIOReader extends TestCase {
         for (i = 0; i < copies; i++) {
             for (j = 0; j < lines.length; j++) {
                 largeFile[i * lines.length + j]
-                          = lines[j];
+                        = lines[j];
             }
         }
 
@@ -133,11 +130,11 @@ public class TstRecordIOReader extends TestCase {
         System.out.println(".. end ..");
     }
 
-    private void binReadCheck(String id,  String fileName, LayoutDetail copyBook,
-            byte[][] lines2Test)
-    throws IOException, RecordException {
+    private void binReadCheck(String id, String fileName, LayoutDetail copyBook,
+                              byte[][] lines2Test)
+            throws IOException, RecordException {
         @SuppressWarnings("deprecation")
-		AbstractLineReader tReader = LineIOProvider.getInstance().getLineReader(Constants.IO_FIXED_LENGTH);
+        AbstractLineReader tReader = LineIOProvider.getInstance().getLineReader(Constants.IO_FIXED_LENGTH);
         AbstractLine line;
         int i = 0;
         boolean b;
@@ -151,7 +148,7 @@ public class TstRecordIOReader extends TestCase {
             if (!b) {
                 System.out.println("");
                 System.out.println(id + "Error Line " + i);
-                System.out.println("  Expected: " + new String(lines2Test[i],  "CP037"));
+                System.out.println("  Expected: " + new String(lines2Test[i], "CP037"));
                 System.out.println("       Got: " + new String(line.getData(), "CP037"));
                 System.out.println("");
 
@@ -161,7 +158,7 @@ public class TstRecordIOReader extends TestCase {
         }
 
         assertEquals(id + "Expected to read " + lines2Test.length
-                   + " got " + i, lines2Test.length, i);
+                + " got " + i, lines2Test.length, i);
 
         tReader.close();
     }
@@ -170,13 +167,12 @@ public class TstRecordIOReader extends TestCase {
     /**
      * writes byte array to a file
      *
-     * @param name major part of the file name
+     * @param name  major part of the file name
      * @param bytes data to write to the file
-     *
      * @throws IOException any IO errors
      */
     private void writeAFile(String name, byte[][] bytes)
-    throws IOException  {
+            throws IOException {
         IO.writeFbFile(name, bytes);
     }
 
