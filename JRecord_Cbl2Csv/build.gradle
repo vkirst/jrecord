@@ -2,11 +2,12 @@ ext.versionStr = '0.85.1'
 
 dependencies {
     compile project(':cb2xml')
+    compile project(':JRecord')
 }
 
 jar() {
     manifest {
-        attributes 'Implementation-Title': 'JRecord common module',
+        attributes 'Implementation-Title': 'JRecord cbl2csv module',
                 'Implementation-Version': versionStr
     }
 }

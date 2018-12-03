@@ -1,0 +1,16 @@
+ext.versionStr = '0.85.1'
+
+dependencies {
+    compile project(':cb2xml')
+    compile project(':JRecord')
+
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.7'
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+}
+
+jar() {
+    manifest {
+        attributes 'Implementation-Title': 'JRecord cbl2json module',
+                'Implementation-Version': versionStr
+    }
+}
