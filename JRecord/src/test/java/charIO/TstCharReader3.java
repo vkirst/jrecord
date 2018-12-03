@@ -39,6 +39,10 @@ import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.charIO.CsvCharReader;
 import net.sf.JRecord.charIO.ICharReader;
 import net.sf.JRecord.charIO.StandardCharReader;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTest;
 
 /**
  * Purpose:<ol>
@@ -48,51 +52,60 @@ import net.sf.JRecord.charIO.StandardCharReader;
  * @author Bruce Martin
  *
  */
-public class TstCharReader3 extends TestCase {
+public class TstCharReader3 {
 
+	@Test
 	public void testStdCr() throws IOException {
 
 		doFontCrTest("StdLine", "", new StdLine());
 	}
 
+	@Test
 	public void testStdCrCp037() throws IOException {
 
 		doFontCrTest("StdLine cp037 ", "cp037", new StdLine());
 	}
 
 
+	@Test
 	public void testStdCrUtf8() throws IOException {
 
 		doFontCrTest("StdLine utf-8 ", "utf-8", new StdLine());
 	}
 
 
+	@Test
+	@Category(SlowTest.class)
 	public void testStdCrUtf16() throws IOException {
-
 		doFontCrTest("StdLine utf-16 ", "utf-16", new StdLine());
 	}
 
-
+	@Test
+	@Category(SlowTest.class)
 	public void testCsvStdCr() throws IOException {
-
 		doCsvFontCrTest("Embedded Cr", "");
 	}
 
 
+	@Test
+	@Category(SlowTest.class)
 	public void testCsvStdCrCp037() throws IOException {
 
 		doCsvFontCrTest("Embedded Cr cp037", "cp037");
 	}
 
 
+	@Test
+	@Category(SlowTest.class)
 	public void testCsvStdCrUtf8() throws IOException {
 
 		doCsvFontCrTest("Embedded Cr utf-8", "utf-8");
 	}
 
 
+	@Test
+	@Category(SlowTest.class)
 	public void testCsvStdCrUtf16() throws IOException {
-
 		doCsvFontCrTest("Embedded Cr utf-16", "utf-16");
 	}
 
@@ -145,7 +158,7 @@ public class TstCharReader3 extends TestCase {
 		r.open(getFile1(fl, font, eol1, eol2), font);
 
 		while ((b = r.read()) != null) {
-			assertEquals(id + ": " + i, fl.formatLine(i), b);
+			Assert.assertEquals(id + ": " + i, fl.formatLine(i), b);
 			i += 1;
 		}
 		r.close();

@@ -41,6 +41,10 @@ import net.sf.JRecord.Types.TypeManager;
 import net.sf.JRecord.Types.TypeNum;
 import net.sf.JRecord.Types.TypeSignSeparate;
 import net.sf.JRecord.common.TestCommonCode;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTest;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -52,91 +56,37 @@ import java.util.Random;
  *
  * @author Bruce Martin
  */
-public class TstTypesGeneral extends TestCase {
+
+public class TstTypesGeneral {
 
     public static final int[] NUMERIC_TYPES = {
 
-            Type.ftNumLeftJustified,
-            Type.ftNumRightJustified,
-            Type.ftNumRightJustifiedPN,
-            Type.ftNumRightJustCommaDp,
-            Type.ftNumRightJustCommaDpPN,
-            Type.ftNumZeroPadded,
-            Type.ftNumZeroPaddedPN,
-            Type.ftNumZeroPaddedPositive,
-            Type.ftNumCommaDecimal,
-            Type.ftNumCommaDecimalPN,
-            Type.ftNumCommaDecimalPositive,
+            Type.ftNumLeftJustified, Type.ftNumRightJustified, Type.ftNumRightJustifiedPN, Type.ftNumRightJustCommaDp, Type.ftNumRightJustCommaDpPN, Type.ftNumZeroPadded, Type.ftNumZeroPaddedPN, Type.ftNumZeroPaddedPositive, Type.ftNumCommaDecimal, Type.ftNumCommaDecimalPN, Type.ftNumCommaDecimalPositive,
 
-            Type.ftAssumedDecimal,
-            Type.ftAssumedDecimalPositive,
-            Type.ftSignSeparateLead,
-            Type.ftSignSeparateTrail,
-            Type.ftSignSepLeadActualDecimal,
-            Type.ftSignSepTrailActualDecimal,
-            Type.ftDecimal,
-            Type.ftBinaryInt,
-            Type.ftPostiveBinaryInt,
-            Type.ftBinaryIntPositive,
-            Type.ftFloat,
-            Type.ftDouble,
-            Type.ftNumAnyDecimal,
-            Type.ftNumOrEmpty,
-            Type.ftPositiveNumAnyDecimal,
-            Type.ftBit,
+            Type.ftAssumedDecimal, Type.ftAssumedDecimalPositive, Type.ftSignSeparateLead, Type.ftSignSeparateTrail, Type.ftSignSepLeadActualDecimal, Type.ftSignSepTrailActualDecimal, Type.ftDecimal, Type.ftBinaryInt, Type.ftPostiveBinaryInt, Type.ftBinaryIntPositive, Type.ftFloat, Type.ftDouble, Type.ftNumAnyDecimal, Type.ftNumOrEmpty, Type.ftPositiveNumAnyDecimal, Type.ftBit,
 
-            Type.ftPackedDecimal,
-            Type.ftPackedDecimalPostive,
-            Type.ftZonedNumeric,
-            Type.ftBinaryBigEndian,
-            Type.ftBinaryBigEndianPositive,
-            Type.ftPositiveBinaryBigEndian,
-            Type.ftRmComp,
-            Type.ftRmCompPositive,
+            Type.ftPackedDecimal, Type.ftPackedDecimalPostive, Type.ftZonedNumeric, Type.ftBinaryBigEndian, Type.ftBinaryBigEndianPositive, Type.ftPositiveBinaryBigEndian, Type.ftRmComp, Type.ftRmCompPositive,
 
-            Type.ftFjZonedNumeric,
-            Type.ftGnuCblZonedNumeric,
-    };
+            Type.ftFjZonedNumeric, Type.ftGnuCblZonedNumeric,};
 
-    public static final int[] BINARY_TYPES = {
-            Type.ftHex,
-            Type.ftDecimal,
-            Type.ftBinaryInt,
-            Type.ftPostiveBinaryInt,
-            Type.ftBinaryIntPositive,
+    public static final int[] BINARY_TYPES = {Type.ftHex, Type.ftDecimal, Type.ftBinaryInt, Type.ftPostiveBinaryInt, Type.ftBinaryIntPositive,
 
-            Type.ftFloat,
-            Type.ftDouble,
+            Type.ftFloat, Type.ftDouble,
 
             Type.ftBit,
 
-            Type.ftPackedDecimal,
-            Type.ftPackedDecimalPostive,
-            Type.ftBinaryBigEndian,
-            Type.ftBinaryBigEndianPositive,
-            Type.ftPositiveBinaryBigEndian,
-            Type.ftRmComp,
-            Type.ftRmCompPositive,
+            Type.ftPackedDecimal, Type.ftPackedDecimalPostive, Type.ftBinaryBigEndian, Type.ftBinaryBigEndianPositive, Type.ftPositiveBinaryBigEndian, Type.ftRmComp, Type.ftRmCompPositive,
 
-            Type.ftCharRestOfRecord
-    };
+            Type.ftCharRestOfRecord};
 
-    public static final int[] POSITIVE_TYPES = {
-            Type.ftPostiveBinaryInt,
-            Type.ftBinaryIntPositive,
+    public static final int[] POSITIVE_TYPES = {Type.ftPostiveBinaryInt, Type.ftBinaryIntPositive,
 
-            Type.ftAssumedDecimalPositive,
-            Type.ftPackedDecimalPostive,
-            Type.ftPositiveNumAnyDecimal,
-            Type.ftBinaryBigEndianPositive,
-            Type.ftPositiveBinaryBigEndian,
-            Type.ftRmCompPositive,
-    };
+            Type.ftAssumedDecimalPositive, Type.ftPackedDecimalPostive, Type.ftPositiveNumAnyDecimal, Type.ftBinaryBigEndianPositive, Type.ftPositiveBinaryBigEndian, Type.ftRmCompPositive,};
 
     private TypeManager typeManager = new TypeManager();
     private byte[] bytes = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-
+    @Test
     public void testNumeric() {
         TypeManager m = TypeManager.getInstance();
         HashSet<Integer> numTypes = new HashSet<Integer>(NUMERIC_TYPES.length + 25);
@@ -149,13 +99,13 @@ public class TstTypesGeneral extends TestCase {
         }
 
         for (int typeId : NUMERIC_TYPES) {
-            assertTrue("Numeric Type: " + typeId, m.getType(typeId).isNumeric());
+            Assert.assertTrue("Numeric Type: " + typeId, m.getType(typeId).isNumeric());
             numTypes.add(typeId);
         }
 
         for (int i = 0; i < 200; i++) {
             if (!numTypes.contains(i)) {
-                assertFalse("Char Type: " + i, m.getType(i).isNumeric());
+                Assert.assertFalse("Char Type: " + i, m.getType(i).isNumeric());
             }
         }
 
@@ -166,17 +116,17 @@ public class TstTypesGeneral extends TestCase {
             try {
                 b = typeManager.getType(i).setField(bytes, fld.getPos(), fld, CommonBits.NULL_VALUE);
                 if (i == Type.ftFloat || i == Type.ftDouble) {
-                    assertEquals("Assign NULL to number: " + i, "0.0", typeManager.getType(i).getField(b, fld.getPos(), fld).toString());
+                    Assert.assertEquals("Assign NULL to number: " + i, "0.0", typeManager.getType(i).getField(b, fld.getPos(), fld).toString());
 //				} else 	if (i == Type.ftNumAnyDecimal   || i == Type.ftPositiveNumAnyDecimal) {
 //					assertEquals("Assign NULL to number: " + i, "0", typeManager.getType(i).getField(b, fld.getPos(), fld).toString());
                 } else if (TypeManager.isNumeric(i)) {
-                    assertEquals("Assign NULL to number: " + i, "0", typeManager.getType(i).getField(b, fld.getPos(), fld).toString());
+                    Assert.assertEquals("Assign NULL to number: " + i, "0", typeManager.getType(i).getField(b, fld.getPos(), fld).toString());
                 } else if (i == Type.ftHex) {
-                    assertEquals("Assign NULL to number: " + i, "00000000", typeManager.getType(i).getField(b, fld.getPos(), fld).toString());
+                    Assert.assertEquals("Assign NULL to number: " + i, "00000000", typeManager.getType(i).getField(b, fld.getPos(), fld).toString());
                 } else if (i == Type.ftCharNoTrim) {
-                    assertEquals("Assign NULL to char: " + i, "    ", typeManager.getType(i).getField(b, fld.getPos(), fld).toString());
+                    Assert.assertEquals("Assign NULL to char: " + i, "    ", typeManager.getType(i).getField(b, fld.getPos(), fld).toString());
                 } else {
-                    assertEquals("Assign NULL to char: " + i, "", typeManager.getType(i).getField(b, fld.getPos(), fld).toString());
+                    Assert.assertEquals("Assign NULL to char: " + i, "", typeManager.getType(i).getField(b, fld.getPos(), fld).toString());
                 }
             } catch (RecordException e) {
                 s = s + "\nError Type: " + i + " , " + e;
@@ -184,17 +134,17 @@ public class TstTypesGeneral extends TestCase {
             }
         }
         System.out.println(s);
-        assertEquals("", s);
+        Assert.assertEquals("", s);
 
 
         for (int typeId : BINARY_TYPES) {
-            assertTrue("Bin Type: " + typeId, m.getType(typeId).isBinary());
+            Assert.assertTrue("Bin Type: " + typeId, m.getType(typeId).isBinary());
             binTypes.add(typeId);
         }
 
         for (int i = 0; i < 200; i++) {
             if (!binTypes.contains(i)) {
-                assertFalse("Type: " + i, m.getType(i).isBinary());
+                Assert.assertFalse("Type: " + i, m.getType(i).isBinary());
             }
         }
     }
@@ -204,18 +154,9 @@ public class TstTypesGeneral extends TestCase {
      *
      * @throws RecordException
      */
+    @Test
     public void testSignSeperate() throws RecordException {
-        String[][] tstData = {
-                {"1", "+001", "001+"},
-                {"34", "+034", "034+"},
-                {"432", "+432", "432+"},
-                {"+1", "+001", "001+"},
-                {"+34", "+034", "034+"},
-                {"+432", "+432", "432+"},
-                {"-1", "-001", "001-"},
-                {"-34", "-034", "034-"},
-                {"-432", "-432", "432-"},
-        };
+        String[][] tstData = {{"1", "+001", "001+"}, {"34", "+034", "034+"}, {"432", "+432", "432+"}, {"+1", "+001", "001+"}, {"+34", "+034", "034+"}, {"+432", "+432", "432+"}, {"-1", "-001", "001-"}, {"-34", "-034", "034-"}, {"-432", "-432", "432-"},};
         byte[] b = {32, 32, 32, 32, 32, 32};
         TypeSignSeparate leadingSignType = new TypeSignSeparate(Type.ftSignSeparateLead);
         FieldDetail leadingSignField = getType(1, 4, Type.ftSignSeparateLead, "");
@@ -224,25 +165,23 @@ public class TstTypesGeneral extends TestCase {
 
 
         for (String[] tstVal : tstData) {
-            assertEquals(tstVal[1], leadingSignType.formatValueForRecord(leadingSignField, tstVal[0]));
-            assertEquals(tstVal[1] + "  ", new String(leadingSignType.setField(b, 1, leadingSignField, tstVal[0])));
-            assertEquals(tstVal[2], trailingSignType.formatValueForRecord(trailingSignField, tstVal[0]));
-            assertEquals(tstVal[2] + "  ", new String(trailingSignType.setField(b, 1, trailingSignField, tstVal[0])));
+            Assert.assertEquals(tstVal[1], leadingSignType.formatValueForRecord(leadingSignField, tstVal[0]));
+            Assert.assertEquals(tstVal[1] + "  ", new String(leadingSignType.setField(b, 1, leadingSignField, tstVal[0])));
+            Assert.assertEquals(tstVal[2], trailingSignType.formatValueForRecord(trailingSignField, tstVal[0]));
+            Assert.assertEquals(tstVal[2] + "  ", new String(trailingSignType.setField(b, 1, trailingSignField, tstVal[0])));
         }
 
     }
 
+    @Test
+    @Category(SlowTest.class)
     public void testAssignment() throws RecordException, Exception {
         String[] charsets1 = {Conversion.DEFAULT_ASCII_CHARSET, "cp1525", "utf-8", "CP037", "IBM273"};
         String[] charsets2 = {"utf-16", "utf-16be"};
-        String cobolCopybook
-                = "      01 COMPANY-RECORD.\n"
-                + "         05 COMPANY-NAME     PIC X(30).\n";
+        String cobolCopybook = "      01 COMPANY-RECORD.\n" + "         05 COMPANY-NAME     PIC X(30).\n";
 
         for (String c : charsets1) {
-            LayoutDetail schema = TestCommonCode.getLayoutFromCobolStr(
-                    cobolCopybook, "COMPANY-RECORD",
-                    CopybookLoader.SPLIT_NONE, c, ICopybookDialects.FMT_FUJITSU);
+            LayoutDetail schema = TestCommonCode.getLayoutFromCobolStr(cobolCopybook, "COMPANY-RECORD", CopybookLoader.SPLIT_NONE, c, ICopybookDialects.FMT_FUJITSU);
             LayoutDetail csvSchema = TestCommonCode.getCsvLayout(Constants.IO_BIN_TEXT, c, ";", "", false, 0);
 
             System.out.print("\t" + c);
@@ -257,9 +196,7 @@ public class TstTypesGeneral extends TestCase {
         }
 
         for (String c : charsets2) {
-            LayoutDetail schema = TestCommonCode.getLayoutFromCobolStr(
-                    cobolCopybook, "COMPANY-RECORD",
-                    CopybookLoader.SPLIT_NONE, c, ICopybookDialects.FMT_FUJITSU);
+            LayoutDetail schema = TestCommonCode.getLayoutFromCobolStr(cobolCopybook, "COMPANY-RECORD", CopybookLoader.SPLIT_NONE, c, ICopybookDialects.FMT_FUJITSU);
             LayoutDetail csvSchema = TestCommonCode.getCsvLayout(Constants.IO_BIN_TEXT, c, ";", "", false, 0);
             System.out.print("\t" + c);
 
@@ -288,8 +225,7 @@ public class TstTypesGeneral extends TestCase {
 
                 default:
 
-                    if (tstBinaryTypes
-                            || !(skipForChar || m.getType(i).isBinary())) {
+                    if (tstBinaryTypes || !(skipForChar || m.getType(i).isBinary())) {
                         tstSet(values1, charset, i, l, getType(1, size, i, charset), skipForChar);
                         tstSet(values2, charset, i, l, getType(1, size, 1, i, charset), skipForChar);
                     }
@@ -302,10 +238,7 @@ public class TstTypesGeneral extends TestCase {
         Type t = TypeManager.getInstance().getType(typeId);
 
         for (String v : values) {
-            if ((t instanceof TypeNum && ((TypeNum) t).isPositive() && v.startsWith("-"))
-                    || (v.length() == 4
-                    && (t instanceof TypeSignSeparate && (!v.startsWith("-")))
-                    || typeId == Type.ftRmComp || typeId == Type.ftRmCompPositive)) {
+            if ((t instanceof TypeNum && ((TypeNum) t).isPositive() && v.startsWith("-")) || (v.length() == 4 && (t instanceof TypeSignSeparate && (!v.startsWith("-"))) || typeId == Type.ftRmComp || typeId == Type.ftRmCompPositive)) {
 
             } else {
                 if (typeId == Type.ftNumAnyDecimal && fld.getDecimal() == 0 && "0".equals(v)) {
@@ -319,7 +252,7 @@ public class TstTypesGeneral extends TestCase {
                 switch (typeId) {
                     case Type.ftCharRightJust:
                         if (fld.isFixedFormat()) {
-                            assertEquals(charset + " Test number: " + typeId, "    ".substring(v.length()) + v, actualValue);
+                            Assert.assertEquals(charset + " Test number: " + typeId, "    ".substring(v.length()) + v, actualValue);
                             break;
                         }
                     case Type.ftCharNoTrim:
@@ -330,12 +263,12 @@ public class TstTypesGeneral extends TestCase {
 //						}
 //					} else {
                         if (fld.isFixedFormat()) {
-                            assertEquals(charset + " Test number: " + typeId, v + "    ".substring(v.length()), actualValue);
+                            Assert.assertEquals(charset + " Test number: " + typeId, v + "    ".substring(v.length()), actualValue);
                         }
 
                         break;
                     default:
-                        assertEquals(charset + " Test number: " + typeId, v, actualValue);
+                        Assert.assertEquals(charset + " Test number: " + typeId, v, actualValue);
                 }
 
                 if (t.isBinary() || skipForChar
@@ -345,20 +278,14 @@ public class TstTypesGeneral extends TestCase {
                 } else {
                     String id = charset + " Test number: " + typeId + " " + fld.getDecimal() + ">" + v + "< " + (l instanceof CharLine);
                     if (typeId == Type.ftNumAnyDecimal && fld.getDecimal() == 0 && "0".equals(v)) {
-                        System.out.print(("\t .>" + fld.getDecimal()) + " " + (l instanceof CharLine)
-                                + ")" + Conversion.toString(l.getData(1, fld.getLen()), charset) + "(");
+                        System.out.print(("\t .>" + fld.getDecimal()) + " " + (l instanceof CharLine) + ")" + Conversion.toString(l.getData(1, fld.getLen()), charset) + "(");
                     }
 
                     String recValue = t.formatValueForRecord(fld, v);
-                    if ((t.isNumeric() || typeId == Type.ftCharRightJust)
-                    ) {
-                        assertEquals(id,
-                                l.getFullLine().substring(0, fld.getLen()),
-                                "    ".substring(recValue.length()) + recValue);
+                    if ((t.isNumeric() || typeId == Type.ftCharRightJust)) {
+                        Assert.assertEquals(id, l.getFullLine().substring(0, fld.getLen()), "    ".substring(recValue.length()) + recValue);
                     } else {
-                        assertEquals(id,
-                                l.getFullLine().substring(0, fld.getLen()),
-                                recValue + "    ".substring(recValue.length()));
+                        Assert.assertEquals(id, l.getFullLine().substring(0, fld.getLen()), recValue + "    ".substring(recValue.length()));
                     }
                 }
             }
@@ -371,20 +298,18 @@ public class TstTypesGeneral extends TestCase {
      *
      * @throws Exception
      */
+    @Test
+    @Category(SlowTest.class)
     public void testFixedLineSet() throws RecordException {
         String initialValue = "123456789.123456789";
         String[] charsets1 = {Conversion.DEFAULT_ASCII_CHARSET, "cp1525", "CP037", "IBM273", "utf-8", "utf-16be"};
-        String cobolCopybook
-                = "      01 COMPANY-RECORD.\n"
-                + "         05 COMPANY-NAME     PIC X(30).\n";
+        String cobolCopybook = "      01 COMPANY-RECORD.\n" + "         05 COMPANY-NAME     PIC X(30).\n";
         AbstractLine[] lines = new AbstractLine[charsets1.length * 2 - 2];
         int k = 0;
         for (int i = 0; i < charsets1.length; i++) {
             String c = charsets1[i];
 
-            LayoutDetail schema = TestCommonCode.getLayoutFromCobolStr(
-                    cobolCopybook, "COMPANY-RECORD",
-                    CopybookLoader.SPLIT_NONE, c, ICopybookDialects.FMT_FUJITSU);
+            LayoutDetail schema = TestCommonCode.getLayoutFromCobolStr(cobolCopybook, "COMPANY-RECORD", CopybookLoader.SPLIT_NONE, c, ICopybookDialects.FMT_FUJITSU);
             if (i < charsets1.length - 2) {
                 lines[k] = new Line(schema);
                 lines[k + 1] = new CharLine(schema, initialValue);
@@ -402,6 +327,8 @@ public class TstTypesGeneral extends TestCase {
      *
      * @throws Exception
      */
+    @Test
+    @Category(SlowTest.class)
     public void testCsvLineSet() throws Exception {
         String initialValue = "123456789.123456789";
         String[] charsets1 = {"", "cp1525", "CP037", "IBM273", "utf-8", "utf-16be"};
@@ -456,19 +383,15 @@ public class TstTypesGeneral extends TestCase {
                                 if ("CP037".equals(fontName) && i == 32 && "5".equals(v1) && "-2.1".equals(v2)) {
                                     System.out.print("+");
                                 }
-                                if ("IBM273".equals(fontName)
-                                        && (i == Type.ftZonedNumeric)) {
+                                if ("IBM273".equals(fontName) && (i == Type.ftZonedNumeric)) {
 
                                 } else {
-                                    String id = fontName
-                                            + " Type: " + i
-                                            + " values: " + v1 + ", " + v2
-                                            + " " + (l[k] instanceof CharLine);
+                                    String id = fontName + " Type: " + i + " values: " + v1 + ", " + v2 + " " + (l[k] instanceof CharLine);
                                     setLine(l[k], i, v1, v2, fixed);
                                     if (!l[0].getFullLine().equals(l[k].getFullLine())) {
                                         setLine(l[k], i, v1, v2, fixed);
                                     }
-                                    assertEquals(id, l[0].getFullLine(), l[k].getFullLine());
+                                    Assert.assertEquals(id, l[0].getFullLine(), l[k].getFullLine());
                                 }
                             }
                         }
@@ -510,10 +433,7 @@ public class TstTypesGeneral extends TestCase {
             }
         }
 
-        if (v1.length() < 4
-                || (type != Type.ftSignSeparateLead && type != Type.ftSignSeparateTrail)
-                || (!fixed)
-                || v1.startsWith("-")) {
+        if (v1.length() < 4 || (type != Type.ftSignSeparateLead && type != Type.ftSignSeparateTrail) || (!fixed) || v1.startsWith("-")) {
             line.getFieldValue(fld1).set(v1);
         }
         line.getFieldValue(fld2).set(v2);
@@ -524,6 +444,7 @@ public class TstTypesGeneral extends TestCase {
      *
      * @throws RecordException
      */
+    @Test
     public void testNumbers() throws RecordException {
         Random r = new Random();
         FieldDetail fd;
@@ -543,7 +464,7 @@ public class TstTypesGeneral extends TestCase {
                         try {
                             setFldValue(fd, val);
                             res = getFldValue(fd);
-                            assertEquals("Type: " + type, val, (new BigDecimal(res.trim())).intValue());
+                            Assert.assertEquals("Type: " + type, val, (new BigDecimal(res.trim())).intValue());
                         } catch (Exception e) {
                             System.out.println();
                             System.out.println();
@@ -558,17 +479,18 @@ public class TstTypesGeneral extends TestCase {
             }
         }
 
-        assertTrue("Check abends ", ok);
+        Assert.assertTrue("Check abends ", ok);
     }
 
     /**
      * Check positive Types are indeed defined as positive
      */
+    @Test
     public void testPositive() {
         TypeManager m = TypeManager.getInstance();
 
         for (int typeId : POSITIVE_TYPES) {
-            assertTrue("Positive Type: " + typeId, m.getType(typeId).isNumeric());
+            Assert.assertTrue("Positive Type: " + typeId, m.getType(typeId).isNumeric());
         }
 
     }

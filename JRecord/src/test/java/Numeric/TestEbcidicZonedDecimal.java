@@ -35,7 +35,10 @@ import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeZoned;
 import net.sf.JRecord.common.TstConstants;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTest;
 
+@Category(SlowTest.class)
 public class TestEbcidicZonedDecimal extends TestCase {
 
     private static final String[] CHARSET_TO_TEST = TstConstants.EBCDIC_SINGLE_BYTE_CHARSETS;

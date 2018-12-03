@@ -35,7 +35,10 @@ import net.sf.JRecord.CsvParser.CsvParserManagerChar;
 import net.sf.JRecord.Details.*;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.Types.Type;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTest;
 
+@Category(SlowTest.class)
 public class TstCsvLines extends TestCase {
 
     private String[] STRINGS = {

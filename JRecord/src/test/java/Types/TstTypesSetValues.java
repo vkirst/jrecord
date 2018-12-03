@@ -36,6 +36,10 @@ import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
 import net.sf.JRecord.Types.TypeNum;
 import net.sf.JRecord.common.TstConstants;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTest;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -46,7 +50,7 @@ import java.util.Arrays;
  *
  * @author Bruce Martin
  */
-public class TstTypesSetValues extends TestCase {
+public class TstTypesSetValues {
     private static final BigDecimal bdDecimal = new BigDecimal("0.123");
 
     private byte[] bytes = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -59,17 +63,23 @@ public class TstTypesSetValues extends TestCase {
             {"1.234567e2", "123", "123.4", "123.45", "123.456", "123.4567",},
     };
 
+    @Test
+    @Category(SlowTest.class)
     public void testBigEndian1() throws RecordException {
         tstField1(Type.ftBinaryBigEndian);
         tstField2(Type.ftBinaryBigEndian);
     }
 
+    @Test
+    @Category(SlowTest.class)
     public void testLittleEndian1() throws RecordException {
         tstField1(Type.ftBinaryInt);
         tstField2(Type.ftBinaryInt);
     }
 
 
+    @Test
+    @Category(SlowTest.class)
     public void testPackedDecimal1() throws RecordException {
         tstField1(Type.ftPackedDecimal);
         tstField2(Type.ftPackedDecimal);
@@ -79,6 +89,8 @@ public class TstTypesSetValues extends TestCase {
     }
 
 
+    @Test
+    @Category(SlowTest.class)
     public void testZonedDecimal1() throws RecordException {
         tstField1(Type.ftZonedNumeric);
         tstField2(Type.ftZonedNumeric);
@@ -102,6 +114,8 @@ public class TstTypesSetValues extends TestCase {
             Type.ftNumZeroPaddedPN,
     };
 
+    @Test
+    @Category(SlowTest.class)
     public void testGeneral1() throws RecordException {
 
         for (int i = 0; i < typesToTest.length; i++) {
@@ -114,6 +128,8 @@ public class TstTypesSetValues extends TestCase {
     }
 
 
+    @Test
+    @Category(SlowTest.class)
     public void testGeneral2() throws RecordException {
 
         for (String charset : TstConstants.EBCDIC_SINGLE_BYTE_CHARSETS) {
@@ -128,6 +144,8 @@ public class TstTypesSetValues extends TestCase {
         }
     }
 
+    @Test
+    @Category(SlowTest.class)
     public void testGeneral3() throws RecordException {
         boolean[] toTest = new boolean[200];
         Arrays.fill(toTest, true);
@@ -153,11 +171,15 @@ public class TstTypesSetValues extends TestCase {
     }
 
 
+    @Test
+    @Category(SlowTest.class)
     public void testBigEndian3() throws RecordException {
         tstField3(Type.ftBinaryBigEndian);
     }
 
 
+    @Test
+    @Category(SlowTest.class)
     public void testLittleEndian3() throws RecordException {
         tstField3(Type.ftBinaryInt);
     }
@@ -168,6 +190,7 @@ public class TstTypesSetValues extends TestCase {
      *
      * @throws RecordException any error that occurs
      */
+    @Test
     public void testBigEndianSet4() throws RecordException {
 
         tst4(Type.ftBinaryBigEndian, 0);
@@ -178,6 +201,7 @@ public class TstTypesSetValues extends TestCase {
      *
      * @throws RecordException any error that occurs
      */
+    @Test
     public void testLittleEndianSet4() throws RecordException {
 
         tst4(Type.ftBinaryInt, 1);
@@ -206,14 +230,14 @@ public class TstTypesSetValues extends TestCase {
             bb = t.setField(bytes, 1, fldDef, numValues[j][0]);
 
             v = t.getField(bb, 1, fldDef);
-            assertEquals(id + ":" + j + " " + numValues[j][0] + " " + decimalPlaces + ", " + j, numValues[j][decimalPlaces + 1], v.toString());
+            Assert.assertEquals(id + ":" + j + " " + numValues[j][0] + " " + decimalPlaces + ", " + j, numValues[j][decimalPlaces + 1], v.toString());
 
             if (t instanceof TypeNum && !((TypeNum) t).isPositive()) {
                 //TODO: Here
                 bb = t.setField(bytes, 1, fldDef, "-" + numValues[j][0]);
 
                 v = t.getField(bb, 1, fldDef);
-                assertEquals(id + numValues[j][0] + " " + decimalPlaces + ", " + j, "-" + numValues[j][decimalPlaces + 1], v.toString());
+                Assert.assertEquals(id + numValues[j][0] + " " + decimalPlaces + ", " + j, "-" + numValues[j][decimalPlaces + 1], v.toString());
             }
         }
 
@@ -225,13 +249,13 @@ public class TstTypesSetValues extends TestCase {
             v = t.getField(bb, 1, fldDef);
 
             if (decimalPlaces == 0) {
-                assertEquals(id + s + " " + decimalPlaces, s, v.toString());
+                Assert.assertEquals(id + s + " " + decimalPlaces, s, v.toString());
             } else {
-                assertEquals(id + s + " " + decimalPlaces, s + ".0000".substring(0, decimalPlaces + 1), v.toString());
+                Assert.assertEquals(id + s + " " + decimalPlaces, s + ".0000".substring(0, decimalPlaces + 1), v.toString());
 
                 bb = t.setField(bytes, 1, fldDef, s + ".123");
                 v = t.getField(bb, 1, fldDef);
-                assertEquals(id + s + " " + decimalPlaces, s + ".1230".substring(0, decimalPlaces + 1), v.toString());
+                Assert.assertEquals(id + s + " " + decimalPlaces, s + ".1230".substring(0, decimalPlaces + 1), v.toString());
             }
         }
     }
@@ -273,16 +297,16 @@ public class TstTypesSetValues extends TestCase {
 
             if (decimalPlaces == 0) {
                 bb = t.setField(bytes, 1, fldDef, bd);
-                assertEquals(id + s + " " + decimalPlaces, s, t.getField(bb, 1, fldDef).toString());
+                Assert.assertEquals(id + s + " " + decimalPlaces, s, t.getField(bb, 1, fldDef).toString());
                 bb = t.setField(bytes, 1, fldDef, bd.add(bdDecimal));
-                assertEquals(id + s + " " + decimalPlaces, s, t.getField(bb, 1, fldDef).toString());
+                Assert.assertEquals(id + s + " " + decimalPlaces, s, t.getField(bb, 1, fldDef).toString());
                 bb = t.setField(bytes, 1, fldDef, BigInteger.valueOf(i));
-                assertEquals(id + s + " " + decimalPlaces, s, t.getField(bb, 1, fldDef).toString());
+                Assert.assertEquals(id + s + " " + decimalPlaces, s, t.getField(bb, 1, fldDef).toString());
             } else {
                 bb = t.setField(bytes, 1, fldDef, bd.add(bdDecimal));
-                assertEquals(id + s + " " + decimalPlaces, s + ".1230".substring(0, decimalPlaces + 1), t.getField(bb, 1, fldDef).toString());
+                Assert.assertEquals(id + s + " " + decimalPlaces, s + ".1230".substring(0, decimalPlaces + 1), t.getField(bb, 1, fldDef).toString());
                 bb = t.setField(bytes, 1, fldDef, BigInteger.valueOf(i));
-                assertEquals(id + s + " " + decimalPlaces, s + ".0000".substring(0, decimalPlaces + 1), t.getField(bb, 1, fldDef).toString());
+                Assert.assertEquals(id + s + " " + decimalPlaces, s + ".0000".substring(0, decimalPlaces + 1), t.getField(bb, 1, fldDef).toString());
             }
         }
     }
@@ -316,18 +340,18 @@ public class TstTypesSetValues extends TestCase {
 
             if (decimalPlaces == 0) {
                 bb = t.setField(bytes, 1, fldDef, ss);
-                assertEquals("Testing " + ss + " " + decimalPlaces, s, t.getField(bb, 1, fldDef).toString());
+                Assert.assertEquals("Testing " + ss + " " + decimalPlaces, s, t.getField(bb, 1, fldDef).toString());
                 bb = t.setField(bytes, 1, fldDef, bd);
-                assertEquals("Testing " + ss + " " + decimalPlaces, s, t.getField(bb, 1, fldDef).toString());
+                Assert.assertEquals("Testing " + ss + " " + decimalPlaces, s, t.getField(bb, 1, fldDef).toString());
 //				bb = t.setField(bytes, 1, fldDef, new BigInteger(s));
 //				assertEquals("Testing " + ss + " " + idx, s, t.getField(bb, 1, fldDef).toString());
             } else {
                 bb = t.setField(bytes, 1, fldDef, ss);
-                assertEquals("Testing " + ss + " " + decimalPlaces, ss.substring(0, decimalPlaces + s.length() + 1), t.getField(bb, 1, fldDef).toString());
+                Assert.assertEquals("Testing " + ss + " " + decimalPlaces, ss.substring(0, decimalPlaces + s.length() + 1), t.getField(bb, 1, fldDef).toString());
                 bb = t.setField(bytes, 1, fldDef, bd);
-                assertEquals("Testing " + ss + " " + decimalPlaces, ss.substring(0, decimalPlaces + s.length() + 1), t.getField(bb, 1, fldDef).toString());
+                Assert.assertEquals("Testing " + ss + " " + decimalPlaces, ss.substring(0, decimalPlaces + s.length() + 1), t.getField(bb, 1, fldDef).toString());
                 bb = t.setField(bytes, 1, fldDef, new BigInteger(s));
-                assertEquals("Testing " + ss + " " + decimalPlaces, s + ".0000".substring(0, decimalPlaces + 1), t.getField(bb, 1, fldDef).toString());
+                Assert.assertEquals("Testing " + ss + " " + decimalPlaces, s + ".0000".substring(0, decimalPlaces + 1), t.getField(bb, 1, fldDef).toString());
             }
         }
     }
@@ -350,17 +374,17 @@ public class TstTypesSetValues extends TestCase {
 
         for (int i = 0; i < 100; i++) {
             bb = t.setField(bytes, 1, fldDef, i);
-            assertEquals("Test a: " + i, i, bb[1 - adj]);
-            assertEquals("Test a: " + i, 0, bb[adj]);
+            Assert.assertEquals("Test a: " + i, i, bb[1 - adj]);
+            Assert.assertEquals("Test a: " + i, 0, bb[adj]);
 
             bb = t.setField(bytes, 1, fldDef, i * 256 + i);
-            assertEquals("Test a: " + i, i, bb[1 - adj]);
-            assertEquals("Test a: " + i, i, bb[adj]);
+            Assert.assertEquals("Test a: " + i, i, bb[1 - adj]);
+            Assert.assertEquals("Test a: " + i, i, bb[adj]);
 
 
             bb = t.setField(bytes, 1, fldDef, i * 256);
-            assertEquals("Test a: " + i, 0, bb[1 - adj]);
-            assertEquals("Test a: " + i, i, bb[adj]);
+            Assert.assertEquals("Test a: " + i, 0, bb[1 - adj]);
+            Assert.assertEquals("Test a: " + i, i, bb[adj]);
         }
     }
 
