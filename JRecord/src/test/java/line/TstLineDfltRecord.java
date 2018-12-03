@@ -26,16 +26,16 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.line;
+package line;
 
-import java.io.ByteArrayInputStream;
-
+import junit.framework.TestCase;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.External.RecordEditorXmlLoader;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.LineIOProvider;
-import junit.framework.TestCase;
+
+import java.io.ByteArrayInputStream;
 
 /**
  * Test Record-ID selection and the default record selection
