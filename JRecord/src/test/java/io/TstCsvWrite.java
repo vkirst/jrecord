@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.io;
+package io;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;

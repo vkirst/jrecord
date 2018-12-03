@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.io.ibm4680;
+package io.ibm4680;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -75,21 +75,21 @@ public class TstReadWrite4680Price extends TestCase {
 			{"8", "18900668", "WHILE YOU WERE SLEEPING PG DVD", "3", "17.99", "0", "0", "0", "0"},	
 	};
 	public void testPriceRead1() throws Exception {
-		tstRead(this.getClass().getResource("Pos_Price_2.bin").getFile(), -1, 17);
+		tstRead(this.getClass().getClassLoader().getResource("Pos_Price_2.bin").getFile(), -1, 17);
 	}
 
 	
 	public void testWrite1() throws Exception {
-		tstWrite(this.getClass().getResource("Pos_Price_2.bin").getFile(), -1, 17);
+		tstWrite(this.getClass().getClassLoader().getResource("Pos_Price_2.bin").getFile(), -1, 17);
 	}
 	
 	public void testPriceRead2() throws Exception {
-		tstRead(this.getClass().getResource("Pos_Price_2.bin").getFile(), Constants.IO_CONTINOUS_NO_LINE_MARKER, 17);
+		tstRead(this.getClass().getClassLoader().getResource("Pos_Price_2.bin").getFile(), Constants.IO_CONTINOUS_NO_LINE_MARKER, 17);
 	}
 
 	
 	public void testWrite2() throws Exception {
-		tstWrite(this.getClass().getResource("Pos_Price_2.bin").getFile(), Constants.IO_CONTINOUS_NO_LINE_MARKER, 17);
+		tstWrite(this.getClass().getClassLoader().getResource("Pos_Price_2.bin").getFile(), Constants.IO_CONTINOUS_NO_LINE_MARKER, 17);
 	}
 	
 	private void tstRead(String filename, int fileStructure, int expected) throws Exception {	
@@ -179,7 +179,7 @@ public class TstReadWrite4680Price extends TestCase {
 
 	
 	private LayoutDetail loadSchema(int fileStructure) throws Exception {
-		String schemaFile = this.getClass().getResource("Price.Xml").getFile();
+		String schemaFile = this.getClass().getClassLoader().getResource("Price.Xml").getFile();
 		ExternalRecord schema = (new RecordEditorXmlLoader())
 									.loadCopyBook(schemaFile, 0, 0, "", 0, 0, null);
 		schema.setFontName(Conversion.DEFAULT_ASCII_CHARSET);

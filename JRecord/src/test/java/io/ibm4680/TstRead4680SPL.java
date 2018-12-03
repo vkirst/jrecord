@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.io.ibm4680;
+package io.ibm4680;
 
 import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Common.RecordException;
@@ -49,16 +49,16 @@ import junit.framework.TestCase;
  */
 public class TstRead4680SPL extends TestCase {
 	public void testSPL1() throws Exception {
-		tstRead(TstConstants.SAMPLE_DIRECTORY + "Pos_Spl_1.bin", 1291);
+		tstRead(this.getClass().getClassLoader().getResource("Pos_Spl_1.bin").getFile(), 1291);
 	}
 	
 	public void testSPL2() throws Exception {
-		String file = this.getClass().getResource("Pos_Spl_2.bin").getFile();
+		String file = this.getClass().getClassLoader().getResource("Pos_Spl_2.bin").getFile();
 		tstRead( file, 671);
 	}
 	
 	private void tstRead(String filename, int expected) throws RecordException, Exception {
-		String schemaFile = this.getClass().getResource("SPL.Xml").getFile();
+		String schemaFile = this.getClass().getClassLoader().getResource("SPL.Xml").getFile();
 		ExternalRecord cpy = (new RecordEditorXmlLoader())
 									.loadCopyBook(schemaFile, 0, 0, "", 0, 0, null);
 		cpy.setFontName(Conversion.DEFAULT_ASCII_CHARSET);

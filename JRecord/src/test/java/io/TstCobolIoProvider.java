@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.io;
+package io;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.ByteIO.FixedLengthByteReader;
@@ -47,6 +47,13 @@ import net.sf.JRecord.IO.TextLineWriter;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.zTest.Common.TstConstants;
 import net.sf.cb2xml.def.Cb2xmlConstants;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  * Testing the correct LineReader's and LineWriter's are returned by
@@ -55,17 +62,18 @@ import net.sf.cb2xml.def.Cb2xmlConstants;
  * @author Bruce Martin
  *
  */
-public class TstCobolIoProvider extends TestCase {
+public class TstCobolIoProvider {
 
-	private static String copybookName = TstConstants.COBOL_DIRECTORY + "DTAR020.cbl";
-	private static final String filename = TstConstants.SAMPLE_DIRECTORY + "DTAR020.bin";
-	private static final String outfilename = TstConstants.TEMP_DIRECTORY + "DTAR020.ttt.bin";
+	private static String copybookName = TstCobolIoProvider.class.getClassLoader().getResource("DTAR020.cbl").getFile();
+	private static final String filename = TstCobolIoProvider.class.getClassLoader().getResource("DTAR020.bin").getFile();
+	private static final String outfilename = "DTAR020.TTT.bin";
 
 	/**
 	 * Test GetLineReaders (standard structure
 	 * 
 	 * @throws Exception
 	 */
+	@Test
 	public void testGetReader1() throws Exception {
 		CobolIoProvider ioProvider = CobolIoProvider.getInstance();
 		
@@ -74,28 +82,28 @@ public class TstCobolIoProvider extends TestCase {
 		
 		System.out.println(lineReader.getClass().getName());
 		System.out.println(((LineReaderWrapper) lineReader).getReader().getClass().getName());
-		assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof FixedLengthByteReader);
+		Assert.assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof FixedLengthByteReader);
 		lineReader.close();
 		
 		lineReader = ioProvider.getLineReader(Constants.IO_VB, ICopybookDialects.FMT_MAINFRAME, CopybookLoader.SPLIT_NONE, copybookName, filename);
 
 		System.out.println(lineReader.getClass().getName());
 		System.out.println(((LineReaderWrapper) lineReader).getReader().getClass().getName());
-		assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof VbByteReader);
+		Assert.assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof VbByteReader);
 		lineReader.close();
 		
 		lineReader = ioProvider.getLineReader(Constants.IO_VB_GNU_COBOL, ICopybookDialects.FMT_MAINFRAME, CopybookLoader.SPLIT_NONE, copybookName, filename);
 
 		System.out.println(lineReader.getClass().getName());
 		System.out.println(((LineReaderWrapper) lineReader).getReader().getClass().getName());
-		assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof VbByteReader);
+		Assert.assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof VbByteReader);
 		lineReader.close();
 		
 		lineReader = ioProvider.getLineReader(Constants.IO_VB_FUJITSU, ICopybookDialects.FMT_MAINFRAME, CopybookLoader.SPLIT_NONE, copybookName, filename);
 
 		System.out.println(lineReader.getClass().getName());
 		System.out.println(((LineReaderWrapper) lineReader).getReader().getClass().getName());
-		assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof FujitsuVbByteReader);
+		Assert.assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof FujitsuVbByteReader);
 		lineReader.close();
 	}
 	
@@ -104,7 +112,8 @@ public class TstCobolIoProvider extends TestCase {
 	 * Test getLineReader where (specifying a copybook structure
 	 * @throws Exception
 	 */
-	public void testGetReader2() throws Exception {
+	@Test
+    public void testGetReader2() throws Exception {
 		CobolIoProvider ioProvider = CobolIoProvider.getInstance();
 		
 		AbstractLineReader lineReader;
@@ -112,28 +121,28 @@ public class TstCobolIoProvider extends TestCase {
 		
 		System.out.println(lineReader.getClass().getName());
 		System.out.println(((LineReaderWrapper) lineReader).getReader().getClass().getName());
-		assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof FixedLengthByteReader);
+		Assert.assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof FixedLengthByteReader);
 		lineReader.close();
 		
 		lineReader = ioProvider.getLineReader(Constants.IO_VB, ICopybookDialects.FMT_MAINFRAME, CopybookLoader.SPLIT_NONE, Cb2xmlConstants.USE_STANDARD_COLUMNS, copybookName, filename);
 
 		System.out.println(lineReader.getClass().getName());
 		System.out.println(((LineReaderWrapper) lineReader).getReader().getClass().getName());
-		assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof VbByteReader);
+		Assert.assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof VbByteReader);
 		lineReader.close();
 		
 		lineReader = ioProvider.getLineReader(Constants.IO_VB_GNU_COBOL, ICopybookDialects.FMT_MAINFRAME, CopybookLoader.SPLIT_NONE, Cb2xmlConstants.USE_STANDARD_COLUMNS, copybookName, filename);
 
 		System.out.println(lineReader.getClass().getName());
 		System.out.println(((LineReaderWrapper) lineReader).getReader().getClass().getName());
-		assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof VbByteReader);
+		Assert.assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof VbByteReader);
 		lineReader.close();
 		
 		lineReader = ioProvider.getLineReader(Constants.IO_VB_FUJITSU, ICopybookDialects.FMT_MAINFRAME, CopybookLoader.SPLIT_NONE, Cb2xmlConstants.USE_STANDARD_COLUMNS, copybookName, filename);
 
 		System.out.println(lineReader.getClass().getName());
 		System.out.println(((LineReaderWrapper) lineReader).getReader().getClass().getName());
-		assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof FujitsuVbByteReader);
+		Assert.assertTrue(((LineReaderWrapper) lineReader).getReader() instanceof FujitsuVbByteReader);
 		lineReader.close();
 	}
 
@@ -141,75 +150,83 @@ public class TstCobolIoProvider extends TestCase {
 	 * Test getLineWriter using just the FileStructure
 	 * @throws Exception
 	 */
-	@SuppressWarnings("deprecation")
+	@Test
+    @SuppressWarnings("deprecation")
 	public void testGetWriter1() throws Exception {
 		CobolIoProvider ioProvider = CobolIoProvider.getInstance();
 		
 		AbstractLineWriter lineWriter;
 		lineWriter = ioProvider.getLineWriter(Constants.IO_FIXED_LENGTH, outfilename);
 		System.out.println(lineWriter.getClass().getName());
-		assertTrue(lineWriter instanceof FixedLengthWriter);
+		Assert.assertTrue(lineWriter instanceof FixedLengthWriter);
 		lineWriter.close();
 		
 		lineWriter = ioProvider.getLineWriter(Constants.IO_VB, outfilename);
 		System.out.println(lineWriter.getClass().getName());
 		System.out.println(((LineWriterWrapper)lineWriter).getWriter().getClass().getName());
-		assertTrue(((LineWriterWrapper)lineWriter).getWriter() instanceof VbByteWriter);
+		Assert.assertTrue(((LineWriterWrapper) lineWriter).getWriter() instanceof VbByteWriter);
 		lineWriter.close();
 		
 		
 		lineWriter = ioProvider.getLineWriter(Constants.IO_VB_DUMP, outfilename);
 		System.out.println(lineWriter.getClass().getName());
 		System.out.println(((LineWriterWrapper)lineWriter).getWriter().getClass().getName());
-		assertTrue(((LineWriterWrapper)lineWriter).getWriter() instanceof VbDumpByteWriter);
+		Assert.assertTrue(((LineWriterWrapper) lineWriter).getWriter() instanceof VbDumpByteWriter);
 		lineWriter.close();
 		
 		lineWriter = ioProvider.getLineWriter(Constants.IO_TEXT_LINE, outfilename);
 		System.out.println(lineWriter.getClass().getName());
-		assertTrue(lineWriter instanceof TextLineWriter);
+		Assert.assertTrue(lineWriter instanceof TextLineWriter);
 		lineWriter.close();
 		
 		lineWriter = ioProvider.getLineWriter(Constants.IO_UNICODE_TEXT, outfilename);
 		System.out.println(lineWriter.getClass().getName());
-		assertTrue(lineWriter instanceof TextLineWriter);
+		Assert.assertTrue(lineWriter instanceof TextLineWriter);
 		lineWriter.close();
+
+		
 	}
 	
 	/**
 	 * Test getLineWriter using a "FileSchema"
 	 * @throws Exception
 	 */
-	public void testGetWriter2() throws Exception {
+	@Test
+    public void testGetWriter2() throws Exception {
 		CobolIoProvider ioProvider = CobolIoProvider.getInstance();
 		
 		AbstractLineWriter lineWriter;
 		lineWriter = ioProvider.getLineWriter(BasicFileSchema.newFixedSchema(Constants.IO_FIXED_LENGTH), outfilename);
 		System.out.println(lineWriter.getClass().getName());
-		assertTrue(lineWriter instanceof FixedLengthWriter);
+		Assert.assertTrue(lineWriter instanceof FixedLengthWriter);
 		lineWriter.close();
 		
 		lineWriter = ioProvider.getLineWriter(BasicFileSchema.newFixedSchema(Constants.IO_VB), outfilename);
 		System.out.println(lineWriter.getClass().getName());
 		System.out.println(((LineWriterWrapper)lineWriter).getWriter().getClass().getName());
-		assertTrue(((LineWriterWrapper)lineWriter).getWriter() instanceof VbByteWriter);
+		Assert.assertTrue(((LineWriterWrapper) lineWriter).getWriter() instanceof VbByteWriter);
 		lineWriter.close();
 		
 		
 		lineWriter = ioProvider.getLineWriter(BasicFileSchema.newFixedSchema(Constants.IO_VB_DUMP), outfilename);
 		System.out.println(lineWriter.getClass().getName());
 		System.out.println(((LineWriterWrapper)lineWriter).getWriter().getClass().getName());
-		assertTrue(((LineWriterWrapper)lineWriter).getWriter() instanceof VbDumpByteWriter);
+		Assert.assertTrue(((LineWriterWrapper) lineWriter).getWriter() instanceof VbDumpByteWriter);
 		lineWriter.close();
 		
 		lineWriter = ioProvider.getLineWriter(BasicFileSchema.newFixedSchema(Constants.IO_TEXT_LINE), outfilename);
 		System.out.println(lineWriter.getClass().getName());
-		assertTrue(lineWriter instanceof TextLineWriter);
+		Assert.assertTrue(lineWriter instanceof TextLineWriter);
 		lineWriter.close();
 		
 		lineWriter = ioProvider.getLineWriter(BasicFileSchema.newFixedSchema(Constants.IO_UNICODE_TEXT), outfilename);
 		System.out.println(lineWriter.getClass().getName());
-		assertTrue(lineWriter instanceof TextLineWriter);
+		Assert.assertTrue(lineWriter instanceof TextLineWriter);
 		lineWriter.close();
 	}
 
+	@After
+    public void tearDown() throws IOException {
+        Files.deleteIfExists(Paths.get(outfilename));
+    }
 }

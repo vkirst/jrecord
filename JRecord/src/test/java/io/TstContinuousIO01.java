@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.io;
+package io;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -46,6 +46,8 @@ import net.sf.JRecord.IO.ContinuousLineWriter;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * Basic Test for continuous IO (different records)
@@ -53,7 +55,7 @@ import junit.framework.TestCase;
  * @author Bruce Martin
  *
  */
-public class TstContinuousIO01 extends TestCase {
+public class TstContinuousIO01 {
 	
 	private static final int DETAIL_COUNT = 15;
 	private static final String TRAILER_ID = "T";
@@ -61,13 +63,15 @@ public class TstContinuousIO01 extends TestCase {
 	private static final String HEADER_ID = "H";
 	private static final String RECORD_TYPE = "Record-Type";
 
-	public boolean lowerCase = false;
-	
+	private boolean lowerCase = false;
+
+	@Test
 	public void testRead1() throws Exception {
 		tstRead();
 	}
 	
-	public void testRead2() throws Exception {
+	@Test
+    public void testRead2() throws Exception {
 		lowerCase = true;
 		tstRead();
 	}
@@ -106,8 +110,8 @@ public class TstContinuousIO01 extends TestCase {
 		line = r.read();
 		iAssertEquals(list.get(list.size() - 1).getFullLine(), line.getFullLine());
 		iAssertEquals(TRAILER_ID, line.getFieldValue(RECORD_TYPE).asString());
-		assertEquals(list.size(), line.getFieldValue("Record-Count").asInt());
-		assertTrue(r.read() == null);
+		Assert.assertEquals(list.size(), line.getFieldValue("Record-Count").asInt());
+		Assert.assertTrue(r.read() == null);
 
 		r.close();
 	}
@@ -115,14 +119,15 @@ public class TstContinuousIO01 extends TestCase {
 	
 	private void iAssertEquals(String expected, String actual) {
 		if (lowerCase) {
-			assertEquals(expected.toLowerCase(), actual);
+			Assert.assertEquals(expected.toLowerCase(), actual);
 		} else {
-			assertEquals(expected, actual);
+			Assert.assertEquals(expected, actual);
 		}
 	}
 
 	
-	public void testWrite() throws Exception {
+	@Test
+    public void testWrite() throws Exception {
 		List<Line> list = bldLines();
 		String expected = toString(list);
 
@@ -137,7 +142,7 @@ public class TstContinuousIO01 extends TestCase {
 		
 		w.close();
 		
-		assertEquals(expected, outputStream.toString());
+		Assert.assertEquals(expected, outputStream.toString());
 	}
 	
 	
@@ -209,7 +214,7 @@ public class TstContinuousIO01 extends TestCase {
      */
     private LayoutDetail loadRecordDefinition() throws Exception{
     	
-    	String copyName = this.getClass().getResource("MultiRecordTest.cbl").getFile();
+    	String copyName = this.getClass().getClassLoader().getResource("MultiRecordTest.cbl").getFile();
  
     	ICobolIOBuilder IOBldr = CobolIoProvider.getInstance()
     				.newIOBuilder(copyName)

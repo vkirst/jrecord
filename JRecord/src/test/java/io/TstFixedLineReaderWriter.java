@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.io;
+package io;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

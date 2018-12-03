@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.io;
+package io;
 
 import net.sf.JRecord.Common.BasicFileSchema;
 import net.sf.JRecord.Common.Constants;

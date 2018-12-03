@@ -26,12 +26,13 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.io;
+package io;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -46,18 +47,19 @@ import junit.framework.TestCase;
 
 public class TstContinuousIO02 extends TestCase {
 
-	private String copybookName = TstConstants.COBOL_DIRECTORY + "FCUSDAT.cbl";
-	private String filename     = TstConstants.SAMPLE_DIRECTORY + "ZOS.FCUSTDAT_150.vb.bin";
+	private String copybookName = "FCUSDAT.cbl";
+	private String filename     = "ZOS.FCUSTDAT_150.vb.bin";
 	public void test01() throws FileNotFoundException, IOException {
+		URL resource = this.getClass().getClassLoader().getResource(copybookName);
 		ICobolIOBuilder  iobVb = JRecordInterface1.COBOL
-				.newIOBuilder(copybookName)
+				.newIOBuilder(resource.getFile())
 				.setFileOrganization(Constants.IO_VB)
 				.setFont("cp037");
 		ICobolIOBuilder  iobC = JRecordInterface1.COBOL
-				.newIOBuilder(copybookName)
+				.newIOBuilder(resource.getFile())
 				.setFileOrganization(Constants.IO_CONTINOUS_NO_LINE_MARKER)
 				.setFont("cp037");
-		AbstractLineReader r = iobVb.newReader(filename);
+		AbstractLineReader r = iobVb.newReader(this.getClass().getClassLoader().getResource(filename).getFile());
 		ByteArrayOutputStream os1 = new ByteArrayOutputStream(20000);
 		//ByteArrayOutputStream os2 = new ByteArrayOutputStream(20000);
 		ByteArrayOutputStream os3 = new ByteArrayOutputStream(20000);
