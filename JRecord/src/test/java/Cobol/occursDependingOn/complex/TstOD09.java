@@ -33,7 +33,7 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import testCategories.SlowTests;
+import testCategories.SlowTest;
 import net.sf.JRecord.JRecordInterface1;
 import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Common.IFieldDetail;
@@ -63,7 +63,7 @@ import org.junit.experimental.categories.Category;
  *
  */
 
-@Category(SlowTests.class)
+@Category(SlowTest.class)
 public class TstOD09 {
 
 	private static final int IOBUILDER_COUNT = 7;

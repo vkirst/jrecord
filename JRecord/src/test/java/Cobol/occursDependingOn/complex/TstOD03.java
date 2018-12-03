@@ -32,7 +32,6 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import testCategories.SlowTests;
 import net.sf.JRecord.JRecordInterface1;
 import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Common.IFieldDetail;
@@ -43,7 +42,6 @@ import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import net.sf.JRecord.occursDepending.ODCalculationComplex;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 
 /**
  * Test Complex Occurs (2 levels) depending. The strategy is to:<ol>

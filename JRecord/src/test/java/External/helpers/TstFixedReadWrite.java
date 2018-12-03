@@ -57,7 +57,7 @@ import net.sf.JRecord.zTest.Common.TstData;
 public final class TstFixedReadWrite  extends TestCase {
 
 	
-	    private String salesFile           = TstData.class.getResource("DTAR020s.txt").getFile();
+	    private String salesFile           = TstData.class.getClassLoader().getResource("DTAR020s.txt").getFile();
 
 	
 	    /**

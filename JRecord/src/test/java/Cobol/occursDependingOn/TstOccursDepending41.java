@@ -40,11 +40,8 @@ import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
-import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import testCategories.SlowTests;
 
 /**
  * Test Occurs depending in the shared header in a 

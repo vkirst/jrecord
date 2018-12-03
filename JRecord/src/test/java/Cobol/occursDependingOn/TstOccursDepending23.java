@@ -32,7 +32,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.TestCase;
 import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.Common.RecordException;
@@ -44,14 +43,14 @@ import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import testCategories.SlowTests;
+import testCategories.SlowTest;
 
 /**
  * Test Occurs depending on with one nested occurs !!!
  * @author Bruce Martin
  *
  */
-@Category(SlowTests.class)
+@Category(SlowTest.class)
 public class TstOccursDepending23 {
 
 //	private static final String MONTHS = "months";

@@ -40,13 +40,12 @@ import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
-import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import testCategories.SlowTests;
+import testCategories.SlowTest;
 
-@Category(SlowTests.class)
+@Category(SlowTest.class)
 public class TstOccursDepending26 {
 
 	private static final String MONTHS = "months";
