@@ -58,10 +58,8 @@ import org.junit.Test;
  */
 public final class TstCsvReadWrite {
 
-	
 	    private String salesFile = TstData.class.getClassLoader().getResource("DTAR020s.csv").getFile();
 
-	
 	    /**
 	     * Example of LineReader / LineWrite classes
 	     * @throws RecordException 
