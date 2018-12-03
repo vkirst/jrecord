@@ -45,7 +45,7 @@ import net.sf.JRecord.External.CobolCopybookLoader;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.IO.XmlLineReader;
 import net.sf.JRecord.Numeric.ICopybookDialects;
-import net.sf.JRecord.zTest.Common.TstConstants;
+import net.sf.JRecord.common.TstConstants;
 
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;

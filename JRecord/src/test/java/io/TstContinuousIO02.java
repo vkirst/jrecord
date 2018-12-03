@@ -42,7 +42,6 @@ import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.AbstractLineWriter;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
-import net.sf.JRecord.zTest.Common.TstConstants;
 import junit.framework.TestCase;
 
 public class TstContinuousIO02 extends TestCase {

@@ -5,7 +5,6 @@ import java.io.IOException;
 import net.sf.JRecord.JRecordInterface1;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
-import net.sf.JRecord.zTest.Common.TstConstants;
 import junit.framework.TestCase;
 
 /**

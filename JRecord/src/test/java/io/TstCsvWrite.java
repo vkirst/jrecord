@@ -47,7 +47,7 @@ import net.sf.JRecord.IO.AbstractLineWriter;
 import net.sf.JRecord.IO.LineIOProvider;
 import net.sf.JRecord.IO.TextLineReader;
 import net.sf.JRecord.IO.TextLineWriter;
-import net.sf.JRecord.zTest.Common.TstConstants;
+import net.sf.JRecord.common.TstConstants;
 
 
 public class TstCsvWrite  extends TestCase {

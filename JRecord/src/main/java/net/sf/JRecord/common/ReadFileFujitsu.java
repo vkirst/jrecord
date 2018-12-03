@@ -32,7 +32,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.Common;
+package net.sf.JRecord.common;
 
 import net.sf.JRecord.ByteIO.FixedLengthByteReader;
 
@@ -42,24 +42,25 @@ import net.sf.JRecord.ByteIO.FixedLengthByteReader;
  * @author Bruce Martin
  *
  */
-public class ReadFile {
+public class ReadFileFujitsu {
 
     private static final int    DTAR107_RECORD_LENGTH = 54;
     private static final String DTAR107_FILE
-    	= TstConstants.SAMPLE_DIRECTORY + "DTAR107.bin";
+    	= TstConstants.SAMPLE_DIRECTORY + "FujitsuVariableWidthFile.seq";
     /**
      *
      */
-    public ReadFile(String filename, int len) {
+    public ReadFileFujitsu(String filename, int len) {
         super();
-        int i;
+        int i, linenum;
         byte[] line;
         FixedLengthByteReader r = new FixedLengthByteReader(len);
 
         try {
             r.open(filename);
+            linenum = 1;
 
-            while ((line = r.read()) != null) {
+            while (linenum++ < 16 && (line = r.read()) != null) {
                 System.out.print("        {");
                 for (i = 0; i < line.length; i++) {
                     System.out.print(line[i] + ", ");
@@ -77,6 +78,6 @@ public class ReadFile {
     }
 
     public static void main(String[] args) {
-        new ReadFile(DTAR107_FILE, DTAR107_RECORD_LENGTH);
+        new ReadFileFujitsu(DTAR107_FILE, DTAR107_RECORD_LENGTH);
     }
 }

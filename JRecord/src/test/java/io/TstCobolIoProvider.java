@@ -28,7 +28,6 @@
 
 package io;
 
-import junit.framework.TestCase;
 import net.sf.JRecord.ByteIO.FixedLengthByteReader;
 import net.sf.JRecord.ByteIO.FujitsuVbByteReader;
 import net.sf.JRecord.ByteIO.VbByteReader;
@@ -45,7 +44,6 @@ import net.sf.JRecord.IO.LineReaderWrapper;
 import net.sf.JRecord.IO.LineWriterWrapper;
 import net.sf.JRecord.IO.TextLineWriter;
 import net.sf.JRecord.Numeric.ICopybookDialects;
-import net.sf.JRecord.zTest.Common.TstConstants;
 import net.sf.cb2xml.def.Cb2xmlConstants;
 import org.junit.After;
 import org.junit.Assert;

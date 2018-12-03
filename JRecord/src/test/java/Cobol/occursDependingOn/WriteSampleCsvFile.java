@@ -36,7 +36,7 @@ import net.sf.JRecord.IO.AbstractLineWriter;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.def.IO.builders.ICsvIOBuilder;
 import net.sf.JRecord.def.IO.builders.IDefineCsvFields;
-import net.sf.JRecord.zTest.Common.TstConstants;
+import net.sf.JRecord.common.TstConstants;
 
 public class WriteSampleCsvFile {
 

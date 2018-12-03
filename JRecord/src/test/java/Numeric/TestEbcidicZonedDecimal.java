@@ -34,7 +34,7 @@ import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeZoned;
-import net.sf.JRecord.zTest.Common.TstConstants;
+import net.sf.JRecord.common.TstConstants;
 
 public class TestEbcidicZonedDecimal extends TestCase {
 

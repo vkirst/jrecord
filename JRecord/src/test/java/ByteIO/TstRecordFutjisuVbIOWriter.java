@@ -38,9 +38,9 @@ import junit.framework.TestCase;
 import net.sf.JRecord.ByteIO.AbstractByteReader;
 import net.sf.JRecord.ByteIO.FujitsuVbByteReader;
 import net.sf.JRecord.ByteIO.FujitsuVbByteWriter;
-import net.sf.JRecord.zTest.Common.IO;
-import net.sf.JRecord.zTest.Common.TstConstants;
-import net.sf.JRecord.zTest.Common.TstData;
+import net.sf.JRecord.common.IO;
+import net.sf.JRecord.common.TstConstants;
+import net.sf.JRecord.common.TstData;
 
 import java.io.IOException;
 import java.util.Arrays;

@@ -36,7 +36,7 @@ import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.LineIOProvider;
 import net.sf.JRecord.Types.Type;
-import net.sf.JRecord.zTest.Common.TestCommonCode;
+import net.sf.JRecord.common.TestCommonCode;
 
 import java.io.IOException;
 import java.util.Arrays;

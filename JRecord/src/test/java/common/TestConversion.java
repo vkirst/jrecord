@@ -26,17 +26,22 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.Common;
+package common;
 
 import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Common.RecordException;
 import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTest;
 
-public class TestConversion extends TestCase {
+public class TestConversion {
 
 	/**
 	 * Check zoned conversion
 	 */
+	@Test
 	public void testToZoned() {
 		char[] positiveSign = {'{', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'};
 
@@ -44,43 +49,43 @@ public class TestConversion extends TestCase {
 
 		
 //		System.out.println(Conversion.toZoned("10") + " " + Conversion.toZoned("-10"));
-		assertEquals("1{", Conversion.toZoned("10"));
-		assertEquals("1}", Conversion.toZoned("-10"));
-		assertEquals("10", Conversion.fromZoned("1{"));
-		assertEquals("-10", Conversion.fromZoned("1}"));
-		assertEquals("11", Conversion.fromZoned("1A"));
-		assertEquals("-11", Conversion.fromZoned("1J"));
-		assertEquals("11", Conversion.fromZoned("1a"));
-		assertEquals("-11", Conversion.fromZoned("1j"));
-		assertEquals("987654321{", Conversion.toZoned("9876543210"));
+		Assert.assertEquals("1{", Conversion.toZoned("10"));
+		Assert.assertEquals("1}", Conversion.toZoned("-10"));
+		Assert.assertEquals("10", Conversion.fromZoned("1{"));
+		Assert.assertEquals("-10", Conversion.fromZoned("1}"));
+		Assert.assertEquals("11", Conversion.fromZoned("1A"));
+		Assert.assertEquals("-11", Conversion.fromZoned("1J"));
+		Assert.assertEquals("11", Conversion.fromZoned("1a"));
+		Assert.assertEquals("-11", Conversion.fromZoned("1j"));
+		Assert.assertEquals("987654321{", Conversion.toZoned("9876543210"));
 		for (int i = 0; i < 10; i++) {
-			assertEquals("1" + positiveSign[i], Conversion.toZoned("1" + i));
-			assertEquals("1" + negativeSign[i], Conversion.toZoned("-1" + i));
-			assertEquals("1" + i, Conversion.fromZoned( "1" + positiveSign[i]));
-			assertEquals("-1" + i, Conversion.fromZoned("1" + negativeSign[i]));
-			assertEquals("1" + i, Conversion.fromZoned( ("1" + positiveSign[i]).toLowerCase()));
-			assertEquals("-1" + i, Conversion.fromZoned(("1" + negativeSign[i]).toLowerCase()));
+			Assert.assertEquals("1" + positiveSign[i], Conversion.toZoned("1" + i));
+			Assert.assertEquals("1" + negativeSign[i], Conversion.toZoned("-1" + i));
+			Assert.assertEquals("1" + i, Conversion.fromZoned("1" + positiveSign[i]));
+			Assert.assertEquals("-1" + i, Conversion.fromZoned("1" + negativeSign[i]));
+			Assert.assertEquals("1" + i, Conversion.fromZoned(("1" + positiveSign[i]).toLowerCase()));
+			Assert.assertEquals("-1" + i, Conversion.fromZoned(("1" + negativeSign[i]).toLowerCase()));
 		}
 		
 		Conversion.setDefaultEbcidicCharacterset("CP037");
-		assertEquals("1{", Conversion.toZoned("10"));
-		assertEquals("1}", Conversion.toZoned("-10"));
-		assertEquals("10", Conversion.fromZoned("1{"));
-		assertEquals("-10", Conversion.fromZoned("1}"));
+		Assert.assertEquals("1{", Conversion.toZoned("10"));
+		Assert.assertEquals("1}", Conversion.toZoned("-10"));
+		Assert.assertEquals("10", Conversion.fromZoned("1{"));
+		Assert.assertEquals("-10", Conversion.fromZoned("1}"));
 		
 		
 		Conversion.setDefaultEbcidicCharacterset("CP273");
 //		System.out.println(Conversion.toZoned("10") + " " + Conversion.toZoned("-10"));
-		assertEquals(toCp273("1{"), Conversion.toZoned("10"));
-		assertEquals(toCp273("1}"), Conversion.toZoned("-10"));
-		assertEquals("10", Conversion.fromZoned(toCp273("1{")));
-		assertEquals("-10", Conversion.fromZoned(toCp273("1}")));
+		Assert.assertEquals(toCp273("1{"), Conversion.toZoned("10"));
+		Assert.assertEquals(toCp273("1}"), Conversion.toZoned("-10"));
+		Assert.assertEquals("10", Conversion.fromZoned(toCp273("1{")));
+		Assert.assertEquals("-10", Conversion.fromZoned(toCp273("1}")));
 		
 		Conversion.setDefaultEbcidicCharacterset("IBM037");
-		assertEquals("1{", Conversion.toZoned("10"));
-		assertEquals("1}", Conversion.toZoned("-10"));
-		assertEquals("10", Conversion.fromZoned("1{"));
-		assertEquals("-10", Conversion.fromZoned("1}"));
+		Assert.assertEquals("1{", Conversion.toZoned("10"));
+		Assert.assertEquals("1}", Conversion.toZoned("-10"));
+		Assert.assertEquals("10", Conversion.fromZoned("1{"));
+		Assert.assertEquals("-10", Conversion.fromZoned("1}"));
 	}
 	
 	
@@ -94,31 +99,34 @@ public class TestConversion extends TestCase {
 //			assertEquals((byte) 256 + i, (b) & 255);
 //		}
 //	}
+	@Test
 	public void testToByte() {
 		for (int i = -128; i < 256; i++) {
-			assertEquals((byte) i, Conversion.long2byte(i));
+			Assert.assertEquals((byte) i, Conversion.long2byte(i));
 		}
 	}
 	
+	@Test
 	public void testSetLong() {
 		byte[] rec = new byte[3];
 
 		for (int i = 0; i < 256; i++) {
 			for (int j = 0; j < 256; j++) {
 				Conversion.setLong(rec, 0, 3, i * 256 + j, false);
-				assertEquals(0, rec[0]);
-				assertEquals(i, 255 & (rec[1]));
-				assertEquals(j, 255 & (rec[2]));
+				Assert.assertEquals(0, rec[0]);
+				Assert.assertEquals(i, 255 & (rec[1]));
+				Assert.assertEquals(j, 255 & (rec[2]));
 			}
 			for (int j = 1; j < 256; j++) {
 				Conversion.setLong(rec, 0, 3, -(i * 256 + j), false);
-				assertEquals(-1, rec[0]);
-				assertEquals(i + ", " + j, (byte) ~i, rec[1]);
-				assertEquals(i + ", " + j, (byte) -j, rec[2]);				
+				Assert.assertEquals(-1, rec[0]);
+				Assert.assertEquals(i + ", " + j, (byte) ~i, rec[1]);
+				Assert.assertEquals(i + ", " + j, (byte) -j, rec[2]);
 			}
 		}
 	}
 	
+	@Test
 	public void testSetLongLow2High1() {
 		byte[] rec = new byte[3];
 
@@ -126,21 +134,22 @@ public class TestConversion extends TestCase {
 			for (int j = 0; j < 256; j++) {
 				int val = i * 256 + j;
 				Conversion.setLongLow2High(rec, 0, 3, val, false);
-				assertEquals(0, rec[2]);
-				assertEquals(i, 255 & (rec[1]));
-				assertEquals(j, 255 & (rec[0]));
+				Assert.assertEquals(0, rec[2]);
+				Assert.assertEquals(i, 255 & (rec[1]));
+				Assert.assertEquals(j, 255 & (rec[0]));
 			}
 			for (int j = 1; j < 256; j++) {
 				int val = -(i * 256 + j);
 				Conversion.setLongLow2High(rec, 0, 3, val, false);
-				assertEquals(-1, rec[2]);
-				assertEquals(i + ", " + j, (byte) ~i, rec[1]);
-				assertEquals(i + ", " + j, (byte) -j, rec[0]);
+				Assert.assertEquals(-1, rec[2]);
+				Assert.assertEquals(i + ", " + j, (byte) ~i, rec[1]);
+				Assert.assertEquals(i + ", " + j, (byte) -j, rec[0]);
 			}
 		}
 	}
 	
 	
+	@Test
 	public void testSetLongLow2High2() {
 		byte[] rec = new byte[4];
 
@@ -148,25 +157,27 @@ public class TestConversion extends TestCase {
 			for (int j = 0; j < 256; j++) {
 				for (int k = 0; k < 256; k++) {
 					Conversion.setLongLow2High(rec, 0, 4, (i * 256 + j) * 256 + k, false);
-					assertEquals(0, rec[3]);
-					assertEquals(i, 255 & (rec[2]));
-					assertEquals(j, 255 & (rec[1]));
-					assertEquals(k, 255 & (rec[0]));
+					Assert.assertEquals(0, rec[3]);
+					Assert.assertEquals(i, 255 & (rec[2]));
+					Assert.assertEquals(j, 255 & (rec[1]));
+					Assert.assertEquals(k, 255 & (rec[0]));
 				}
 			}
 			for (int j = 0; j < 256; j++) {
 				for (int k = 1; k < 256; k++) {
 					Conversion.setLongLow2High(rec, 0, 4, -((i * 256 + j) * 256 + k), false);
-					assertEquals(-1, rec[3]);
+					Assert.assertEquals(-1, rec[3]);
 					String message = i + ", " + j + ", " + k;
-					assertEquals(message , (byte) ~i, rec[2]);
-					assertEquals(message, (byte) ~j, rec[1]);
-					assertEquals(message, (byte) -k, rec[0]);
+					Assert.assertEquals(message, (byte) ~i, rec[2]);
+					Assert.assertEquals(message, (byte) ~j, rec[1]);
+					Assert.assertEquals(message, (byte) -k, rec[0]);
 				}
 			}
 		}
 	}
-	
+
+	@Test
+	@Category(SlowTest.class)
 	public void testCheckLength() {
 		int num = 256 * 256 * 256;
 		int numDiv2 = num / 2;
@@ -191,7 +202,7 @@ public class TestConversion extends TestCase {
 			} catch (RecordException x) {
 				ok = true;
 			}
-			assertTrue(""+ i, ok);
+			Assert.assertTrue("" + i, ok);
 		}
 	}
 
@@ -208,29 +219,31 @@ public class TestConversion extends TestCase {
 		} catch (RecordException x) {
 			ok = true;
 		}
-		assertTrue(ok);
+		Assert.assertTrue(ok);
 	}
 
+	@Test
 	public void testGetByteFromHexString() {
 		char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 		
 		for (int i = 0; i < 256; i++) {
 			String hexStr = "" + hexDigits[i/16] + hexDigits[i % 16];
-			assertEquals((byte) i, Conversion.getByteFromHexString("X'" + hexStr + "'"));
-			assertEquals((byte) i, Conversion.getByteFromHexString("x'" + hexStr + "'"));
-			assertEquals((byte) i, Conversion.getByteFromHexString("x" + hexStr));
-			assertEquals((byte) i, Conversion.getByteFromHexString("X" + hexStr));
+			Assert.assertEquals((byte) i, Conversion.getByteFromHexString("X'" + hexStr + "'"));
+			Assert.assertEquals((byte) i, Conversion.getByteFromHexString("x'" + hexStr + "'"));
+			Assert.assertEquals((byte) i, Conversion.getByteFromHexString("x" + hexStr));
+			Assert.assertEquals((byte) i, Conversion.getByteFromHexString("X" + hexStr));
 		}
 		for (int i = 0; i < 16; i++) {
 			String hexStr = "" + hexDigits[i];
-			assertEquals((byte) i, Conversion.getByteFromHexString("X'" + hexStr + "'"));
-			assertEquals((byte) i, Conversion.getByteFromHexString("x'" + hexStr + "'"));
-			assertEquals((byte) i, Conversion.getByteFromHexString("x" + hexStr));
-			assertEquals((byte) i, Conversion.getByteFromHexString("X" + hexStr));
+			Assert.assertEquals((byte) i, Conversion.getByteFromHexString("X'" + hexStr + "'"));
+			Assert.assertEquals((byte) i, Conversion.getByteFromHexString("x'" + hexStr + "'"));
+			Assert.assertEquals((byte) i, Conversion.getByteFromHexString("x" + hexStr));
+			Assert.assertEquals((byte) i, Conversion.getByteFromHexString("X" + hexStr));
 		}
 	}
 	
 	
+	@Test
 	public void testGetCsvDelimBytes() {
 		char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 		String[] delims = {",", "\t", "!", "|"};
@@ -252,14 +265,15 @@ public class TestConversion extends TestCase {
 			byte[] actual = Conversion.getCsvDelimBytes(s, ascii, '\t');
 			
 			for (int i = 0; i < expected.length; i++) {
-				assertEquals(expected[i], actual[i]);
+				Assert.assertEquals(expected[i], actual[i]);
 			}
-			assertEquals(expected.length, actual.length);
+			Assert.assertEquals(expected.length, actual.length);
 
 		}
 	}
 	
 
+	@Test
 	public void testPackedDecimal() {
 		char[] hexDigits = "0123456789abcdef".toCharArray();
 		byte[] bytes = {0,0,0};
@@ -269,19 +283,11 @@ public class TestConversion extends TestCase {
 				for (int v1 = 10; v1 < 16; v1++) {
 					bytes[2] = (byte) (v2 * 16 + v1);
 					if (v1 != 13) {
-						assertEquals("id: " + v1,
-								new StringBuilder("000").append(v3).append(hexDigits[v2]).toString(), 
-								Conversion.getMainframePackedDecimal(bytes, 0, 3));
-						assertEquals(
-								new StringBuilder("0").append(v3).append(hexDigits[v2]).toString(), 
-								Conversion.getMainframePackedDecimal(bytes, 1, 2));
+						Assert.assertEquals("id: " + v1, new StringBuilder("000").append(v3).append(hexDigits[v2]).toString(), Conversion.getMainframePackedDecimal(bytes, 0, 3));
+						Assert.assertEquals(new StringBuilder("0").append(v3).append(hexDigits[v2]).toString(), Conversion.getMainframePackedDecimal(bytes, 1, 2));
 					} else {
-						assertEquals("id: " + v2 + " "+ v1,
-								new StringBuilder("-000").append(v3).append(hexDigits[v2]).toString(), 
-								Conversion.getMainframePackedDecimal(bytes, 0, 3));
-						assertEquals(
-								new StringBuilder("-0").append(v3).append(hexDigits[v2]).toString(), 
-								Conversion.getMainframePackedDecimal(bytes, 1, 2));
+						Assert.assertEquals("id: " + v2 + " " + v1, new StringBuilder("-000").append(v3).append(hexDigits[v2]).toString(), Conversion.getMainframePackedDecimal(bytes, 0, 3));
+						Assert.assertEquals(new StringBuilder("-0").append(v3).append(hexDigits[v2]).toString(), Conversion.getMainframePackedDecimal(bytes, 1, 2));
 					}
 				}
 			}	
@@ -289,6 +295,7 @@ public class TestConversion extends TestCase {
 	}
 	
 
+	@Test
 	public void testDecimal() {
 		char[] hexDigits = "0123456789abcdef".toCharArray();
 		byte[] bytes = {0,0,0};
@@ -297,17 +304,14 @@ public class TestConversion extends TestCase {
 			for (int v2 = 0; v2 < 16; v2++) {
 				for (int v1 = 0; v1 < 16; v1++) {
 					bytes[2] = (byte) (v2 * 16 + v1);
-					assertEquals(
-							new StringBuilder("000").append(v3).append(hexDigits[v2]).append(hexDigits[v1]).toString(), 
-							Conversion.getDecimal(bytes, 0, 3));
-					assertEquals(
-							new StringBuilder("0").append(v3).append(hexDigits[v2]).append(hexDigits[v1]).toString(), 
-							Conversion.getDecimal(bytes, 1, 3));
+					Assert.assertEquals(new StringBuilder("000").append(v3).append(hexDigits[v2]).append(hexDigits[v1]).toString(), Conversion.getDecimal(bytes, 0, 3));
+					Assert.assertEquals(new StringBuilder("0").append(v3).append(hexDigits[v2]).append(hexDigits[v1]).toString(), Conversion.getDecimal(bytes, 1, 3));
 				}
 			}	
 		}
 	}
 
+	@Test
 	public void testGetBitField() {
 		
 		byte[] bytes = {0,0,0};
@@ -317,15 +321,15 @@ public class TestConversion extends TestCase {
 			String s1 = Conversion.getBitField(bytes, 0, 3);
 			String s2 = Conversion.getBitField(bytes, 1, 3);
 			
-			assertEquals("00000000", s1.substring(0, 8));
-			assertEquals(s2, s1.substring(8));
+			Assert.assertEquals("00000000", s1.substring(0, 8));
+			Assert.assertEquals(s2, s1.substring(8));
 			
 			int calc = i;
 			for (int j = s2.length() - 1; j >= 0; j--) {
 				if (calc % 2 == 0) {
-					assertEquals('0', s2.charAt(j));
+					Assert.assertEquals('0', s2.charAt(j));
 				} else {
-					assertEquals('1', s2.charAt(j));
+					Assert.assertEquals('1', s2.charAt(j));
 				}
 				calc = calc / 2;
 			}
@@ -334,6 +338,7 @@ public class TestConversion extends TestCase {
 	}
 	
 	
+	@Test
 	public void testGetPostiveBinary() {
 		byte[] bytes = {0,0,0};
 		for (int v3 = 0; v3 < 256; v3++) {
@@ -344,12 +349,13 @@ public class TestConversion extends TestCase {
 					int expected = (v3 * 256 + v2) * 256 + v1;
 					bytes[0] = (byte) v1;
 
-					assertEquals(Integer.toString(expected), Conversion.getPostiveBinary(bytes, 0, 3));
+					Assert.assertEquals(Integer.toString(expected), Conversion.getPostiveBinary(bytes, 0, 3));
 				}
 			}
 		}
 	}
 	
+	@Test
 	public void testGetLittleEndianBigInt() {
 		byte[] bytes = {0,0,0};
 		for (int v3 = 0; v3 < 128; v3++) {
@@ -360,13 +366,14 @@ public class TestConversion extends TestCase {
 					int expected = (v3 * 256 + v2) * 256 + v1;
 					bytes[0] = (byte) v1;
 
-					assertEquals(expected, Conversion.getLittleEndianBigInt(bytes, 0, 3).intValue());
+					Assert.assertEquals(expected, Conversion.getLittleEndianBigInt(bytes, 0, 3).intValue());
 				}
 			}
 		}
 	}
 	
 	
+	@Test
 	public void testGetPositiveBigInt() {
 		byte[] bytes = {0,0,0};
 		for (int v3 = 0; v3 < 256; v3++) {
@@ -377,7 +384,7 @@ public class TestConversion extends TestCase {
 					int expected = (v3 * 256 + v2) * 256 + v1;
 					bytes[2] = (byte) v1;
 
-					assertEquals(expected, Conversion.getPositiveBigInt(bytes, 0, 3).intValue());
+					Assert.assertEquals(expected, Conversion.getPositiveBigInt(bytes, 0, 3).intValue());
 				}
 			}
 		}
@@ -385,8 +392,8 @@ public class TestConversion extends TestCase {
 
 	private void checkCsvDelimBytes(int i, String x) {
 		byte[] csvDelimBytes = Conversion.getCsvDelimBytes(x, Conversion.DEFAULT_ASCII_CHARSET, '\t');
-		assertEquals(x, (byte) i, csvDelimBytes[0]);
-		assertEquals(x, 1, csvDelimBytes.length);
+		Assert.assertEquals(x, (byte) i, csvDelimBytes[0]);
+		Assert.assertEquals(x, 1, csvDelimBytes.length);
 	}
 
 	

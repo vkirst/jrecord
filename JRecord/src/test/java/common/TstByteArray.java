@@ -1,4 +1,4 @@
-package net.sf.JRecord.zTest.Common;
+package common;
 
 import java.util.Arrays;
 

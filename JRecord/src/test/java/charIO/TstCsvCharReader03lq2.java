@@ -32,7 +32,7 @@ import java.io.IOException;
 
 import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.charIO.CsvCharReader;
-import net.sf.JRecord.zTest.Common.TestCommonCode;
+import net.sf.JRecord.common.TestCommonCode;
 import junit.framework.TestCase;
 
 /**

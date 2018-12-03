@@ -45,9 +45,9 @@ import net.sf.JRecord.External.ToLayoutDetail;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.LineIOProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
-import net.sf.JRecord.zTest.Common.IO;
-import net.sf.JRecord.zTest.Common.TstConstants;
-import net.sf.JRecord.zTest.Common.TstData;
+import net.sf.JRecord.common.IO;
+import net.sf.JRecord.common.TstConstants;
+import net.sf.JRecord.common.TstData;
 
 import java.io.IOException;
 import java.util.Arrays;

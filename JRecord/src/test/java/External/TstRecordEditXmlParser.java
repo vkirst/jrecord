@@ -36,7 +36,6 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import junit.framework.TestCase;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.IRecordDeciderX;
 import net.sf.JRecord.Details.LayoutDetail;
@@ -49,8 +48,8 @@ import net.sf.JRecord.External.base.CopybookWriter;
 import net.sf.JRecord.External.base.RecordEditorXmlWriter;
 import net.sf.JRecord.Log.AbsSSLogger;
 import net.sf.JRecord.Log.TextLog;
-import net.sf.JRecord.zTest.Common.IO;
-import net.sf.JRecord.zTest.Common.TstConstants;
+import net.sf.JRecord.common.IO;
+import net.sf.JRecord.common.TstConstants;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;

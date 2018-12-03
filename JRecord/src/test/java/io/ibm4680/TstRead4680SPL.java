@@ -36,7 +36,6 @@ import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.External.RecordEditorXmlLoader;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.LineIOProvider;
-import net.sf.JRecord.zTest.Common.TstConstants;
 import junit.framework.TestCase;
 
 /**

@@ -53,8 +53,7 @@ import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.utilityClasses.Copy;
 import net.sf.JRecord.utilityClasses.SchemaLoader;
-import net.sf.JRecord.zExamples.cobol.toCsv.test.TestCobol2Csv_1;
-import net.sf.JRecord.zTest.Common.TestCommonCode;
+import net.sf.JRecord.common.TestCommonCode;
 import junit.framework.TestCase;
 
 public class TstCopy extends TestCase {

@@ -34,7 +34,7 @@ import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.RecordDetail;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.Numeric.ICopybookDialects;
-import net.sf.JRecord.zTest.Common.TestCommonCode;
+import net.sf.JRecord.common.TestCommonCode;
 
 import java.util.List;
 

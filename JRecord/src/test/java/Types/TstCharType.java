@@ -46,8 +46,8 @@ import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
-import net.sf.JRecord.zTest.Common.TestCommonCode;
-import net.sf.JRecord.zTest.Common.TstConstants;
+import net.sf.JRecord.common.TestCommonCode;
+import net.sf.JRecord.common.TstConstants;
 
 import java.util.Arrays;
 

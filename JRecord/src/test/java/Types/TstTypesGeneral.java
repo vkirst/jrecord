@@ -40,7 +40,7 @@ import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
 import net.sf.JRecord.Types.TypeNum;
 import net.sf.JRecord.Types.TypeSignSeparate;
-import net.sf.JRecord.zTest.Common.TestCommonCode;
+import net.sf.JRecord.common.TestCommonCode;
 
 import java.math.BigDecimal;
 import java.util.HashSet;

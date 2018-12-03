@@ -1,4 +1,4 @@
-package net.sf.JRecord.zTest.Common;
+package net.sf.JRecord.common;
 
 import net.sf.JRecord.Common.Conversion;
 

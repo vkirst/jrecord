@@ -13,7 +13,7 @@ import net.sf.JRecord.IO.AbstractLineWriter;
 import net.sf.JRecord.IO.TextLineWriter;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.Numeric.ICopybookDialects;
-import net.sf.JRecord.zTest.Common.TstConstants;
+import net.sf.JRecord.common.TstConstants;
 import net.sf.cb2xml.def.Cb2xmlConstants;
 
 

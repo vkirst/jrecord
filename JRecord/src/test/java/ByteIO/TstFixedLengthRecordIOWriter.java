@@ -42,9 +42,9 @@ import net.sf.JRecord.External.CobolCopybookLoader;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.Numeric.ICopybookDialects;
-import net.sf.JRecord.zTest.Common.IO;
-import net.sf.JRecord.zTest.Common.TstConstants;
-import net.sf.JRecord.zTest.Common.TstData;
+import net.sf.JRecord.common.IO;
+import net.sf.JRecord.common.TstConstants;
+import net.sf.JRecord.common.TstData;
 
 import java.io.IOException;
 import java.util.Arrays;
