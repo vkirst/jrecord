@@ -26,24 +26,14 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.schema;
+package schema;
 
-import java.io.IOException;
-import java.io.StringReader;
-import java.util.List;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-
-import org.w3c.dom.Document;
-
-import net.sf.JRecord.JRecordInterface1;
+import junit.framework.TestCase;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.CharLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
+import net.sf.JRecord.JRecordInterface1;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.schema.ArrayElementChecks;
 import net.sf.JRecord.schema.IArrayItemCheck;
@@ -53,7 +43,15 @@ import net.sf.JRecord.schema.jaxb.Item;
 import net.sf.cb2xml.def.Cb2xmlConstants;
 import net.sf.cb2xml.sablecc.lexer.LexerException;
 import net.sf.cb2xml.sablecc.parser.ParserException;
-import junit.framework.TestCase;
+import org.w3c.dom.Document;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import java.io.IOException;
+import java.io.StringReader;
+import java.util.List;
 
 
 /**
