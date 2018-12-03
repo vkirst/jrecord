@@ -55,12 +55,14 @@ import testCategories.SlowTest;
 public class TstCharReader3 {
 
 	@Test
+	@Category(SlowTest.class)
 	public void testStdCr() throws IOException {
 
 		doFontCrTest("StdLine", "", new StdLine());
 	}
 
 	@Test
+	@Category(SlowTest.class)
 	public void testStdCrCp037() throws IOException {
 
 		doFontCrTest("StdLine cp037 ", "cp037", new StdLine());

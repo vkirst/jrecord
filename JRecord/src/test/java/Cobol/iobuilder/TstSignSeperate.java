@@ -10,6 +10,10 @@ import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTest;
 
 /**
  * Test Sign Separate clause
@@ -17,7 +21,7 @@ import junit.framework.TestCase;
  * @author Bruce Martin
  *
  */
-public class TstSignSeperate extends TestCase {
+public class TstSignSeperate {
 	private static String COPYBOOK0
 			= "       01 HEADER.\n"
 			+ "          05 SOME-VALUE  PIC S9(15) SIGN TRAILING SEPARATE CHARACTER.\n";
@@ -87,6 +91,7 @@ public class TstSignSeperate extends TestCase {
 	
 	private String data = "000000000000123+";
 	
+	@Test
 	public void test1() throws IOException {
 		ICobolIOBuilder iob = getIoBuilder(COPYBOOK2);
 		
@@ -95,34 +100,40 @@ public class TstSignSeperate extends TestCase {
 		l.setData(data);
 		
 		System.out.println(l.getFieldValue(0, 0).asString());
-		assertEquals("1.23", l.getFieldValue(0, 0).asString());
+		Assert.assertEquals("1.23", l.getFieldValue(0, 0).asString());
 		
-		assertTrue(true);
+		Assert.assertTrue(true);
 	}
 	
+	@Test
 	public void testDecimal0() throws IOException {
 		tstSignSeperate(COPYBOOK0, 0);
 	}
 	
+	@Test
 	public void testDecimal1() throws IOException {
 		tstSignSeperate(COPYBOOK1, 1);
 	}
 	
+	@Test
 	public void testDecimal2() throws IOException {
 		tstSignSeperate(COPYBOOK2, 2);
 	}
 	
+	@Test
 	public void testDecimal0a() throws IOException {
 		tstSignSeperate(EN_SIGN_TRAILING_0, 0);
 		tstSignSeperate(EN_SIGN_TRAILING_0p, 0);
 	}
 	
+	@Test
 	public void testDecimal1a() throws IOException {
 		tstSignSeperate(EN_SIGN_TRAILING_1, 1);
 		tstSignSeperate(EN_SIGN_TRAILING_1p, 1);
 		tstSignSeperateAD(EN_SIGN_TRAILING_1d, 1);
 	}
 	
+	@Test
 	public void testDecimal2a() throws IOException {
 		tstSignSeperate(EN_SIGN_TRAILING_2, 2);
 		tstSignSeperate(EN_SIGN_TRAILING_2p, 2);
@@ -131,17 +142,21 @@ public class TstSignSeperate extends TestCase {
 		tstSignSeperateAD(EN_SIGN_TRAILING_2pd, 2);
 	}
 	
+	@Test
 	public void testSignLeadingDecimal0() throws IOException {
 		tstSignSeperateLeading(SIGN_LEADING0, 0);
 		tstSignSeperateLeading(SIGN_LEADING0p, 0);
 	}
-	
+
+	@Test
+	@Category(SlowTest.class)
 	public void testSignLeadingDecimal1() throws IOException {
 		tstSignSeperateLeading(SIGN_LEADING1, 1);
 		tstSignSeperateLeading(SIGN_LEADING1p, 1);
 		tstSignSeperateLeadingAd(SIGN_LEADING1pd, 1);
 	}
 	
+	@Test
 	public void testSignLeadingDecimal2() throws IOException {
 		tstSignSeperateLeading(SIGN_LEADING2, 2);
 		tstSignSeperateLeading(SIGN_LEADING2p, 2);
@@ -223,10 +238,10 @@ public class TstSignSeperate extends TestCase {
 		s = s.substring(0, 1) +  s.substring(s.length() - 15);
 		
 		l.getFieldValue(0, 0).set(value);		
-		assertEquals(i + "", s, l.getFullLine());
+		Assert.assertEquals(i + "", s, l.getFullLine());
 		
 		l.setData(s);		
-		assertEquals(i + "", value, l.getFieldValue(0, 0).asString());
+		Assert.assertEquals(i + "", value, l.getFieldValue(0, 0).asString());
 	}
 	
 	private String format(int val, int decimal) {

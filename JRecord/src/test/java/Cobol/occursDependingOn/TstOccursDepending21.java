@@ -43,18 +43,24 @@ import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTest;
 
 /**
  * Test Occurs depending on with one nested occurs !!!
  * @author Bruce Martin
  *
  */
-public class TstOccursDepending21 extends TestCase {
+public class TstOccursDepending21 {
 
 	private static final String MONTHS = "months";
 	private static final String WEEK_NO = "week-no";
 	private final ClassLoader classLoader = TstOccursDepending21.class.getClassLoader();
 
+	@Test
+	@Category(SlowTest.class)
 	public void testPositionCalc1() throws Exception {
 		try {
 			tstPosition1("OccursDependingOn21.cbl");
@@ -65,6 +71,8 @@ public class TstOccursDepending21 extends TestCase {
 	}
 	
 
+	@Test
+	@Category(SlowTest.class)
 	public void testPositionCalc2() throws Exception {
 		try {
 			tstPosition2("OccursDependingOn21.cbl");
@@ -159,8 +167,7 @@ public class TstOccursDepending21 extends TestCase {
 			pos = check(l, line, countFld, pos);
 			pos = check(l, line, valueFld, pos);
 			for (int w = week; w < 5; w++) {
-				assertFalse("Week: " + week + " " +i +", " + w, 
-						line.isFieldInLine(layout.getFieldFromName("daily-sales (" + i + ", " + w + ")")));
+				Assert.assertFalse("Week: " + week + " " + i + ", " + w, line.isFieldInLine(layout.getFieldFromName("daily-sales (" + i + ", " + w + ")")));
 			}
 		}
 //		for (int i =  salesCount; i < 12; i++) {			
@@ -188,8 +195,8 @@ public class TstOccursDepending21 extends TestCase {
 			IFieldDetail countFld = layout.getFieldFromName("purchase-count (" + i + ")");
 			IFieldDetail valueFld = layout.getFieldFromName("purchase-value (" + i + ")");
 
-			assertFalse(line.isFieldInLine(countFld));
-			assertFalse(line.isFieldInLine(valueFld));
+			Assert.assertFalse(line.isFieldInLine(countFld));
+			Assert.assertFalse(line.isFieldInLine(valueFld));
 		}
 		
 		
@@ -223,9 +230,9 @@ public class TstOccursDepending21 extends TestCase {
 		String id = fld.getName();
 		fieldList.add(fld);
 		
-		assertEquals(id, pos, fld.calculateActualPosition(line));
+		Assert.assertEquals(id, pos, fld.calculateActualPosition(line));
 		int end = pos + fld.getLen() - 1;
-		assertEquals(id, end, fld.calculateActualEnd(line));
+		Assert.assertEquals(id, end, fld.calculateActualEnd(line));
 		
 		if (WEEK_NO.equalsIgnoreCase(fld.getName()) || MONTHS.equalsIgnoreCase(fld.getName())) {
 			
@@ -234,7 +241,7 @@ public class TstOccursDepending21 extends TestCase {
 				setAndCheck(line, fld, i);
 			}
 		}
-		assertTrue(line.isFieldInLine(fld));
+		Assert.assertTrue(line.isFieldInLine(fld));
 
 		return end + 1;
 	}
@@ -245,12 +252,12 @@ public class TstOccursDepending21 extends TestCase {
 		fieldValue.set(value);
 		if (fieldValue.isNumeric()) {
 			if (fld.getDecimal() == 0) {
-				assertEquals(value, fieldValue.asInt());
+				Assert.assertEquals(value, fieldValue.asInt());
 			} else {
-				assertEquals(Integer.toString(value) + ".00", fieldValue.asString());
+				Assert.assertEquals(Integer.toString(value) + ".00", fieldValue.asString());
 			}
 		} else {
-			assertEquals(Integer.toString(value), fieldValue.asString());
+			Assert.assertEquals(Integer.toString(value), fieldValue.asString());
 		}
 	}
 

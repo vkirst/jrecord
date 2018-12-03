@@ -41,6 +41,12 @@ import net.sf.JRecord.ByteIO.FujitsuVbByteWriter;
 import net.sf.JRecord.common.IO;
 import net.sf.JRecord.common.TstConstants;
 import net.sf.JRecord.common.TstData;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTest;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -51,7 +57,7 @@ import java.util.Arrays;
  * @author Bruce Martin
  *
  */
-public class TstRecordFutjisuVbIOWriter extends TestCase {
+public class TstRecordFutjisuVbIOWriter {
 
 
 	private static final String TMP_DIRECTORY = TstConstants.TEMP_DIRECTORY;
@@ -64,37 +70,42 @@ public class TstRecordFutjisuVbIOWriter extends TestCase {
     /**
      * @see TestCase#setUp()
      */
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() throws Exception {
     }
 
 
     /**
      * @see TestCase#tearDown()
      */
-    protected void tearDown() throws Exception {
-        super.tearDown();
+    @After
+    public void tearDown() throws Exception {
 
     }
 
 
+    @Test
     public void testBinWrite1() throws Exception {
 
         tst1file(dtar020Lines);
     }
 
 
+    @Test
     public void testBinWrite2() throws Exception {
 
         tst1file(TstData.DTAR107_LINES);
     }
 
 
+    @Test
     public void testBinWrite3() throws Exception {
 
         tst1file(TstData.FUTJISU_LINES);
     }
 
+    @Test
+    @Category(SlowTest.class)
     public void testBinWrite4() throws Exception {
         int l = TstData.FUTJISU_LINES.length
         	  + TstData.DTAR107_LINES.length
@@ -157,13 +168,12 @@ public class TstRecordFutjisuVbIOWriter extends TestCase {
                 System.out.println("       Got: " + new String(line, "CP037"));
                 System.out.println("");
 
-                assertTrue(id + "Bin Line " + i + " is not correct ", b);
+                Assert.assertTrue(id + "Bin Line " + i + " is not correct ", b);
             }
             i += 1;
         }
 
-        assertEquals(id + "Expected to read " + lines2Test.length
-                   + " got " + i, lines2Test.length, i);
+        Assert.assertEquals(id + "Expected to read " + lines2Test.length + " got " + i, lines2Test.length, i);
 
         tReader.close();
     }

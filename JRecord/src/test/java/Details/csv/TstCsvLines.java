@@ -35,11 +35,14 @@ import net.sf.JRecord.CsvParser.CsvParserManagerChar;
 import net.sf.JRecord.Details.*;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.Types.Type;
+import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import testCategories.SlowTest;
 
+import static org.junit.Assert.assertEquals;
+
 @Category(SlowTest.class)
-public class TstCsvLines extends TestCase {
+public class TstCsvLines {
 
     private String[] STRINGS = {
             "12345", ",2345", "1,345", "12,45", "123,5", "1234,", "'2345",
@@ -53,6 +56,8 @@ public class TstCsvLines extends TestCase {
             "12,,5", "12,4,", "123,,",
     };
 
+    @Test
+    @Category(SlowTest.class)
     public void testBasic1() throws RecordException {
         LayoutDetail l = bldLayout1(CsvParserManagerChar.BASIC_CSV_PARSER);
         IUpdateFld u = new UpdateByIndex();
@@ -61,6 +66,8 @@ public class TstCsvLines extends TestCase {
         doTst(l, 2, u);
     }
 
+    @Test
+    @Category(SlowTest.class)
     public void testStandard1() throws RecordException {
         LayoutDetail l = bldLayout1(CsvParserManagerChar.STANDARD_CSV_PARSER);
         IUpdateFld u = new UpdateByIndex();
@@ -70,6 +77,8 @@ public class TstCsvLines extends TestCase {
     }
 
 
+    @Test
+    @Category(SlowTest.class)
     public void testQuoteChar1() throws RecordException {
         LayoutDetail l = bldLayout1(CsvParserManagerChar.DB_CSV_PARSER);
         IUpdateFld u = new UpdateByIndex();
@@ -79,6 +88,8 @@ public class TstCsvLines extends TestCase {
     }
 
 
+    @Test
+    @Category(SlowTest.class)
     public void testBasic2() throws RecordException {
         LayoutDetail l = bldLayout1(CsvParserManagerChar.BASIC_CSV_PARSER);
         IUpdateFld u = new UpdateByField();
@@ -87,6 +98,8 @@ public class TstCsvLines extends TestCase {
         doTst(l, 2, u);
     }
 
+    @Test
+    @Category(SlowTest.class)
     public void testStandard2() throws RecordException {
         LayoutDetail l = bldLayout1(CsvParserManagerChar.STANDARD_CSV_PARSER);
         IUpdateFld u = new UpdateByField();
@@ -96,6 +109,8 @@ public class TstCsvLines extends TestCase {
     }
 
 
+    @Test
+    @Category(SlowTest.class)
     public void testQuoteChar2() throws RecordException {
         LayoutDetail l = bldLayout1(CsvParserManagerChar.DB_CSV_PARSER);
         IUpdateFld u = new UpdateByField();

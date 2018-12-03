@@ -50,6 +50,10 @@ import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import net.sf.JRecord.common.TstConstants;
 import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTest;
 
 
 /**
@@ -58,7 +62,7 @@ import junit.framework.TestCase;
  * @author Bruce Martin
  *
  */
-public class TstCobolIoBuilderIO extends TestCase {
+public class TstCobolIoBuilderIO {
 
 	private static final int DTAR020_RECORD_LENGTH = 27;
 
@@ -103,6 +107,7 @@ public class TstCobolIoBuilderIO extends TestCase {
 		bldType("DTAR020-SALE-PRICE", 22, 6, 2, 31, "CP037"),
 	};
 	
+	@Test
 	public void testDTAR020SchemaLoad1a() throws RecordException, IOException {
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 					.newIOBuilder(new ByteArrayInputStream(COPBOOK_BYTES), "DTAR020");
@@ -110,6 +115,7 @@ public class TstCobolIoBuilderIO extends TestCase {
 		tstDTAR020SchemaLoad1(ioBuilder);
 	}
 
+	@Test
 	public void testDTAR020SchemaLoad1b() throws RecordException, IOException {
 		ICobolIOBuilder ioBuilder = JRecordInterface1.COBOL
 					.newIOBuilder(new ByteArrayInputStream(COPBOOK_BYTES), "DTAR020");
@@ -133,11 +139,11 @@ public class TstCobolIoBuilderIO extends TestCase {
 			FieldDetail field = r.getField(i);
 			FieldDetail ef = EXPECTED_DTAR020[i];
 			
-			assertEquals(ef.getName(), field.getName());
-			assertEquals(ef.getPos(),  field.getPos());
-			assertEquals(ef.getLen(),  field.getLen());
-			assertEquals(ef.getDecimal(), field.getDecimal());
-			assertEquals(ef.getType(), field.getType());
+			Assert.assertEquals(ef.getName(), field.getName());
+			Assert.assertEquals(ef.getPos(), field.getPos());
+			Assert.assertEquals(ef.getLen(), field.getLen());
+			Assert.assertEquals(ef.getDecimal(), field.getDecimal());
+			Assert.assertEquals(ef.getType(), field.getType());
 //				System.out.println("\tbldType(\"" + field.getName() 
 //						+ "\", " + field.getPos()
 //						+ ", "   + field.getLen()
@@ -152,6 +158,7 @@ public class TstCobolIoBuilderIO extends TestCase {
 	}
 	   
 	
+	@Test
 	public void testDTAR020SchemaLoad2a() throws RecordException, IOException {
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(new ByteArrayInputStream(COPBOOK_BYTES), "DTAR020");
@@ -159,6 +166,7 @@ public class TstCobolIoBuilderIO extends TestCase {
    }
 
 	
+	@Test
 	public void testDTAR020SchemaLoad2b() throws RecordException, IOException {
 		ICobolIOBuilder ioBuilder =JRecordInterface1.COBOL
 				.newIOBuilder(new ByteArrayInputStream(COPBOOK_BYTES), "DTAR020");
@@ -182,28 +190,29 @@ public class TstCobolIoBuilderIO extends TestCase {
     		FieldDetail field = r.getField(i);
     		FieldDetail ef = EXPECTED_DTAR020[i];
     		
-    		assertEquals(ef.getName().substring(8), field.getName());
-       		assertEquals(ef.getPos(),  field.getPos());
-       		assertEquals(ef.getLen(),  field.getLen());
-       		assertEquals(ef.getDecimal(), field.getDecimal());
-       		assertEquals(ef.getType(), field.getType());
+    		Assert.assertEquals(ef.getName().substring(8), field.getName());
+       		Assert.assertEquals(ef.getPos(), field.getPos());
+       		Assert.assertEquals(ef.getLen(), field.getLen());
+       		Assert.assertEquals(ef.getDecimal(), field.getDecimal());
+       		Assert.assertEquals(ef.getType(), field.getType());
     	}
     	
     	chkDTAR020_Layout(l);
 	}
 
     private void chkDTAR020_Layout(LayoutDetail l) { 	
-	    	assertEquals(EXPECTED_DTAR020.length, l.getRecord(0).getFieldCount());
-	    	assertEquals("CP037", l.getFontName());
-	    	assertEquals(1, l.getRecordCount());
-	    	assertEquals(DTAR020_RECORD_LENGTH, l.getMaximumRecordLength());
-	    	assertEquals(Constants.IO_FIXED_LENGTH, l.getFileStructure());
-	    	assertEquals(Constants.rtBinaryRecord, l.getLayoutType());
+	    	Assert.assertEquals(EXPECTED_DTAR020.length, l.getRecord(0).getFieldCount());
+	    	Assert.assertEquals("CP037", l.getFontName());
+	    	Assert.assertEquals(1, l.getRecordCount());
+	    	Assert.assertEquals(DTAR020_RECORD_LENGTH, l.getMaximumRecordLength());
+	    	Assert.assertEquals(Constants.IO_FIXED_LENGTH, l.getFileStructure());
+	    	Assert.assertEquals(Constants.rtBinaryRecord, l.getLayoutType());
 	 }
 
 	/**
 	 * Check Reading a File / Stream with an IOBuilder
 	 */
+	@Test
 	public void testReader1() throws FileNotFoundException, IOException, RecordException {
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 										.newIOBuilder(new ByteArrayInputStream(COPBOOK_BYTES), "DTAR020")
@@ -218,6 +227,7 @@ public class TstCobolIoBuilderIO extends TestCase {
 	/**
 	 * Check Reading a File / Stream with an IOBuilder
 	 */
+	@Test
 	public void testReader2() throws FileNotFoundException, IOException, RecordException {
 		ICobolIOBuilder ioBuilder = JRecordInterface1.COBOL
 										.newIOBuilder(new ByteArrayInputStream(COPBOOK_BYTES), "DTAR020")
@@ -228,6 +238,7 @@ public class TstCobolIoBuilderIO extends TestCase {
 		tstReader(ioBuilder.newReader(new FileInputStream(dataFile)));
 	}
 
+	@Test
 	public void testReader3() throws FileNotFoundException, IOException, RecordException {
 		tstFixedLengthReader(DTAR020_RECORD_LENGTH);
 		tstFixedLengthReader(31);
@@ -250,8 +261,8 @@ public class TstCobolIoBuilderIO extends TestCase {
 		//String dataFile = this.getClass().getResource("DTAR020_tst1.bin").getFile();
 		
 		int reclen = Math.max(DTAR020_RECORD_LENGTH, recordLength);
-		assertEquals(recordLength, ioBuilder.getExternalRecord().getRecordLength());
-		assertEquals(reclen, ioBuilder.getLayout().getMaximumRecordLength());
+		Assert.assertEquals(recordLength, ioBuilder.getExternalRecord().getRecordLength());
+		Assert.assertEquals(reclen, ioBuilder.getLayout().getMaximumRecordLength());
 
 		
 		List<AbstractLine> lines = getLines(ioBuilder);
@@ -263,6 +274,7 @@ public class TstCobolIoBuilderIO extends TestCase {
 	/**
 	 * Check writing a Fixed Width Records to  Filename and a Stream
 	 */
+	@Test
 	public void testFixedWriter1() throws IOException, RecordException {
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(new ByteArrayInputStream(COPBOOK_BYTES), "DTAR020")
@@ -274,6 +286,7 @@ public class TstCobolIoBuilderIO extends TestCase {
 	/**
 	 * Check writing a Fixed Width Records to  Filename and a Stream
 	 */
+	@Test
 	public void testFixedWriter2() throws IOException, RecordException {
 		ICobolIOBuilder ioBuilder = JRecordInterface1.COBOL
 				.newIOBuilder(new ByteArrayInputStream(COPBOOK_BYTES), "DTAR020")
@@ -282,6 +295,8 @@ public class TstCobolIoBuilderIO extends TestCase {
 		tstWrite(ioBuilder, DTAR020_RECORD_LENGTH);
 	}
 
+	@Test
+	@Category(SlowTest.class)
 	public void testFixedWriter3() throws IOException, RecordException {
 		tstFixedWidthWriter(DTAR020_RECORD_LENGTH);
 		tstFixedWidthWriter(37);
@@ -303,8 +318,8 @@ public class TstCobolIoBuilderIO extends TestCase {
 					.setFont("CP037");
 		
 		int reclen = Math.max(DTAR020_RECORD_LENGTH, recordLength);
-		assertEquals(recordLength, ioBuilder.getExternalRecord().getRecordLength());
-		assertEquals(reclen, ioBuilder.getLayout().getMaximumRecordLength());
+		Assert.assertEquals(recordLength, ioBuilder.getExternalRecord().getRecordLength());
+		Assert.assertEquals(reclen, ioBuilder.getLayout().getMaximumRecordLength());
 	
 		
 		tstWrite(ioBuilder, DTAR020_RECORD_LENGTH);
@@ -328,7 +343,7 @@ public class TstCobolIoBuilderIO extends TestCase {
 					System.out.println("  ** Char: " + j + " " + b[j] + " <> " + rec[j]);
 				}
 			}
-			assertTrue("Testing Line: " + i, ok);
+			Assert.assertTrue("Testing Line: " + i, ok);
 		}
 		
 		tstReader(ioBuilder.newReader(new ByteArrayInputStream(bytes)));
@@ -341,6 +356,7 @@ public class TstCobolIoBuilderIO extends TestCase {
 	/**
 	 * Check writing Mainframe VB Records to both a Filename and a Stream
 	 */
+	@Test
 	public void testVBWriter1() throws IOException, RecordException {
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(new ByteArrayInputStream(COPBOOK_BYTES), "DTAR020");
@@ -350,6 +366,7 @@ public class TstCobolIoBuilderIO extends TestCase {
 	/**
 	 * Check writing Mainframe VB Records to both a Filename and a Stream
 	 */
+	@Test
 	public void testVBWriter2() throws IOException, RecordException {
 		ICobolIOBuilder ioBuilder = JRecordInterface1.COBOL
 				.newIOBuilder(new ByteArrayInputStream(COPBOOK_BYTES), "DTAR020");
@@ -376,11 +393,11 @@ public class TstCobolIoBuilderIO extends TestCase {
 		for (int i = 0; i < lines.size(); i++) {
 			int recordStart = i * (recordLength + 4);
 			System.arraycopy(bytes, recordStart + 4, rec, 0, recordLength);
-			assertTrue("Testing Line: " + i, Arrays.equals(lines.get(i).getData(), rec));
-			assertEquals(0, bytes[recordStart]);
-			assertEquals(recordLength + 4, bytes[recordStart+1]);
-			assertEquals(0, bytes[recordStart+2]);
-			assertEquals(0, bytes[recordStart+3]);
+			Assert.assertTrue("Testing Line: " + i, Arrays.equals(lines.get(i).getData(), rec));
+			Assert.assertEquals(0, bytes[recordStart]);
+			Assert.assertEquals(recordLength + 4, bytes[recordStart + 1]);
+			Assert.assertEquals(0, bytes[recordStart + 2]);
+			Assert.assertEquals(0, bytes[recordStart + 3]);
 		}
 		
 		String tempFile = TstConstants.TEMP_DIRECTORY + "vbDTAR020_tst1.bin";
@@ -393,12 +410,14 @@ public class TstCobolIoBuilderIO extends TestCase {
 	/**
 	 * Check writing Gnu-Cobol VB Records to a Stream
 	 */
+	@Test
 	public void testGnuCobolVBWriter1() throws IOException, RecordException {
 		ICobolIOBuilder ioBuilder = CobolIoProvider.getInstance()
 				.newIOBuilder(new ByteArrayInputStream(COPBOOK_BYTES), "DTAR020");
 		tstGnuCobolVBWriter(ioBuilder);
 	}
 	
+	@Test
 	public void testGnuCobolVBWriter2() throws IOException, RecordException {
 		ICobolIOBuilder ioBuilder = JRecordInterface1.COBOL
 				.newIOBuilder(new ByteArrayInputStream(COPBOOK_BYTES), "DTAR020");
@@ -426,11 +445,11 @@ public class TstCobolIoBuilderIO extends TestCase {
 		for (int i = 0; i < lines.size(); i++) {
 			int recordStart = i * (recordLength + 4);
 			System.arraycopy(bytes, recordStart + 4, rec, 0, recordLength);
-			assertTrue("Testing Line: " + i, Arrays.equals(lines.get(i).getData(), rec));
-			assertEquals(0, bytes[recordStart]);
-			assertEquals(recordLength, bytes[recordStart+1]);
-			assertEquals(0, bytes[recordStart+2]);
-			assertEquals(0, bytes[recordStart+3]);
+			Assert.assertTrue("Testing Line: " + i, Arrays.equals(lines.get(i).getData(), rec));
+			Assert.assertEquals(0, bytes[recordStart]);
+			Assert.assertEquals(recordLength, bytes[recordStart + 1]);
+			Assert.assertEquals(0, bytes[recordStart + 2]);
+			Assert.assertEquals(0, bytes[recordStart + 3]);
 		}
 	}
 
@@ -480,7 +499,7 @@ public class TstCobolIoBuilderIO extends TestCase {
 		
 		while ((line = r.read()) != null) {
 			for (int i = 0; i <rec.getFieldCount(); i++) {
-				assertEquals("Line=" + lineNo + ", Field=" + rec.getField(i).getName(), EXPECTED[lineNo][i], line.getFieldValue(0, i).asString());
+				Assert.assertEquals("Line=" + lineNo + ", Field=" + rec.getField(i).getName(), EXPECTED[lineNo][i], line.getFieldValue(0, i).asString());
 			}
 			lineNo+=1;
 		}

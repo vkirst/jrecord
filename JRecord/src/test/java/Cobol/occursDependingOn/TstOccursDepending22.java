@@ -42,17 +42,23 @@ import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTest;
 
 /**
  * Test Occurs depending on with one nested occurs !!!
  * @author Bruce Martin
  *
  */
-public class TstOccursDepending22 extends TestCase {
+public class TstOccursDepending22 {
 
 	private static final String MONTHS = "months";
 	private static final String WEEK_NO = "week-no";
 
+	@Test
+	@Category(SlowTest.class)
 	public void testPositionCalc1() throws Exception {
 		try {
 			tstPosition("OccursDependingOn22.cbl");
@@ -168,10 +174,10 @@ public class TstOccursDepending22 extends TestCase {
 
 		if (pos != calculatedPosition) {
 			calculatedPosition = fld.calculateActualPosition(line);
-			assertEquals(id, pos, calculatedPosition);
+			Assert.assertEquals(id, pos, calculatedPosition);
 		}
 		int end = pos + fld.getLen() - 1;
-		assertEquals(id, end, fld.calculateActualEnd(line));
+		Assert.assertEquals(id, end, fld.calculateActualEnd(line));
 		
 		if (WEEK_NO.equalsIgnoreCase(fld.getName()) || MONTHS.equalsIgnoreCase(fld.getName())) {
 			
@@ -181,7 +187,7 @@ public class TstOccursDepending22 extends TestCase {
 			}
 		}
 		
-		assertTrue(line.isFieldInLine(fld));
+		Assert.assertTrue(line.isFieldInLine(fld));
 
 		return end + 1;
 	}
@@ -192,12 +198,12 @@ public class TstOccursDepending22 extends TestCase {
 		fieldValue.set(value);
 		if (fieldValue.isNumeric()) {
 			if (fld.getDecimal() == 0) {
-				assertEquals(value, fieldValue.asInt());
+				Assert.assertEquals(value, fieldValue.asInt());
 			} else {
-				assertEquals(Integer.toString(value) + ".00", fieldValue.asString());
+				Assert.assertEquals(Integer.toString(value) + ".00", fieldValue.asString());
 			}
 		} else {
-			assertEquals(Integer.toString(value), fieldValue.asString());
+			Assert.assertEquals(Integer.toString(value), fieldValue.asString());
 		}
 	}
 

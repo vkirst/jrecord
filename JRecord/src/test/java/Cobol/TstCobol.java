@@ -41,12 +41,16 @@ import net.sf.JRecord.IO.LineIOProvider;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.common.TstConstants;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTest;
 
 /*
  * 
  * 
  */
-public class TstCobol extends TestCase {
+public class TstCobol {
 /*
            03 Num2         pic s9(02)v99 comp.
            03 Num3         pic s9(03)v99 comp.
@@ -79,27 +83,31 @@ public class TstCobol extends TestCase {
 	};
 	
 	
-	
+	@Test
+	@Category(SlowTest.class)
 	public void testOpenCobol() throws Exception {
 		checkFiles("default/", "cpy", ICopybookDialects.FMT_GNU_COBOL);
 	}
 	
 	
+	@Test
 	public void testOpenCobolBS2000() throws Exception {
 		checkFiles("bs2000/", "bs", ICopybookDialects.FMT_FS2000);
 	}
-	
-	
+
+	@Test
 	public void testOpenCobolMf() throws Exception {
 		checkFiles("mf/", "mf", ICopybookDialects.FMT_OC_MICRO_FOCUS);
 	}
 
 	
+	@Test
 	public void testOpenCobolMvs() throws Exception {
 		checkFiles("mvs/", "mvs", ICopybookDialects.FMT_GNU_COBOL_MVS);
 	}
 
 	
+	@Test
 	public void testOpenCobolFj() throws Exception {
 		checkFiles("Fj/", "fj", ICopybookDialects.FMT_FUJITSU);
 	}
@@ -162,7 +170,7 @@ public class TstCobol extends TestCase {
 					if (! refVal.equals(cmp)) {
 						System.out.println( "--> " + i + " \t" + vars[i] + " \t" + log + "\t" + refVal + " " + cmp);
 					}
-					assertEquals("Error Line: " + j + " " + vars[i], refVal, cmp);
+					Assert.assertEquals("Error Line: " + j + " " + vars[i], refVal, cmp);
 				}
 			}
 		}

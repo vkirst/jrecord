@@ -339,6 +339,7 @@ public class TestConversion {
 	
 	
 	@Test
+	@Category(SlowTest.class)
 	public void testGetPostiveBinary() {
 		byte[] bytes = {0,0,0};
 		for (int v3 = 0; v3 < 256; v3++) {

@@ -41,33 +41,45 @@ import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTest;
 
-public class TstOccursDepending01 extends TestCase {
+public class TstOccursDepending01 {
 
 	private static final String MONTHS = "months";
 	private static final String WEEK_NO = "week-no";
 	private final ClassLoader classLoader = TstOccursDepending01.class.getClassLoader();
 
+	@Test
+	@Category(SlowTest.class)
 	public void testPositionCalc1() throws IOException, RecordException {
 		tstPosition1("OccursDepending1.cbl", Constants.IO_STANDARD_TEXT_FILE);
 	}
 	
+	@Test
 	public void testPositionCalc2() throws IOException, RecordException {
 		tstPosition1("OccursDepending2.cbl", Constants.IO_STANDARD_TEXT_FILE);
 	}
 
+	@Test
+	@Category(SlowTest.class)
 	public void testPositionCalc3() throws IOException, RecordException {
 		tstPosition1("OccursDepending1.cbl", Constants.IO_STANDARD_UNICODE_TEXT_FILE);
 	}
 
+	@Test
 	public void testPositionCalc4() throws IOException, RecordException {
 		tstPosition2("OccursDepending1.cbl", Constants.IO_STANDARD_TEXT_FILE);
 	}
 	
+	@Test
 	public void testPositionCalc5() throws IOException, RecordException {
 		tstPosition2("OccursDepending2.cbl", Constants.IO_STANDARD_TEXT_FILE);
 	}
 
+	@Test
 	public void testPositionCalc6() throws IOException, RecordException {
 		tstPosition2("OccursDepending1.cbl", Constants.IO_STANDARD_UNICODE_TEXT_FILE);
 	}
@@ -134,13 +146,13 @@ public class TstOccursDepending01 extends TestCase {
 			}
 			pos = check(line, countFld, pos);
 			pos = check(line, valueFld, pos);
-			assertTrue(line.getFieldValue("sales-count (" + i + ")").isFieldInRecord());
-			assertTrue(line.getFieldValue("sales-value (" + i + ")").isFieldInRecord());
+			Assert.assertTrue(line.getFieldValue("sales-count (" + i + ")").isFieldInRecord());
+			Assert.assertTrue(line.getFieldValue("sales-value (" + i + ")").isFieldInRecord());
 		}
 		
 		for (int i = salesCount; i < 12; i++) {
-			assertFalse(line.getFieldValue("sales-count (" + i + ")").isFieldInRecord());
-			assertFalse(line.getFieldValue("sales-value (" + i + ")").isFieldInRecord());
+			Assert.assertFalse(line.getFieldValue("sales-count (" + i + ")").isFieldInRecord());
+			Assert.assertFalse(line.getFieldValue("sales-value (" + i + ")").isFieldInRecord());
 		}
 
 		if (normalPos) {
@@ -156,8 +168,8 @@ public class TstOccursDepending01 extends TestCase {
 			pos = check(line, layout.getFieldFromName("purchase-value (" + i + ")"), pos);
 		}
 		for (int i = purchaseCount; i < 52; i++) {
-			assertFalse(line.getFieldValue("purchase-count (" + i + ")").isFieldInRecord());
-			assertFalse(line.getFieldValue("purchase-value (" + i + ")").isFieldInRecord());
+			Assert.assertFalse(line.getFieldValue("purchase-count (" + i + ")").isFieldInRecord());
+			Assert.assertFalse(line.getFieldValue("purchase-value (" + i + ")").isFieldInRecord());
 		}
 
 		pos = check(line, layout.getFieldFromName("total-purchase-count"), pos);
@@ -173,9 +185,9 @@ public class TstOccursDepending01 extends TestCase {
 	
 	private int check(AbstractLine line, IFieldDetail fld, int pos) throws RecordException {
 		String id = fld.getName();
-		assertEquals(id, pos, fld.calculateActualPosition(line));
+		Assert.assertEquals(id, pos, fld.calculateActualPosition(line));
 		int end = pos + fld.getLen() - 1;
-		assertEquals(id, end, fld.calculateActualEnd(line));
+		Assert.assertEquals(id, end, fld.calculateActualEnd(line));
 		
 		if (WEEK_NO.equalsIgnoreCase(fld.getName()) || MONTHS.equalsIgnoreCase(fld.getName())) {
 			
@@ -184,7 +196,7 @@ public class TstOccursDepending01 extends TestCase {
 				setAndCheck(line, fld, i);
 			}
 		}
-		assertTrue(line.getFieldValue(fld).isFieldInRecord());
+		Assert.assertTrue(line.getFieldValue(fld).isFieldInRecord());
 		return end + 1;
 	}
 	
@@ -194,12 +206,12 @@ public class TstOccursDepending01 extends TestCase {
 		fieldValue.set(value);
 		if (fieldValue.isNumeric()) {
 			if (fld.getDecimal() == 0) {
-				assertEquals(value, fieldValue.asInt());
+				Assert.assertEquals(value, fieldValue.asInt());
 			} else {
-				assertEquals(Integer.toString(value) + ".00", fieldValue.asString());
+				Assert.assertEquals(Integer.toString(value) + ".00", fieldValue.asString());
 			}
 		} else {
-			assertEquals(Integer.toString(value), fieldValue.asString());
+			Assert.assertEquals(Integer.toString(value), fieldValue.asString());
 		}
 	}
 

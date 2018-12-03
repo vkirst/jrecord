@@ -35,11 +35,12 @@ import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeZoned;
 import net.sf.JRecord.common.TstConstants;
+import org.junit.Assert;
+import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import testCategories.SlowTest;
 
-@Category(SlowTest.class)
-public class TestEbcidicZonedDecimal extends TestCase {
+public class TestEbcidicZonedDecimal {
 
     private static final String[] CHARSET_TO_TEST = TstConstants.EBCDIC_SINGLE_BYTE_CHARSETS;
 
@@ -49,7 +50,8 @@ public class TestEbcidicZonedDecimal extends TestCase {
 
     private TypeZoned tz = new TypeZoned();
 
-
+    @Test
+    @Category(SlowTest.class)
     public void testZonedSetValue() throws RecordException {
 
         byte[] pm1 = {(byte) (0xC0), (byte) (0xD0), (byte) (0xF0), (byte) (0xF0)};
@@ -93,18 +95,18 @@ public class TestEbcidicZonedDecimal extends TestCase {
         String id = " " + fld.getFontName() + " " + val;
 
         int fldEnd = fld.getEnd() - 1;
-        assertEquals("Test Sign: " + id, highNyble, (byte) (b[fldEnd] & HIGH_NYBLE));
-        assertEquals("Test last char: " + id, absVal % 10, (b[fldEnd] & LOW_NYBLE));
+        Assert.assertEquals("Test Sign: " + id, highNyble, (byte) (b[fldEnd] & HIGH_NYBLE));
+        Assert.assertEquals("Test last char: " + id, absVal % 10, (b[fldEnd] & LOW_NYBLE));
 
         for (int j = 1; j <= fldEnd; j++) {
             absVal = absVal / 10;
-            assertEquals("Test digit: " + (j + 1) + " in " + id, absVal % 10, (b[fldEnd - j] & LOW_NYBLE));
-            assertEquals("Test nyble: " + id, ((byte) 0xF0), (byte) (b[fldEnd - j] & HIGH_NYBLE));
+            Assert.assertEquals("Test digit: " + (j + 1) + " in " + id, absVal % 10, (b[fldEnd - j] & LOW_NYBLE));
+            Assert.assertEquals("Test nyble: " + id, ((byte) 0xF0), (byte) (b[fldEnd - j] & HIGH_NYBLE));
         }
 
         Object fldValue = tz.getField(b, 1, fld);
 //		System.out.println("-->" + fldValue + "<--" + fldValue.getClass().getName());
-        assertEquals("Check Value: " + id, Integer.toString(val), fldValue.toString());
+        Assert.assertEquals("Check Value: " + id, Integer.toString(val), fldValue.toString());
 
         byte[] record = new byte[fldEnd + 1];
         System.arraycopy(b, 0, record, 0, record.length);
@@ -112,8 +114,6 @@ public class TestEbcidicZonedDecimal extends TestCase {
         if ("IBM930".equals(fld.getFontName())) {
             System.out.print('*');
         }
-        assertEquals("Check formatValueForRecord: " + id,
-                Conversion.toString(record, fld.getFontName()),
-                tz.formatValueForRecord(fld, Integer.toString(val)));
+        Assert.assertEquals("Check formatValueForRecord: " + id, Conversion.toString(record, fld.getFontName()), tz.formatValueForRecord(fld, Integer.toString(val)));
     }
 }

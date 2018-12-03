@@ -55,8 +55,12 @@ import net.sf.JRecord.utilityClasses.Copy;
 import net.sf.JRecord.utilityClasses.SchemaLoader;
 import net.sf.JRecord.common.TestCommonCode;
 import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import testCategories.SlowTest;
 
-public class TstCopy extends TestCase {
+public class TstCopy {
 
 	static LineIOProvider ioProvider = LineIOProvider.getInstance();
 
@@ -68,7 +72,8 @@ public class TstCopy extends TestCase {
 	
 	private static final byte[] DTAR020_DATA = loadFile(DTAR020_DATA_FILE_NAME);
 
-
+	@Test
+	@Category(SlowTest.class)
 	public void testCopyFileByMatchingFieldNames1() throws Exception, RecordException {
 	
 		LayoutDetail outSchema = SchemaLoader.loadSchema(
@@ -79,6 +84,7 @@ public class TstCopy extends TestCase {
 	}
 	
 	
+	@Test
 	public void testCopyFileByMatchingFieldNames2() throws Exception, RecordException {
 	
 		LayoutDetail outSchema = SchemaLoader.loadSchema(
@@ -88,12 +94,14 @@ public class TstCopy extends TestCase {
 	}
 
 	
+	@Test
 	public void testCopyFileByMatchingFieldNamesCsv1() throws Exception, RecordException {
 		CommonBits.setUseCsvLine(false);
 		doTest( getCsvSchema(), true);
 	}
 
 	
+	@Test
 	public void testCopyFileByMatchingFieldNamesCsv2() throws Exception, RecordException {
 		CommonBits.setUseCsvLine(false);
 		LayoutDetail outSchema = getCsvSchemaReverse();
@@ -103,12 +111,14 @@ public class TstCopy extends TestCase {
 	
 	
 	
+	@Test
 	public void testCopyFileByMatchingFieldNamesCsv3() throws Exception, RecordException {
 		CommonBits.setUseCsvLine(true);
 		doTest( getCsvSchema(), true);
 	}
 
 	
+	@Test
 	public void testCopyFileByMatchingFieldNamesCsv4() throws Exception, RecordException {
 		CommonBits.setUseCsvLine(true);
 		LayoutDetail outSchema = getCsvSchemaReverse();
@@ -117,12 +127,14 @@ public class TstCopy extends TestCase {
 	}
 
 	
+	@Test
 	public void testCsvCopy1() throws Exception, RecordException {
 		CommonBits.setUseCsvLine(false);
 		tstCsvCopy1();
 	}
 
 	
+	@Test
 	public void testCsvCopy2() throws Exception, RecordException {
 		CommonBits.setUseCsvLine(true);
 		tstCsvCopy1();
@@ -199,7 +211,7 @@ public class TstCopy extends TestCase {
 			
 			byte[] outDataFieldSeq = out.toByteArray();
 			compare("Compare in & out 2: ", DTAR020_LINES, readStream(outSchema, outDataFieldSeq), normalSequence);
-			assertTrue(Arrays.equals(outData, outDataFieldSeq));
+			Assert.assertTrue(Arrays.equals(outData, outDataFieldSeq));
 		}
 		
 		ByteArrayOutputStream out2 = new ByteArrayOutputStream(DTAR020_DATA.length);
@@ -210,7 +222,7 @@ public class TstCopy extends TestCase {
 		
 		byte[] outData2 = out2.toByteArray();
 		compare("Compare in & out 3: ", DTAR020_LINES, readStream(inSchema, outData2), true);
-		assertTrue(Arrays.equals(DTAR020_DATA, outData2));
+		Assert.assertTrue(Arrays.equals(DTAR020_DATA, outData2));
 	}
 
 
@@ -285,12 +297,11 @@ public class TstCopy extends TestCase {
 		
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < fieldCount; j++) {
-				assertEquals(id + " " + i + ", " + j + ", " + Math.abs(j - sub),
-						l1.get(i).getFieldValue(0, j).asString(), l2.get(i).getFieldValue(0, Math.abs(j - sub)).asString());
+				Assert.assertEquals(id + " " + i + ", " + j + ", " + Math.abs(j - sub), l1.get(i).getFieldValue(0, j).asString(), l2.get(i).getFieldValue(0, Math.abs(j - sub)).asString());
 			}
 		}
-		assertEquals(id, l1.size(), l2.size());
-		assertEquals(id, fieldCount, l2.get(0).getLayout().getRecord(0).getFieldCount());
+		Assert.assertEquals(id, l1.size(), l2.size());
+		Assert.assertEquals(id, fieldCount, l2.get(0).getLayout().getRecord(0).getFieldCount());
 	}
 	
 
@@ -308,8 +319,7 @@ public class TstCopy extends TestCase {
 		for (int i = 0; i < m; i++) {
 			String[] fields = lines[i+1].split(delim);
 			for (int j = 0; j < fieldCount; j++) {
-				assertEquals(id + " " + i + ", " + j + ", " + Math.abs(j - sub),
-						l1.get(i).getFieldValue(0, j).asString(), fields[Math.abs(j - sub)]);
+				Assert.assertEquals(id + " " + i + ", " + j + ", " + Math.abs(j - sub), l1.get(i).getFieldValue(0, j).asString(), fields[Math.abs(j - sub)]);
 			}
 		}
 
