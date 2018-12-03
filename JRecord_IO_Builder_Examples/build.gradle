@@ -1,0 +1,12 @@
+ext.versionStr = '0.85.1'
+
+dependencies {
+    compile project(':JRecord')
+}
+
+jar() {
+    manifest {
+        attributes 'Implementation-Title': 'JRecord io builder examples module',
+                'Implementation-Version': versionStr
+    }
+}
