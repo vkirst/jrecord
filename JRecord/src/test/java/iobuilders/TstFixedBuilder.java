@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.iobuilders;
+package iobuilders;
 
 import java.io.IOException;
 

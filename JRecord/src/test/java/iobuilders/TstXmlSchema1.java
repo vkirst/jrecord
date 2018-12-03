@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.iobuilders;
+package iobuilders;
 
 import java.io.IOException;
 
@@ -129,9 +129,9 @@ public class TstXmlSchema1 extends TestCase {
 	};
 	
 	
-    String dataDTAR020         = this.getClass().getResource("DTAR020_tst1.bin").getFile();
-    String copybookNameDTAR020 = this.getClass().getResource("DTAR020.Xml").getFile();
-    String copybookNameAmsPO   = this.getClass().getResource("ams_PO_Download.Xml").getFile();
+    String dataDTAR020         = this.getClass().getClassLoader().getResource("DTAR020_tst1.bin").getFile();
+    String copybookNameDTAR020 = this.getClass().getClassLoader().getResource("DTAR020.Xml").getFile();
+    String copybookNameAmsPO   = this.getClass().getClassLoader().getResource("ams_PO_Download.Xml").getFile();
 
     public void testDTAR020SchemaLoad() throws RecordException, IOException {
     	IIOBuilder ioBldr = JRecordInterface1.SCHEMA_XML.newIOBuilder(copybookNameDTAR020);
