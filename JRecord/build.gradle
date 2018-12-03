@@ -34,13 +34,13 @@ jar() {
 
 test {
     useJUnit {
-        excludeCategories 'testCategories.SlowTests'
+        excludeCategories 'testCategories.SlowTest'
     }
 }
 
 task slowTest(type: Test) {
     group 'verification'
     useJUnit {
-        includeCategories 'testCategories.SlowTests'
+        includeCategories 'testCategories.SlowTest'
     }
 }
