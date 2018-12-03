@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.External.helpers;
+package External.helpers;
 
 import java.io.BufferedReader;
 import java.io.IOException;

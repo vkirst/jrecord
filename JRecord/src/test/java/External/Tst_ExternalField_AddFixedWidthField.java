@@ -1,4 +1,4 @@
-package net.sf.JRecord.zTest.External;
+package External;
 
 import java.io.IOException;
 import java.io.StringReader;

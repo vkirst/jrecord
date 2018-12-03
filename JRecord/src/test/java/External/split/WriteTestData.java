@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.External.split;
+package External.split;
 
 import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Details.LayoutDetail;

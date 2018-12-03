@@ -26,18 +26,19 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.External;
+package External;
 
-import junit.framework.TestCase;
 import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.External.CobolCopybookLoader;
 import net.sf.JRecord.External.CopybookLoader;
-import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.External.Def.ExternalField;
+import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import org.junit.Assert;
+import org.junit.Test;
 
-public class TstLoadCobolCopybook  extends TestCase {
+public class TstLoadCobolCopybook {
 
 	private String copybookFileName = "CopybookWithHex88.cbl";
 	
@@ -78,24 +79,25 @@ public class TstLoadCobolCopybook  extends TestCase {
 			{0, 17, 1},
 			{0, 18, 1},
 	};
-	
+
+	@Test
 	public void testLoadCopybook() throws RecordException {
 		
-    	String copyName = this.getClass().getResource(copybookFileName).getFile();
+    	String copyName = this.getClass().getClassLoader().getResource(copybookFileName).getFile();
     	CobolCopybookLoader loaderCBL = new CobolCopybookLoader();
     	ExternalRecord extlayoutCBL = loaderCBL.loadCopyBook(
     			copyName, CopybookLoader.SPLIT_NONE, 0,
 				/* Font name */"", ICopybookDialects.FMT_MAINFRAME, 0, new TextLog());
     	
     	
-    	assertEquals(fldNames.length, extlayoutCBL.getNumberOfRecordFields());
+    	Assert.assertEquals(fldNames.length, extlayoutCBL.getNumberOfRecordFields());
     	for (int i = 0; i < extlayoutCBL.getNumberOfRecordFields(); i++) {
     		ExternalField fld = extlayoutCBL.getRecordField(i);
 			String id = "FldNo=" + i + ", name=" + fldNames[i];
-			assertEquals(id, fldNames[i], fld.getName());
-			assertEquals(id, fldAttrs[i][0], fld.getType());
-			assertEquals(id, fldAttrs[i][1], fld.getPos());
-			assertEquals(id, fldAttrs[i][2], fld.getLen());
+			Assert.assertEquals(id, fldNames[i], fld.getName());
+			Assert.assertEquals(id, fldAttrs[i][0], fld.getType());
+			Assert.assertEquals(id, fldAttrs[i][1], fld.getPos());
+			Assert.assertEquals(id, fldAttrs[i][2], fld.getLen());
     	}
 
     	

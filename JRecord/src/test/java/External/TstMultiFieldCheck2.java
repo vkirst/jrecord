@@ -26,7 +26,9 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.External;
+package External;
+
+import java.io.ByteArrayInputStream;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.Common.RecordException;
@@ -34,28 +36,28 @@ import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
 import net.sf.JRecord.External.RecordEditorXmlLoader;
 
-public class TstMultiFieldCheck1  extends TestCase {
+public class TstMultiFieldCheck2  extends TestCase {
 
-	private final  int[] LAYOUT_IDXS = {
-		0, 1, 2, 2, 2, 2, 2, 2, 3, 4, 5, 5, 5, 5, 5, 5, 6,
+	private final static int[] LAYOUT_IDXS = {
+		0, 1, 8, 2, 2, 2, 2, 7, 3, 4, 5, 5, 5, 5, 5, 5, 6,
 	};
-	private final  String[] LINES = {
+	private final static String[] LINES = {
 		"H  111111 2222 333",
 		"K H 111111 2222 333",
 		"K 1 aaaa    ss ww  111111 2222 333 ",
-		"K 1 aaaa    ss ww  111111 2222 333 ",
-		"K 2 aaaa    ss ww  111111 2222 333 ",
-		"K 2 aaaa    ss ww  111111 2222 333 ",
-		"K 3 aaaa    ss ww  111111 2222 333 ",
-		"K 3 aaaa    ss ww  111111 2222 333 ",
+		"K 1 aaaa    ss ww  122222 2222 333 ",
+		"K 2 aaaa    ss ww  222222 2222 333 ",
+		"K 2 aaaa    ss ww  222222 2222 333 ",
+		"K 3 aaaa    ss ww  300000 2222 333 ",
+		"K 3 aaaa    ss ww  333333 2222 333 ",
 		"K FFFFFF 111111 2222 333",
 		"P H 111111 2222 333",
 		"P 1 aaaa  PP ss ww  111111 2222 333 ",
 		"P 1 aaaa  PP ss ww  111111 2222 333 ",
-		"P 2 aaaa  PP ss ww  111111 2222 333 ",
-		"P 2 aaaa  PP ss ww  111111 2222 333 ",
-		"P 3 aaaa  PP ss ww  111111 2222 333 ",
-		"P 3 aaaa  PP ss ww  111111 2222 333 ",
+		"P 2 aaaa  PP ss ww  222222 2222 333 ",
+		"P 2 aaaa  PP ss ww  222222 2222 333 ",
+		"P 3 aaaa  PP ss ww  300000 2222 333 ",
+		"P 3 aaaa  PP ss ww  333333 2222 333 ",
 		"FFFFFF 111111 2222 333"
 
 	};
@@ -91,15 +93,8 @@ public class TstMultiFieldCheck1  extends TestCase {
 		"			</FIELDS>",
 		"		</RECORD>",
 		"		<RECORD RECORDNAME=\"K\" COPYBOOK=\"\" DELIMITER=\"&lt;Tab&gt;\" FILESTRUCTURE=\"Default\" STYLE=\"0\" RECORDTYPE=\"RecordLayout\" LIST=\"N\" QUOTE=\"\" RecSep=\"default\" LINE_NO_FIELD_NAMES=\"1\">",
-		"			<TSTFIELDS>",
-		"              <AND>",
+		"			<TSTFIELDS DEFAULTRECORD=\"Y\">",
 		"				<TSTFIELD NAME=\"Record_Type\" VALUE=\"K\"/>",
-		"               <OR>",
-		"                  <TSTFIELD NAME=\"Record_Type_2\" VALUE=\"1\"/>",
-		"                  <TSTFIELD NAME=\"Record_Type_2\" VALUE=\"2\"/>",
-		"                  <TSTFIELD NAME=\"Record_Type_2\" VALUE=\"3\"/>",
-		"               </OR>",
-		"              </AND>",
 		"			</TSTFIELDS>",
 		"			<FIELDS>",
 		"				<FIELD NAME=\"Record_Type\" POSITION=\"1\" LENGTH=\"1\" TYPE=\"Char\"/>",
@@ -152,13 +147,8 @@ public class TstMultiFieldCheck1  extends TestCase {
 		"			</FIELDS>",
 		"		</RECORD>",
 		"		<RECORD RECORDNAME=\"P\" COPYBOOK=\"\" DELIMITER=\"&lt;Tab&gt;\" FILESTRUCTURE=\"Default\" STYLE=\"0\" RECORDTYPE=\"RecordLayout\" LIST=\"N\" QUOTE=\"\" RecSep=\"default\" LINE_NO_FIELD_NAMES=\"1\">",
-		"			<TSTFIELDS>",
+		"			<TSTFIELDS DEFAULTRECORD=\"Y\">",
 		"				<TSTFIELD NAME=\"Record_Type\" VALUE=\"P\"/>",
-		"               <OR>",
-		"                  <TSTFIELD NAME=\"Record_Type_2\" VALUE=\"1\"/>",
-		"                  <TSTFIELD NAME=\"Record_Type_2\" VALUE=\"2\"/>",
-		"                  <TSTFIELD NAME=\"Record_Type_2\" VALUE=\"3\"/>",
-		"               </OR>",
 		"			</TSTFIELDS>",
 		"			<FIELDS>",
 		"				<FIELD NAME=\"Record_Type\" POSITION=\"1\" LENGTH=\"1\" TYPE=\"Char\"/>",
@@ -188,13 +178,55 @@ public class TstMultiFieldCheck1  extends TestCase {
 		"				<FIELD NAME=\"F6\" POSITION=\"20\" LENGTH=\"3\" TYPE=\"Num (Right Justified space padded)\"/>",
 		"			</FIELDS>",
 		"		</RECORD>",
+		"		<RECORD RECORDNAME=\"K3000000\" COPYBOOK=\"\" DELIMITER=\"&lt;Tab&gt;\" FILESTRUCTURE=\"Default\" STYLE=\"0\" RECORDTYPE=\"RecordLayout\" LIST=\"N\" QUOTE=\"\" RecSep=\"default\" LINE_NO_FIELD_NAMES=\"1\">",
+		"			<TSTFIELDS>",
+		"				<TSTFIELD NAME=\"Record_Type\" VALUE=\"K\"/>",
+		"               <TSTFIELD NAME=\"K7\" Operator=\"gt\" VALUE=\"300000\"/>",
+		"			</TSTFIELDS>",
+		"			<FIELDS>",
+		"				<FIELD NAME=\"Record_Type\" POSITION=\"1\" LENGTH=\"1\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K1\" POSITION=\"2\" LENGTH=\"1\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"Record_Type_2\" POSITION=\"3\" LENGTH=\"1\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K3\" POSITION=\"4\" LENGTH=\"1\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K4\" POSITION=\"5\" LENGTH=\"8\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K5\" POSITION=\"13\" LENGTH=\"3\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K6\" POSITION=\"16\" LENGTH=\"4\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K7\" POSITION=\"20\" LENGTH=\"6\" TYPE=\"Num (Right Justified space padded)\"/>",
+		"				<FIELD NAME=\"K8\" POSITION=\"26\" LENGTH=\"1\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K9\" POSITION=\"27\" LENGTH=\"4\" TYPE=\"Num (Right Justified space padded)\"/>",
+		"				<FIELD NAME=\"K10\" POSITION=\"31\" LENGTH=\"1\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K11\" POSITION=\"32\" LENGTH=\"3\" TYPE=\"Num (Right Justified space padded)\"/>",
+		"				<FIELD NAME=\"K12\" POSITION=\"35\" LENGTH=\"1\" TYPE=\"Char\"/>",
+		"			</FIELDS>",
+		"		</RECORD>",
+		"		<RECORD RECORDNAME=\"P3000000\" COPYBOOK=\"\" DELIMITER=\"&lt;Tab&gt;\" FILESTRUCTURE=\"Default\" STYLE=\"0\" RECORDTYPE=\"RecordLayout\" LIST=\"N\" QUOTE=\"\" RecSep=\"default\" LINE_NO_FIELD_NAMES=\"1\">",
+		"			<TSTFIELDS>",
+		"				<TSTFIELD NAME=\"Record_Type\" VALUE=\"K\"/>",
+		"               <TSTFIELD NAME=\"K7\" Operator=\"lt\" VALUE=\"122222\"/>",
+		"			</TSTFIELDS>",
+		"			<FIELDS>",
+		"				<FIELD NAME=\"Record_Type\" POSITION=\"1\" LENGTH=\"1\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K1\" POSITION=\"2\" LENGTH=\"1\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"Record_Type_2\" POSITION=\"3\" LENGTH=\"1\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K3\" POSITION=\"4\" LENGTH=\"1\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K4\" POSITION=\"5\" LENGTH=\"8\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K5\" POSITION=\"13\" LENGTH=\"3\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K6\" POSITION=\"16\" LENGTH=\"4\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K7\" POSITION=\"20\" LENGTH=\"6\" TYPE=\"Num (Right Justified space padded)\"/>",
+		"				<FIELD NAME=\"K8\" POSITION=\"26\" LENGTH=\"1\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K9\" POSITION=\"27\" LENGTH=\"4\" TYPE=\"Num (Right Justified space padded)\"/>",
+		"				<FIELD NAME=\"K10\" POSITION=\"31\" LENGTH=\"1\" TYPE=\"Char\"/>",
+		"				<FIELD NAME=\"K11\" POSITION=\"32\" LENGTH=\"3\" TYPE=\"Num (Right Justified space padded)\"/>",
+		"				<FIELD NAME=\"K12\" POSITION=\"35\" LENGTH=\"1\" TYPE=\"Char\"/>",
+		"			</FIELDS>",
+		"		</RECORD>",
 		"	</RECORDS>",
 		"</RECORD>",
 	};
 	
 	public void test1() throws RecordException, Exception {
-		int[] selectionFields = {1, 2, 4, 2, 2, 4, 1};
-		boolean[] isDefault = {false, false, false, false, false, false, false};
+		int[] selectionFields = {1, 2, 1, 2, 2, 1, 1, 2, 2};
+		boolean[] isDefault = {false, false, true, false, false, true, false, false, false};
 		LayoutDetail l = getLayout();
 		
 		assertEquals("Record Count", selectionFields.length, l.getRecordCount());
@@ -203,7 +235,7 @@ public class TstMultiFieldCheck1  extends TestCase {
 			assertEquals(
 					"Selection Field Record " +i, 
 					selectionFields[i], 
-					l.getRecord(i).getRecordSelection().getElementCount());
+					l.getRecord(i).getRecordSelection().size());
 			assertEquals(
 					"Default Check Record " + i, 
 					isDefault[i], 
@@ -217,14 +249,6 @@ public class TstMultiFieldCheck1  extends TestCase {
 		
 		for (int i = 0; i < LINES.length; i++) {
 			line = new Line(l, LINES[i].getBytes());
-			if (LAYOUT_IDXS[i] != line.getPreferredLayoutIdxAlt()) {
-				System.out.println();
-				line = new Line(l, LINES[i].getBytes());
-				int pi = line.getPreferredLayoutIdxAlt();
-				System.out.println(LINES[i] + " ; " + LAYOUT_IDXS[i] 
-						+ " " + pi
-						+ " : " + l.getRecord(pi).getRecordName());
-			}
 			assertEquals(
 					"Error in line " + i,
 					LAYOUT_IDXS[i], line.getPreferredLayoutIdxAlt());
@@ -238,7 +262,10 @@ public class TstMultiFieldCheck1  extends TestCase {
 		for (int i = 0; i < XML_LAYOUT.length; i++) {
 			b.append(XML_LAYOUT[i]);
 		}
-			       
-		return RecordEditorXmlLoader.getExternalRecord(b.toString(), "Csv Layout").asLayoutDetail();
+		
+		ByteArrayInputStream bs = new ByteArrayInputStream(b.toString().getBytes());
+		RecordEditorXmlLoader loader = new RecordEditorXmlLoader();
+	       
+		return loader.loadCopyBook(bs, "Csv Layout").asLayoutDetail();
 	}
 }

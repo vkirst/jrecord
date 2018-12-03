@@ -29,4 +29,4 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.External.helpers;
+package External.helpers;

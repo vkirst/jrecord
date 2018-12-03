@@ -1,4 +1,4 @@
-package net.sf.JRecord.zTest.External;
+package External;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.External.Def.ExternalField;

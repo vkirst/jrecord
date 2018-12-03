@@ -26,9 +26,11 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.External;
+package External;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.Common.RecordException;
@@ -37,19 +39,23 @@ import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.zTest.Common.IO;
 import net.sf.JRecord.zTest.Common.TstConstants;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Test;
 
-public class TstCsvName1stLineLoader extends TestCase {
+public class TstCsvName1stLineLoader {
 	private String[] names = {"Brand Id","Loc Nbr","Loc Type","Loc Name","Loc Addr Ln1","Loc Addr Ln2",
 				"Loc Addr Ln3","Loc Postcode","Loc State","Loc Actv Ind",
 	};
-	private String copybookName = TstConstants.CSV_DIRECTORY_OUTPUT + "csvCopybook.Txt";
+	private String copybookName = "csvCopybook.Txt";
 
-	
+	@Test
 	public void testLoadCopyBook1() throws IOException, RecordException {
 		tst("\t");
 	}
 	
 	
+	@Test
 	public void testLoadCopyBook2() throws IOException, RecordException {
 		tst(",");
 	}
@@ -62,15 +68,15 @@ public class TstCsvName1stLineLoader extends TestCase {
 		
 		ExternalRecord r = l.loadCopyBook(copybookName, 0, 0, "", 0, 0, log);
 		
-		assertEquals("Wrong number of records 1", 1, r.getNumberOfRecords());
+		Assert.assertEquals("Wrong number of records 1", 1, r.getNumberOfRecords());
 
 		
 		r = r.getRecord(0);
-		assertEquals("Wrong number of records 0", 0, r.getNumberOfRecords());
-		assertEquals("Wrong number of fields ", names.length, r.getNumberOfRecordFields());
+		Assert.assertEquals("Wrong number of records 0", 0, r.getNumberOfRecords());
+		Assert.assertEquals("Wrong number of fields ", names.length, r.getNumberOfRecordFields());
 		
 		for (int i = 0; i < names.length; i++) {
-			assertEquals("Wrong Field name " + i , names[i], r.getRecordField(i).getName());
+			Assert.assertEquals("Wrong Field name " + i, names[i], r.getRecordField(i).getName());
 		}
 	}
 
@@ -87,5 +93,10 @@ public class TstCsvName1stLineLoader extends TestCase {
 		
 		IO.writeAFile(filename, l, "\n");		
 		
+	}
+
+	@After
+	public void tearDown() throws IOException {
+		Files.deleteIfExists(Paths.get("csvCopybook.Txt"));
 	}
 }

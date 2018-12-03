@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.External.split;
+package External.split;
 
 import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Common.RecordException;
@@ -38,8 +38,10 @@ import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
 
-public class TstSplitingCobolCopybooks extends TestCase {
+public class TstSplitingCobolCopybooks {
 
 	private RecordDtls[] ExpectedRecords = {
 			new RecordDtls("HEADER-RECORD", 
@@ -62,7 +64,7 @@ public class TstSplitingCobolCopybooks extends TestCase {
 			)
 	};
 	
-	
+	@Test
 	public void testRepeating()  throws RecordException {
 		tstImport("example.cbl", CopybookLoader.SPLIT_HIGHEST_REPEATING);
 		tstImport("example1.cbl", CopybookLoader.SPLIT_HIGHEST_REPEATING);
@@ -70,16 +72,18 @@ public class TstSplitingCobolCopybooks extends TestCase {
 		tstImport("example3.cbl", CopybookLoader.SPLIT_HIGHEST_REPEATING);
 	}
 	
+	@Test
 	public void test01()  throws RecordException {
 		tstImport("example3.cbl", CopybookLoader.SPLIT_01_LEVEL);
 	}
 	
+	@Test
 	public void testRedef()  throws RecordException {
 		tstImport("updExample.cbl", CopybookLoader.SPLIT_REDEFINE);
 	}
 	
 	private void tstImport(String copybook, int splitOption) throws RecordException {
-	   	String copyName = this.getClass().getResource(copybook).getFile();
+	   	String copyName = this.getClass().getClassLoader().getResource(copybook).getFile();
 
     	CobolCopybookLoader loaderXML = new CobolCopybookLoader();
 
@@ -89,22 +93,22 @@ public class TstSplitingCobolCopybooks extends TestCase {
     	
     	LayoutDetail schema = extlayoutCBL.asLayoutDetail();
     	
-    	assertEquals(ExpectedRecords.length, schema.getRecordCount());
+    	Assert.assertEquals(ExpectedRecords.length, schema.getRecordCount());
     	
     	for (int i = 0; i < schema.getRecordCount(); i++) {
     		RecordDetail record = schema.getRecord(i);
 
-    		assertTrue( record.getRecordName().indexOf(ExpectedRecords[i].recordName) >= 0);
+    		Assert.assertTrue(record.getRecordName().indexOf(ExpectedRecords[i].recordName) >= 0);
 
 			for (int j = 0; j < record.getFieldCount(); j++) {
 				FieldDetail field = record.getField(j);
 				FieldDtls expectedField = ExpectedRecords[i].fields[j];
 				String id = record.getRecordName() + " " + i + ", " + j;
 
-				assertEquals(id, expectedField.name, field.getName());			
-				assertEquals(id, expectedField.pos,  field.getPos());			
-				assertEquals(id, expectedField.len,  field.getLen());			
-				assertEquals(id, expectedField.type, field.getType());			
+				Assert.assertEquals(id, expectedField.name, field.getName());
+				Assert.assertEquals(id, expectedField.pos, field.getPos());
+				Assert.assertEquals(id, expectedField.len, field.getLen());
+				Assert.assertEquals(id, expectedField.type, field.getType());
 			}
     	}
 	}

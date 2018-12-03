@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.External.helpers;
+package External.helpers;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.Common.Constants;

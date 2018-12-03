@@ -26,9 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.External;
-
-import java.io.ByteArrayInputStream;
+package External;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.Common.RecordException;
@@ -36,10 +34,10 @@ import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
 import net.sf.JRecord.External.RecordEditorXmlLoader;
 
-public class TstMultiFieldCheck2  extends TestCase {
+public class TstMultiFieldCheck3  extends TestCase {
 
 	private final static int[] LAYOUT_IDXS = {
-		0, 1, 8, 2, 2, 2, 2, 7, 3, 4, 5, 5, 5, 5, 5, 5, 6,
+		0, 1, 8, 8, 2, 2, 7, 7, 3, 4, 5, 5, 5, 5, 5, 5, 6,
 	};
 	private final static String[] LINES = {
 		"H  111111 2222 333",
@@ -181,7 +179,7 @@ public class TstMultiFieldCheck2  extends TestCase {
 		"		<RECORD RECORDNAME=\"K3000000\" COPYBOOK=\"\" DELIMITER=\"&lt;Tab&gt;\" FILESTRUCTURE=\"Default\" STYLE=\"0\" RECORDTYPE=\"RecordLayout\" LIST=\"N\" QUOTE=\"\" RecSep=\"default\" LINE_NO_FIELD_NAMES=\"1\">",
 		"			<TSTFIELDS>",
 		"				<TSTFIELD NAME=\"Record_Type\" VALUE=\"K\"/>",
-		"               <TSTFIELD NAME=\"K7\" Operator=\"gt\" VALUE=\"300000\"/>",
+		"               <TSTFIELD NAME=\"K7\" Operator=\"ge\" VALUE=\"300000\"/>",
 		"			</TSTFIELDS>",
 		"			<FIELDS>",
 		"				<FIELD NAME=\"Record_Type\" POSITION=\"1\" LENGTH=\"1\" TYPE=\"Char\"/>",
@@ -202,7 +200,7 @@ public class TstMultiFieldCheck2  extends TestCase {
 		"		<RECORD RECORDNAME=\"P3000000\" COPYBOOK=\"\" DELIMITER=\"&lt;Tab&gt;\" FILESTRUCTURE=\"Default\" STYLE=\"0\" RECORDTYPE=\"RecordLayout\" LIST=\"N\" QUOTE=\"\" RecSep=\"default\" LINE_NO_FIELD_NAMES=\"1\">",
 		"			<TSTFIELDS>",
 		"				<TSTFIELD NAME=\"Record_Type\" VALUE=\"K\"/>",
-		"               <TSTFIELD NAME=\"K7\" Operator=\"lt\" VALUE=\"122222\"/>",
+		"               <TSTFIELD NAME=\"K7\" Operator=\"le\" VALUE=\"122222\"/>",
 		"			</TSTFIELDS>",
 		"			<FIELDS>",
 		"				<FIELD NAME=\"Record_Type\" POSITION=\"1\" LENGTH=\"1\" TYPE=\"Char\"/>",
@@ -263,9 +261,6 @@ public class TstMultiFieldCheck2  extends TestCase {
 			b.append(XML_LAYOUT[i]);
 		}
 		
-		ByteArrayInputStream bs = new ByteArrayInputStream(b.toString().getBytes());
-		RecordEditorXmlLoader loader = new RecordEditorXmlLoader();
-	       
-		return loader.loadCopyBook(bs, "Csv Layout").asLayoutDetail();
+		return RecordEditorXmlLoader.getExternalRecord(b.toString(), "Csv Layout").asLayoutDetail();
 	}
 }

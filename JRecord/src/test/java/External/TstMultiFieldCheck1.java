@@ -26,9 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.External;
-
-import java.io.ByteArrayInputStream;
+package External;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.Common.RecordException;
@@ -36,12 +34,12 @@ import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
 import net.sf.JRecord.External.RecordEditorXmlLoader;
 
-public class TstMultiFieldCheck  extends TestCase {
+public class TstMultiFieldCheck1  extends TestCase {
 
-	private final static int[] LAYOUT_IDXS = {
+	private final  int[] LAYOUT_IDXS = {
 		0, 1, 2, 2, 2, 2, 2, 2, 3, 4, 5, 5, 5, 5, 5, 5, 6,
 	};
-	private final static String[] LINES = {
+	private final  String[] LINES = {
 		"H  111111 2222 333",
 		"K H 111111 2222 333",
 		"K 1 aaaa    ss ww  111111 2222 333 ",
@@ -93,8 +91,15 @@ public class TstMultiFieldCheck  extends TestCase {
 		"			</FIELDS>",
 		"		</RECORD>",
 		"		<RECORD RECORDNAME=\"K\" COPYBOOK=\"\" DELIMITER=\"&lt;Tab&gt;\" FILESTRUCTURE=\"Default\" STYLE=\"0\" RECORDTYPE=\"RecordLayout\" LIST=\"N\" QUOTE=\"\" RecSep=\"default\" LINE_NO_FIELD_NAMES=\"1\">",
-		"			<TSTFIELDS DEFAULTRECORD=\"Y\">",
+		"			<TSTFIELDS>",
+		"              <AND>",
 		"				<TSTFIELD NAME=\"Record_Type\" VALUE=\"K\"/>",
+		"               <OR>",
+		"                  <TSTFIELD NAME=\"Record_Type_2\" VALUE=\"1\"/>",
+		"                  <TSTFIELD NAME=\"Record_Type_2\" VALUE=\"2\"/>",
+		"                  <TSTFIELD NAME=\"Record_Type_2\" VALUE=\"3\"/>",
+		"               </OR>",
+		"              </AND>",
 		"			</TSTFIELDS>",
 		"			<FIELDS>",
 		"				<FIELD NAME=\"Record_Type\" POSITION=\"1\" LENGTH=\"1\" TYPE=\"Char\"/>",
@@ -147,8 +152,13 @@ public class TstMultiFieldCheck  extends TestCase {
 		"			</FIELDS>",
 		"		</RECORD>",
 		"		<RECORD RECORDNAME=\"P\" COPYBOOK=\"\" DELIMITER=\"&lt;Tab&gt;\" FILESTRUCTURE=\"Default\" STYLE=\"0\" RECORDTYPE=\"RecordLayout\" LIST=\"N\" QUOTE=\"\" RecSep=\"default\" LINE_NO_FIELD_NAMES=\"1\">",
-		"			<TSTFIELDS DEFAULTRECORD=\"Y\">",
+		"			<TSTFIELDS>",
 		"				<TSTFIELD NAME=\"Record_Type\" VALUE=\"P\"/>",
+		"               <OR>",
+		"                  <TSTFIELD NAME=\"Record_Type_2\" VALUE=\"1\"/>",
+		"                  <TSTFIELD NAME=\"Record_Type_2\" VALUE=\"2\"/>",
+		"                  <TSTFIELD NAME=\"Record_Type_2\" VALUE=\"3\"/>",
+		"               </OR>",
 		"			</TSTFIELDS>",
 		"			<FIELDS>",
 		"				<FIELD NAME=\"Record_Type\" POSITION=\"1\" LENGTH=\"1\" TYPE=\"Char\"/>",
@@ -183,8 +193,8 @@ public class TstMultiFieldCheck  extends TestCase {
 	};
 	
 	public void test1() throws RecordException, Exception {
-		int[] selectionFields = {1, 2, 1, 2, 2, 1, 1};
-		boolean[] isDefault = {false, false, true, false, false, true, false};
+		int[] selectionFields = {1, 2, 4, 2, 2, 4, 1};
+		boolean[] isDefault = {false, false, false, false, false, false, false};
 		LayoutDetail l = getLayout();
 		
 		assertEquals("Record Count", selectionFields.length, l.getRecordCount());
@@ -193,9 +203,9 @@ public class TstMultiFieldCheck  extends TestCase {
 			assertEquals(
 					"Selection Field Record " +i, 
 					selectionFields[i], 
-					l.getRecord(i).getRecordSelection().size());
+					l.getRecord(i).getRecordSelection().getElementCount());
 			assertEquals(
-					"Default Check Record " +i, 
+					"Default Check Record " + i, 
 					isDefault[i], 
 					l.getRecord(i).getRecordSelection().isDefaultRecord());
 		}
@@ -207,10 +217,18 @@ public class TstMultiFieldCheck  extends TestCase {
 		
 		for (int i = 0; i < LINES.length; i++) {
 			line = new Line(l, LINES[i].getBytes());
+			if (LAYOUT_IDXS[i] != line.getPreferredLayoutIdxAlt()) {
+				System.out.println();
+				line = new Line(l, LINES[i].getBytes());
+				int pi = line.getPreferredLayoutIdxAlt();
+				System.out.println(LINES[i] + " ; " + LAYOUT_IDXS[i] 
+						+ " " + pi
+						+ " : " + l.getRecord(pi).getRecordName());
+			}
 			assertEquals(
 					"Error in line " + i,
 					LAYOUT_IDXS[i], line.getPreferredLayoutIdxAlt());
-			//System.out.print(line.getPreferredLayoutIdxAlt() + ", ");
+			System.out.print(line.getPreferredLayoutIdxAlt() + ", ");
 		}
 	}
 	
@@ -220,10 +238,7 @@ public class TstMultiFieldCheck  extends TestCase {
 		for (int i = 0; i < XML_LAYOUT.length; i++) {
 			b.append(XML_LAYOUT[i]);
 		}
-		
-		ByteArrayInputStream bs = new ByteArrayInputStream(b.toString().getBytes());
-		RecordEditorXmlLoader loader = new RecordEditorXmlLoader();
-	       
-		return loader.loadCopyBook(bs, "Csv Layout").asLayoutDetail();
+			       
+		return RecordEditorXmlLoader.getExternalRecord(b.toString(), "Csv Layout").asLayoutDetail();
 	}
 }

@@ -26,7 +26,7 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.External.helpers;
+package External.helpers;
 
 
 import java.io.ByteArrayInputStream;
@@ -47,6 +47,8 @@ import net.sf.JRecord.IO.AbstractLineWriter;
 import net.sf.JRecord.IO.LineIOProvider;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.zTest.Common.TstData;
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * Do basic check of Csv-Readers/Writers with Helper methods
@@ -54,10 +56,10 @@ import net.sf.JRecord.zTest.Common.TstData;
  * @author Bruce Martin
  *
  */
-public final class TstCsvReadWrite  extends TestCase {
+public final class TstCsvReadWrite {
 
 	
-	    private String salesFile           = TstData.class.getResource("DTAR020s.csv").getFile();
+	    private String salesFile = TstData.class.getClassLoader().getResource("DTAR020s.csv").getFile();
 
 	
 	    /**
@@ -65,13 +67,15 @@ public final class TstCsvReadWrite  extends TestCase {
 	     * @throws RecordException 
 	     * @throws IOException 
 	     */
+	    @Test
 	    public void testCsvRead() throws IOException, RecordException {
 	    	String[] colNames = {"keycode-no", "Store-No", "Date", "Dept-No", "Qty-Sold", "Sale-Price"};
 
             tstRead(new FileInputStream(salesFile), colNames);
 	    }
 	    
-	    public void testCsvWrite() throws IOException, RecordException {
+	    @Test
+        public void testCsvWrite() throws IOException, RecordException {
 	    	String[] colNames = {"Sku", "Store", "Date", "Dept", "Qty", "Price",};
 	    	ByteArrayOutputStream out = new ByteArrayOutputStream();
 			ExternalRecord csvDef 
@@ -120,9 +124,9 @@ public final class TstCsvReadWrite  extends TestCase {
 	        reader.open(salesStream, inSchema);       // Open with a null layout and let the reader create the schema
 	        schema = reader.getLayout();
 	        
-	        assertEquals(colNames.length, schema.getRecord(0).getFieldCount());
+	        Assert.assertEquals(colNames.length, schema.getRecord(0).getFieldCount());
 	        for (int i = 0; i < colNames.length; i++) {
-	        	assertEquals(colNames[i], schema.getRecord(0).getField(i).getName());
+	        	Assert.assertEquals(colNames[i], schema.getRecord(0).getField(i).getName());
 	        }
 	        
 	        CommonBits.compareToExpected(reader, CommonBits.CSV_FILE_DETAILS);

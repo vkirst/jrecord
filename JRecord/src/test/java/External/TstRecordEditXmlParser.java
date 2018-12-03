@@ -26,13 +26,15 @@
  *
  * ------------------------------------------------------------------------ */
 
-package net.sf.JRecord.zTest.External;
+package External;
 
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.Details.AbstractLine;
@@ -49,6 +51,9 @@ import net.sf.JRecord.Log.AbsSSLogger;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.zTest.Common.IO;
 import net.sf.JRecord.zTest.Common.TstConstants;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * Testing RecordEditorCSVReader/Writer classes
@@ -56,7 +61,7 @@ import net.sf.JRecord.zTest.Common.TstConstants;
  * @author Bruce Martin
  *
  */
-public class TstRecordEditXmlParser extends TestCase {
+public class TstRecordEditXmlParser {
 
 //	private final String csvDdirectory = "/home/bm/Work/RecordEditor/CsvCopybooks/";
 //	private final String csvDirectory1 = "/home/bm/Work/RecordEditor/CsvCopybooks/Output/";
@@ -66,7 +71,7 @@ public class TstRecordEditXmlParser extends TestCase {
 //	private final String poHeaderFileName = TstConstants.CSV_DIRECTORY + "poDtl_Header.Txt";
 	private final String    poSkuFileName = TstConstants.TEMP_DIRECTORY + "poDtl_Sku.xml";
 
-	private final String       poFileNameO= TstConstants.XML_DIRECTORY_OUTPUT + "ams PO Download.Xml";
+	private final String       poFileNameO = "ams PO Download.Xml";
 
 
 	private String eol    = "\n";
@@ -130,6 +135,7 @@ public class TstRecordEditXmlParser extends TestCase {
 
 	};
 
+	@Test
 	public void testLoadCopyBook1() throws Exception {
 
 		System.out.println("Test 1");
@@ -141,7 +147,7 @@ public class TstRecordEditXmlParser extends TestCase {
 		checkSkuCopybook(copybook);
 	}
 
-
+	@Test
 	public void testLoadCopyBook2() throws Exception {
 
 		System.out.println("Test 2");
@@ -154,6 +160,7 @@ public class TstRecordEditXmlParser extends TestCase {
 		checkSkuCopybook(copybook.getRecord(1));
 	}
 
+	@Test
 	public void testLoadCopyBook3() throws Exception {
 
 		System.out.println("Test 3");
@@ -164,13 +171,14 @@ public class TstRecordEditXmlParser extends TestCase {
 		CopybookWriter w = new RecordEditorXmlWriter();
 		ExternalRecord copybook = l.loadCopyBook(poFileName, 0, 0, "", 0, 0, log);
 
-		w.writeCopyBook(TstConstants.XML_DIRECTORY_OUTPUT, copybook, log);
+		w.writeCopyBook("", copybook, log);
 		ExternalRecord copybook1 = l1.loadCopyBook(poFileNameO, 0, 0, "", 0, 0, log);
 
 		checkCopybook(copybook1);
 		checkSkuCopybook(copybook1.getRecord(1));
 	}
 
+	@Test
 	public void testLoadCopyBook4() throws Exception {
 
 		System.out.println("Test 4");
@@ -181,7 +189,7 @@ public class TstRecordEditXmlParser extends TestCase {
 		CopybookWriter w = new RecordEditorXmlWriter();
 		ExternalRecord copybook = l.loadCopyBook(poFileName, 0, 0, "", 0, 0, log);
 
-		w.writeCopyBook(TstConstants.XML_DIRECTORY_OUTPUT, copybook, log);
+		w.writeCopyBook("", copybook, log);
 
 		compareFile2Array(poDetailLines, poFileNameO);
 	}
@@ -189,19 +197,19 @@ public class TstRecordEditXmlParser extends TestCase {
 
 
 	private void checkSkuCopybook(ExternalRecord copybook ) {
-		assertEquals("1.1 Check no Sub records", 0, copybook.getNumberOfRecords());
-		assertEquals("1.2 Check Fields = 9; actual=" + copybook.getNumberOfRecordFields(),9, copybook.getNumberOfRecordFields());
-		assertEquals("1.3 Check File Structure=0; actual=" + copybook.getFileStructure(), 0, copybook.getFileStructure());
-		assertEquals("1.4 Check Record Type=1; actual=" + copybook.getRecordType(), 1, copybook.getRecordType());
-		assertEquals("1.5 Check Sep=<Tab>; actual=" + copybook.getDelimiter(), "<Tab>", copybook.getDelimiter());
-		assertEquals("1.6 Check Style=0; actual=" + copybook.getRecordStyle(), 0, copybook.getRecordStyle());
-		assertEquals("1.7 Check List=N; actual=" + copybook.getListChar(), "N", copybook.getListChar());
+		Assert.assertEquals("1.1 Check no Sub records", 0, copybook.getNumberOfRecords());
+		Assert.assertEquals("1.2 Check Fields = 9; actual=" + copybook.getNumberOfRecordFields(), 9, copybook.getNumberOfRecordFields());
+		Assert.assertEquals("1.3 Check File Structure=0; actual=" + copybook.getFileStructure(), 0, copybook.getFileStructure());
+		Assert.assertEquals("1.4 Check Record Type=1; actual=" + copybook.getRecordType(), 1, copybook.getRecordType());
+		Assert.assertEquals("1.5 Check Sep=<Tab>; actual=" + copybook.getDelimiter(), "<Tab>", copybook.getDelimiter());
+		Assert.assertEquals("1.6 Check Style=0; actual=" + copybook.getRecordStyle(), 0, copybook.getRecordStyle());
+		Assert.assertEquals("1.7 Check List=N; actual=" + copybook.getListChar(), "N", copybook.getListChar());
 
 		ExternalField f = copybook.getRecordField(1);
 
-		assertEquals("1.8 Check Field Name = 'Pack Qty'; actual=" + f.getName(), "Pack Qty", f.getName());
-		assertEquals("1.9 Check Field Pos=3 actual=" + f.getPos(), 3 , f.getPos());
-		assertEquals("1.A Check Field Type=8 actual=" + f.getType(), 8, f.getType());
+		Assert.assertEquals("1.8 Check Field Name = 'Pack Qty'; actual=" + f.getName(), "Pack Qty", f.getName());
+		Assert.assertEquals("1.9 Check Field Pos=3 actual=" + f.getPos(), 3, f.getPos());
+		Assert.assertEquals("1.A Check Field Type=8 actual=" + f.getType(), 8, f.getType());
 		
 		RecordDecider rd = new RecordDecider() {
 			@Override public int getPreferedIndex(AbstractLine line) {
@@ -211,26 +219,26 @@ public class TstRecordEditXmlParser extends TestCase {
 		
 		copybook.setRecordDecider(rd);
 		
-		assertTrue(copybook.asLayoutDetail().getDecider() == rd);
+		Assert.assertTrue(copybook.asLayoutDetail().getDecider() == rd);
 
 		RDX rdx = new RDX();
 		
 		copybook.setRecordDecider(rdx);
 		LayoutDetail schema = copybook.asLayoutDetail();
-		assertTrue(schema.getDecider() == rdx);
-		assertTrue(rdx.schema == schema);
+		Assert.assertTrue(schema.getDecider() == rdx);
+		Assert.assertTrue(rdx.schema == schema);
 
 	}
 
 	private void checkCopybook(ExternalRecord copybook) {
 
-		assertEquals("2.1 Check Sub records=2", 2, copybook.getNumberOfRecords());
-		assertEquals("2.2 Check Fields=0; actual=" + copybook.getNumberOfRecordFields(), 0, copybook.getNumberOfRecordFields());
-		assertEquals("2.3 Check File Structure=0; actual=" + copybook.getFileStructure(), 0, copybook.getFileStructure());
-		assertEquals("2.4 Check Record Type=9; actual=" + copybook.getRecordType(), 9, copybook.getRecordType());
-		assertEquals("2.5 Check Sep=<Tab>; actual=" + copybook.getDelimiter(), "<Tab>", copybook.getDelimiter());
-		assertEquals("2.6 Check Style=0; actual=" + copybook.getRecordStyle(), 0, copybook.getRecordStyle());
-		assertEquals("2.7 Check List=Y; actual=" + copybook.getListChar(), "Y", copybook.getListChar());
+		Assert.assertEquals("2.1 Check Sub records=2", 2, copybook.getNumberOfRecords());
+		Assert.assertEquals("2.2 Check Fields=0; actual=" + copybook.getNumberOfRecordFields(), 0, copybook.getNumberOfRecordFields());
+		Assert.assertEquals("2.3 Check File Structure=0; actual=" + copybook.getFileStructure(), 0, copybook.getFileStructure());
+		Assert.assertEquals("2.4 Check Record Type=9; actual=" + copybook.getRecordType(), 9, copybook.getRecordType());
+		Assert.assertEquals("2.5 Check Sep=<Tab>; actual=" + copybook.getDelimiter(), "<Tab>", copybook.getDelimiter());
+		Assert.assertEquals("2.6 Check Style=0; actual=" + copybook.getRecordStyle(), 0, copybook.getRecordStyle());
+		Assert.assertEquals("2.7 Check List=Y; actual=" + copybook.getListChar(), "Y", copybook.getListChar());
 	}
 
 
@@ -257,7 +265,7 @@ public class TstRecordEditXmlParser extends TestCase {
 				System.out.println("Error file: " + filename + "  " + oldLines.compareTo(newLines));
 				System.out.println(">>" + oldLines);
 				System.out.println(">>" + newLines);
-				assertEquals("Error line " , oldLines, newLines);
+				Assert.assertEquals("Error line ", oldLines, newLines);
 		}
 	}
 
@@ -296,5 +304,10 @@ public class TstRecordEditXmlParser extends TestCase {
 		public void setLayout(LayoutDetail layout) {
 			schema = layout;
 		}
+	}
+
+	@After
+	public void tearDown() throws IOException {
+		Files.deleteIfExists(Paths.get(poFileNameO));
 	}
 }
