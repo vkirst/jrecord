@@ -28,17 +28,17 @@
 
 package net.sf.JRecord.zTest.cobol2csv;
 
+import junit.framework.TestCase;
+import net.sf.JRecord.cbl2csv.Cobol2Csv;
+import net.sf.JRecord.cbl2csv.Csv2Cobol;
+import net.sf.JRecord.cbl2csv.ParseArgsCobol2Csv;
+import net.sf.JRecord.common.TestCommonCode;
+import net.sf.JRecord.common.TstConstants;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
-
-import net.sf.JRecord.cbl2csv.Cobol2Csv;
-import net.sf.JRecord.cbl2csv.Csv2Cobol;
-import net.sf.JRecord.cbl2csv.ParseArgsCobol2Csv;
-import net.sf.JRecord.zTest.Common.TestCommonCode;
-import net.sf.JRecord.zTest.Common.TstConstants;
-import junit.framework.TestCase;
 
 
 /**

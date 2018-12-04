@@ -28,21 +28,16 @@
 
 package net.sf.JRecord.zTest.cobol2csv;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.Arrays;
-
+import junit.framework.TestCase;
 import net.sf.JRecord.JRecordInterface1;
 import net.sf.JRecord.cbl2csv.Cobol2Csv;
 import net.sf.JRecord.cbl2csv.Csv2Cobol;
 import net.sf.JRecord.cbl2csv.ParseArgsCobol2Csv;
+import net.sf.JRecord.common.TstConstants;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
-import net.sf.JRecord.zTest.Common.TstConstants;
-import junit.framework.TestCase;
+
+import java.io.*;
+import java.util.Arrays;
 
 /**
  * Testing Different Delimiters and Field-Name conversions

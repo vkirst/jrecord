@@ -25,9 +25,6 @@
       
 package net.sf.JRecord.zExamples.iob.csv;
 
-import java.io.IOException;
-
-import net.sf.JRecord.JRecordInterface1;
 import net.sf.JRecord.Common.AbstractFieldValue;
 import net.sf.JRecord.Common.CommonBits;
 import net.sf.JRecord.Common.RecordException;
@@ -36,10 +33,13 @@ import net.sf.JRecord.Details.CharLine;
 import net.sf.JRecord.Details.FieldIterator;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.AbstractLineWriter;
+import net.sf.JRecord.JRecordInterface1;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.TstConstants;
 import net.sf.JRecord.def.IO.builders.ICsvIOBuilder;
 import net.sf.JRecord.def.IO.builders.IFixedWidthIOBuilder;
-import net.sf.JRecord.zTest.Common.TstConstants;
+
+import java.io.IOException;
 
 
 /**

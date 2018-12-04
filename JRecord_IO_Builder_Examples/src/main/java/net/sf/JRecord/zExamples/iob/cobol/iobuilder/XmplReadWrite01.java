@@ -25,13 +25,13 @@
       
 package net.sf.JRecord.zExamples.iob.cobol.iobuilder;
 
-import net.sf.JRecord.JRecordInterface1;
 import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.AbstractLineWriter;
+import net.sf.JRecord.JRecordInterface1;
+import net.sf.JRecord.common.TstConstants;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
-import net.sf.JRecord.zTest.Common.TstConstants;
 
 /**
  * Read / Write Mainframe Cobol file using a 

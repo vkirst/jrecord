@@ -26,17 +26,17 @@
 package net.sf.JRecord.zExamples.iob.csv;
 
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
-import net.sf.JRecord.JRecordInterface1;
 import net.sf.JRecord.Common.CommonBits;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.AbstractLineWriter;
+import net.sf.JRecord.JRecordInterface1;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.TstConstants;
 import net.sf.JRecord.def.IO.builders.ICsvIOBuilder;
-import net.sf.JRecord.zTest.Common.TstConstants;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * Example of Reading /writing CSV files with names on the first line
