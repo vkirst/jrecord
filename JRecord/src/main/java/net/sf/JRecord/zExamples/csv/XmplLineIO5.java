@@ -5,7 +5,7 @@ import net.sf.JRecord.Common.CommonBits;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.IO.TextLineReader;
 import net.sf.JRecord.IO.TextLineWriter;
-import net.sf.JRecord.zTest.Common.TstConstants;
+import net.sf.JRecord.common.TstConstants;
 
 /**
  * Example of Reading /writing CSV files with names on the first line
