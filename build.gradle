@@ -8,3 +8,16 @@ subprojects {
         mavenCentral()
     }
 }
+
+task assemble(type: Copy) {
+    dependsOn(':cb2xml:assemble',':JRecord:assemble',':JRecord_Cbl2Json:assemble',':JRecord_Cbl2Xml:assemble')
+    from "${projectDir}/cb2xml/build/libs/cb2xml.jar",
+            "${projectDir}/JRecord/build/libs/JRecord.jar",
+            "${projectDir}/JRecord_Cbl2Json/build/libs/JRecord_Cbl2Json.jar",
+            "${projectDir}/JRecord_Cbl2Xml/build/libs/JRecord_Cbl2Xml.jar"
+    into "${projectDir}/artifacts"
+}
+
+task clean(type: Delete) {
+    delete "${projectDir}/artifacts"
+}
