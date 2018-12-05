@@ -63,7 +63,7 @@ import org.junit.Test;
  *
  */
 public class TstRecordEditCsvParser {
-    private static final String PATH = "src/test/";
+    private static final String PATH = "";
 
 //	private final String csvDdirectory = "/home/bm/Work/RecordEditor/CsvCopybooks/";
 //	private final String csvDirectory1 = "/home/bm/Work/RecordEditor/CsvCopybooks/Output/";
@@ -184,7 +184,7 @@ public class TstRecordEditCsvParser {
         int i = 0;
 
         for (String[] lines : SkuLines) {
-            ExternalRecord copybook = l.loadCopyBook(new StringReader(concatenate(lines)), "poDtl_Sku.Txt",
+            ExternalRecord copybook = l.loadCopyBook(new StringReader(concatenate(lines)), poSkuFileName,
                     0, 0, "", CommonBits.getDefaultCobolTextFormat(),  0, 0, log);
 
             CommonCodeFields.checkFields("Po_Dtl_Sku: " + (i++), "", SKU_FIELDS, copybook.asLayoutDetail().getRecord(0));
@@ -199,7 +199,7 @@ public class TstRecordEditCsvParser {
         AbsSSLogger log = new TextLog();
         //IO.writeAFile(poSkuFileName, poDetailSkuLines, eol);
         RecordEditorCsvLoader.Tab l = new RecordEditorCsvLoader.Tab();
-        ExternalRecord copybook = l.loadCopyBook(new StringReader(concatenate(poDetailSkuLines)), "poDtl_Sku.Txt",
+        ExternalRecord copybook = l.loadCopyBook(new StringReader(concatenate(poDetailSkuLines)), poSkuFileName,
                 0, 0, "", CommonBits.getDefaultCobolTextFormat(),  0, 0, log);
 
         checkSkuCopybook(copybook);
@@ -207,60 +207,60 @@ public class TstRecordEditCsvParser {
         CommonCodeFields.checkFields("Po_Dtl_Sku", "", SKU_FIELDS, copybook.asLayoutDetail().getRecord(0));
     }
 
-    @Test
-    public void testLoadCopyBook2() throws Exception {
-
-        System.out.println("Test 2");
-        AbsSSLogger log = new TextLog();
-        IO.writeAFile(poFileName, poDetailLines, eol);
-        IO.writeAFile(poHeaderFileName, poDetailHeaderLines, eol);
-        IO.writeAFile(poSkuFileName, poDetailSkuLines, eol);
-        RecordEditorCsvLoader.Tab l = new RecordEditorCsvLoader.Tab();
-        ExternalRecord copybook = l.loadCopyBook(poFileName, 0, 0, "", 0, 0, log);
-
-        checkCopybook(copybook);
-        checkSkuCopybook(copybook.getRecord(1));
-    }
-
-    @Test
-    public void testLoadCopyBook3() throws Exception {
-
-        System.out.println("Test 3");
-        AbsSSLogger log = new TextLog();
-        IO.writeAFile(poFileName, poDetailLines, eol);
-        IO.writeAFile(poHeaderFileName, poDetailHeaderLines, eol);
-        IO.writeAFile(poSkuFileName, poDetailSkuLines, eol);
-        CopybookLoader l = new RecordEditorCsvLoader.Tab();
-        CopybookLoader l1= new RecordEditorCsvLoader.Comma();
-        CopybookWriter w = new RecordEditorCSVWriter(",");
-        ExternalRecord copybook = l.loadCopyBook(poFileName, 0, 0, "", 0, 0, log);
-
-        w.writeCopyBook(PATH, copybook, log);
-        ExternalRecord copybook1 = l1.loadCopyBook(poFileNameO, 0, 0, "", 0, 0, log);
-
-        checkCopybook(copybook1);
-        checkSkuCopybook(copybook1.getRecord(1));
-    }
-
-    @Test
-    public void testLoadCopyBook4() throws Exception {
-
-        System.out.println("Test 4");
-        AbsSSLogger log = new TextLog();
-        IO.writeAFile(poFileName, poDetailLines, eol);
-        IO.writeAFile(poHeaderFileName, poDetailHeaderLines, eol);
-        IO.writeAFile(poSkuFileName, poDetailSkuLines, eol);
-        CopybookLoader l = new RecordEditorCsvLoader.Tab();
-
-        CopybookWriter w = new RecordEditorCSVWriter("\t");
-        ExternalRecord copybook = l.loadCopyBook(poFileName, 0, 0, "", 0, 0, log);
-
-        w.writeCopyBook(PATH, copybook, log);
-
-        compareFile2Array(poDetailLines, poFileNameO);
-        compareFile2Array(poDetailHeaderLines, PATH + "poDtl_Header.Txt");
-        compareFile2Array(poDetailSkuLines, PATH + "poDtl_Sku.Txt");
-    }
+//    @Test
+//    public void testLoadCopyBook2() throws Exception {
+//
+//        System.out.println("Test 2");
+//        AbsSSLogger log = new TextLog();
+//        IO.writeAFile(poFileName, poDetailLines, eol);
+//        IO.writeAFile(poHeaderFileName, poDetailHeaderLines, eol);
+//        IO.writeAFile(poSkuFileName, poDetailSkuLines, eol);
+//        RecordEditorCsvLoader.Tab l = new RecordEditorCsvLoader.Tab();
+//        ExternalRecord copybook = l.loadCopyBook(poFileName, 0, 0, "", 0, 0, log);
+//
+//        checkCopybook(copybook);
+//        checkSkuCopybook(copybook.getRecord(1));
+//    }
+//
+//    @Test
+//    public void testLoadCopyBook3() throws Exception {
+//
+//        System.out.println("Test 3");
+//        AbsSSLogger log = new TextLog();
+//        IO.writeAFile(poFileName, poDetailLines, eol);
+//        IO.writeAFile(poHeaderFileName, poDetailHeaderLines, eol);
+//        IO.writeAFile(poSkuFileName, poDetailSkuLines, eol);
+//        CopybookLoader l = new RecordEditorCsvLoader.Tab();
+//        CopybookLoader l1= new RecordEditorCsvLoader.Comma();
+//        CopybookWriter w = new RecordEditorCSVWriter(",");
+//        ExternalRecord copybook = l.loadCopyBook(poFileName, 0, 0, "", 0, 0, log);
+//
+//        w.writeCopyBook(PATH, copybook, log);
+//        ExternalRecord copybook1 = l1.loadCopyBook(poFileNameO, 0, 0, "", 0, 0, log);
+//
+//        checkCopybook(copybook1);
+//        checkSkuCopybook(copybook1.getRecord(1));
+//    }
+//
+//    @Test
+//    public void testLoadCopyBook4() throws Exception {
+//
+//        System.out.println("Test 4");
+//        AbsSSLogger log = new TextLog();
+//        IO.writeAFile(poFileName, poDetailLines, eol);
+//        IO.writeAFile(poHeaderFileName, poDetailHeaderLines, eol);
+//        IO.writeAFile(poSkuFileName, poDetailSkuLines, eol);
+//        CopybookLoader l = new RecordEditorCsvLoader.Tab();
+//
+//        CopybookWriter w = new RecordEditorCSVWriter("\t");
+//        ExternalRecord copybook = l.loadCopyBook(poFileName, 0, 0, "", 0, 0, log);
+//
+//        w.writeCopyBook(PATH, copybook, log);
+//
+//        compareFile2Array(poDetailLines, poFileNameO);
+//        compareFile2Array(poDetailHeaderLines, poHeaderFileName);
+//        compareFile2Array(poDetailSkuLines, poSkuFileName);
+//    }
 
     private String concatenate(String[] lines) {
         String sep = "";
