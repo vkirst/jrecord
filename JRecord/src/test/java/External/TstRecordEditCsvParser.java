@@ -68,13 +68,10 @@ public class TstRecordEditCsvParser {
 //	private final String csvDdirectory = "/home/bm/Work/RecordEditor/CsvCopybooks/";
 //	private final String csvDirectory1 = "/home/bm/Work/RecordEditor/CsvCopybooks/Output/";
 
-
     private final String       poFileName = PATH + "poDtl.Txt";
     private final String poHeaderFileName = PATH + "poDtl_Header.Txt";
     private final String    poSkuFileName = PATH + "poDtl_Sku.Txt";
-
     private final String      poFileNameO = PATH + "poDtl.Txt";
-
 
     private String eol    = "\n";
     private String [] poDetailLines = {
@@ -127,20 +124,6 @@ public class TstRecordEditCsvParser {
             CommonCodeFields.createField("Product Name", 101, 50, 0, Type.ftChar),
     };
 
-    @Test
-    public void testLoadCopyBook1() throws Exception {
-
-        System.out.println("Test 1");
-        AbsSSLogger log = new TextLog();
-        //IO.writeAFile(poSkuFileName, poDetailSkuLines, eol);
-        RecordEditorCsvLoader.Tab l = new RecordEditorCsvLoader.Tab();
-        ExternalRecord copybook = l.loadCopyBook(new StringReader(concatenate(poDetailSkuLines)), "poDtl_Sku.Txt",
-                0, 0, "", CommonBits.getDefaultCobolTextFormat(),  0, 0, log);
-
-        checkSkuCopybook(copybook);
-
-        CommonCodeFields.checkFields("Po_Dtl_Sku", "", SKU_FIELDS, copybook.asLayoutDetail().getRecord(0));
-    }
     @Test
     public void testLoadCopyBookVariations() throws Exception {
         String[][] SkuLines = {
@@ -209,18 +192,20 @@ public class TstRecordEditCsvParser {
 
     }
 
-    private String concatenate(String[] lines) {
-        String sep = "";
-        StringBuilder b = new StringBuilder();
+    @Test
+    public void testLoadCopyBook1() throws Exception {
 
-        for (String s: lines) {
-            b.append(sep).append(s);
-            sep = "\n";
-        }
+        System.out.println("Test 1");
+        AbsSSLogger log = new TextLog();
+        //IO.writeAFile(poSkuFileName, poDetailSkuLines, eol);
+        RecordEditorCsvLoader.Tab l = new RecordEditorCsvLoader.Tab();
+        ExternalRecord copybook = l.loadCopyBook(new StringReader(concatenate(poDetailSkuLines)), "poDtl_Sku.Txt",
+                0, 0, "", CommonBits.getDefaultCobolTextFormat(),  0, 0, log);
 
-        return b.toString();
+        checkSkuCopybook(copybook);
+
+        CommonCodeFields.checkFields("Po_Dtl_Sku", "", SKU_FIELDS, copybook.asLayoutDetail().getRecord(0));
     }
-
 
     @Test
     public void testLoadCopyBook2() throws Exception {
@@ -277,7 +262,17 @@ public class TstRecordEditCsvParser {
         compareFile2Array(poDetailSkuLines, PATH + "poDtl_Sku.Txt");
     }
 
+    private String concatenate(String[] lines) {
+        String sep = "";
+        StringBuilder b = new StringBuilder();
 
+        for (String s: lines) {
+            b.append(sep).append(s);
+            sep = "\n";
+        }
+
+        return b.toString();
+    }
 
     private void checkSkuCopybook(ExternalRecord copybook ) {
         Assert.assertEquals("1.1 Check no Sub records", 0, copybook.getNumberOfRecords());
@@ -305,7 +300,6 @@ public class TstRecordEditCsvParser {
         Assert.assertEquals("2.6 Check Style=0; actual=" + copybook.getRecordStyle(), 0, copybook.getRecordStyle());
         Assert.assertEquals("2.7 Check List=Y; actual=" + copybook.getListChar(), "Y", copybook.getListChar());
     }
-
 
     /**
      * Compare the contents of a file and an array of String
