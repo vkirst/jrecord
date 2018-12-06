@@ -15,6 +15,6 @@ node {
    }
    stage('Results') {
       junit '**/build/test-results/test/TEST-*.xml'
-      archive 'build/libs/*.jar'
+      archive '**/build/libs/*.jar'
    }
 }
