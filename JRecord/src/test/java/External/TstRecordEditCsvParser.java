@@ -38,8 +38,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.External.RecordEditorCsvLoader;
@@ -49,7 +47,9 @@ import net.sf.JRecord.External.base.RecordEditorCSVWriter;
 import net.sf.JRecord.Log.AbsSSLogger;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.CommonBits;
 import net.sf.JRecord.common.CommonCodeFields;
+import net.sf.JRecord.common.FieldDetail;
 import net.sf.JRecord.common.IO;
 import org.junit.After;
 import org.junit.Assert;
