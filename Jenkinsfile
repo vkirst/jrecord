@@ -15,7 +15,7 @@ node {
     }
     
     stage('Result'){
-        archiveArtifacts artifacts: '**/build/test-results/test/TEST-*.xml', fingerprint: true
+        archiveArtifacts artifacts: '**/build/libs/*.jar', fingerprint: true
         junit '**/build/test-results/test/TEST-*.xml'
     }
 }
