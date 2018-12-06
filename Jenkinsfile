@@ -3,7 +3,7 @@ node {
     env.JAVA_HOME = "${jdk}"
 
     stage('Preparation') {
-      git branch:'fix_fork_jenkins', url: 'https://github.com/PixarV/jrecord.git'
+      git branch:'fix_fork_jenkins', url: 'https://github.com/vkirst/jrecord.git'
     }   
 
     stage('Build') {
