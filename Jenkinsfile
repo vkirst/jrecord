@@ -3,8 +3,11 @@ node {
     env.JAVA_HOME = "${jdk}"
 
     stage('Preparation') {
-      git branch:'fix_fork_jenkins', url: 'https://github.com/vkirst/jrecord.git'
-    }   
+        checkout([$class: 'GitSCM',
+            branches: [[name: 'fix_fork_jenkins']],
+            userRemoteConfigs: [[url: 'https://github.com/vkirst/jrecord.git']]
+        ])
+    }
 
     stage('Build') {
       if (isUnix()) {
@@ -12,9 +15,11 @@ node {
       } else {
          cmd "gradlew.bat clean build"
       }
-   }
-   stage('Results') {
-      junit '**/build/test-results/test/TEST-*.xml'
-      archiveArtifacts artifacts: '**/build/test-results/test/TEST-*.xml', fingerprint: true
-   }
+    }
+    
+    stage('Result'){
+        archiveArtifacts artifacts: '**/build/test-results/test/TEST-*.xml', fingerprint: true
+        junit '**/build/test-results/test/TEST-*.xml'
+    }
 }
+
