@@ -3,10 +3,7 @@ node {
     env.JAVA_HOME = "${jdk}"
 
     stage('Preparation') {
-        checkout([$class: 'GitSCM',
-            branches: [[name: 'fix_fork_jenkins']],
-            userRemoteConfigs: [[url: 'https://github.com/vkirst/jrecord.git']]
-        ])
+        checkout scm
     }
 
     stage('Build') {
