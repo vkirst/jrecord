@@ -5,12 +5,12 @@ import java.io.StringReader;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.External.ExternalRecord.FieldAdjustmentOptions;
 import net.sf.JRecord.External.Def.ExternalField;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.Constants;
 
 public class Tst_ExternalField_AddFixedWidthField extends TestCase {
 	

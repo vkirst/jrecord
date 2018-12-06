@@ -44,8 +44,8 @@ package net.sf.JRecord.Types;
 
 import java.math.BigInteger;
 
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.IFieldDetail;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.IFieldDetail;
 
 /**
  * Mainframe Packed Decimal Type.

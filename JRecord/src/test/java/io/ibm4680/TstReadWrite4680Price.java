@@ -34,8 +34,6 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.External.ExternalRecord;
@@ -43,6 +41,8 @@ import net.sf.JRecord.External.RecordEditorXmlLoader;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.AbstractLineWriter;
 import net.sf.JRecord.IO.LineIOProvider;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 import junit.framework.TestCase;
 
 /**

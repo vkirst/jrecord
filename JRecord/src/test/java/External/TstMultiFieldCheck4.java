@@ -29,11 +29,11 @@
 package External;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.External.RecordEditorXmlLoader;
+import net.sf.JRecord.common.RecordException;
 
 public class TstMultiFieldCheck4  extends TestCase {
 

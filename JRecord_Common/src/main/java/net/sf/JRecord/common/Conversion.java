@@ -33,7 +33,7 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
 import java.math.BigInteger;
 import java.nio.charset.Charset;

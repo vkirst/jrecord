@@ -28,8 +28,8 @@
 
 package net.sf.JRecord.Details;
 
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.Conversion;
+import net.sf.JRecord.common.CommonBits;
+import net.sf.JRecord.common.Conversion;
 
 public class CharLineProvider implements LineProvider {
 

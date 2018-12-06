@@ -36,10 +36,10 @@ import javax.xml.stream.XMLStreamException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.cbl2xml.def.Icb2xml2Xml;
 import net.sf.JRecord.cbl2xml.impl.Cobol2GroupXml;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.schema.jaxb.impl.AddPlusToNumeric;
 
 

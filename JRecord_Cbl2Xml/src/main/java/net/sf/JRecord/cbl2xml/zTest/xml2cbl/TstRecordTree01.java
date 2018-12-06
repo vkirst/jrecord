@@ -36,8 +36,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLStreamException;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.ExternalRecordSelection.ExternalFieldSelection;
 import net.sf.JRecord.IO.builders.CblIOBuilderMultiSchemaBase;
@@ -46,6 +44,8 @@ import net.sf.JRecord.Option.IReformatFieldNames;
 import net.sf.JRecord.cbl2xml.def.ICobol2Xml;
 import net.sf.JRecord.cbl2xml.impl.Cobol2GroupXml;
 import net.sf.JRecord.cbl2xml.zTest.xml2cbl.cobol.HierarchyRecordDef;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.RecordException;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;

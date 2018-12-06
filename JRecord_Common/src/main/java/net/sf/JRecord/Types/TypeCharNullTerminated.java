@@ -32,7 +32,7 @@
       
 package net.sf.JRecord.Types;
 
-import net.sf.JRecord.Common.IFieldDetail;
+import net.sf.JRecord.common.IFieldDetail;
 
 /**
  * Type for null terminated char String (ie C style string)

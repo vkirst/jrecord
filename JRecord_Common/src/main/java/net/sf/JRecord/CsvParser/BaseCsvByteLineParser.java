@@ -28,8 +28,8 @@ package net.sf.JRecord.CsvParser;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.JRecord.Common.ByteArray;
-import net.sf.JRecord.Common.Conversion;
+import net.sf.JRecord.common.ByteArray;
+import net.sf.JRecord.common.Conversion;
 
 /**
  * Class contains common code for use in other CSV parser's

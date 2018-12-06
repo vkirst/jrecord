@@ -34,7 +34,6 @@ import java.io.FileReader;
 import java.util.StringTokenizer;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.CsvParser.ICsvCharLineParser;
 import net.sf.JRecord.CsvParser.CsvParserManagerChar;
 import net.sf.JRecord.Details.AbstractLine;
@@ -47,6 +46,7 @@ import net.sf.JRecord.IO.AbstractLineWriter;
 import net.sf.JRecord.IO.LineIOProvider;
 import net.sf.JRecord.IO.TextLineReader;
 import net.sf.JRecord.IO.TextLineWriter;
+import net.sf.JRecord.common.Constants;
 import net.sf.JRecord.common.TstConstants;
 
 

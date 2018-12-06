@@ -28,7 +28,7 @@
 
 package net.sf.JRecord.utilityClasses;
 
-import net.sf.JRecord.Common.Constants;
+import net.sf.JRecord.common.Constants;
 
 
 /**

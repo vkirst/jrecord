@@ -30,16 +30,10 @@ import java.io.IOException;
 
 import javax.xml.bind.JAXBException;
 
-
-
-
-
-
-
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Option.IReformatFieldNames;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 import net.sf.cobolToJson.impl.Cobol2JsonImp;
 
 import org.junit.Test;

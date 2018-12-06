@@ -34,15 +34,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.RecordException;
-import net.sf.JRecord.Common.TranslateXmlChars;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.External.CobolCopybookLoader;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.External.RecordEditorXmlLoader;
 import net.sf.JRecord.Log.TextLog;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.RecordException;
+import net.sf.JRecord.common.TranslateXmlChars;
 
 
 

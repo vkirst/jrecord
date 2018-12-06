@@ -29,8 +29,6 @@
 package Types;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
 import net.sf.JRecord.External.ExternalRecord;
@@ -38,6 +36,8 @@ import net.sf.JRecord.External.RecordEditorXmlLoader;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
 import net.sf.JRecord.Types.TypeNum;
+import net.sf.JRecord.common.FieldDetail;
+import net.sf.JRecord.common.RecordException;
 
 
 public class TstNewTypes extends TestCase {

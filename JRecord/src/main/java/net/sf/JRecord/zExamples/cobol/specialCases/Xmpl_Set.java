@@ -3,12 +3,12 @@ package net.sf.JRecord.zExamples.cobol.specialCases;
 import java.io.IOException;
 import java.util.Arrays;
 
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
 import net.sf.JRecord.Details.RecordDetail;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.common.TestCommonCode;
 
 /**

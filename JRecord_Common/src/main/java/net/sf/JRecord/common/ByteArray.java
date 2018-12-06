@@ -1,4 +1,4 @@
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
 public class ByteArray {
 

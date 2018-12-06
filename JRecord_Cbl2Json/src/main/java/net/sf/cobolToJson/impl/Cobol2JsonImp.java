@@ -12,9 +12,6 @@ import java.util.List;
 
 import javax.xml.bind.JAXBException;
 
-import net.sf.JRecord.Common.AbstractFieldValue;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.RecordDetail;
@@ -22,6 +19,9 @@ import net.sf.JRecord.External.CobolCopybookLoader;
 import net.sf.JRecord.External.ICopybookLoaderCobol;
 import net.sf.JRecord.External.XmlCopybookLoader;
 import net.sf.JRecord.IO.AbstractLineReader;
+import net.sf.JRecord.common.AbstractFieldValue;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.def.IO.builders.ISchemaIOBuilder;
 import net.sf.JRecord.schema.CobolSchemaDetails;
 import net.sf.JRecord.schema.CobolSchemaReader;

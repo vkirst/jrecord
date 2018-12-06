@@ -33,13 +33,13 @@ import java.util.List;
 import java.util.Set;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.ExternalRecordSelection.ExternalFieldSelection;
 import net.sf.JRecord.cg.schema.CodeGenFileName;
 import net.sf.JRecord.cg.schema.LayoutDef;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import net.sf.JRecord.def.IO.builders.IIOBuilder;
 import net.sf.JRecord.utilityClasses.ParseArguments;

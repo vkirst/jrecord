@@ -33,10 +33,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 
-import net.sf.JRecord.Common.AbstractFieldValue;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.XmlConstants;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.External.Def.AbstractConversion;
@@ -48,6 +44,10 @@ import net.sf.JRecord.ExternalRecordSelection.ExternalSelection;
 import net.sf.JRecord.IO.XmlLineReader;
 import net.sf.JRecord.Log.AbsSSLogger;
 import net.sf.JRecord.Log.TextLog;
+import net.sf.JRecord.common.AbstractFieldValue;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.XmlConstants;
 
 /**
  * Class to Load a RecordLayout (Record or Line Description)

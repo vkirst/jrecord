@@ -28,8 +28,8 @@ package net.sf.JRecord.CsvParser;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.IFieldDetail;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.IFieldDetail;
 
 /**
  * This class is for working with delimited records where the Delimiter is provided as a byte. As such it will  <ul>

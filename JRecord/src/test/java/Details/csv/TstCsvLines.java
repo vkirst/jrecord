@@ -29,12 +29,13 @@
 package Details.csv;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.CsvParser.CsvParserManagerChar;
 import net.sf.JRecord.Details.*;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.RecordException;
+
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import testCategories.SlowTest;

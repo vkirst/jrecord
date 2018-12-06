@@ -28,7 +28,7 @@
 
 package net.sf.JRecord.Details;
 
-import net.sf.JRecord.Common.FieldDetail;
+import net.sf.JRecord.common.FieldDetail;
 
 public class SelectionField {
 	public final String fieldName;

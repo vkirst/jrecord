@@ -33,13 +33,13 @@ import java.io.IOException;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.IO.builders.CblIOBuilderBase;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.def.IO.builders.IIOBuilder;
 import net.sf.cb2xml.def.Cb2xmlConstants;
 

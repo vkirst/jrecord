@@ -29,9 +29,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import net.sf.JRecord.Common.AbstractRecordX;
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.IFieldDetail;
+import net.sf.JRecord.common.AbstractRecordX;
+import net.sf.JRecord.common.FieldDetail;
+import net.sf.JRecord.common.IFieldDetail;
 
 
 /**

@@ -33,7 +33,6 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
@@ -44,6 +43,7 @@ import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.IO.ContinuousLineReader;
 import net.sf.JRecord.IO.ContinuousLineWriter;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import junit.framework.TestCase;
 import org.junit.Assert;

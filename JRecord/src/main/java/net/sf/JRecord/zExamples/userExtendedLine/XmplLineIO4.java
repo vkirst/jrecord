@@ -13,7 +13,6 @@
  */
 package net.sf.JRecord.zExamples.userExtendedLine;
 
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.LineProvider;
@@ -22,6 +21,7 @@ import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.AbstractLineWriter;
 import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
 import net.sf.JRecord.common.TstConstants;
 
 /**

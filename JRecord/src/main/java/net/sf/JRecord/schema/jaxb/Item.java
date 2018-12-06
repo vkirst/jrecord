@@ -49,9 +49,9 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.External.Def.DependingOnDefinition;
 import net.sf.JRecord.cgen.def.IArrayAnyDimension;
+import net.sf.JRecord.common.IFieldDetail;
 import net.sf.JRecord.schema.IArrayItemCheck;
 
 

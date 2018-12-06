@@ -33,13 +33,13 @@ import javax.xml.bind.JAXBException;
 
 import org.junit.Test;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.ExternalRecordSelection.ExternalFieldSelection;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Option.IReformatFieldNames;
 import net.sf.JRecord.Option.Options;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.RecordException;
 import net.sf.cobolToJson.def.ICobol2Json;
 import net.sf.cobolToJson.impl.Cobol2JsonImp;
 

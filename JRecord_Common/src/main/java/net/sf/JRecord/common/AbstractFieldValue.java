@@ -23,7 +23,7 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

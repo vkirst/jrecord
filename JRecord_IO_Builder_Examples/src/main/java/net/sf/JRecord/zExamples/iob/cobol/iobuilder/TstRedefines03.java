@@ -7,9 +7,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.RecordDetail;
+import net.sf.JRecord.common.FieldDetail;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 
 public class TstRedefines03 {
@@ -152,7 +152,7 @@ public class TstRedefines03 {
 
 		/**
 		 * @return
-		 * @see net.sf.JRecord.Common.FieldDetail#getPos()
+		 * @see net.sf.JRecord.common.FieldDetail#getPos()
 		 */
 		public int getPos() {
 			return fld.getPos();
@@ -160,7 +160,7 @@ public class TstRedefines03 {
 
 		/**
 		 * @return
-		 * @see net.sf.JRecord.Common.FieldDetail#getEnd()
+		 * @see net.sf.JRecord.common.FieldDetail#getEnd()
 		 */
 		public int getEnd() {
 			return fld.getEnd();

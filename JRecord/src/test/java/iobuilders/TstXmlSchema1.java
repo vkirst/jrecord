@@ -32,16 +32,16 @@ import java.io.IOException;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.AbstractFieldValue;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.FieldIterator;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.RecordDetail;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.AbstractFieldValue;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.FieldDetail;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.def.IO.builders.IIOBuilder;
 
 public class TstXmlSchema1 extends TestCase {

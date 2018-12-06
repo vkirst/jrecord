@@ -29,10 +29,10 @@
 package Types;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeRmComp;
 import net.sf.JRecord.Types.TypeRmCompPositive;
+import net.sf.JRecord.common.FieldDetail;
 
 
 public class TstRmTypes extends TestCase {

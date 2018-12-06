@@ -35,14 +35,14 @@ import java.util.HashMap;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.CsvParser.BasicCsvLineParser;
 import net.sf.JRecord.CsvParser.CsvDefinition;
 import net.sf.JRecord.CsvParser.CsvParserManagerChar;
 import net.sf.JRecord.External.Def.ExternalField;
 import net.sf.JRecord.Log.AbsSSLogger;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 
 import org.xml.sax.SAXException;
 

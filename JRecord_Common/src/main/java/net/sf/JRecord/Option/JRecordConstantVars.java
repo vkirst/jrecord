@@ -25,8 +25,8 @@
       
 package net.sf.JRecord.Option;
 
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
 
 
 /**

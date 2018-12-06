@@ -37,9 +37,9 @@ package net.sf.JRecord.Numeric;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import net.sf.JRecord.Common.AbstractManager;
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.AbstractManager;
+import net.sf.JRecord.common.Constants;
 import net.sf.cb2xml.def.Cb2xmlConstants;
 
 /**
@@ -161,7 +161,7 @@ public class ConversionManager implements AbstractManager {
 
 
     /**
-	 * @see net.sf.JRecord.Common.AbstractManager#getKey(int)
+	 * @see net.sf.JRecord.common.AbstractManager#getKey(int)
 	 */
 	@Override
 	public int getKey(int idx) {
@@ -169,7 +169,7 @@ public class ConversionManager implements AbstractManager {
 	}
 
 	/**
-	 * @see net.sf.JRecord.Common.AbstractManager#getName(int)
+	 * @see net.sf.JRecord.common.AbstractManager#getName(int)
 	 */
 	@Override
 	public String getName(int idx) {

@@ -32,13 +32,13 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.AbstractLineWriter;
 import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import junit.framework.TestCase;
 

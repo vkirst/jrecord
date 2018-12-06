@@ -36,13 +36,13 @@ package Details;
 
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
 import net.sf.JRecord.External.CobolCopybookLoader;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.RecordException;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

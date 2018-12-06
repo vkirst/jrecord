@@ -43,11 +43,11 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.LineProvider;
 import net.sf.JRecord.Details.RecordDetail;
+import net.sf.JRecord.common.FieldDetail;
 
 
 /**

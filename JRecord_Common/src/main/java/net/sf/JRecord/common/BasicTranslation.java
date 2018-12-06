@@ -23,7 +23,7 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
 import java.text.MessageFormat;
 
@@ -51,7 +51,7 @@ public class BasicTranslation implements ITranslation {
 
 
 	/**
-	 * @see net.sf.JRecord.Common.ITranslation#convert(java.lang.String)
+	 * @see net.sf.JRecord.common.ITranslation#convert(java.lang.String)
 	 */
 	@Override
 	public final String convert(String s) {

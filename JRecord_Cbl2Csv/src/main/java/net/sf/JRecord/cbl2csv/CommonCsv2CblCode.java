@@ -1,9 +1,9 @@
 package net.sf.JRecord.cbl2csv;
 
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
+import net.sf.JRecord.common.FieldDetail;
 import net.sf.JRecord.def.IO.builders.IDefineCsvFields;
 
 public class CommonCsv2CblCode {

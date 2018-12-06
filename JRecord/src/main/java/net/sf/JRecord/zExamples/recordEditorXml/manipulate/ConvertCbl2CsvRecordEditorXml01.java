@@ -1,7 +1,5 @@
 package net.sf.JRecord.zExamples.recordEditorXml.manipulate;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.CsvParser.ParserManager;
 import net.sf.JRecord.External.*;
 import net.sf.JRecord.External.Def.ExternalField;
@@ -10,6 +8,8 @@ import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 import net.sf.JRecord.common.TstConstants;
 
 import java.io.ByteArrayInputStream;

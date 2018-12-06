@@ -25,10 +25,10 @@
       
 package net.sf.JRecord.detailsSelection;
 
-import net.sf.JRecord.Common.IGetFieldByName;
 import net.sf.JRecord.ExternalRecordSelection.ExternalFieldSelection;
 import net.sf.JRecord.ExternalRecordSelection.ExternalGroupSelection;
 import net.sf.JRecord.ExternalRecordSelection.ExternalSelection;
+import net.sf.JRecord.common.IGetFieldByName;
 
 public class Convert {
 //	private int lvl = 0;

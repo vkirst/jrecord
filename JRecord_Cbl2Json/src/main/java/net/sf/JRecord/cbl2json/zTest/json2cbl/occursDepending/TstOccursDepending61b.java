@@ -8,9 +8,9 @@ import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.cbl2json.zTest.json2cbl.TstXmlConstants;
+import net.sf.JRecord.common.Conversion;
 import net.sf.cobolToJson.Cobol2Json;
 import net.sf.cobolToJson.def.ICobol2Json;
 

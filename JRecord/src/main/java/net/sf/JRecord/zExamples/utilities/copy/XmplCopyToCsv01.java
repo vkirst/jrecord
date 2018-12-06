@@ -3,13 +3,13 @@ package net.sf.JRecord.zExamples.utilities.copy;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
 import net.sf.JRecord.common.TstConstants;
 import net.sf.cb2xml.def.Cb2xmlConstants;
 

@@ -28,16 +28,16 @@
 
 package net.sf.JRecord.Details;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.CsvParser.ICsvCharLineParser;
 import net.sf.JRecord.CsvParser.CsvDefinition;
 import net.sf.JRecord.CsvParser.CsvParserManagerChar;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeChar;
 import net.sf.JRecord.Types.TypeManager;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.FieldDetail;
+import net.sf.JRecord.common.IFieldDetail;
 
 public class CharLine extends BasicLine implements AbstractLine {
 

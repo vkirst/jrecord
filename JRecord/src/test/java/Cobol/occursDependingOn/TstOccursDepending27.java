@@ -32,13 +32,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.IFieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.IFieldDetail;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import org.junit.Assert;
 import org.junit.Test;

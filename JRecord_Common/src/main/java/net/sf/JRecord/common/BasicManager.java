@@ -41,7 +41,7 @@
  *     to the record package (ie RecordException + new Constant interface
  *   - Added new Date and Checkbox types
  */
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
 
 /**

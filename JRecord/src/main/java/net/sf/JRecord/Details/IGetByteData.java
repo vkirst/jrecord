@@ -28,7 +28,7 @@
 
 package net.sf.JRecord.Details;
 
-import net.sf.JRecord.Common.IGetData;
+import net.sf.JRecord.common.IGetData;
 
 /**
  * Class can return a Record (line) as an array of bytes

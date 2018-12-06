@@ -29,8 +29,8 @@ import java.io.IOException;
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.cbl2xml.Data2Xml;
+import net.sf.JRecord.common.RecordException;
 
 public class RunData2Xml01 {
 

@@ -50,11 +50,6 @@ import net.sf.JRecord.ByteIO.ByteIOProvider;
 import net.sf.JRecord.ByteIO.ByteTextReader;
 import net.sf.JRecord.ByteIO.CsvByteReader;
 import net.sf.JRecord.ByteIO.IByteReader;
-import net.sf.JRecord.Common.AbstractManager;
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.IBasicFileSchema;
 import net.sf.JRecord.Details.CharLineProvider;
 import net.sf.JRecord.Details.DefaultLineProvider;
 import net.sf.JRecord.Details.LineProvider;
@@ -63,6 +58,7 @@ import net.sf.JRecord.External.Def.BasicConversion;
 import net.sf.JRecord.charIO.CsvCharReader;
 import net.sf.JRecord.charIO.ICharReader;
 import net.sf.JRecord.charIO.StandardCharReader;
+import net.sf.JRecord.common.*;
 
 /**
  * LineIOprovider - This class returns a LineIO class appropriate for
@@ -172,7 +168,7 @@ public class LineIOProvider implements AbstractManager {
     }
 
     /**
-	 * @see net.sf.JRecord.Common.AbstractManager#getManagerName()
+	 * @see net.sf.JRecord.common.AbstractManager#getManagerName()
 	 */
 	@Override
 	public String getManagerName() {
@@ -515,7 +511,7 @@ public class LineIOProvider implements AbstractManager {
 
 
     /**
-	 * @see net.sf.JRecord.Common.AbstractManager#getKey(int)
+	 * @see net.sf.JRecord.common.AbstractManager#getKey(int)
 	 */
 	@Override
 	public int getKey(int idx) {
@@ -524,7 +520,7 @@ public class LineIOProvider implements AbstractManager {
 
 
 	/**
-	 * @see net.sf.JRecord.Common.AbstractManager#getName(int)
+	 * @see net.sf.JRecord.common.AbstractManager#getName(int)
 	 */
 	@Override
 	public String getName(int idx) {
@@ -533,7 +529,7 @@ public class LineIOProvider implements AbstractManager {
 
 
 	/**
-	 * @see net.sf.JRecord.Common.AbstractManager#getNumberOfEntries()
+	 * @see net.sf.JRecord.common.AbstractManager#getNumberOfEntries()
 	 */
 	@Override
 	public int getNumberOfEntries() {

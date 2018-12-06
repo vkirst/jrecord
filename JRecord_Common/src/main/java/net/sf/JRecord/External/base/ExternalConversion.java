@@ -27,13 +27,13 @@ package net.sf.JRecord.External.base;
 
 import java.util.ArrayList;
 
-import net.sf.JRecord.Common.BasicKeyedField;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.External.Def.AbstractConversion;
 import net.sf.JRecord.External.Def.BasicConversion;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
+import net.sf.JRecord.common.BasicKeyedField;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 
 /**
  * This class holds conversions from external representations of types / formats etc to the internal

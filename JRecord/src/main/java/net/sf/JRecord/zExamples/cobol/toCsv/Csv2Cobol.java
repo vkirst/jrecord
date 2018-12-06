@@ -44,10 +44,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Details.LayoutDetail;
+import net.sf.JRecord.common.CommonBits;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.FieldDetail;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import net.sf.JRecord.def.IO.builders.ICsvIOBuilder;
 import net.sf.JRecord.utilityClasses.Copy;

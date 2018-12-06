@@ -5,8 +5,8 @@ import java.io.IOException;
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.cbl2json.zTest.json2cbl.Cbl2JsonCode;
+import net.sf.JRecord.common.RecordException;
 import net.sf.cobolToJson.Data2Json;
 
 public class RunData2Json01 {

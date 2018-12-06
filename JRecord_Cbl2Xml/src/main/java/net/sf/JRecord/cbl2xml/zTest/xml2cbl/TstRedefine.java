@@ -34,10 +34,10 @@ import java.io.StringReader;
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.cbl2xml.Cobol2Xml;
 import net.sf.JRecord.cbl2xml.def.ICobol2Xml;
+import net.sf.JRecord.common.Conversion;
 
 import org.junit.Test;
 

@@ -30,7 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
@@ -39,6 +38,7 @@ import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.ExternalRecordSelection.ExternalFieldSelection;
 import net.sf.JRecord.IO.ContinuousLineReader;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 
 public class ContinuousRead {

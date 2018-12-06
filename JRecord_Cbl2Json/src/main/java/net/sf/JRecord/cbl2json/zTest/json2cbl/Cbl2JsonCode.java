@@ -15,8 +15,7 @@ import java.net.URL;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-
-import net.sf.JRecord.Common.Conversion;
+import net.sf.JRecord.common.Conversion;
 import net.sf.cb2xml.util.XmlUtils;
 
 import org.junit.Assert;

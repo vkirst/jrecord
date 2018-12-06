@@ -33,13 +33,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.AbstractLineWriter;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.CommonBits;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 import net.sf.JRecord.def.IO.builders.ICsvIOBuilder;
 import junit.framework.TestCase;
 

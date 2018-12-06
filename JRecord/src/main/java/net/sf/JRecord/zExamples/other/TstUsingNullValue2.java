@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.CommonBits;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.common.TestCommonCode;
 
 public class TstUsingNullValue2 {

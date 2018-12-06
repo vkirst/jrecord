@@ -25,10 +25,10 @@
       
 package net.sf.JRecord.cg.details;
 
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.External.Def.BasicConversion;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
 
 
 /**

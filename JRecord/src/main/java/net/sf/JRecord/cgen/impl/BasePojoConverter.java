@@ -3,9 +3,9 @@ package net.sf.JRecord.cgen.impl;
 
 import java.io.IOException;
 
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.cgen.def.IPojoConverter;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.def.IO.builders.INewLineCreator;
 
 

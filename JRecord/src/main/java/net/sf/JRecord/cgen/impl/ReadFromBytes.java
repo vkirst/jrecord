@@ -33,9 +33,9 @@ import java.io.InputStream;
 
 import net.sf.JRecord.ByteIO.AbstractByteReader;
 import net.sf.JRecord.ByteIO.ByteIOProvider;
-import net.sf.JRecord.Common.IBasicFileSchema;
 import net.sf.JRecord.cgen.def.IDeserializer;
 import net.sf.JRecord.cgen.def.IReader;
+import net.sf.JRecord.common.IBasicFileSchema;
 
 /**
  * This class writes an object as bytes using 

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.sf.JRecord.Common.IFieldDetail;
+import net.sf.JRecord.common.IFieldDetail;
 
 
 /**

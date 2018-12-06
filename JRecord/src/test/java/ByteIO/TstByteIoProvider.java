@@ -36,8 +36,8 @@ package ByteIO;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.ByteIO.*;
-import net.sf.JRecord.Common.BasicFileSchema;
-import net.sf.JRecord.Common.Constants;
+import net.sf.JRecord.common.BasicFileSchema;
+import net.sf.JRecord.common.Constants;
 
 /**
  *

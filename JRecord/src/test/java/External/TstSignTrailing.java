@@ -32,13 +32,13 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
 import net.sf.JRecord.Details.RecordDetail;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import junit.framework.TestCase;
 

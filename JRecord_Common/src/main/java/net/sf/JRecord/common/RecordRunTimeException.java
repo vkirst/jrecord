@@ -23,47 +23,40 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
-import net.sf.JRecord.External.Def.DependingOnDtls;
-import net.sf.JRecord.definitiuons.CsvCharDetails;
+@SuppressWarnings("serial")
+public class RecordRunTimeException extends RuntimeException {
 
-/**
- * Very Basic RecordLayout interface. It is used by the field Definitions to get
- * Data from the RecordDefinition that it belongs to
- *
- * @author Bruce Martin
- *
- */
-public interface AbstractRecord {
 
 	/**
-	 * Get quote
-	 * @return Get quote
+	 * @param msg Error Message
 	 */
-	public abstract CsvCharDetails getQuoteDefinition();
-
-//	public abstract String getQuoteUneditted();
-
-	/**
-	 * @return the parentRecordIndex
-	 */
-	public abstract int getParentRecordIndex();
+	public RecordRunTimeException(final String msg) {
+		super(BasicTranslation.getTrans().convert(BasicTranslation.ST_ERROR, msg));
+	}
 
 	/**
-	 * @return the recordStyle
+	 * @param msg Error Message
 	 */
-	public abstract int getRecordStyle();
+	public RecordRunTimeException(final String msg, String parm) {
+		this(msg, new Object[] {parm});
+	}
 
 	/**
-	 * @return the sourceIndex
+	 * @param msg Error Message
 	 */
-	public abstract int getSourceIndex();
+	public RecordRunTimeException(final String msg, Object[] parms) {
+		super(BasicTranslation.getTrans().convertMsg(BasicTranslation.ST_ERROR, msg, parms));
+	}
 
-	/**
-	 * Calculate the actual position (adjusting for any depending on values
-	 * @param pos initial unadjusted position
-	 * @return adjusted position
-	 */
-	public abstract int calculateActualPosition(AbstractIndexedLine line, DependingOnDtls dependingOnDtls, int pos);
+
+	public RecordRunTimeException(String msg, Throwable exception) {
+		super(BasicTranslation.getTrans().convert(BasicTranslation.ST_ERROR, msg), exception);
+	}
+
+	public RecordRunTimeException(String msg, String parm, Throwable exception) {
+		super(BasicTranslation.getTrans().convert(BasicTranslation.ST_ERROR, msg, parm), exception);
+	}
+
 }

@@ -31,7 +31,7 @@ package detailsSelection;
 import java.util.List;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.AbstractIndexedLine;
+import net.sf.JRecord.common.AbstractIndexedLine;
 import net.sf.JRecord.detailsSelection.AndSelection;
 import net.sf.JRecord.detailsSelection.FieldSelect;
 import net.sf.JRecord.detailsSelection.FieldSelectX;

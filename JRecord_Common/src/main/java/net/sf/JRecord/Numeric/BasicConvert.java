@@ -25,8 +25,8 @@
       
 package net.sf.JRecord.Numeric;
 
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.Constants;
 import net.sf.cb2xml.def.Cb2xmlConstants;
 
 /**

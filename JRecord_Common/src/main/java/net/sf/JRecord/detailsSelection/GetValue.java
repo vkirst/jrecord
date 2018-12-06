@@ -28,9 +28,9 @@ package net.sf.JRecord.detailsSelection;
 import java.math.BigDecimal;
 import java.util.List;
 
-import net.sf.JRecord.Common.AbstractIndexedLine;
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.Types.TypeManager;
+import net.sf.JRecord.common.AbstractIndexedLine;
+import net.sf.JRecord.common.IFieldDetail;
 
 /**
  * Accumulators These
@@ -107,7 +107,7 @@ public abstract class GetValue  implements IGetValue {
 
 
 	/**
-	 * @see net.sf.JRecord.detailsSelection.IGetValue#getValue(net.sf.JRecord.Common.AbstractIndexedLine)
+	 * @see net.sf.JRecord.detailsSelection.IGetValue#getValue(net.sf.JRecord.common.AbstractIndexedLine)
 	 */
 	@Override
 	public Object getValue(AbstractIndexedLine line) {

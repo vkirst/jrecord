@@ -28,13 +28,13 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.IO.builders.CblIOBuilderBase;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.cbl2xml.Cobol2Xml;
 import net.sf.JRecord.cbl2xml.impl.Cobol2GroupXml;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 import net.sf.JRecord.def.IO.builders.IIOBuilder;
 import net.sf.cb2xml.def.Cb2xmlConstants;
 

@@ -29,13 +29,13 @@
 package Types1;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.AbstractFieldValue;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.Line;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.LineIOProvider;
+import net.sf.JRecord.common.AbstractFieldValue;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.IFieldDetail;
 
 /**
  * This class test type updates by reading through a file,

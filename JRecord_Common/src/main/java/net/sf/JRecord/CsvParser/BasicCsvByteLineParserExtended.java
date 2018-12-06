@@ -35,10 +35,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import net.sf.JRecord.Common.ByteArray;
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.ByteArray;
+import net.sf.JRecord.common.CommonBits;
+import net.sf.JRecord.common.Conversion;
 
 /**
  * Basic CSV line parser. Basically

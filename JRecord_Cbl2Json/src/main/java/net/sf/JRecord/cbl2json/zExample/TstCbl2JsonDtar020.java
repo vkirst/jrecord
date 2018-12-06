@@ -4,10 +4,10 @@ import java.io.IOException;
 
 import javax.xml.bind.JAXBException;
 
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.Option.IReformatFieldNames;
 import net.sf.JRecord.cbl2json.zTest.json2cbl.Cbl2JsonCode;
+import net.sf.JRecord.common.Constants;
 import net.sf.cobolToJson.Cobol2Json;
 
 public class TstCbl2JsonDtar020 {

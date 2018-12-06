@@ -28,8 +28,8 @@
 
 package net.sf.JRecord.Details;
 
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.IFieldDetail;
 
 /**
  * Reference to one field in a line (or Record).

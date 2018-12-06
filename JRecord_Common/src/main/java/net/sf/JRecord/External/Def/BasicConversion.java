@@ -28,12 +28,12 @@ package net.sf.JRecord.External.Def;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Numeric.ConversionManager;
 import net.sf.JRecord.Numeric.Convert;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 
 @SuppressWarnings("deprecation")
 public class BasicConversion implements AbstractConversion {

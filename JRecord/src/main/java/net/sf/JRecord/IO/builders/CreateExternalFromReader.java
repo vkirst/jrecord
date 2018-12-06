@@ -31,9 +31,9 @@ package net.sf.JRecord.IO.builders;
 import java.io.Reader;
 import java.io.StringReader;
 
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.External.ICopybookLoaderStream;
+import net.sf.JRecord.common.RecordException;
 
 public class CreateExternalFromReader  extends CreateExternalBase  implements ICreateExternal  {
 

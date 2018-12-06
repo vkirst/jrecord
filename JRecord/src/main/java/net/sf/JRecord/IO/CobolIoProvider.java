@@ -37,14 +37,14 @@ package net.sf.JRecord.IO;
 import java.io.IOException;
 import java.io.InputStream;
 
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.IBasicFileSchema;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.LineProvider;
 import net.sf.JRecord.External.CobolCopybookLoader;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.IO.builders.CblIOBuilderMultiSchema;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.CommonBits;
+import net.sf.JRecord.common.IBasicFileSchema;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 
 

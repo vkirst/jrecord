@@ -27,7 +27,7 @@ package net.sf.JRecord.detailsSelection;
 
 import java.util.List;
 
-import net.sf.JRecord.Common.AbstractIndexedLine;
+import net.sf.JRecord.common.AbstractIndexedLine;
 
 public class AndSelection extends AbsGroup {
 

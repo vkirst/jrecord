@@ -1,10 +1,10 @@
 package schema;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.JRecordInterface1;
 import net.sf.JRecord.cgen.impl.ArrayFieldDefinition;
+import net.sf.JRecord.common.IFieldDetail;
 
 import java.io.IOException;
 import java.io.StringReader;

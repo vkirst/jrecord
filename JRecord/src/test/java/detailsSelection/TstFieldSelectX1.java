@@ -29,8 +29,8 @@
 package detailsSelection;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.FieldDetail;
 import net.sf.JRecord.detailsSelection.FieldSelect;
 import net.sf.JRecord.detailsSelection.FieldSelectX;
 

@@ -28,7 +28,7 @@
 
 package net.sf.JRecord.schema;
 
-import net.sf.JRecord.Common.IFieldDetail;
+import net.sf.JRecord.common.IFieldDetail;
 
 /**
  * Retrieve field Description using a Record_Name / Field_Name

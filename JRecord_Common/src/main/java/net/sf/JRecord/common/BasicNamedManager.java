@@ -23,7 +23,7 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
 /**
  * Class to manage other classes (with a name given to the managed classes).
@@ -55,7 +55,7 @@ implements AbstractManager {
 	}
 
     /**
-	 * @see net.sf.JRecord.Common.AbstractManager#getManagerName()
+	 * @see net.sf.JRecord.common.AbstractManager#getManagerName()
 	 */
 	@Override
 	public String getManagerName() {
@@ -85,7 +85,7 @@ implements AbstractManager {
 	}
 
 	/**
-	 * @see net.sf.JRecord.Common.AbstractManager#getName(int)
+	 * @see net.sf.JRecord.common.AbstractManager#getName(int)
 	 */
 	public String getName(int id) {
 		return names[id];

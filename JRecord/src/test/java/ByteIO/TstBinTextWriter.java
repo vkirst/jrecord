@@ -31,7 +31,7 @@ package ByteIO;
 import junit.framework.TestCase;
 import net.sf.JRecord.ByteIO.BinaryByteWriter;
 import net.sf.JRecord.ByteIO.ByteTextReader;
-import net.sf.JRecord.Common.Constants;
+import net.sf.JRecord.common.Constants;
 import net.sf.JRecord.common.TstConstants;
 
 import java.io.IOException;

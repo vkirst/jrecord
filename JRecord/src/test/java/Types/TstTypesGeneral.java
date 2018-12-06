@@ -29,7 +29,6 @@
 package Types;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.*;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.CharLine;
 import net.sf.JRecord.Details.LayoutDetail;
@@ -40,7 +39,8 @@ import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
 import net.sf.JRecord.Types.TypeNum;
 import net.sf.JRecord.Types.TypeSignSeparate;
-import net.sf.JRecord.common.TestCommonCode;
+import net.sf.JRecord.common.*;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;

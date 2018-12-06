@@ -29,12 +29,12 @@
 package Types;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
 import net.sf.JRecord.Types.TypeNum;
 import net.sf.JRecord.Types.TypePackedDecimal;
+import net.sf.JRecord.common.FieldDetail;
+import net.sf.JRecord.common.RecordException;
 
 public class TstComp3 extends TestCase {
 

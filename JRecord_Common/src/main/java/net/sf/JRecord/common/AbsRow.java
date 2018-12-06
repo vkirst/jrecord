@@ -1,3 +1,7 @@
+/*
+ * Created on 15/01/2005
+ *
+ */
 /*  -------------------------------------------------------------------------
  *
  *            Sub-Project: JRecord Common
@@ -23,23 +27,21 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
-
+package net.sf.JRecord.common;
 
 /**
- * Purpose: provide basic Language Translation services
- *
- * @author Bruce Martin
- *
+ * This is an abstract (interface) definition of a table Row
+ * (or Record). It allows access to the records fields via the Field number
+ * It is used by most of the swing utilities in the RecordEditor
  */
-public interface ITranslation {
+public interface AbsRow {
 
-	public static final int ST_MESSAGE = 2;
-	public static final int ST_ERROR   = 14;
+	/**
+	 * Get the value of a field (by field number)
+	 *
+	 * @param fldNum Field number
+	 * @return value of the field
+	 */
+	Object getField(int fldNum);
 
-	public String convert(int type, String s);
-	public String convert(String s);
-	public String convert(String s, String defaultStr);
-	public abstract String convertMsg(int type, String s, Object... params);
-	public abstract String convert(int type, String s, String param);
 }

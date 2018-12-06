@@ -32,7 +32,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.External.Def.AbstractUpdatableRecord;
 import net.sf.JRecord.External.Def.DependingOn;
 import net.sf.JRecord.External.Def.DependingOnDefinition;
@@ -43,6 +42,7 @@ import net.sf.JRecord.ExternalRecordSelection.ExternalSelection;
 import net.sf.JRecord.ExternalRecordSelection.StreamLine;
 import net.sf.JRecord.Option.IRecordPositionOption;
 import net.sf.JRecord.Types.TypeManager;
+import net.sf.JRecord.common.Constants;
 
 //import net.sf.RecordEditor.utils.Common;
 

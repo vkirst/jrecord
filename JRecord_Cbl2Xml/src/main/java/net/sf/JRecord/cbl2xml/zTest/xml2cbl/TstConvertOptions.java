@@ -24,11 +24,11 @@
 
 package net.sf.JRecord.cbl2xml.zTest.xml2cbl;
 
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Option.IReformatFieldNames;
 import net.sf.JRecord.cbl2xml.def.ICobol2Xml;
 import net.sf.JRecord.cbl2xml.impl.ConvertOptions;
+import net.sf.JRecord.common.Constants;
 import junit.framework.TestCase;
 
 public class TstConvertOptions extends TestCase {

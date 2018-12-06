@@ -1,3 +1,6 @@
+/**
+ *
+ */
 /*  -------------------------------------------------------------------------
  *
  *            Sub-Project: JRecord Common
@@ -23,39 +26,32 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
-public class TranslateXmlChars {
 
-	public static String replaceXmlCharsStr(String in) {
-		return replaceXmlChars(new StringBuilder(in)).toString();
-	}
-	
-	public static StringBuilder replaceXmlChars(StringBuilder in) {
-        replace(in, "&", "&amp;");
-        replace(in, "<", "&lt;");
-        replace(in, ">", "&gt;");
-        replace(in, "\"", "&quot;");
- //       replace(in, "\t", "&#009;");
-        
-        return in;
-	}
-	
+/**
+ * A basic Row consisting of an integer key and a String field name.
+ * It is used return Key / Value pairs to the RecordEditor from JRecord.
+ *
+ * @author Bruce Martin
+ *
+ */
+public class BasicKeyedField implements AbsRow {
+
+	public int key;
+	public String name;
+	public Boolean valid=null;
 	/**
-     * Replaces on string with another in a String bugffer
-     *
-     * @param in String buffer to be updated
-     * @param from search string 
-     * @param to replacement string
-     */
-    public static void replace(StringBuilder in, String from, String to) {
-        int start;
-        int fromLen = from.length();
+	 * @see net.sf.JRecord.common.AbsRow#getField(int)
+	 */
+	@Override
+	public Object getField(int fldNum) {
+		switch (fldNum) {
+		case (0): return Integer.valueOf(key);
+		case (1): return name;
+		case (3): return valid;
+		default: return null;
+		}
+	}
 
-        start = in.indexOf(from, 0);
-        while (start >= 0) {
-            in.replace(start, start + fromLen, to);
-            start = in.indexOf(from, start + to.length());
-        }
-    }
 }

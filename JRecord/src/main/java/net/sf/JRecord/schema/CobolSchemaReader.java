@@ -40,8 +40,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.External.CobolCopybookLoader;
 import net.sf.JRecord.External.CopybookLoader;
@@ -50,6 +48,8 @@ import net.sf.JRecord.External.ICopybookLoaderCobol;
 import net.sf.JRecord.External.base.Cb2xmlDocument;
 import net.sf.JRecord.IO.builders.CblIOBuilderMultiSchemaBase;
 import net.sf.JRecord.Option.IReformatFieldNames;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.def.IO.builders.ISchemaIOBuilder;
 import net.sf.JRecord.schema.jaxb.Condition;
 import net.sf.JRecord.schema.jaxb.Copybook;

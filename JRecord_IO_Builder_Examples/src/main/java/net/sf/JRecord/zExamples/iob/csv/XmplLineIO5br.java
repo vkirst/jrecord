@@ -27,9 +27,9 @@ package net.sf.JRecord.zExamples.iob.csv;
 
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.IO.AbstractLineReader;
+import net.sf.JRecord.common.Constants;
 
 /**
  * Example of Reading a Binary CSV files with names on the first line

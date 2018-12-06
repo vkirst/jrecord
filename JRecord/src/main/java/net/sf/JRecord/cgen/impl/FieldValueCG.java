@@ -28,11 +28,11 @@
 
 package net.sf.JRecord.cgen.impl;
 
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.Details.BaseFieldValue;
 import net.sf.JRecord.Details.IGetByteData;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
+import net.sf.JRecord.common.IFieldDetail;
 
 /**
  * This class Retrieves a Field Value from an array of bytes

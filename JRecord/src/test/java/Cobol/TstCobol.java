@@ -31,7 +31,6 @@ package Cobol;
 import java.math.BigDecimal;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.External.CobolCopybookLoader;
@@ -40,6 +39,7 @@ import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.LineIOProvider;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
 import net.sf.JRecord.common.TstConstants;
 import org.junit.Assert;
 import org.junit.Test;

@@ -25,7 +25,7 @@
       
 package net.sf.JRecord.ExternalRecordSelection;
 
-import net.sf.JRecord.Common.Constants;
+import net.sf.JRecord.common.Constants;
 
 public class ExternalFieldSelection implements ExternalSelection {
 

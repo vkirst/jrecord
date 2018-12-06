@@ -42,8 +42,8 @@
       
 package net.sf.JRecord.Types;
 
-import net.sf.JRecord.Common.Messages;
-import net.sf.JRecord.Common.RecordException;
+import net.sf.JRecord.common.Messages;
+import net.sf.JRecord.common.RecordException;
 
 /**
  * This class stores / retrieves type definitions and format definitions

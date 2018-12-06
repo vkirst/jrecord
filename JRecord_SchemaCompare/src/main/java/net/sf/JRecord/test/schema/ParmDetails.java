@@ -4,8 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
 import net.sf.JRecord.test.schema.cobol.io.IParms;
 import net.sf.JRecord.utilityClasses.ParseArguments;
 

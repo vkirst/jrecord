@@ -27,7 +27,7 @@ package net.sf.JRecord.ByteIO;
 
 import java.math.BigInteger;
 
-import net.sf.JRecord.Common.Conversion;
+import net.sf.JRecord.common.Conversion;
 
 public final class MicroFocusFileHeader {
 	public static final int MIN_4_BYTE_LENGTH = 4095;

@@ -1,6 +1,6 @@
 package net.sf.JRecord.cg.nameConversion;
 
-import net.sf.JRecord.Common.Conversion;
+import net.sf.JRecord.common.Conversion;
 
 public class StdCblFieldNameConversion implements IFieldNameConversion {
 

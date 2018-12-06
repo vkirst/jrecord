@@ -42,9 +42,9 @@ package net.sf.JRecord.ByteIO;
 
 import java.io.UnsupportedEncodingException;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.IBasicFileSchema;
-import net.sf.JRecord.Common.RecordException;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.IBasicFileSchema;
+import net.sf.JRecord.common.RecordException;
 
 /**
  * LineIOprovider - This class returns a LineIO class appropriate for

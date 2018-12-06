@@ -30,8 +30,8 @@ package net.sf.JRecord.schema.jaxb;
 
 import java.util.List;
 
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.cgen.def.IArrayAnyDimension;
+import net.sf.JRecord.common.IFieldDetail;
 import net.sf.JRecord.schema.IArrayItemCheck;
 
 public interface IItem {

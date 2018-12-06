@@ -31,8 +31,8 @@
       
 package net.sf.JRecord.CsvParser;
 
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.Conversion;
 
 /**
  * Basic CSV line parser. Basically<br/>

@@ -37,9 +37,6 @@ import java.io.OutputStream;
 import java.util.Map;
 import java.util.TreeMap;
 
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.CharLineProvider;
 import net.sf.JRecord.Details.LayoutDetail;
@@ -54,6 +51,9 @@ import net.sf.JRecord.IO.LineIOProvider;
 import net.sf.JRecord.Log.AbsSSLogger;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.Option.IRecordPositionOption;
+import net.sf.JRecord.common.CommonBits;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 
 
 /**

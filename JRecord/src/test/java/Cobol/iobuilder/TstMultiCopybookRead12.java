@@ -32,10 +32,10 @@ import java.io.FileInputStream;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.ExternalRecordSelection.ExternalFieldSelection;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 
 public class TstMultiCopybookRead12 extends TestCase {

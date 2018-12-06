@@ -52,11 +52,7 @@ import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.util.Arrays;
 
-import net.sf.JRecord.Common.AbstractIndexedLine;
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.IFieldDetail;
-import net.sf.JRecord.Common.RecordException;
+import net.sf.JRecord.common.*;
 
 
 /**

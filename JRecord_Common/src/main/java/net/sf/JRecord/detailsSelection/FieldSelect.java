@@ -27,10 +27,10 @@ package net.sf.JRecord.detailsSelection;
 
 import java.util.List;
 
-import net.sf.JRecord.Common.AbstractIndexedLine;
-import net.sf.JRecord.Common.IEmptyTest;
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.ExternalRecordSelection.ExternalFieldSelection;
+import net.sf.JRecord.common.AbstractIndexedLine;
+import net.sf.JRecord.common.IEmptyTest;
+import net.sf.JRecord.common.IFieldDetail;
 
 public abstract class FieldSelect extends ExternalFieldSelection implements RecordSel {
 

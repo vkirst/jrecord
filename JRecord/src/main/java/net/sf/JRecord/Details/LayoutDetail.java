@@ -50,13 +50,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.IBasicFileSchema;
-import net.sf.JRecord.Common.IFieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.CsvParser.ICsvCharLineParser;
 import net.sf.JRecord.CsvParser.ICsvDefinition;
 import net.sf.JRecord.CsvParser.CsvDefinition;
@@ -68,6 +61,7 @@ import net.sf.JRecord.Option.Options;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
 import net.sf.JRecord.cgen.defc.ILayoutDetails4gen;
+import net.sf.JRecord.common.*;
 import net.sf.JRecord.definitiuons.CsvCharDetails;
 
 

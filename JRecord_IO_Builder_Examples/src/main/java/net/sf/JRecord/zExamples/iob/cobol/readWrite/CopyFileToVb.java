@@ -29,10 +29,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.AbstractLineWriter;
+import net.sf.JRecord.common.Constants;
 
 /**
  * Copy a File (Continuous (no Line Marker)) to a Mainframe-VB file

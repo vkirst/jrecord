@@ -38,7 +38,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLStreamException;
 
-import net.sf.JRecord.Common.Conversion;
+import net.sf.JRecord.common.Conversion;
 import net.sf.cb2xml.util.XmlUtils;
 
 import org.junit.Assert;

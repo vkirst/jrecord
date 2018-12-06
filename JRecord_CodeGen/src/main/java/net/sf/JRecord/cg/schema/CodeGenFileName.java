@@ -1,6 +1,6 @@
 package net.sf.JRecord.cg.schema;
 
-import net.sf.JRecord.Common.Conversion;
+import net.sf.JRecord.common.Conversion;
 
 /**
  * This class provides the File name in a variety of formats

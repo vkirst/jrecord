@@ -2,8 +2,6 @@ package net.sf.JRecord.zExamples.utilities.copy;
 
 import java.io.IOException;
 
-import net.sf.JRecord.Common.RecordException;
-import net.sf.JRecord.Common.XmlConstants;
 import net.sf.JRecord.CsvParser.ParserManager;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
@@ -16,7 +14,9 @@ import net.sf.JRecord.External.RecordEditorXmlLoader;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.AbstractLineWriter;
 import net.sf.JRecord.IO.LineIOProvider;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.common.TstConstants;
+import net.sf.JRecord.common.XmlConstants;
 
 
 /**

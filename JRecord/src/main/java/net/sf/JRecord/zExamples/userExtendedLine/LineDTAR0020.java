@@ -6,9 +6,9 @@
  */
 package net.sf.JRecord.zExamples.userExtendedLine;
 
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
+import net.sf.JRecord.common.RecordException;
 
 /**
  * Example of a hand coded <b>Line</b> to access fields in the DTAR0020

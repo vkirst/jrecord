@@ -29,11 +29,11 @@
 package Numeric;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeZoned;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.FieldDetail;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.common.TstConstants;
 import org.junit.Assert;
 import org.junit.Test;

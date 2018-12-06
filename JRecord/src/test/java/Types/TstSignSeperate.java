@@ -29,10 +29,10 @@
 package Types;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeSignSeparate;
+import net.sf.JRecord.common.FieldDetail;
+import net.sf.JRecord.common.RecordException;
 
 public class TstSignSeperate extends TestCase {
 

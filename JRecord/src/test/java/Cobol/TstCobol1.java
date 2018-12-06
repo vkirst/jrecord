@@ -30,8 +30,6 @@ package Cobol;
 
 import java.io.ByteArrayInputStream;
 
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.External.CobolCopybookLoader;
 import net.sf.JRecord.External.CopybookLoader;
@@ -40,6 +38,8 @@ import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
 import net.sf.JRecord.Types.TypeNum;
+import net.sf.JRecord.common.FieldDetail;
+import net.sf.JRecord.common.RecordException;
 import junit.framework.TestCase;
 
 /**

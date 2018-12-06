@@ -28,7 +28,7 @@ package net.sf.JRecord.Types;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-import net.sf.JRecord.Common.IFieldDetail;
+import net.sf.JRecord.common.IFieldDetail;
 
 public class TypeRmCompPositive extends TypeNum {
 

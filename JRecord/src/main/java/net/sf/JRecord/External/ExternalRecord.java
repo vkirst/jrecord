@@ -31,16 +31,16 @@ package net.sf.JRecord.External;
 import java.util.Collections;
 import java.util.Comparator;
 
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.LayoutGetFieldByName;
 import net.sf.JRecord.Details.RecordDecider;
 import net.sf.JRecord.Details.RecordDetail;
 import net.sf.JRecord.External.Def.ExternalField;
 import net.sf.JRecord.External.base.BaseExternalRecord;
+import net.sf.JRecord.common.CommonBits;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.FieldDetail;
+import net.sf.JRecord.common.RecordException;
 
 
 /**

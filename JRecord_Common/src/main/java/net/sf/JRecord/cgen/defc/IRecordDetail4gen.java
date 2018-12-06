@@ -25,8 +25,8 @@
       
 package net.sf.JRecord.cgen.defc;
 
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Option.IRecordPositionOption;
+import net.sf.JRecord.common.FieldDetail;
 import net.sf.JRecord.definitiuons.CsvCharDetails;
 import net.sf.JRecord.detailsSelection.RecordSelection;
 

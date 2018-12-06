@@ -23,42 +23,23 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
+
 
 /**
- * Abstract Manager - Interface of a class that manages other classes
- *
+ * Purpose: provide basic Language Translation services
  *
  * @author Bruce Martin
  *
  */
-public interface AbstractManager {
+public interface ITranslation {
 
+	public static final int ST_MESSAGE = 2;
+	public static final int ST_ERROR   = 14;
 
-    /**
-     * Get the number of entries
-     * @return The number of entries
-     */
-    public int getNumberOfEntries();
-
-    /**
-     * Get the name of the manager
-     * @return name of the manager
-     */
-    public String getManagerName();
-
-	/**
-	 * get key (from the index)
-	 * @param idx get key for index number
-	 * @return the key value for the index
-	 */
-	public abstract int getKey(int idx);
-
-	/**
-	 * get the name of managed class (from the inex)
-	 * @param idx get name for index number
-	 * @return the name for the index
-	 */
-	public abstract String getName(int idx);
-
+	public String convert(int type, String s);
+	public String convert(String s);
+	public String convert(String s, String defaultStr);
+	public abstract String convertMsg(int type, String s, Object... params);
+	public abstract String convert(int type, String s, String param);
 }

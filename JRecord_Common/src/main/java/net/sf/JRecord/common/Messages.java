@@ -1,7 +1,3 @@
-/*
- * Created on 15/01/2005
- *
- */
 /*  -------------------------------------------------------------------------
  *
  *            Sub-Project: JRecord Common
@@ -27,21 +23,10 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
-/**
- * This is an abstract (interface) definition of a table Row
- * (or Record). It allows access to the records fields via the Field number
- * It is used by most of the swing utilities in the RecordEditor
- */
-public interface AbsRow {
+public class Messages {
 
-	/**
-	 * Get the value of a field (by field number)
-	 *
-	 * @param fldNum Field number
-	 * @return value of the field
-	 */
-	Object getField(int fldNum);
+	public static final String INVALID_INDEX_MSG = "Invalid Index Supplied {0} Should be between {1} and {2}";
 
 }

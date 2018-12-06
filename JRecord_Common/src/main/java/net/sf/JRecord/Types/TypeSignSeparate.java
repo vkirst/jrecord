@@ -38,8 +38,8 @@
       
 package net.sf.JRecord.Types;
 
-import net.sf.JRecord.Common.IFieldDetail;
-import net.sf.JRecord.Common.RecordException;
+import net.sf.JRecord.common.IFieldDetail;
+import net.sf.JRecord.common.RecordException;
 
 /**
  * Sign Seperate numeric (ie editted numeric in Cobol)

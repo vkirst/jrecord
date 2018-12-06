@@ -2,8 +2,6 @@ package net.sf.JRecord.zExamples.other;
 
 import java.io.ByteArrayInputStream;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.CsvParser.ParserManager;
 import net.sf.JRecord.External.CobolCopybookLoader;
 import net.sf.JRecord.External.CopybookLoader;
@@ -13,6 +11,8 @@ import net.sf.JRecord.Log.AppendableLog;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 
 
 

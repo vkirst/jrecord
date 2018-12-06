@@ -2,13 +2,13 @@ package net.sf.JRecord.zExamples.recordEditorXml.readWrite;
 
 import java.util.HashMap;
 
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.RecordDetail;
 import net.sf.JRecord.External.CopybookLoaderFactory;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.LineIOProvider;
+import net.sf.JRecord.common.FieldDetail;
 import net.sf.JRecord.common.TstConstants;
 
 /**

@@ -29,7 +29,7 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
 /**
  * XML Constants used in JRecord

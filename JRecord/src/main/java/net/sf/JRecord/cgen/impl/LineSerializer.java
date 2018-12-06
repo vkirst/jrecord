@@ -1,8 +1,8 @@
 package net.sf.JRecord.cgen.impl;
 
-import net.sf.JRecord.Common.IGetData;
 import net.sf.JRecord.cgen.def.ILineToBytes;
 import net.sf.JRecord.cgen.def.ISerializer;
+import net.sf.JRecord.common.IGetData;
 
 public class LineSerializer<Line> implements ISerializer<Line> {
 	

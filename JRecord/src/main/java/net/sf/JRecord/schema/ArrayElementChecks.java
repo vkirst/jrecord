@@ -30,10 +30,10 @@ package net.sf.JRecord.schema;
 
 import java.util.Arrays;
 
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.CharLine;
 import net.sf.JRecord.Details.Line;
+import net.sf.JRecord.common.Conversion;
 import net.sf.JRecord.schema.jaxb.IItem;
 
 

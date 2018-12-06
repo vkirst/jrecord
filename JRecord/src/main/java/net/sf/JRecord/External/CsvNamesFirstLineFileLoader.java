@@ -30,11 +30,11 @@ package net.sf.JRecord.External;
 
 import java.io.IOException;
 
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Details.DefaultLineProvider;
 import net.sf.JRecord.IO.TextLineReader;
 import net.sf.JRecord.Log.AbsSSLogger;
+import net.sf.JRecord.common.CommonBits;
+import net.sf.JRecord.common.Conversion;
 
 /**
  * Class to build a copybook (ExternalRecord) from a CSV file with

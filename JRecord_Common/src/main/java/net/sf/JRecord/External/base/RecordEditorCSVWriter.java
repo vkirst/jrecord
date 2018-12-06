@@ -33,12 +33,12 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.External.Def.ExternalField;
 import net.sf.JRecord.External.base.ExternalConversion;
 import net.sf.JRecord.Log.AbsSSLogger;
 import net.sf.JRecord.Log.TextLog;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 
 /**
  * Write a RecordLayout as a RecordEditor-CSBV layout file.

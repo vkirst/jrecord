@@ -38,11 +38,11 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.Reader;
 
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Log.AbsSSLogger;
 import net.sf.JRecord.Log.TextLog;
+import net.sf.JRecord.common.CommonBits;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.RecordException;
 
 import org.w3c.dom.Document;
 

@@ -28,7 +28,7 @@
 
 package net.sf.JRecord.Details;
 
-import net.sf.JRecord.Common.AbstractFieldValue;
+import net.sf.JRecord.common.AbstractFieldValue;
 
 
 /**

@@ -29,14 +29,14 @@
 package Details;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.CharLine;
 import net.sf.JRecord.Details.IFieldValue;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.common.TestCommonCode;
 
 import java.util.Arrays;

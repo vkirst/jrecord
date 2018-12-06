@@ -46,12 +46,12 @@ import org.apache.velocity.app.event.EventCartridge;
 import org.apache.velocity.app.event.implement.IncludeRelativePath;
 import org.apache.velocity.exception.ParseErrorException;
 
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.cg.details.IGenerateOptions;
 import net.sf.JRecord.cg.details.TemplateDtls;
 import net.sf.JRecord.cg.details.jaxb.SkelGenDefinition;
 import net.sf.JRecord.cg.details.jaxb.Skelton;
 import net.sf.JRecord.cg.schema.RecordDef;
+import net.sf.JRecord.common.Conversion;
 
 
 public class GenerateVelocity {

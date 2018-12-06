@@ -27,11 +27,11 @@ package net.sf.JRecord.cg.common;
 
 import java.util.Arrays;
 
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Option.ICobolSplitOptions;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
+import net.sf.JRecord.common.Constants;
 import net.sf.cb2xml.def.Cb2xmlConstants;
 
 public class CCode {

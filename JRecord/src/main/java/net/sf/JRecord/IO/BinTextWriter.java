@@ -33,11 +33,11 @@ import java.io.OutputStream;
 
 import net.sf.JRecord.ByteIO.ByteTextWriter;
 import net.sf.JRecord.ByteIO.BinaryByteWriter;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.CsvParser.CsvParserManagerChar;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.RecordDetail;
+import net.sf.JRecord.common.Conversion;
 
 
 /**

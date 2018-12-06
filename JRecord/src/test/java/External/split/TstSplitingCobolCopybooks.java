@@ -28,8 +28,6 @@
 
 package External.split;
 
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.RecordDetail;
 import net.sf.JRecord.External.CobolCopybookLoader;
@@ -37,6 +35,8 @@ import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.FieldDetail;
+import net.sf.JRecord.common.RecordException;
 import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;

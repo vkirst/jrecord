@@ -30,11 +30,11 @@ package ioProvider;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.ByteIO.*;
-import net.sf.JRecord.Common.BasicFileSchema;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Details.DefaultLineProvider;
 import net.sf.JRecord.IO.*;
+import net.sf.JRecord.common.BasicFileSchema;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 
 
 /**

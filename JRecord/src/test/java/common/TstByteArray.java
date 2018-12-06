@@ -3,7 +3,7 @@ package common;
 import java.util.Arrays;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.ByteArray;
+import net.sf.JRecord.common.ByteArray;
 
 /**
  * Testing the ByteArray class. The ByteArray class

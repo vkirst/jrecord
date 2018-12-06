@@ -33,9 +33,9 @@ import java.io.OutputStream;
 
 import net.sf.JRecord.ByteIO.AbstractByteWriter;
 import net.sf.JRecord.ByteIO.ByteIOProvider;
-import net.sf.JRecord.Common.IBasicFileSchema;
 import net.sf.JRecord.cgen.def.ISerializer;
 import net.sf.JRecord.cgen.def.IWriter;
+import net.sf.JRecord.common.IBasicFileSchema;
 
 
 /**

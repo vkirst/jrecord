@@ -31,12 +31,12 @@ package iobuilders;
 import java.io.IOException;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.IFieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.External.Def.ExternalField;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.IFieldDetail;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.def.IO.builders.ICsvIOBuilder;
 import net.sf.JRecord.def.IO.builders.IFixedWidthIOBuilder;
 import junit.framework.TestCase;

@@ -34,9 +34,9 @@
 
 package net.sf.JRecord.zExamples.copy;
 
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.External.base.ExternalConversion;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
 import net.sf.JRecord.utilityClasses.ParseArguments;
 
 

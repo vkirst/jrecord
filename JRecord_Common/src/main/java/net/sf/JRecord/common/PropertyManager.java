@@ -23,7 +23,7 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
 import java.io.File;
 import java.io.FileInputStream;

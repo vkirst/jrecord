@@ -3,7 +3,7 @@ package net.sf.JRecord.cg.nameConversion;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.JRecord.Common.AbstractManager;
+import net.sf.JRecord.common.AbstractManager;
 
 
 /**

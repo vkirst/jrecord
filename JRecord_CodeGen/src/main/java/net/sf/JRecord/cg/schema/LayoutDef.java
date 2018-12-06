@@ -29,10 +29,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.cg.common.CCode;
 import net.sf.JRecord.cgen.defc.ILayoutDetails4gen;
+import net.sf.JRecord.common.CommonBits;
+import net.sf.JRecord.common.Conversion;
 
 /**
  * Class to represent a Layout (file schema) for use in Code Generation

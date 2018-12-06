@@ -1,13 +1,13 @@
 package net.sf.JRecord.zExamples.recordEditorXml.readWrite;
 
-import net.sf.JRecord.Common.AbstractFieldValue;
-import net.sf.JRecord.Common.CommonBits;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.External.CopybookLoaderFactory;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.AbstractLineWriter;
 import net.sf.JRecord.IO.LineIOProvider;
+import net.sf.JRecord.common.AbstractFieldValue;
+import net.sf.JRecord.common.CommonBits;
 import net.sf.JRecord.common.TstConstants;
 
 /**

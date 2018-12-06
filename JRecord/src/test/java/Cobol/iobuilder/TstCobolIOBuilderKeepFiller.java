@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.io.StringReader;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import net.sf.JRecord.common.CommonCodeFields;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.FieldDetail;
 import junit.framework.TestCase;
 
 

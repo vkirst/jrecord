@@ -3,10 +3,10 @@ package net.sf.cobolToJson.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Option.ICobolSplitOptions;
 import net.sf.JRecord.Option.IReformatFieldNames;
+import net.sf.JRecord.common.Constants;
 import net.sf.JRecord.utilityClasses.ParseArguments;
 
  

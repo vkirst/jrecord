@@ -27,7 +27,7 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
 import net.sf.JRecord.definitiuons.CsvCharDetails;
 

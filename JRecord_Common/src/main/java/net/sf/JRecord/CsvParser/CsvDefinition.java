@@ -28,7 +28,7 @@
       
 package net.sf.JRecord.CsvParser;
 
-import net.sf.JRecord.Common.Conversion;
+import net.sf.JRecord.common.Conversion;
 import net.sf.JRecord.definitiuons.CsvCharDetails;
 
 /**

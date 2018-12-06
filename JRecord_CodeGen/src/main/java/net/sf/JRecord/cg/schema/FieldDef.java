@@ -25,10 +25,10 @@
       
 package net.sf.JRecord.cg.schema;
 
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.Types.TypeManager;
 import net.sf.JRecord.cg.common.CCode;
+import net.sf.JRecord.common.FieldDetail;
+import net.sf.JRecord.common.IFieldDetail;
 
 /**
  * Class to describe one field in the file. It is used for Code generation 

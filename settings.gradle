@@ -1,4 +1,4 @@
-rootProject.name = 'jrecord'
+rootProject.name = 'jrecordRoot'
 
 include 'cb2xml'
 include 'JRecord_Common'

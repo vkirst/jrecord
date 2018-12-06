@@ -63,9 +63,6 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.External.Def.DependingOn;
 import net.sf.JRecord.External.Def.DependingOnDtls;
 import net.sf.JRecord.External.Def.ExternalField;
@@ -77,6 +74,9 @@ import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Option.ICobolSplitOptions;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
+import net.sf.JRecord.common.CommonBits;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 import net.sf.cb2xml.def.Cb2xmlConstants;
 
 import org.w3c.dom.Document;

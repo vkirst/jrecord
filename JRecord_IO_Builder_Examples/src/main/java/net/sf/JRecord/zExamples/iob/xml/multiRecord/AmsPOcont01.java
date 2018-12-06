@@ -28,11 +28,11 @@ package net.sf.JRecord.zExamples.iob.xml.multiRecord;
 import java.io.IOException;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.IO.AbstractLineReader;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.def.IO.builders.IIOBuilder;
 
 

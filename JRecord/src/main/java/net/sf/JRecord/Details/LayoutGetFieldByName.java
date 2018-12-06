@@ -28,8 +28,8 @@
 
 package net.sf.JRecord.Details;
 
-import net.sf.JRecord.Common.IFieldDetail;
-import net.sf.JRecord.Common.IGetFieldByName;
+import net.sf.JRecord.common.IFieldDetail;
+import net.sf.JRecord.common.IGetFieldByName;
 
 public class LayoutGetFieldByName implements IGetFieldByName {
    	final LayoutDetail layout;

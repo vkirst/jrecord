@@ -1,6 +1,3 @@
-/**
- *
- */
 /*  -------------------------------------------------------------------------
  *
  *            Sub-Project: JRecord Common
@@ -8,11 +5,11 @@
  *    Sub-Project purpose: Common Low-Level Code shared between 
  *                        the JRecord and Record Projects
  *    
- *                 Author: Bruce Martin
+ *                 Author: Jean-Francois Gagnon
  *    
  *                License: LGPL 2.1 or latter
  *                
- *    Copyright (c) 2016, Bruce Martin, All Rights Reserved.
+ *    Copyright (c) 2005, Bruce Martin / Jean-Francois Gagnon, All Rights Reserved.
  *   
  *    This library is free software; you can redistribute it and/or
  *    modify it under the terms of the GNU Lesser General Public
@@ -25,33 +22,17 @@
  *    GNU Lesser General Public License for more details.
  *
  * ------------------------------------------------------------------------ */
-      
-package net.sf.JRecord.Common;
-
+package net.sf.JRecord.common;
 
 /**
- * A basic Row consisting of an integer key and a String field name.
- * It is used return Key / Value pairs to the RecordEditor from JRecord.
- *
+ * Any class that has a getData() method
+ * 
  * @author Bruce Martin
  *
  */
-public class BasicKeyedField implements AbsRow {
-
-	public int key;
-	public String name;
-	public Boolean valid=null;
+public interface IGetData {
 	/**
-	 * @see net.sf.JRecord.Common.AbsRow#getField(int)
+	 * @return Returns the record (line) as an array of bytes.
 	 */
-	@Override
-	public Object getField(int fldNum) {
-		switch (fldNum) {
-		case (0): return Integer.valueOf(key);
-		case (1): return name;
-		case (3): return valid;
-		default: return null;
-		}
-	}
-
+	public abstract byte[] getData();
 }

@@ -8,9 +8,9 @@ import java.util.Comparator;
 import java.util.TreeMap;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.RecordDetail;
+import net.sf.JRecord.common.FieldDetail;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 
 public class TstRedefines01 {

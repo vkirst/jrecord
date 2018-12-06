@@ -23,45 +23,45 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
-/**
- * Extended Abstract Record (Record-Schema)  where you can get the Field Definition and Field Count
- * @author Bruce Martin
- *
- * @param <FieldDefinition>
- */
-public interface AbstractRecordX<FieldDefinition extends IFieldDetail> extends AbstractRecord, IGetFieldByName {
+import java.util.Properties;
 
-	/**
-	 * Get a specific field definition
-	 * @param idx index of the required field
-	 * @return requested field
-	 */
-	public abstract FieldDefinition getField(int idx);
+public class UserInit {
 
-	/**
-	 * get the number of fields in the record
-	 *
-	 * @return the number of fields in the record
-	 */
-	public abstract int getFieldCount();
+	static {
 
+		Properties properties = PropertyManager.getProperties();
+		String init = "init.";
 
-	/**
-	 * Get a specific field definition (using the field name)
-	 *
-	 * @param fieldName record name being searched for
-	 *
-	 * @return index of the record
-	 */
-	public abstract FieldDefinition getField(String fieldName);
+		String var, className;
+		Object o;
+		@SuppressWarnings("rawtypes")
+		Class c;
 
-	/**
-	 * Get a field (by group names / field name)
-	 * @param fieldNames
-	 * @return request field
-	 */
-	public abstract IFieldDetail getGroupField(String... fieldNames);
+		if (properties != null) {
+			for (int i = 0; i < 32; i++) {
+				var = init + i;
+				if (properties.containsKey(var)) {
+					try {
+						className = properties.getProperty(var);
+						c = Class.forName(className);
+						if (c != null) {
+							o = c.newInstance();
 
+							if (o instanceof Runnable) {
+								((Runnable) o).run();
+							}
+						}
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+				}
+			}
+		}
+	}
+
+	public static void init() {
+
+	}
 }

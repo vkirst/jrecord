@@ -24,8 +24,8 @@
 
 package net.sf.JRecord.cbl2json.zTest.json2cbl;
 
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Option.IReformatFieldNames;
+import net.sf.JRecord.common.Conversion;
 
 public class ReformatJson {
 	

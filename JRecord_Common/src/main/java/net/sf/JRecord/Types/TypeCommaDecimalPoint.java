@@ -28,7 +28,7 @@ package net.sf.JRecord.Types;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-import net.sf.JRecord.Common.Conversion;
+import net.sf.JRecord.common.Conversion;
 
 public class TypeCommaDecimalPoint extends TypeNum {
 

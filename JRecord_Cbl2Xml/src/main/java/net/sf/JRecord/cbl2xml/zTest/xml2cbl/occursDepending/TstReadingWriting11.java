@@ -31,8 +31,6 @@ import java.io.IOException;
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.RecordException; 
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.AbstractLineWriter;
@@ -42,6 +40,8 @@ import net.sf.JRecord.cbl2xml.def.ICobol2Xml;
 import net.sf.JRecord.cbl2xml.impl.Cobol2GroupXml;
 import net.sf.JRecord.cbl2xml.zTest.xml2cbl.Cb2XmlCode;
 import net.sf.JRecord.cbl2xml.zTest.xml2cbl.TstXmlConstants;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import junit.framework.TestCase;
 

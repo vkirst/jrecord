@@ -43,9 +43,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.CsvParser.BasicCsvLineParser;
 import net.sf.JRecord.CsvParser.CsvDefinition;
 import net.sf.JRecord.External.Def.ExternalField;
@@ -54,6 +51,9 @@ import net.sf.JRecord.Log.AbsSSLogger;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.CommonBits;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 
 /**
  * This class reads a Record Layout (Copybook) stored in a  tab delimited file.

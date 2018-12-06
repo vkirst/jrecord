@@ -43,9 +43,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.CsvParser.ICsvCharLineParser;
 import net.sf.JRecord.CsvParser.CsvDefinition;
 import net.sf.JRecord.CsvParser.CsvParserManagerChar;
@@ -55,6 +52,9 @@ import net.sf.JRecord.Details.RecordDetail;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.charIO.ICharReader;
 import net.sf.JRecord.charIO.StandardCharReader;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.FieldDetail;
+import net.sf.JRecord.common.IFieldDetail;
 import net.sf.JRecord.definitiuons.CsvCharDetails;
 
 

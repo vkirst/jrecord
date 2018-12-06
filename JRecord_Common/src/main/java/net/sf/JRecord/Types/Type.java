@@ -44,7 +44,7 @@
       
 package net.sf.JRecord.Types;
 
-import net.sf.JRecord.Common.IFieldDetail;
+import net.sf.JRecord.common.IFieldDetail;
 
 /**
  * A "Type" is the interface between the raw data in the file

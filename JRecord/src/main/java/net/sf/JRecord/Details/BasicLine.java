@@ -28,9 +28,9 @@
 
 package net.sf.JRecord.Details;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.IFieldDetail;
 import net.sf.JRecord.detailsSelection.RecordSelection;
 
 public abstract class BasicLine extends BaseLine implements AbstractLine {

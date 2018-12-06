@@ -27,10 +27,10 @@ package net.sf.JRecord.cbl2xml.zTest.xml2cbl;
 import java.math.BigDecimal;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.IFieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
+import net.sf.JRecord.common.IFieldDetail;
+import net.sf.JRecord.common.RecordException;
 
 public class Code {
 	private static final BigDecimal BD_1p1 = new BigDecimal("1.1");

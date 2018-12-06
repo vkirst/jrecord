@@ -4,7 +4,6 @@ package net.sf.JRecord.zExamples.csv;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import net.sf.JRecord.Common.CommonBits;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
@@ -13,6 +12,7 @@ import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.AbstractLineWriter;
 import net.sf.JRecord.IO.LineIOProvider;
 import net.sf.JRecord.utilityClasses.SchemaLoader;
+import net.sf.JRecord.common.CommonBits;
 import net.sf.JRecord.common.TstConstants;
 
 /**

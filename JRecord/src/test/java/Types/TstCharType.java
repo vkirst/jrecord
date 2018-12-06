@@ -35,9 +35,6 @@
 package Types;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.CharLine;
 import net.sf.JRecord.Details.LayoutDetail;
@@ -46,8 +43,7 @@ import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeManager;
-import net.sf.JRecord.common.TestCommonCode;
-import net.sf.JRecord.common.TstConstants;
+import net.sf.JRecord.common.*;
 
 import java.util.Arrays;
 

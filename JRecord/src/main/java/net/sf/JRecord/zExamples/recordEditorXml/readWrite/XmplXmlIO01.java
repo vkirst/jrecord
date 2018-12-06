@@ -1,9 +1,9 @@
 package net.sf.JRecord.zExamples.recordEditorXml.readWrite;
 
-import net.sf.JRecord.Common.XmlConstants;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.IO.XmlLineReader;
 import net.sf.JRecord.common.TstConstants;
+import net.sf.JRecord.common.XmlConstants;
 
 /**
  *

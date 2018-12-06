@@ -28,13 +28,13 @@
 
 package io;
 
-import net.sf.JRecord.Common.BasicFileSchema;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.Details.CharLineProvider;
 import net.sf.JRecord.Details.DefaultLineProvider;
 import net.sf.JRecord.Details.XmlLineProvider;
 import net.sf.JRecord.IO.LineIOProvider;
+import net.sf.JRecord.common.BasicFileSchema;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 import junit.framework.TestCase;
 
 public class TstIOProvider extends TestCase {

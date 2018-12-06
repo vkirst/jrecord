@@ -42,14 +42,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-import net.sf.JRecord.Common.AbstractIndexedLine;
-import net.sf.JRecord.Common.AbstractRecordX;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.IFieldDetail;
-import net.sf.JRecord.Common.IGetFieldByName;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.CsvParser.BasicCsvLineParser;
 import net.sf.JRecord.CsvParser.CsvParserManagerByte;
 import net.sf.JRecord.CsvParser.ICsvDefinition;
@@ -63,6 +55,7 @@ import net.sf.JRecord.ExternalRecordSelection.ExternalSelection;
 import net.sf.JRecord.Option.IRecordPositionOption;
 import net.sf.JRecord.Types.TypeManager;
 import net.sf.JRecord.cgen.defc.IRecordDetail4gen;
+import net.sf.JRecord.common.*;
 import net.sf.JRecord.definitiuons.CsvCharDetails;
 import net.sf.JRecord.detailsSelection.Convert;
 import net.sf.JRecord.detailsSelection.FieldSelectX;
@@ -626,7 +619,7 @@ public class RecordDetail implements AbstractRecordX<FieldDetail>, ICsvDefinitio
 	}
 
 	/**
-	 * @see net.sf.JRecord.Common.AbstractRecord#getRecordStyle()
+	 * @see net.sf.JRecord.common.AbstractRecord#getRecordStyle()
 	 */
 	public int getRecordStyle() {
 		return recordStyle;
@@ -636,7 +629,7 @@ public class RecordDetail implements AbstractRecordX<FieldDetail>, ICsvDefinitio
 	/**
 	 * @return the sourceIndex
 	 *
-	 *  @see net.sf.JRecord.Common.AbstractRecord#getSourceIndex()
+	 *  @see net.sf.JRecord.common.AbstractRecord#getSourceIndex()
 	 */
 	public int getSourceIndex() {
 		return sourceIndex;

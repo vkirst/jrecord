@@ -34,13 +34,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.RecordDetail;
 import net.sf.JRecord.External.Def.DependingOnDefinition.SizeField;
 import net.sf.JRecord.cgen.impl.ArrayFieldDefinition;
 import net.sf.JRecord.cgen.impl.ArrayFieldDefinition1;
+import net.sf.JRecord.common.FieldDetail;
+import net.sf.JRecord.common.IFieldDetail;
 import net.sf.JRecord.schema.jaxb.Copybook;
 import net.sf.JRecord.schema.jaxb.Item;
 

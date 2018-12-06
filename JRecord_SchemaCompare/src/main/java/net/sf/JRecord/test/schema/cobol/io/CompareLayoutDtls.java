@@ -1,8 +1,8 @@
 package net.sf.JRecord.test.schema.cobol.io;
 
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.RecordDetail;
+import net.sf.JRecord.common.FieldDetail;
 import net.sf.JRecord.test.schema.cobol.gen.data.LayoutDtls;
 import net.sf.JRecord.test.schema.cobol.gen.data.LineDialectRecordJR;
 import net.sf.JRecord.test.schema.cobol.gen.data.LineFieldRecordJR;

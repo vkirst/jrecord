@@ -28,11 +28,11 @@
 
 package net.sf.JRecord.External;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.RecordDetail;
 import net.sf.JRecord.External.Def.ExternalField;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.FieldDetail;
 
 /**
  * Class to convert a RecordLayout (internal Format) to The Interface format (ExternalRecord)]

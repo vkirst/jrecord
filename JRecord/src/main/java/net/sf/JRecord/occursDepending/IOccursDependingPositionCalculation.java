@@ -1,9 +1,9 @@
 package net.sf.JRecord.occursDepending;
 
-import net.sf.JRecord.Common.AbstractIndexedLine;
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.External.Def.DependingOnDtls;
+import net.sf.JRecord.common.AbstractIndexedLine;
+import net.sf.JRecord.common.IFieldDetail;
 
 /**
  * This Interface defines a series of <i>Stratergies</i> for

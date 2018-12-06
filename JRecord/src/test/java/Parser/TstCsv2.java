@@ -29,14 +29,13 @@
 package Parser;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.*;
 import net.sf.JRecord.CsvParser.CsvParserManagerChar;
 import net.sf.JRecord.Details.*;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.LineIOProvider;
 import net.sf.JRecord.Types.Type;
-import net.sf.JRecord.common.TestCommonCode;
+import net.sf.JRecord.common.*;
 
 import java.io.IOException;
 import java.util.Arrays;

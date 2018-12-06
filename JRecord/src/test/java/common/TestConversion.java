@@ -28,9 +28,10 @@
 
 package common;
 
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.RecordException;
 import junit.framework.TestCase;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.RecordException;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;

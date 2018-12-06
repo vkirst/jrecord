@@ -5,13 +5,13 @@ package net.sf.JRecord.occursDepending;
 
 import java.util.List;
 
-import net.sf.JRecord.Common.AbstractIndexedLine;
-import net.sf.JRecord.Common.IFieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.External.Def.DependingOn;
 import net.sf.JRecord.External.Def.DependingOnDefinition;
 import net.sf.JRecord.External.Def.DependingOnDtls;
+import net.sf.JRecord.common.AbstractIndexedLine;
+import net.sf.JRecord.common.IFieldDetail;
+import net.sf.JRecord.common.RecordException;
 
 /**
  * This is a placeholder implementation for very complicated OD

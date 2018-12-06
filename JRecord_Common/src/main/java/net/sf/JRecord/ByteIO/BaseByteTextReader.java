@@ -29,8 +29,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
 
 /**
  * Reads a standard Text file (like standard readLine of Class BufferedReader) except it will return an

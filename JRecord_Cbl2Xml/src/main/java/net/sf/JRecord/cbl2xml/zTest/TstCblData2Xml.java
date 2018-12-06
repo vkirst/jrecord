@@ -30,10 +30,10 @@ import java.net.URL;
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.cbl2xml.def.ICobol2Xml;
 import net.sf.JRecord.cbl2xml.impl.Cobol2GroupXml;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.schema.ArrayElementChecks;
 
 

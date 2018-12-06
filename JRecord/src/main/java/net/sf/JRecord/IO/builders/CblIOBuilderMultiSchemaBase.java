@@ -33,8 +33,6 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.util.ArrayList;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.External.ICopybookLoaderStream;
 import net.sf.JRecord.External.ISetDropCopybookName;
@@ -42,6 +40,8 @@ import net.sf.JRecord.External.Def.ExternalField;
 import net.sf.JRecord.ExternalRecordSelection.ExternalSelection;
 import net.sf.JRecord.Log.AbsSSLogger;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.RecordException;
 
 
 public class CblIOBuilderMultiSchemaBase<IOB>

@@ -28,9 +28,9 @@
 
 package net.sf.JRecord.Details;
 
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.External.Def.DependingOnDtls;
+import net.sf.JRecord.common.FieldDetail;
+import net.sf.JRecord.common.IFieldDetail;
 
 public abstract class BaseLine implements AbstractLine {
 

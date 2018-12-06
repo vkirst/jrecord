@@ -33,15 +33,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
 import net.sf.JRecord.Details.RecordDetail;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.FieldDetail;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 
 

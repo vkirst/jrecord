@@ -35,10 +35,11 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.charIO.CsvCharReader;
 import net.sf.JRecord.charIO.ICharReader;
 import net.sf.JRecord.charIO.StandardCharReader;
+import net.sf.JRecord.common.Conversion;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;

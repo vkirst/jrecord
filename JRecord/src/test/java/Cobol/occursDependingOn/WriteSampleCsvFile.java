@@ -31,11 +31,11 @@ package Cobol.occursDependingOn;
 import java.io.IOException;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.IO.AbstractLineWriter;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.def.IO.builders.ICsvIOBuilder;
 import net.sf.JRecord.def.IO.builders.IDefineCsvFields;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.common.TstConstants;
 
 public class WriteSampleCsvFile {

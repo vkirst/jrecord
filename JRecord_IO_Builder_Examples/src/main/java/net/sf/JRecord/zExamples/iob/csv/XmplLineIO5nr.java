@@ -27,10 +27,10 @@ package net.sf.JRecord.zExamples.iob.csv;
 
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.Constants;
 
 /**
  * Example of Reading / writing CSV files <b>with out</b> names on the first line

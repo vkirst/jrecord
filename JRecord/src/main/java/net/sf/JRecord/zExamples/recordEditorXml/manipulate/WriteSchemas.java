@@ -3,11 +3,11 @@ package net.sf.JRecord.zExamples.recordEditorXml.manipulate;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.External.CopybookWriterManager;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.External.RecordEditorXmlWriter;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.Constants;
 
 public class WriteSchemas {
 

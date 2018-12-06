@@ -32,11 +32,11 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 
 /**

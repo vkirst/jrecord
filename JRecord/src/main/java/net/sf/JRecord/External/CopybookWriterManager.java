@@ -28,10 +28,10 @@
 
 package net.sf.JRecord.External;
 
-import net.sf.JRecord.Common.BasicNamedManager;
 import net.sf.JRecord.External.base.CopybookWriter;
 import net.sf.JRecord.External.base.RecordEditorCSVWriter;
 import net.sf.JRecord.External.base.RecordEditorXmlWriter;
+import net.sf.JRecord.common.BasicNamedManager;
 
 /**
  * Class to manage all the Copybook Writer class's

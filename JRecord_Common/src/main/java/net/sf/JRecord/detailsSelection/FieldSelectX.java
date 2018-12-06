@@ -28,10 +28,10 @@ package net.sf.JRecord.detailsSelection;
 import java.math.BigDecimal;
 import java.util.List;
 
-import net.sf.JRecord.Common.AbstractIndexedLine;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.ExternalRecordSelection.ExternalFieldSelection;
+import net.sf.JRecord.common.AbstractIndexedLine;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.IFieldDetail;
 
 public abstract class FieldSelectX extends FieldSelect {
 	public static final String STARTS_WITH  = Constants.STARTS_WITH;

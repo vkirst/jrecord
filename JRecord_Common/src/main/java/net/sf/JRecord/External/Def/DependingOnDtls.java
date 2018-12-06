@@ -28,8 +28,8 @@ package net.sf.JRecord.External.Def;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.JRecord.Common.AbstractRecordX;
-import net.sf.JRecord.Common.IFieldDetail;
+import net.sf.JRecord.common.AbstractRecordX;
+import net.sf.JRecord.common.IFieldDetail;
 
 /**
  * This class holds a Node for each Array-Index. It is like java's TreeNode where

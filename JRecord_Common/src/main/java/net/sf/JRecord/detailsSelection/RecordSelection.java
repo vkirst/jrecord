@@ -28,7 +28,7 @@ package net.sf.JRecord.detailsSelection;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.JRecord.Common.AbstractIndexedLine;
+import net.sf.JRecord.common.AbstractIndexedLine;
 
 
 /**

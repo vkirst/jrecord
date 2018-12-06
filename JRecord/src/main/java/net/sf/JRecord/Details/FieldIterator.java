@@ -30,7 +30,7 @@ package net.sf.JRecord.Details;
 
 import java.util.Iterator;
 
-import net.sf.JRecord.Common.AbstractFieldValue;
+import net.sf.JRecord.common.AbstractFieldValue;
 
 
 /**

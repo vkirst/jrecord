@@ -25,7 +25,7 @@
       
 package net.sf.JRecord.Types;
 
-import net.sf.JRecord.Common.IFieldDetail;
+import net.sf.JRecord.common.IFieldDetail;
 
 public class TypeCharRestOfRecord extends TypeChar {
 

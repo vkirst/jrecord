@@ -25,7 +25,7 @@
       
 package net.sf.JRecord.charIO;
 
-import net.sf.JRecord.Common.Constants;
+import net.sf.JRecord.common.Constants;
 
 public class CharIOProvider {
 	public final static CharIOProvider INSTANCE = new CharIOProvider();

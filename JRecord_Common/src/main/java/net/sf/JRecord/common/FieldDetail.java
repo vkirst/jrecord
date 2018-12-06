@@ -28,7 +28,7 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
 import net.sf.JRecord.External.Def.DependingOnDtls;
 import net.sf.JRecord.Option.IOptionResult;
@@ -59,7 +59,7 @@ public class FieldDetail implements IFieldDetail {
 	private static final AbstractRecord DEFAULT_RECORD = new AbstractRecord() {
 
 		/**
-		 * @see net.sf.JRecord.Common.AbstractRecord#getParentRecordIndex()
+		 * @see net.sf.JRecord.common.AbstractRecord#getParentRecordIndex()
 		 */
 		public int getParentRecordIndex() {
 			return 0;
@@ -83,7 +83,7 @@ public class FieldDetail implements IFieldDetail {
 		}
 
 		/**
-		 * @see net.sf.JRecord.Common.AbstractRecord#getRecordStyle()
+		 * @see net.sf.JRecord.common.AbstractRecord#getRecordStyle()
 		 */
 		public int getRecordStyle() {
 			return 0;

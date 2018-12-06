@@ -28,7 +28,7 @@
 
 package net.sf.JRecord.cgen.def;
 
-import net.sf.JRecord.Common.IFieldDetail;
+import net.sf.JRecord.common.IFieldDetail;
 
 public interface IArrayAnyDimension {
 

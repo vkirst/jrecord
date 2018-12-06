@@ -23,9 +23,15 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
-public interface IEmptyTest {
+public interface IGetFieldByName {
 
-	public abstract boolean isEmpty();
+	/**
+	 * Get a specific field definition
+	 * @param fieldName name of the field
+	 * @return requested field
+	 */
+	public abstract IFieldDetail getField(String fieldName);
+
 }

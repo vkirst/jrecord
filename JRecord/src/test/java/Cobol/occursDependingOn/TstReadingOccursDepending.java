@@ -30,11 +30,11 @@ package Cobol.occursDependingOn;
 
 import java.io.IOException;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.CobolIoProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import junit.framework.TestCase;
 

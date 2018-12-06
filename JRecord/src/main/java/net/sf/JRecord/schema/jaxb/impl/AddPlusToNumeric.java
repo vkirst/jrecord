@@ -1,7 +1,7 @@
 package net.sf.JRecord.schema.jaxb.impl;
 
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.Types.TypeManager;
+import net.sf.JRecord.common.IFieldDetail;
 import net.sf.JRecord.schema.jaxb.IItem;
 import net.sf.JRecord.schema.jaxb.interfaces.IFormatField;
 

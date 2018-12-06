@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.RecordDetail;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.FieldDetail;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 
 public class CommonCodeFields {

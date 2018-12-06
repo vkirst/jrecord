@@ -31,8 +31,8 @@ package net.sf.JRecord.IO.builders;
 import java.io.IOException;
 import java.io.InputStream;
 
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.External.ICopybookLoaderStream;
+import net.sf.JRecord.common.Conversion;
 import net.sf.JRecord.def.IO.builders.ICobolMultiCopybookIOBuilder;
 import net.sf.JRecord.def.IO.builders.IFileIOBuilder;
 import net.sf.JRecord.def.IO.builders.Icb2xmlMultiFileIOBuilder;

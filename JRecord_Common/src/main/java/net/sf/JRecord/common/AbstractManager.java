@@ -23,40 +23,42 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
-@SuppressWarnings("serial")
-public class RecordRunTimeException extends RuntimeException {
+/**
+ * Abstract Manager - Interface of a class that manages other classes
+ *
+ *
+ * @author Bruce Martin
+ *
+ */
+public interface AbstractManager {
 
+
+    /**
+     * Get the number of entries
+     * @return The number of entries
+     */
+    public int getNumberOfEntries();
+
+    /**
+     * Get the name of the manager
+     * @return name of the manager
+     */
+    public String getManagerName();
 
 	/**
-	 * @param msg Error Message
+	 * get key (from the index)
+	 * @param idx get key for index number
+	 * @return the key value for the index
 	 */
-	public RecordRunTimeException(final String msg) {
-		super(BasicTranslation.getTrans().convert(BasicTranslation.ST_ERROR, msg));
-	}
+	public abstract int getKey(int idx);
 
 	/**
-	 * @param msg Error Message
+	 * get the name of managed class (from the inex)
+	 * @param idx get name for index number
+	 * @return the name for the index
 	 */
-	public RecordRunTimeException(final String msg, String parm) {
-		this(msg, new Object[] {parm});
-	}
-
-	/**
-	 * @param msg Error Message
-	 */
-	public RecordRunTimeException(final String msg, Object[] parms) {
-		super(BasicTranslation.getTrans().convertMsg(BasicTranslation.ST_ERROR, msg, parms));
-	}
-
-
-	public RecordRunTimeException(String msg, Throwable exception) {
-		super(BasicTranslation.getTrans().convert(BasicTranslation.ST_ERROR, msg), exception);
-	}
-
-	public RecordRunTimeException(String msg, String parm, Throwable exception) {
-		super(BasicTranslation.getTrans().convert(BasicTranslation.ST_ERROR, msg, parm), exception);
-	}
+	public abstract String getName(int idx);
 
 }

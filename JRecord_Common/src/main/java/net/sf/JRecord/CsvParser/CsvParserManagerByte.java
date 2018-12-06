@@ -28,7 +28,7 @@
       
 package net.sf.JRecord.CsvParser;
 
-import net.sf.JRecord.Common.BasicNamedManager;
+import net.sf.JRecord.common.BasicNamedManager;
 
 /**
  * Class to manage the various CSV Line parsers
@@ -97,7 +97,7 @@ public class CsvParserManagerByte extends BasicNamedManager<ICsvByteLineParser> 
 	}
 
 	/**
-	 * @see net.sf.JRecord.Common.BasicManager#get(int)
+	 * @see net.sf.JRecord.common.BasicManager#get(int)
 	 */
 	@Override
 	public ICsvByteLineParser get(int id) {

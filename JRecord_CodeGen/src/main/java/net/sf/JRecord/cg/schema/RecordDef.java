@@ -33,13 +33,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.ExternalRecordSelection.ExternalFieldSelection;
 import net.sf.JRecord.ExternalRecordSelection.ExternalGroupSelection;
 import net.sf.JRecord.ExternalRecordSelection.ExternalSelection;
 import net.sf.JRecord.Option.Options;
 import net.sf.JRecord.cg.common.CCode;
 import net.sf.JRecord.cgen.defc.IRecordDetail4gen;
+import net.sf.JRecord.common.FieldDetail;
 
 
 /**

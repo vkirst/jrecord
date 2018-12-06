@@ -27,7 +27,7 @@
  *
  * ------------------------------------------------------------------------ */
       
-package net.sf.JRecord.Common;
+package net.sf.JRecord.common;
 
 /**
  * Error class for Jrecord / RecordEditor

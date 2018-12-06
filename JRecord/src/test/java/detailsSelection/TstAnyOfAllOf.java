@@ -32,11 +32,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.External.RecordEditorXmlLoader;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.detailsSelection.FieldSelect;
 import net.sf.JRecord.detailsSelection.FieldSelectX;
 

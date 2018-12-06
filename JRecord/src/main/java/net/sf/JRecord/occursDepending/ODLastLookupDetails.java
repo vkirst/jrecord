@@ -2,10 +2,10 @@ package net.sf.JRecord.occursDepending;
 
 import java.util.Arrays;
 
-import net.sf.JRecord.Common.AbstractIndexedLine;
 import net.sf.JRecord.External.Def.DependingOn;
 import net.sf.JRecord.External.Def.DependingOnDefinition;
 import net.sf.JRecord.External.Def.DependingOnDtls;
+import net.sf.JRecord.common.AbstractIndexedLine;
 
 /**
  * Holds field sizes / lookup details for a line.

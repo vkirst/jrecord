@@ -25,12 +25,12 @@
       
 package net.sf.JRecord.zExamples.iob.recordEditorXml.readWrite;
 
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.RecordDetail;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.JRecordInterface1;
+import net.sf.JRecord.common.FieldDetail;
 import net.sf.JRecord.common.TstConstants;
 import net.sf.JRecord.def.IO.builders.IIOBuilder;
 

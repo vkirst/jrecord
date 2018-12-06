@@ -2,8 +2,8 @@ package net.sf.JRecord.External.Def;
 
 import java.util.List;
 
-import net.sf.JRecord.Common.AbstractRecordX;
-import net.sf.JRecord.Common.IFieldDetail;
+import net.sf.JRecord.common.AbstractRecordX;
+import net.sf.JRecord.common.IFieldDetail;
 
 public interface IDependingOnIndexDtls {
 

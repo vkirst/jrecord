@@ -28,11 +28,11 @@
 
 package net.sf.JRecord.zTest.cobol2csv;
 
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.External.base.ExternalConversion;
 import net.sf.JRecord.Numeric.ConversionManager;
 import net.sf.JRecord.Numeric.ICopybookDialects; 
 import net.sf.JRecord.cbl2csv.ParseArgsCobol2Csv;
+import net.sf.JRecord.common.Constants;
 import junit.framework.TestCase;
 
 

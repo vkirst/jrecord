@@ -37,8 +37,8 @@
       
 package net.sf.JRecord.Types;
 
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.IFieldDetail;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.IFieldDetail;
 
 /**
  * Fujitsu Type Zoned Decimal type.

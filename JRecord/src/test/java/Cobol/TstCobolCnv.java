@@ -32,10 +32,10 @@ import java.io.IOException;
 import java.io.StringReader;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.AbstractFieldValue;
-import net.sf.JRecord.Common.IFieldDetail;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.AbstractFieldValue;
+import net.sf.JRecord.common.IFieldDetail;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 import junit.framework.TestCase;
 

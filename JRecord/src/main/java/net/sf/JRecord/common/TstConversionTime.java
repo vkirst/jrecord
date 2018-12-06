@@ -1,6 +1,6 @@
 package net.sf.JRecord.common;
 
-import net.sf.JRecord.Common.Conversion;
+import net.sf.JRecord.common.Conversion;
 
 public class TstConversionTime {
 

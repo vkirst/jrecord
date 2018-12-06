@@ -32,9 +32,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.IFieldValue;
 import net.sf.JRecord.Details.LayoutDetail;
@@ -43,6 +40,9 @@ import net.sf.JRecord.Details.RecordDetail;
 import net.sf.JRecord.IO.AbstractLineReader;
 import net.sf.JRecord.IO.AbstractLineWriter;
 import net.sf.JRecord.IO.LineIOProvider;
+import net.sf.JRecord.common.CommonBits;
+import net.sf.JRecord.common.FieldDetail;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.def.IO.builders.INewLineCreator;
 
 /**

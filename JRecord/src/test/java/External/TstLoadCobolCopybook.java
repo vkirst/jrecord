@@ -28,13 +28,14 @@
 
 package External;
 
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.External.CobolCopybookLoader;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.External.Def.ExternalField;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.RecordException;
+
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,13 +1,13 @@
 package iobuilders;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.FieldDetail;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.External.RecordEditorXmlLoader;
 import net.sf.JRecord.JRecordInterface1;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.common.CommonCodeFields;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.FieldDetail;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

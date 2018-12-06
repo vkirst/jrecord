@@ -41,11 +41,11 @@ import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.XmlConstants;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.RecordDetail;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.XmlConstants;
 
 /**
  * This class writes an AbstractLine (must be an XmlLine) to the File

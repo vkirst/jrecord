@@ -29,8 +29,8 @@ import java.util.HashMap;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
-import net.sf.JRecord.Common.PropertyManager;
 import net.sf.JRecord.Types.Type;
+import net.sf.JRecord.common.PropertyManager;
 
 public class LoadConversion {
 

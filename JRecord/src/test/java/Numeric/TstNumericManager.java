@@ -29,10 +29,10 @@
 package Numeric;
 
 import junit.framework.TestCase;
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Numeric.ConversionManager;
 import net.sf.JRecord.Numeric.Convert;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
 
 public class TstNumericManager extends TestCase {
 

@@ -32,11 +32,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.External.CsvNamesFirstLineFileLoader;
 import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.common.IO;
+import net.sf.JRecord.common.RecordException;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;

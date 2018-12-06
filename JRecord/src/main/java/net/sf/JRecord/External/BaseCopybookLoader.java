@@ -31,8 +31,8 @@
 
 package net.sf.JRecord.External;
 
-import net.sf.JRecord.Common.CommonBits;
 import net.sf.JRecord.Log.AbsSSLogger;
+import net.sf.JRecord.common.CommonBits;
 
 /**
  * @author Bruce Martin

@@ -2,7 +2,7 @@ package net.sf.JRecord.definitiuons;
 
 import java.util.Arrays;
 
-import net.sf.JRecord.Common.Conversion;
+import net.sf.JRecord.common.Conversion;
 
 /**
  * This class represents one Special Csv Character

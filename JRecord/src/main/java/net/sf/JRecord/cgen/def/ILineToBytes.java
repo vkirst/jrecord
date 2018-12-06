@@ -28,7 +28,7 @@
 
 package net.sf.JRecord.cgen.def;
 
-import net.sf.JRecord.Common.IGetData;
+import net.sf.JRecord.common.IGetData;
 
 /**
  * Class to convert a line to an array of bytes

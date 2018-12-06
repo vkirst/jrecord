@@ -32,10 +32,10 @@ import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import net.sf.JRecord.Common.CommonBits;
-import net.sf.JRecord.Common.Conversion;
 import net.sf.JRecord.IO.XmlLineReader;
 import net.sf.JRecord.Log.AbsSSLogger;
+import net.sf.JRecord.common.CommonBits;
+import net.sf.JRecord.common.Conversion;
 
 import org.xml.sax.SAXException;
 

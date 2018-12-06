@@ -25,7 +25,7 @@
       
 package net.sf.JRecord.ByteIO;
 
-import net.sf.JRecord.Common.Constants;
+import net.sf.JRecord.common.Constants;
 
 /**
  * This class will write an Array of Bytes to a file then write the appropriate End-Of-Line characters to the file.

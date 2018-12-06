@@ -3,8 +3,6 @@ package net.sf.JRecord.zExamples.cobol.ebcdicUnix;
 import java.io.ByteArrayInputStream;
 
 import net.sf.JRecord.ByteIO.ByteTextWriter;
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.Details.Line;
 import net.sf.JRecord.External.CobolCopybookLoader;
@@ -13,6 +11,8 @@ import net.sf.JRecord.External.ExternalRecord;
 import net.sf.JRecord.IO.LineWriterWrapper;
 import net.sf.JRecord.Log.TextLog;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
+import net.sf.JRecord.common.RecordException;
 import net.sf.JRecord.common.TstConstants;
 import net.sf.cb2xml.def.Cb2xmlConstants;
 

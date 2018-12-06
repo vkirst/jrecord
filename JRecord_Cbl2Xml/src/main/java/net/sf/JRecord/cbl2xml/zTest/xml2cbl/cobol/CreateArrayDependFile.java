@@ -29,11 +29,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import net.sf.JRecord.JRecordInterface1;
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Details.AbstractLine;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.cbl2xml.zTest.xml2cbl.Cb2XmlCode;
 import net.sf.JRecord.cbl2xml.zTest.xml2cbl.TstXmlConstants;
+import net.sf.JRecord.common.Constants;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 
 public class CreateArrayDependFile {

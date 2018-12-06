@@ -36,13 +36,13 @@ package ioProvider;
 
 import junit.framework.TestCase;
 import net.sf.JRecord.ByteIO.FixedLengthByteReader;
-import net.sf.JRecord.Common.Constants;
 import net.sf.JRecord.Details.LayoutDetail;
 import net.sf.JRecord.External.CobolCopybookLoader;
 import net.sf.JRecord.External.CopybookLoader;
 import net.sf.JRecord.External.ToLayoutDetail;
 import net.sf.JRecord.IO.LineIOProvider;
 import net.sf.JRecord.Numeric.ICopybookDialects;
+import net.sf.JRecord.common.Constants;
 import net.sf.JRecord.common.IO;
 import net.sf.JRecord.common.TstConstants;
 import net.sf.JRecord.common.TstData;

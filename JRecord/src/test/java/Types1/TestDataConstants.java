@@ -28,8 +28,8 @@
 
 package Types1;
 
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.FieldDetail;
+import net.sf.JRecord.common.Conversion;
+import net.sf.JRecord.common.FieldDetail;
 
 public class TestDataConstants {
 

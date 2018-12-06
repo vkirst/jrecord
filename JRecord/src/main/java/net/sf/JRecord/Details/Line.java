@@ -42,15 +42,11 @@ package net.sf.JRecord.Details;
 import java.math.BigInteger;
 import java.util.Arrays;
 
-import net.sf.JRecord.Common.Constants;
-import net.sf.JRecord.Common.Conversion;
-import net.sf.JRecord.Common.FieldDetail;
-import net.sf.JRecord.Common.IFieldDetail;
-import net.sf.JRecord.Common.RecordException;
 import net.sf.JRecord.Types.Type;
 import net.sf.JRecord.Types.TypeChar;
 import net.sf.JRecord.Types.TypeManager;
 import net.sf.JRecord.Types.TypeNum;
+import net.sf.JRecord.common.*;
 
 /**
  * This class represents one line (or Record) in the File. It contains

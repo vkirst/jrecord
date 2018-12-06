@@ -5,11 +5,11 @@
  *    Sub-Project purpose: Common Low-Level Code shared between 
  *                        the JRecord and Record Projects
  *    
- *                 Author: Jean-Francois Gagnon
+ *                 Author: Bruce Martin
  *    
  *                License: LGPL 2.1 or latter
  *                
- *    Copyright (c) 2005, Bruce Martin / Jean-Francois Gagnon, All Rights Reserved.
+ *    Copyright (c) 2016, Bruce Martin, All Rights Reserved.
  *   
  *    This library is free software; you can redistribute it and/or
  *    modify it under the terms of the GNU Lesser General Public
@@ -22,17 +22,10 @@
  *    GNU Lesser General Public License for more details.
  *
  * ------------------------------------------------------------------------ */
-package net.sf.JRecord.Common;
+      
+package net.sf.JRecord.common;
 
-/**
- * Any class that has a getData() method
- * 
- * @author Bruce Martin
- *
- */
-public interface IGetData {
-	/**
-	 * @return Returns the record (line) as an array of bytes.
-	 */
-	public abstract byte[] getData();
+public interface IEmptyTest {
+
+	public abstract boolean isEmpty();
 }
