@@ -4,6 +4,7 @@ node {
 
     stage("checkout") {
         checkout scm
+        sh './gradlew clean'
     }
     stage("Compile project") {
         sh './gradlew compileJava'
