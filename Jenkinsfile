@@ -14,4 +14,8 @@ node {
     stage("Assemble") {
         sh './gradlew assemble'
     }
+    stage('Publish'){
+        archiveArtifacts artifacts: '**/build/libs/*.jar', fingerprint: true
+        junit '**/build/test-results/test/TEST-*.xml'
+    }
 }
