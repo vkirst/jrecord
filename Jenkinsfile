@@ -8,12 +8,28 @@ node {
 
     stage('Build') {
       if (isUnix()) {
-         sh "./gradlew clean build"
+         sh "./gradlew clean assemble"
       } else {
-         cmd "gradlew.bat clean build"
+         cmd "gradlew.bat clean assemble"
       }
     }
     
+    stage('Test') {
+      if (isUnix()) {
+         sh "./gradlew test"
+      } else {
+         cmd "gradlew.bat test"
+      }
+    }
+
+    stage('Pack') {
+      if (isUnix()) {
+         sh "./gradlew build"
+      } else {
+         cmd "gradlew.bat build"
+      }
+    }
+
     stage('Result'){
         archiveArtifacts artifacts: '**/build/libs/*.jar', fingerprint: true
         junit '**/build/test-results/test/TEST-*.xml'
