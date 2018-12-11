@@ -1,4 +1,5 @@
 ext.versionStr = '0.95.8'
+version = '0.95.8'
 
 jar() {
     manifest {

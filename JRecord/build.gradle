@@ -1,4 +1,10 @@
 ext.versionStr = '0.85.1'
+version = '0.85.1'
+repositories {
+    maven {
+        url 'https://raw.githubusercontent.com/vkirst/jrecord/fix_fork_jenkins/repos/releases/'
+    }
+}
 
 dependencies {
     compile project(':JRecord_Common')
@@ -7,8 +13,11 @@ dependencies {
     compile group: 'com.sun.xml.bind', name: 'jaxb-core', version: '2.3.0'
     compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.0'
 
+//    compile group: 'net.sf.JRecord', name: 'JRecord_Common', version: '0.85.1'
+
     compile group: 'junit', name: 'junit', version: '4.12' //Need to replace with testCompile when tests were moved to /test
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.7'
+
 
     testCompile group: 'junit', name: 'junit', version: '4.12' //Need to replace with testCompile when tests were moved to /test
 }
