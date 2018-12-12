@@ -19,13 +19,15 @@ node {
             junit '**/build/test-results/test/TEST-*.xml'
         }
         stage('Publish remote'){
-            sh 'git checkout artifacts'
-            sh 'git pull'
-            sh 'cp -r temp/* repos/releases/'
-            sh 'git add repos/'
-            sh 'git commit -m "new build"'
-            sh 'git push'
-            sh 'git checkout fix_fork_jenkins'
+            withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'GitHub', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
+                sh 'git checkout artifacts'
+                sh 'git pull'
+                sh 'cp -r temp/* repos/releases/'
+                sh 'git add repos/'
+                sh 'git commit -m "new build"'
+                sh 'git push'
+                sh 'git checkout fix_fork_jenkins'
+            }
         }
     }
 }
