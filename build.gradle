@@ -41,7 +41,7 @@ subprojects {
         }
         repositories {
             maven {
-                url = "$rootProject.projectDir/repos/releases"
+                url = "$rootProject.projectDir/temp"
             }
         }
     }
