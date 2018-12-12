@@ -24,6 +24,7 @@ node {
             sh 'cp -r temp/* repos/releases/'
             sh 'git add repos/'
             sh 'git commit -m "new build"'
+            sh 'git push'
             sh 'git checkout fix_fork_jenkins'
         }
     }
