@@ -23,6 +23,8 @@ node {
                 sh 'git checkout artifacts'
                 sh 'git pull'
                 sh 'cp -r temp/* repos/releases/'
+                sh 'git config user.email "victor.kirst@gmail.com"'
+                sh 'git config user.name "vkirst"'
                 sh 'git add repos/'
                 sh 'git commit -m "new build"'
                 sh 'git push'
