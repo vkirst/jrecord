@@ -20,6 +20,7 @@ node {
         }
         stage('Publish remote'){
             checkout scm:[
+                $class: 'GitSCM', 
                 branches: [[name: 'artifacts']]
             ] 
             sh 'git checkout artifacts'
