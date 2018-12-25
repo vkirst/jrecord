@@ -23,7 +23,9 @@ node {
                 $class: 'GitSCM', 
                 branches: [[name: 'artifacts']]
             ] 
-            sh 'git branch'
+            sh 'git status'
+            sh 'git pull'
+            sh 'cp -vr temp/* repo/'
         }
     }
 }
