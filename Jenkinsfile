@@ -25,7 +25,8 @@ node {
             ] 
             sh 'git status'
             sh 'git pull'
-            sh 'cp -vr temp/* repo/'
+            sh 'cp -vr temp/* repos/'
+            sh 'git add repos'
         }
     }
 }
