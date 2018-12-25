@@ -3,6 +3,7 @@ node {
         stage("Preparation") {
             checkout scm
             sh './gradlew clean'
+            println scm.userRemoteConfigs[0].url
         }
         stage("Compile project") {
             sh './gradlew compileJava'
@@ -29,7 +30,7 @@ node {
             sh 'git add repos'
             sh 'git commit -m"new build"'
             withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'GitHub', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
-                sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<REPO>'
+                sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/vkirst/jrecord.git'
             }
         }
     }
