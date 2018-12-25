@@ -1,5 +1,5 @@
-ext.versionStr = '0.85.1'
-version = '0.85.1'
+ext.versionStr = '0.85.1.1'
+version = '0.85.1.1'
 repositories {
     maven {
         url 'https://raw.githubusercontent.com/vkirst/jrecord/fix_fork_jenkins/repos/releases/'
