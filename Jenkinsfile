@@ -29,7 +29,9 @@ node {
             sh 'git add repos'
             sh 'git status'
             sh 'git commit -m"new build"'
-            sh 'git push'
+            withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'GitHub', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
+                sh 'git push'
+            }
         }
     }
 }
