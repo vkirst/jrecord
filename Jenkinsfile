@@ -19,17 +19,11 @@ node {
             junit '**/build/test-results/test/TEST-*.xml'
         }
         stage('Publish remote'){
-            withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'GitHub', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
-                sh 'git checkout artifacts'
-                sh 'git pull'
-                sh 'cp -r temp/* repos/releases/'
-                sh 'git config user.email "victor.kirst@gmail.com"'
-                sh 'git config user.name "vkirst"'
-                sh 'git add repos/'
-                sh 'git commit -m "new build"'
-                sh 'git push'
-                sh 'git checkout fix_fork_jenkins'
-            }
+            victor.kirst@gmail.com
+            checkout scm:[
+                $class: 'GitSCM', 
+                branches: [[name: 'artifacts']]
+            ], 
         }
     }
 }
