@@ -24,6 +24,7 @@ node {
                 $class: 'GitSCM', 
                 branches: [[name: 'artifacts']]
             ], 
+            sh 'git status'
         }
     }
 }
