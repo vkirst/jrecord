@@ -19,7 +19,6 @@ node {
             junit '**/build/test-results/test/TEST-*.xml'
         }
         stage('Publish remote'){
-            victor.kirst@gmail.com
             checkout scm:[
                 $class: 'GitSCM', 
                 branches: [[name: 'artifacts']]
