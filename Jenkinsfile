@@ -1,9 +1,10 @@
 node {
     docker.image('openjdk').inside {
         stage("Preparation") {
+            println scm.locations[0].remote
+            println scm.server
             checkout scm
             sh './gradlew clean'
-            println scm.userRemoteConfigs[0].url
         }
         stage("Compile project") {
             sh './gradlew compileJava'
