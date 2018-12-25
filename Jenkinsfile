@@ -1,8 +1,7 @@
 node {
     docker.image('openjdk').inside {
         stage("Preparation") {
-            println scm.locations[0].remote
-            println scm.server
+            println scm.browser.url
             checkout scm
             sh './gradlew clean'
         }
