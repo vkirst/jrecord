@@ -26,6 +26,9 @@ node {
             sh 'git pull'
             sh 'cp -r temp/* repos/'
             sh 'git add repos'
+            sh 'git status'
+            sh 'git commit -m"new build"'
+            sh 'git push'
         }
     }
 }
