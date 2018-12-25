@@ -9,7 +9,7 @@
     <dependency>
       <groupId>net.sf.JRecord</groupId>
       <artifactId>JRecord</artifactId>
-      <version>0.85.1</version>
+      <version>0.85.1.1</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
